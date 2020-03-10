@@ -55,7 +55,7 @@ app.use(express.json());
 
 app.post("/gethrv", (req, res, next) => {
     //console.log(req.body)
-    let hrvInput = req.body;
+    let hrvInput = req.body.beatToBeat;
     
     //calculate NN data
     let nnArray = hrvInput.map((entry, index) => {
@@ -76,7 +76,7 @@ app.post("/gethrv", (req, res, next) => {
         if (err) throw err;
         console.log('The NN file has been saved!');
         //execute the get_hrv CLI once the file has been written
-        exec('get_hrv -M -m -R NN.rr', (error, stdout, stderr) => { 
+        exec('get_hrv -M -m -R NN.rr', (error, stdout, stderr) => { //get_hrv must be installed on the machine
             if (error) throw error;
             console.log(stdout);
             let hrvObject = {}; //object to return
@@ -87,9 +87,10 @@ app.post("/gethrv", (req, res, next) => {
                         hrvObject[lineArr[0].trim().replace(' ','').replace('/','to')] = lineArr[1].trim() //["SDNN     ", " 0.583836"] => {"SDNN": "0.583836"}
                     }
             });
+            hrvObject.createdAt = req.body.date;
             console.log(hrvObject);
-            HRVReading.create(hrvObject)
             res.json(hrvObject);
+            HRVReading.create(hrvObject)
         });
          
     });

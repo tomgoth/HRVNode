@@ -1,19 +1,19 @@
 const mongo = require('mongoose')
 
 const HRVReading_Schema = new mongo.Schema({
-    NNtoRR: {type: String, trim: true },
-    AVNN: {type: String, trim: true },
-    SDNN: {type: String, trim: true },
-    SDANN: {type: String, trim: true },
-    SDNNIDX: {type: String, trim: true },
-    rMSSD: {type: String, trim: true },
-    pNN50: {type: String, trim: true },
-    TOTPWR: {type: String, trim: true },
-    ULFPWR: {type: String, trim: true },
-    VLFPWR: {type: String, trim: true },
-    LFPWR: {type: String, trim: true },
-    HFPWR: {type: String, trim: true },
-    LFtoHF: {type: String, trim: true },
+    NNtoRR: {type: Number, trim: true },
+    AVNN: {type: Number, trim: true },
+    SDNN: {type: Number, trim: true },
+    SDANN: {type: Number, trim: true },
+    SDNNIDX: {type: Number, trim: true },
+    rMSSD: {type: Number, trim: true },
+    pNN50: {type: Number, trim: true },
+    TOTPWR: {type: Number, trim: true },
+    ULFPWR: {type: Number, trim: true },
+    VLFPWR: {type: Number, trim: true },
+    LFPWR: {type: Number, trim: true },
+    HFPWR: {type: Number, trim: true },
+    LFtoHF: {type: Number, trim: true },
 
     createdAt: {type: Date, default: Date.now}
 
