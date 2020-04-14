@@ -30,13 +30,15 @@
 // {timeSinceSeriesStart: 63.02734375, precededByGap: false},
 // {timeSinceSeriesStart: 64.046875, precededByGap: false}]
 
-var express = require('express');
-var fs = require('fs');
-var app = express();
-var exec = require('child_process').exec;
-var mongo = require('mongoose')
-var dotenv = require('dotenv')
-var HRVReading = require('./schemas/HRVReading')
+const express = require('express');
+const fs = require('fs');
+const app = express();
+const exec = require('child_process').exec;
+const mongo = require('mongoose')
+const dotenv = require('dotenv')
+const HRVReading = require('./schemas/HRVReading')
+const asyncHandler = require('./middleware/async')
+const cors = require('cors')
 
 dotenv.config({path: './config.env'})
 
@@ -51,6 +53,8 @@ app.listen(3001, () => {
  console.log("Server running on port 3001");
 });
 
+app.use(cors())
+
 app.use(express.json());
 
 app.post("/gethrv", (req, res, next) => {
@@ -62,7 +66,7 @@ app.post("/gethrv", (req, res, next) => {
         if (index < 1)  { entry.nn = entry.timeSinceSeriesStart*1000 }
         else { entry.nn = (entry.timeSinceSeriesStart - hrvInput[index - 1].timeSinceSeriesStart)*1000 }
         return entry
-        }) 
+    }) 
     
     //remove the values preceded by gaps and discard data other than NN
     let nnArrayFiltered = nnArray.filter((entry, index) => !entry.precededByGap && index > 0).map(entry => entry.nn)
@@ -96,3 +100,16 @@ app.post("/gethrv", (req, res, next) => {
     });
     
 });
+
+app.get("/recent", asyncHandler(async (req, res, next) => {
+    //get most recent readings, parameterize how many to get
+
+    const readings = await HRVReading.find({}).sort({createdAt: 1})
+
+    res.status(200).json({
+        success: true,
+        count: readings.length,
+        data: readings
+    });
+    
+}));
