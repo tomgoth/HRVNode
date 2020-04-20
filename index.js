@@ -39,6 +39,7 @@ const dotenv = require('dotenv')
 const HRVReading = require('./schemas/HRVReading')
 const asyncHandler = require('./middleware/async')
 const cors = require('cors')
+const https = require('https');
 
 dotenv.config({path: './config.env'})
 
