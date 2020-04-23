@@ -31,9 +31,18 @@
 // {timeSinceSeriesStart: 64.046875, precededByGap: false}]
 
 const express = require('express');
-const fs = require('fs');
+//const fs = require('fs');
+//const fsp = require("fs/promises");
+const fs = require("fs");
+const { promisify } = require("util");
+const writeFile = promisify(fs.writeFile);
+const mkdir = promisify(fs.mkdir);
+const rmdir = promisify(fs.rmdir);
+
 const app = express();
-const exec = require('child_process').exec;
+//const exec = require('child_process').exec;
+const exec = promisify(require('child_process').exec);
+
 const mongo = require('mongoose')
 const dotenv = require('dotenv')
 const HRVReading = require('./schemas/HRVReading')
@@ -58,7 +67,7 @@ app.use(cors())
 
 app.use(express.json());
 
-app.post("/gethrv", (req, res, next) => {
+app.post("/gethrv", asyncHandler(async (req, res, next) => {
     let hrvInput = req.body.beatToBeat;
     
     //calculate NN data
@@ -70,52 +79,54 @@ app.post("/gethrv", (req, res, next) => {
     
     //remove the values preceded by gaps and discard data other than NN
     let nnArrayFiltered = nnArray.filter((entry, index) => !entry.precededByGap && index > 0).map(entry => entry.nn)
-    console.log(nnArrayFiltered)
+    //console.log(nnArrayFiltered)
 
     //create a string for writing to file
     let nnString = nnArrayFiltered.reduce((string, time) => string + time + '\n' ,'')
 
     //write the file for purposes of running the get_hrv CLI 
     let timestamp = new Date().getTime()
+    let rand = Math.floor(Math.random()*100)
     let fileName = `NN_${timestamp}.rr`
+    let path = `./${timestamp}_${rand}`
+    
     try {
-        fs.writeFile(fileName, nnString, 'utf8', (err) => {
-            if (err) throw err;
-            console.log('The NN file has been saved!');
-            //execute the get_hrv CLI once the file has been written
-            exec(`get_hrv -M -m -R ${fileName}`, (error, stdout, stderr) => { //get_hrv must be installed on the machine
-                if (error) throw error
-                console.log(stdout);
-                let hrvObject = {}; //object to return
-                //parse stdout
-                stdout.split('\n').map((line) => line.split('=')) //"SDNN     = 0.583836" => ["SDNN     ", " 0.583836"]
-                    .forEach(lineArr => {
-                        if (lineArr.length === 2) {  
-                            hrvObject[lineArr[0].trim().replace(' ','').replace('/','to')] = lineArr[1].trim() //["SDNN     ", " 0.583836"] => {"SDNN": "0.583836"}
-                        }
-                });
-                if(Object.keys(hrvObject).length > 1) {
-                    hrvObject.createdAt = req.body.date;
-                    console.log(hrvObject);
-                    res.json(hrvObject);
-                    HRVReading.create(hrvObject)
-                        .catch(err => console.log(err))
-                    
+        await mkdir(path, { recursive: true }) //make a unique dir for executing get_hrv
+        await writeFile(`${path}/${fileName}`, nnString, 'utf8') //put NN file in dir
+        console.log(`The NN file ${fileName} has been saved!`);
+        //execute the get_hrv CLI once the file has been written
+        const { stdout, stderr } = await exec(`get_hrv -M -m -R ${fileName}`, { cwd: path } )
+        console.log(stdout);
+        let hrvObject = {}; //object to return
+        //parse stdout
+        stdout.split('\n').map((line) => line.split('=')) //"SDNN     = 0.583836" => ["SDNN     ", " 0.583836"]
+            .forEach(lineArr => {
+                if (lineArr.length === 2) {
+                    hrvObject[lineArr[0].trim().replace(' ', '').replace('/', 'to')] = lineArr[1].trim() //["SDNN     ", " 0.583836"] => {"SDNN": "0.583836"}
                 }
-                else {
-                    console.log("error", "hrvobject is empty")
-                }
-                //fs.unlink(fileName, err => {if (err) console.log(err)})
-            })
-        })
+            });
+        if (Object.keys(hrvObject).length > 1) {
+            hrvObject.createdAt = req.body.date;
+            console.log(hrvObject);
+            res.json(hrvObject);
+            await HRVReading.create(hrvObject)
+        }
+        else {
+            console.log("error", "hrvobject is empty")
+        }
     }
-     
     catch(err) {
-        console.log(err)
+        //console.log(err)
     }
 
-    
-});
+    //cleanup
+    try {
+        await rmdir(path, { recursive: true }) //cleanup
+    }
+    catch(err){
+        console.log(err)
+    }
+}));
 
 app.get("/recent", asyncHandler(async (req, res, next) => {
     //get most recent readings, parameterize how many to get
