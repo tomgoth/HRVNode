@@ -39,7 +39,7 @@ const dotenv = require('dotenv')
 const HRVReading = require('./schemas/HRVReading')
 const asyncHandler = require('./middleware/async')
 const cors = require('cors')
-const https = require('https');
+
 
 dotenv.config({path: './config.env'})
 
@@ -59,7 +59,6 @@ app.use(cors())
 app.use(express.json());
 
 app.post("/gethrv", (req, res, next) => {
-    //console.log(req.body)
     let hrvInput = req.body.beatToBeat;
     
     //calculate NN data
@@ -76,29 +75,45 @@ app.post("/gethrv", (req, res, next) => {
     //create a string for writing to file
     let nnString = nnArrayFiltered.reduce((string, time) => string + time + '\n' ,'')
 
-    //write the file for purposes of running the get_hrv CLI
-    fs.writeFile('NN.rr', nnString, 'utf8', (err) => {
-        if (err) throw err;
-        console.log('The NN file has been saved!');
-        //execute the get_hrv CLI once the file has been written
-        exec('get_hrv -M -m -R NN.rr', (error, stdout, stderr) => { //get_hrv must be installed on the machine
-            if (error) throw error;
-            console.log(stdout);
-            let hrvObject = {}; //object to return
-            //parse stdout
-            stdout.split('\n').map((line) => line.split('=')) //"SDNN     = 0.583836" => ["SDNN     ", " 0.583836"]
-                .forEach(lineArr => {
-                    if (lineArr.length === 2) {  
-                        hrvObject[lineArr[0].trim().replace(' ','').replace('/','to')] = lineArr[1].trim() //["SDNN     ", " 0.583836"] => {"SDNN": "0.583836"}
-                    }
-            });
-            hrvObject.createdAt = req.body.date;
-            console.log(hrvObject);
-            res.json(hrvObject);
-            HRVReading.create(hrvObject)
-        });
-         
-    });
+    //write the file for purposes of running the get_hrv CLI 
+    let timestamp = new Date().getTime()
+    let fileName = `NN_${timestamp}.rr`
+    try {
+        fs.writeFile(fileName, nnString, 'utf8', (err) => {
+            if (err) throw err;
+            console.log('The NN file has been saved!');
+            //execute the get_hrv CLI once the file has been written
+            exec(`get_hrv -M -m -R ${fileName}`, (error, stdout, stderr) => { //get_hrv must be installed on the machine
+                if (error) throw error
+                console.log(stdout);
+                let hrvObject = {}; //object to return
+                //parse stdout
+                stdout.split('\n').map((line) => line.split('=')) //"SDNN     = 0.583836" => ["SDNN     ", " 0.583836"]
+                    .forEach(lineArr => {
+                        if (lineArr.length === 2) {  
+                            hrvObject[lineArr[0].trim().replace(' ','').replace('/','to')] = lineArr[1].trim() //["SDNN     ", " 0.583836"] => {"SDNN": "0.583836"}
+                        }
+                });
+                if(Object.keys(hrvObject).length > 1) {
+                    hrvObject.createdAt = req.body.date;
+                    console.log(hrvObject);
+                    res.json(hrvObject);
+                    HRVReading.create(hrvObject)
+                        .catch(err => console.log(err))
+                    
+                }
+                else {
+                    console.log("error", "hrvobject is empty")
+                }
+                //fs.unlink(fileName, err => {if (err) console.log(err)})
+            })
+        })
+    }
+     
+    catch(err) {
+        console.log(err)
+    }
+
     
 });
 

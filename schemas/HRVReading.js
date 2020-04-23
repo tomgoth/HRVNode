@@ -15,7 +15,7 @@ const HRVReading_Schema = new mongo.Schema({
     HFPWR: {type: Number, trim: true },
     LFtoHF: {type: Number, trim: true },
 
-    createdAt: {type: Date, default: Date.now}
+    createdAt: {type: Date, default: Date.now, unique: true }
 
     
 })
