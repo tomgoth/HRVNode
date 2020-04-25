@@ -6,6 +6,8 @@ const rmdir = promisify(fs.rmdir);
 const exec = promisify(require('child_process').exec);
 
 // implements the interface with the get_hrv cli 
+// input is beat to beat data, output is obj with computed values (e.g. SDNN, rMSSD, HFPWR, etc.)
+// supports concurrency by running in different working directories
 async function get_hrv(hrvInput, date) {
     return new Promise(async (resolve, reject) => {
         let nnArray = hrvInput.map((entry, index) => {
@@ -33,7 +35,7 @@ async function get_hrv(hrvInput, date) {
             await mkdir(path, { recursive: true }) //make a unique dir for executing get_hrv
             await writeFile(`${path}/${fileName}`, nnString, 'utf8') //put NN file in dir
             console.log(`The NN file ${fileName} has been saved!`);
-            //execute the get_hrv CLI once the file has been written
+            //execute the get_hrv CLI once the file has been written, change working dir
             const { stdout, stderr } = await exec(`get_hrv -M -m -R ${fileName}`, { cwd: path })
             console.log(stdout);
             
@@ -45,7 +47,7 @@ async function get_hrv(hrvInput, date) {
                     }
                 });
             if (Object.keys(hrvObject).length > 1) {
-                hrvObject.createdAt = date;
+                hrvObject.createdAt = date; //set the date passed in
                 console.log(hrvObject);
             }
             else {
