@@ -58,7 +58,10 @@ app.post("/rhr", asyncHandler(async (req, res, next) => {
 app.get("/rhr", asyncHandler(async (req, res, next) => {
     //get most recent readings, parameterize how many to get
     //TODO: smoothing, pagination
-    const readings = await RHRReading.find({}).sort({ createdAt: -1 }).limit(100)
+    let startDate = moment().subtract(6, 'week').toDate();
+
+
+    const readings = await RHRReading.find({createdAt: { $gte: startDate } }).sort({ createdAt: -1 })
 
     res.status(200).json({
         success: true,
@@ -73,12 +76,21 @@ app.get("/readiness", asyncHandler(async (req, res, next) => {
     //limit to recent 6 weeks?
     let startDate = moment().subtract(6, 'week').toDate();
 
+    //last year?
+    // let startDate = moment().subtract(1, 'year').toDate();
+
     const currentRHR = await RHRReading.findOne().sort({ createdAt: -1 })
     const gtRHR = await RHRReading.find({ restingHeartRate: { $gte: currentRHR.restingHeartRate }, createdAt: { $gte: startDate } }).count()
     const ltRHR = await RHRReading.find({ restingHeartRate: { $lt: currentRHR.restingHeartRate }, createdAt: { $gte: startDate } }).count()
     rhrPercentile = gtRHR / (gtRHR + ltRHR) //lower is better
 
     const currentHRV = await HRVReading.findOne().sort({ createdAt: -1 })
+
+    const gtSDNN = await HRVReading.find({ SDNN: { $gt: currentHRV.SDNN }, createdAt: { $gte: startDate } }).count()
+    const ltSDNN = await HRVReading.find({ SDNN: { $lte: currentHRV.SDNN }, createdAt: { $gte: startDate } }).count()
+    sdnnPercentile = ltSDNN / (gtSDNN + ltSDNN) //higher is better
+
+
     const gtRMSSD = await HRVReading.find({ rMSSD: { $gt: currentHRV.rMSSD }, createdAt: { $gte: startDate } }).count()
     const ltRMSSD = await HRVReading.find({ rMSSD: { $lte: currentHRV.rMSSD }, createdAt: { $gte: startDate } }).count()
     rMSSDPercentile = ltRMSSD / (gtRMSSD + ltRMSSD) //higher is better
@@ -93,19 +105,34 @@ app.get("/readiness", asyncHandler(async (req, res, next) => {
             label: "Resting Heart Rate Readiness",
             percentile: rhrPercentile,
             currentValue: currentRHR.restingHeartRate,
-            createdAt: currentRHR.createdAt
-        },
-        {
-            label: "Heart Rate Variability (rMSSD) Readiness",
-            percentile: rMSSDPercentile,
-            currentValue: currentHRV.rMSSD,
-            createdAt: currentHRV.createdAt
+            createdAt: currentRHR.createdAt,
+            id: currentRHR.id,
+            units: 'bpm'
         },
         {
             label: "Heart Rate Variability (HF Power) Readiness",
             percentile: hfpwrPercentile,
             currentValue: currentHRV.HFPWR,
-            createdAt: currentHRV.createdAt
+            createdAt: currentHRV.createdAt,
+            id: currentHRV.id + '2',
+            units: ''
+        },
+        {
+            label: "Heart Rate Variability (rMSSD) Readiness",
+            percentile: rMSSDPercentile,
+            currentValue: currentHRV.rMSSD,
+            createdAt: currentHRV.createdAt,
+            id: currentHRV.id + '1',
+            units: 'ms'
+        },
+        {
+            label: "Heart Rate Variability (SDNN) Readiness",
+            percentile: sdnnPercentile,
+            currentValue: currentHRV.SDNN,
+            createdAt: currentHRV.createdAt,
+            id: currentHRV.id,
+            units: 'ms'
+
         }
     ])
 }))
