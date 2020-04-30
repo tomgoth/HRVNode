@@ -71,15 +71,22 @@ app.get("/rhr", asyncHandler(async (req, res, next) => {
 
 }));
 
-app.get("/readiness", asyncHandler(async (req, res, next) => {
+app.get("/readiness/:fromNowInt/:fromNowUnit", asyncHandler(async (req, res, next) => {
+    
+    let fromNow = moment().subtract(req.params.fromNowInt, req.params.fromNowUnit).toDate()
 
-    //limit to recent 6 weeks?
+    //compare to recent 6 weeks?
     let startDate = moment().subtract(6, 'week').toDate();
 
     //last year?
     // let startDate = moment().subtract(1, 'year').toDate();
 
-    const currentRHR = await RHRReading.findOne().sort({ createdAt: -1 })
+    let currentRHR = await RHRReading.findOne().sort({ createdAt: -1 })
+    // const RHRsfromNow = await RHRReading.find({ createdAt: {$gte: fromNow}})
+    // currentRHR = RHRsfromNow.reduce((totalObj, rhr) => {
+    //     return {currentRHR: totalObj.currentRHR + rhr.currentRHR}
+    // })
+
     const gtRHR = await RHRReading.find({ restingHeartRate: { $gte: currentRHR.restingHeartRate }, createdAt: { $gte: startDate } }).count()
     const ltRHR = await RHRReading.find({ restingHeartRate: { $lt: currentRHR.restingHeartRate }, createdAt: { $gte: startDate } }).count()
     rhrPercentile = gtRHR / (gtRHR + ltRHR) //lower is better
