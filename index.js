@@ -81,17 +81,56 @@ app.get("/readiness/:fromNowInt/:fromNowUnit", asyncHandler(async (req, res, nex
     //last year?
     // let startDate = moment().subtract(1, 'year').toDate();
 
-    let currentRHR = await RHRReading.findOne().sort({ createdAt: -1 })
-    // const RHRsfromNow = await RHRReading.find({ createdAt: {$gte: fromNow}})
-    // currentRHR = RHRsfromNow.reduce((totalObj, rhr) => {
-    //     return {currentRHR: totalObj.currentRHR + rhr.currentRHR}
-    // })
+    let currentRHR
+    const RHRsfromNow = await RHRReading.find({ createdAt: {$gte: fromNow}}).sort({ createdAt: 1 })
+    if (RHRsfromNow[0]) {
+        currentRHR = RHRsfromNow.reduce((totalObj, rhr) => {
+            return {
+                createdAt: rhr.createdAt,
+                id: rhr.id,
+                restingHeartRate: totalObj.restingHeartRate + rhr.restingHeartRate
+            }
+        })
+        currentRHR = {
+            createdAt: currentRHR.createdAt,
+            id: currentRHR.id,
+            restingHeartRate: currentRHR.restingHeartRate / RHRsfromNow.length
+        }
+    }
+    else {
+        currentRHR = await RHRReading.findOne().sort({ createdAt: -1 })
+    }
 
     const gtRHR = await RHRReading.find({ restingHeartRate: { $gte: currentRHR.restingHeartRate }, createdAt: { $gte: startDate } }).count()
     const ltRHR = await RHRReading.find({ restingHeartRate: { $lt: currentRHR.restingHeartRate }, createdAt: { $gte: startDate } }).count()
     rhrPercentile = gtRHR / (gtRHR + ltRHR) //lower is better
 
-    const currentHRV = await HRVReading.findOne().sort({ createdAt: -1 })
+    
+    let currentHRV 
+    const HRVsfromNow = await HRVReading.find({ createdAt: { $gte: fromNow } }).sort({ createdAt: 1 })
+    console.log("HRVsFromNow", HRVsfromNow)
+    if (HRVsfromNow[0]) {
+        currentHRV = HRVsfromNow.reduce((totalObj, hrv) => {
+            return {
+                createdAt: hrv.createdAt,
+                id: hrv.id,
+                SDNN: totalObj.SDNN + hrv.SDNN,
+                rMSSD: totalObj.rMSSD + hrv.rMSSD,
+                HFPWR: totalObj.HFPWR + hrv.HFPWR
+            }
+        })
+        currentHRV = {
+            createdAt: currentHRV.createdAt,     
+            id: currentHRV.id,       
+            SDNN: currentHRV.SDNN / HRVsfromNow.length,
+            rMSSD: currentHRV.rMSSD / HRVsfromNow.length,
+            HFPWR: currentHRV.HFPWR / HRVsfromNow.length
+        }
+    }
+    else {
+        currentHRV = await HRVReading.findOne().sort({ createdAt: -1 })
+    }
+    console.log("currentHRV", currentHRV)
 
     const gtSDNN = await HRVReading.find({ SDNN: { $gt: currentHRV.SDNN }, createdAt: { $gte: startDate } }).count()
     const ltSDNN = await HRVReading.find({ SDNN: { $lte: currentHRV.SDNN }, createdAt: { $gte: startDate } }).count()
