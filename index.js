@@ -50,6 +50,13 @@ app.get("/hrv", asyncHandler(async (req, res, next) => {
 
 }));
 
+app.get("/hrv/mostrecent", asyncHandler(async (req, res, next) => {
+
+    let mostRecentHRV = await HRVReading.findOne().sort({ createdAt: -1 })
+    res.status(200).json(mostRecentHRV)
+
+}))
+
 app.post("/rhr", asyncHandler(async (req, res, next) => {
     const saved = await RHRReading.create({ restingHeartRate: req.body.heartrate, createdAt: req.body.timestamp })
     res.status(201).json(saved)
@@ -68,6 +75,13 @@ app.get("/rhr", asyncHandler(async (req, res, next) => {
         count: readings.length,
         data: readings
     });
+
+}));
+
+app.get("/rhr/mostrecent", asyncHandler(async (req, res, next) => {
+
+    let mostRecentRHR = await RHRReading.findOne().sort({ createdAt: -1 })
+    res.status(200).json(mostRecentRHR)
 
 }));
 
