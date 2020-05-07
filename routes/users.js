@@ -16,6 +16,7 @@ router.post('/', [ //(6) -> contacts
     check('password', 'Please enter a password with 6 or more characters').isLength({ min: 6 })
 ], 
 async (req, res) => {
+    
     const errors = validationResult(req) 
 
     if(!errors.isEmpty()) {
@@ -28,6 +29,7 @@ async (req, res) => {
         let user = await User.findOne({ email }) // (23) findOne is a method from mongoose
 
         if(user) {
+            console.log("User already exists", user)
             return res.status(400).json({ msg: 'User already exists' })
         }
 

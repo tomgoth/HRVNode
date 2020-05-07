@@ -5,22 +5,24 @@ const asyncHandler = require('../middleware/async')
 const get_hrv = require('../utils/GetHRV')
 const moment = require('moment')
 const app = express.Router()
+const auth = require('../middleware/auth');
 
-app.post("/hrv", asyncHandler(async (req, res, next) => {
+
+app.post("/hrv", auth, asyncHandler(async (req, res, next) => {
     //compute hrv stats e.g. SDNN, rMSSD, HFPWR, etc. from beat to beat data
     const hrvObj = await get_hrv(req.body.beatToBeat, req.body.date)
     // return the obj even if it doesn't get stored (e.g. duplicate)
     if (hrvObj) res.status(201).json(hrvObj)
     // store the computed obj in our readings database
     //TODO add user info
-    if (hrvObj) await HRVReading.create(hrvObj)
+    if (hrvObj) await HRVReading.create({ ...hrvObj, user: req.user.id })
 
 }))
 
-app.get("/hrv", asyncHandler(async (req, res, next) => {
+app.get("/hrv", auth, asyncHandler(async (req, res, next) => {
     //get most recent readings, parameterize how many to get
     //TODO: smoothing, pagination
-    const readings = await HRVReading.find({}).sort({ createdAt: -1 }).limit(100)
+    const readings = await HRVReading.find({ user: req.user.id }).sort({ createdAt: -1 }).limit(100)
 
     res.status(200).json({
         success: true,
@@ -30,25 +32,29 @@ app.get("/hrv", asyncHandler(async (req, res, next) => {
 
 }));
 
-app.get("/hrv/mostrecent", asyncHandler(async (req, res, next) => {
+app.get("/hrv/mostrecent", auth, asyncHandler(async (req, res, next) => {
 
-    let mostRecentHRV = await HRVReading.findOne().sort({ createdAt: -1 })
+    let mostRecentHRV = await HRVReading.findOne({ user: req.user.id }).sort({ createdAt: -1 })
     res.status(200).json(mostRecentHRV)
 
 }))
 
-app.post("/rhr", asyncHandler(async (req, res, next) => {
-    const saved = await RHRReading.create({ restingHeartRate: req.body.heartrate, createdAt: req.body.timestamp })
+app.post("/rhr", auth, asyncHandler(async (req, res, next) => {
+    const saved = await RHRReading.create({
+        user: req.user.id,
+        restingHeartRate: req.body.heartrate,
+        createdAt: req.body.timestamp
+    })
     res.status(201).json(saved)
 }))
 
-app.get("/rhr", asyncHandler(async (req, res, next) => {
+app.get("/rhr", auth, asyncHandler(async (req, res, next) => {
     //get most recent readings, parameterize how many to get
     //TODO: smoothing, pagination
     let startDate = moment().subtract(6, 'week').toDate();
 
 
-    const readings = await RHRReading.find({createdAt: { $gte: startDate } }).sort({ createdAt: -1 })
+    const readings = await RHRReading.find({ user: req.user.id, createdAt: { $gte: startDate } }).sort({ createdAt: -1 })
 
     res.status(200).json({
         success: true,
@@ -58,15 +64,15 @@ app.get("/rhr", asyncHandler(async (req, res, next) => {
 
 }));
 
-app.get("/rhr/mostrecent", asyncHandler(async (req, res, next) => {
+app.get("/rhr/mostrecent", auth, asyncHandler(async (req, res, next) => {
 
-    let mostRecentRHR = await RHRReading.findOne().sort({ createdAt: -1 })
+    let mostRecentRHR = await RHRReading.findOne({ user: req.user.id }).sort({ createdAt: -1 })
     res.status(200).json(mostRecentRHR)
 
 }));
 
-app.get("/readiness/:fromNowInt/:fromNowUnit", asyncHandler(async (req, res, next) => {
-    
+app.get("/readiness/:fromNowInt/:fromNowUnit", auth, asyncHandler(async (req, res, next) => {
+    console.log('user from x auth token', req.user)
     let fromNow = moment().subtract(req.params.fromNowInt, req.params.fromNowUnit).toDate()
 
     //compare to recent 6 weeks?
@@ -76,7 +82,7 @@ app.get("/readiness/:fromNowInt/:fromNowUnit", asyncHandler(async (req, res, nex
     // let startDate = moment().subtract(1, 'year').toDate();
 
     let currentRHR
-    const RHRsfromNow = await RHRReading.find({ createdAt: {$gte: fromNow}}).sort({ createdAt: 1 })
+    const RHRsfromNow = await RHRReading.find({ user: req.user.id, createdAt: { $gte: fromNow } }).sort({ createdAt: 1 })
     if (RHRsfromNow[0]) {
         currentRHR = RHRsfromNow.reduce((totalObj, rhr) => {
             return {
@@ -92,16 +98,21 @@ app.get("/readiness/:fromNowInt/:fromNowUnit", asyncHandler(async (req, res, nex
         }
     }
     else {
-        currentRHR = await RHRReading.findOne().sort({ createdAt: -1 })
+        currentRHR = await RHRReading.findOne({ user: req.user.id }).sort({ createdAt: -1 })
     }
 
-    const gtRHR = await RHRReading.find({ restingHeartRate: { $gte: currentRHR.restingHeartRate }, createdAt: { $gte: startDate } }).count()
-    const ltRHR = await RHRReading.find({ restingHeartRate: { $lt: currentRHR.restingHeartRate }, createdAt: { $gte: startDate } }).count()
-    rhrPercentile = gtRHR / (gtRHR + ltRHR) //lower is better
+    try {
+        const gtRHR = await RHRReading.find({ user: req.user.id, restingHeartRate: { $gte: currentRHR.restingHeartRate }, createdAt: { $gte: startDate } }).count()
+        const ltRHR = await RHRReading.find({ user: req.user.id, restingHeartRate: { $lt: currentRHR.restingHeartRate }, createdAt: { $gte: startDate } }).count()
+        rhrPercentile = gtRHR / (gtRHR + ltRHR) //lower is better
+    }
+    catch (e) {
+        console.log(e)
+    }
 
-    
-    let currentHRV 
-    const HRVsfromNow = await HRVReading.find({ createdAt: { $gte: fromNow } }).sort({ createdAt: 1 })
+
+    let currentHRV
+    const HRVsfromNow = await HRVReading.find({ user: req.user.id, createdAt: { $gte: fromNow } }).sort({ createdAt: 1 })
     console.log("HRVsFromNow", HRVsfromNow)
     if (HRVsfromNow[0]) {
         currentHRV = HRVsfromNow.reduce((totalObj, hrv) => {
@@ -114,41 +125,39 @@ app.get("/readiness/:fromNowInt/:fromNowUnit", asyncHandler(async (req, res, nex
             }
         })
         currentHRV = {
-            createdAt: currentHRV.createdAt,     
-            id: currentHRV.id,       
+            createdAt: currentHRV.createdAt,
+            id: currentHRV.id,
             SDNN: currentHRV.SDNN / HRVsfromNow.length,
             rMSSD: currentHRV.rMSSD / HRVsfromNow.length,
             HFPWR: currentHRV.HFPWR / HRVsfromNow.length
         }
     }
     else {
-        currentHRV = await HRVReading.findOne().sort({ createdAt: -1 })
+        currentHRV = await HRVReading.findOne({ user: req.user.id }).sort({ createdAt: -1 })
     }
-    console.log("currentHRV", currentHRV)
 
-    const gtSDNN = await HRVReading.find({ SDNN: { $gt: currentHRV.SDNN }, createdAt: { $gte: startDate } }).count()
-    const ltSDNN = await HRVReading.find({ SDNN: { $lte: currentHRV.SDNN }, createdAt: { $gte: startDate } }).count()
-    sdnnPercentile = ltSDNN / (gtSDNN + ltSDNN) //higher is better
+    try {
 
-
-    const gtRMSSD = await HRVReading.find({ rMSSD: { $gt: currentHRV.rMSSD }, createdAt: { $gte: startDate } }).count()
-    const ltRMSSD = await HRVReading.find({ rMSSD: { $lte: currentHRV.rMSSD }, createdAt: { $gte: startDate } }).count()
-    rMSSDPercentile = ltRMSSD / (gtRMSSD + ltRMSSD) //higher is better
-
-    const gtHFPWR = await HRVReading.find({ HFPWR: { $gt: currentHRV.HFPWR }, createdAt: { $gte: startDate } }).count()
-    const ltHFPWR = await HRVReading.find({ HFPWR: { $lte: currentHRV.HFPWR }, createdAt: { $gte: startDate } }).count()
-    hfpwrPercentile = ltHFPWR / (gtHFPWR + ltHFPWR) //higher is better
+        const gtSDNN = await HRVReading.find({ user: req.user.id, SDNN: { $gt: currentHRV.SDNN }, createdAt: { $gte: startDate } }).count()
+        const ltSDNN = await HRVReading.find({ user: req.user.id, SDNN: { $lte: currentHRV.SDNN }, createdAt: { $gte: startDate } }).count()
+        sdnnPercentile = ltSDNN / (gtSDNN + ltSDNN) //higher is better
 
 
-    res.status(200).json([
-        {
-            label: "Resting Heart Rate Readiness",
-            percentile: rhrPercentile,
-            currentValue: currentRHR.restingHeartRate,
-            createdAt: currentRHR.createdAt,
-            id: currentRHR.id,
-            units: 'bpm'
-        },
+        const gtRMSSD = await HRVReading.find({ user: req.user.id, rMSSD: { $gt: currentHRV.rMSSD }, createdAt: { $gte: startDate } }).count()
+        const ltRMSSD = await HRVReading.find({ user: req.user.id, rMSSD: { $lte: currentHRV.rMSSD }, createdAt: { $gte: startDate } }).count()
+        rMSSDPercentile = ltRMSSD / (gtRMSSD + ltRMSSD) //higher is better
+
+        const gtHFPWR = await HRVReading.find({ user: req.user.id, HFPWR: { $gt: currentHRV.HFPWR }, createdAt: { $gte: startDate } }).count()
+        const ltHFPWR = await HRVReading.find({ user: req.user.id, HFPWR: { $lte: currentHRV.HFPWR }, createdAt: { $gte: startDate } }).count()
+        hfpwrPercentile = ltHFPWR / (gtHFPWR + ltHFPWR) //higher is better
+    }
+    catch (e) {
+        console.log(e)
+    }
+
+    retArr = []
+    if (currentHRV) {
+        retArr = [...retArr,
         {
             label: "Heart Rate Variability (HF Power) Readiness",
             percentile: hfpwrPercentile,
@@ -173,8 +182,25 @@ app.get("/readiness/:fromNowInt/:fromNowUnit", asyncHandler(async (req, res, nex
             id: currentHRV.id,
             units: 'ms'
 
-        }
-    ])
+        }]
+    }
+    if (currentRHR) {
+        retArr = [
+        {
+            label: "Resting Heart Rate Readiness",
+            percentile: rhrPercentile,
+            currentValue: currentRHR.restingHeartRate,
+            createdAt: currentRHR.createdAt,
+            id: currentRHR.id,
+            units: 'bpm'
+        },
+        ...retArr
+        ]
+    }
+
+    res.status(200).json(retArr)
+
+
 }))
 
 module.exports = app
