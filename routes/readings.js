@@ -14,7 +14,6 @@ app.post("/hrv", auth, asyncHandler(async (req, res, next) => {
     // return the obj even if it doesn't get stored (e.g. duplicate)
     if (hrvObj) res.status(201).json(hrvObj)
     // store the computed obj in our readings database
-    //TODO add user info
     if (hrvObj) await HRVReading.create({ ...hrvObj, user: req.user.id })
 
 }))
@@ -22,13 +21,23 @@ app.post("/hrv", auth, asyncHandler(async (req, res, next) => {
 app.get("/hrv", auth, asyncHandler(async (req, res, next) => {
     //get most recent readings, parameterize how many to get
     //TODO: smoothing, pagination
-    const readings = await HRVReading.find({ user: req.user.id }).sort({ createdAt: -1 }).limit(100)
+    //compare to recent 6 weeks?
+    let startDate = moment().subtract(6, 'week').toDate();
 
+    let readings = await HRVReading.find({ user: req.user.id }).sort({ createdAt: -1 }).limit(10)
+    await Promise.all(readings.map(reading => percentileHrvCalc(req, startDate, reading._doc)))
+        .then(completed => {
+            console.log("comp", completed)
+        })
+
+
+    // console.log('readings', readings)
     res.status(200).json({
         success: true,
         count: readings.length,
         data: readings
     });
+
 
 }));
 
@@ -101,15 +110,9 @@ app.get("/readiness/:fromNowInt/:fromNowUnit", auth, asyncHandler(async (req, re
         currentRHR = await RHRReading.findOne({ user: req.user.id }).sort({ createdAt: -1 })
     }
 
-    try {
-        const gtRHR = await RHRReading.find({ user: req.user.id, restingHeartRate: { $gte: currentRHR.restingHeartRate }, createdAt: { $gte: startDate } }).count()
-        const ltRHR = await RHRReading.find({ user: req.user.id, restingHeartRate: { $lt: currentRHR.restingHeartRate }, createdAt: { $gte: startDate } }).count()
-        rhrPercentile = gtRHR / (gtRHR + ltRHR) //lower is better
-    }
-    catch (e) {
-        console.log(e)
-    }
 
+
+    const { rhrPercentile } = await percentileRhrCalc(req, startDate, currentRHR)
 
     let currentHRV
     const HRVsfromNow = await HRVReading.find({ user: req.user.id, createdAt: { $gte: fromNow } }).sort({ createdAt: 1 })
@@ -136,24 +139,7 @@ app.get("/readiness/:fromNowInt/:fromNowUnit", auth, asyncHandler(async (req, re
         currentHRV = await HRVReading.findOne({ user: req.user.id }).sort({ createdAt: -1 })
     }
 
-    try {
-
-        const gtSDNN = await HRVReading.find({ user: req.user.id, SDNN: { $gt: currentHRV.SDNN }, createdAt: { $gte: startDate } }).count()
-        const ltSDNN = await HRVReading.find({ user: req.user.id, SDNN: { $lte: currentHRV.SDNN }, createdAt: { $gte: startDate } }).count()
-        sdnnPercentile = ltSDNN / (gtSDNN + ltSDNN) //higher is better
-
-
-        const gtRMSSD = await HRVReading.find({ user: req.user.id, rMSSD: { $gt: currentHRV.rMSSD }, createdAt: { $gte: startDate } }).count()
-        const ltRMSSD = await HRVReading.find({ user: req.user.id, rMSSD: { $lte: currentHRV.rMSSD }, createdAt: { $gte: startDate } }).count()
-        rMSSDPercentile = ltRMSSD / (gtRMSSD + ltRMSSD) //higher is better
-
-        const gtHFPWR = await HRVReading.find({ user: req.user.id, HFPWR: { $gt: currentHRV.HFPWR }, createdAt: { $gte: startDate } }).count()
-        const ltHFPWR = await HRVReading.find({ user: req.user.id, HFPWR: { $lte: currentHRV.HFPWR }, createdAt: { $gte: startDate } }).count()
-        hfpwrPercentile = ltHFPWR / (gtHFPWR + ltHFPWR) //higher is better
-    }
-    catch (e) {
-        console.log(e)
-    }
+    const { sdnnPercentile, rMSSDPercentile, hfpwrPercentile } = await percentileHrvCalc(req, startDate, currentHRV)
 
     retArr = []
     if (currentHRV) {
@@ -186,15 +172,15 @@ app.get("/readiness/:fromNowInt/:fromNowUnit", auth, asyncHandler(async (req, re
     }
     if (currentRHR) {
         retArr = [
-        {
-            label: "Resting Heart Rate Readiness",
-            percentile: rhrPercentile,
-            currentValue: currentRHR.restingHeartRate,
-            createdAt: currentRHR.createdAt,
-            id: currentRHR.id,
-            units: 'bpm'
-        },
-        ...retArr
+            {
+                label: "Resting Heart Rate Readiness",
+                percentile: rhrPercentile,
+                currentValue: currentRHR.restingHeartRate,
+                createdAt: currentRHR.createdAt,
+                id: currentRHR.id,
+                units: 'bpm'
+            },
+            ...retArr
         ]
     }
 
@@ -202,5 +188,53 @@ app.get("/readiness/:fromNowInt/:fromNowUnit", auth, asyncHandler(async (req, re
 
 
 }))
+
+const percentileHrvCalc = async (req, startDate, currentHRV) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+
+            const [gtSDNN, ltSDNN, gtRMSSD, ltRMSSD, gtHFPWR, ltHFPWR] = await Promise.all([
+                HRVReading.find({ user: req.user.id, SDNN: { $gt: currentHRV.SDNN }, createdAt: { $gte: startDate } }).count(),
+                HRVReading.find({ user: req.user.id, SDNN: { $lte: currentHRV.SDNN }, createdAt: { $gte: startDate } }).count(),
+                HRVReading.find({ user: req.user.id, rMSSD: { $gt: currentHRV.rMSSD }, createdAt: { $gte: startDate } }).count(),
+                HRVReading.find({ user: req.user.id, rMSSD: { $lte: currentHRV.rMSSD }, createdAt: { $gte: startDate } }).count(),
+                HRVReading.find({ user: req.user.id, HFPWR: { $gt: currentHRV.HFPWR }, createdAt: { $gte: startDate } }).count(),
+                HRVReading.find({ user: req.user.id, HFPWR: { $lte: currentHRV.HFPWR }, createdAt: { $gte: startDate } }).count()
+            ])
+            sdnnPercentile = ltSDNN / (gtSDNN + ltSDNN) //higher is better
+            rMSSDPercentile = ltRMSSD / (gtRMSSD + ltRMSSD) //higher is better
+            hfpwrPercentile = ltHFPWR / (gtHFPWR + ltHFPWR) //higher is better
+
+            resolve({
+                ...currentHRV,
+                sdnnPercentile: sdnnPercentile,
+                rMSSDPercentile: rMSSDPercentile,
+                hfpwrPercentile: hfpwrPercentile
+            })
+        }
+        catch (e) {
+            console.log(e)
+            reject(e)
+        }
+    })
+}
+
+const percentileRhrCalc = async (req, startDate, currentRHR) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const [gtRHR, ltRHR] = await Promise.all([
+                RHRReading.find({ user: req.user.id, restingHeartRate: { $gte: currentRHR.restingHeartRate }, createdAt: { $gte: startDate } }).count(),
+                RHRReading.find({ user: req.user.id, restingHeartRate: { $lt: currentRHR.restingHeartRate }, createdAt: { $gte: startDate } }).count()
+            ])
+            
+            rhrPercentile = gtRHR / (gtRHR + ltRHR) //lower is better
+            resolve({...currentRHR, rhrPercentile: rhrPercentile })
+        }
+        catch (e) {
+            console.log(e)
+            reject(e)
+        }
+    })
+}
 
 module.exports = app
