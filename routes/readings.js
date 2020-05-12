@@ -21,17 +21,13 @@ app.post("/hrv", auth, asyncHandler(async (req, res, next) => {
 app.get("/hrv", auth, asyncHandler(async (req, res, next) => {
     //get most recent readings, parameterize how many to get
     //TODO: smoothing, pagination
+    
     //compare to recent 6 weeks?
     let startDate = moment().subtract(6, 'week').toDate();
 
     let readings = await HRVReading.find({ user: req.user.id }).sort({ createdAt: -1 }).limit(10)
-    await Promise.all(readings.map(reading => percentileHrvCalc(req, startDate, reading._doc)))
-        .then(completed => {
-            console.log("comp", completed)
-        })
-
-
-    // console.log('readings', readings)
+    readings = await Promise.all(readings.map(reading => percentileHrvCalc(req, startDate, reading._doc)))
+        
     res.status(200).json({
         success: true,
         count: readings.length,
@@ -111,12 +107,8 @@ app.get("/readiness/:fromNowInt/:fromNowUnit", auth, asyncHandler(async (req, re
     }
 
 
-
-    const { rhrPercentile } = await percentileRhrCalc(req, startDate, currentRHR)
-
     let currentHRV
     const HRVsfromNow = await HRVReading.find({ user: req.user.id, createdAt: { $gte: fromNow } }).sort({ createdAt: 1 })
-    console.log("HRVsFromNow", HRVsfromNow)
     if (HRVsfromNow[0]) {
         currentHRV = HRVsfromNow.reduce((totalObj, hrv) => {
             return {
@@ -139,7 +131,11 @@ app.get("/readiness/:fromNowInt/:fromNowUnit", auth, asyncHandler(async (req, re
         currentHRV = await HRVReading.findOne({ user: req.user.id }).sort({ createdAt: -1 })
     }
 
-    const { sdnnPercentile, rMSSDPercentile, hfpwrPercentile } = await percentileHrvCalc(req, startDate, currentHRV)
+    const [{ sdnnPercentile, rMSSDPercentile, hfpwrPercentile }, { rhrPercentile }] = await Promise.all([
+        percentileHrvCalc(req, startDate, currentHRV),
+        percentileRhrCalc(req, startDate, currentRHR)
+    ])
+    
 
     retArr = []
     if (currentHRV) {
