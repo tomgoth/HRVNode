@@ -18,14 +18,17 @@ app.post("/hrv", auth, asyncHandler(async (req, res, next) => {
 
 }))
 
-app.get("/hrv", auth, asyncHandler(async (req, res, next) => {
+app.get("/hrv/:page/:size", auth, asyncHandler(async (req, res, next) => {
     //get most recent readings, parameterize how many to get
     //TODO: smoothing, pagination
-    
+
+    const skips = parseInt(req.params.size) * (parseInt(req.params.page) - 1)
+    const limit = parseInt(req.params.size)
+
     //compare to recent 6 weeks?
     let startDate = moment().subtract(6, 'week').toDate();
 
-    let readings = await HRVReading.find({ user: req.user.id }).sort({ createdAt: -1 }).limit(10)
+    let readings = await HRVReading.find({ user: req.user.id }).sort({ createdAt: -1 }).skip(skips).limit(limit)
     readings = await Promise.all(readings.map(reading => percentileHrvCalc(req, startDate, reading._doc)))
         
     res.status(200).json({
@@ -77,7 +80,6 @@ app.get("/rhr/mostrecent", auth, asyncHandler(async (req, res, next) => {
 }));
 
 app.get("/readiness/:fromNowInt/:fromNowUnit", auth, asyncHandler(async (req, res, next) => {
-    console.log('user from x auth token', req.user)
     let fromNow = moment().subtract(req.params.fromNowInt, req.params.fromNowUnit).toDate()
 
     //compare to recent 6 weeks?
@@ -185,10 +187,10 @@ app.get("/readiness/:fromNowInt/:fromNowUnit", auth, asyncHandler(async (req, re
 
 }))
 
+// req for user id, startDate for time window, currentHRV for comparision
 const percentileHrvCalc = async (req, startDate, currentHRV) => {
     return new Promise(async (resolve, reject) => {
         try {
-
             const [gtSDNN, ltSDNN, gtRMSSD, ltRMSSD, gtHFPWR, ltHFPWR] = await Promise.all([
                 HRVReading.find({ user: req.user.id, SDNN: { $gt: currentHRV.SDNN }, createdAt: { $gte: startDate } }).count(),
                 HRVReading.find({ user: req.user.id, SDNN: { $lte: currentHRV.SDNN }, createdAt: { $gte: startDate } }).count(),
