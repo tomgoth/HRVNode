@@ -1,0 +1,24 @@
+# This is a text data file.  It doesn't need to begin with a
+# comment, although this one does.  Comments and empty lines
+# are ignored in text data files.
+
+-1 1	# This is row 1.  It contains two columns.
+0    0	# This is row 2.  Columns don't need to be lined up neatly.
+  1   1 # Row 3.  Whitespace separates columns and is otherwise ignored.
+1.5 2.25# Row 4. Most common formats for base 10 numbers are acceptable.
+	# Note, however, that only "." can be used to separate
+	# the integer and fractional parts ("," is treated as a
+	# column separator).
+
+2 4	# Row 5 (the empty and comment lines aren't counted.)
+2.5 6.25 8  # The "8" is ignored, since row 1 has only 2 columns.
+3 9
+4,16	# Comma-separated value (CSV) format is acceptable.
+"5","25"# Quoted CSV format is also acceptable. 
+6 3.6e1	# Standard notation for floating-point numbers is acceptable.
+7 490e-1# Here's another, with a negative exponent.
+8 64.
+9 +81.0	# The "+" is redundant, but acceptable.
+10 1e2
+
+# There can be more comments at the end ....

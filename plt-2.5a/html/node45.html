@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Generating EPSF using plt </TITLE>
+<META NAME="description" CONTENT="Generating EPSF using plt ">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node46.html">
+<LINK REL="previous" HREF="node44.html">
+<LINK REL="up" HREF="node44.html">
+<LINK REL="next" HREF="node46.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html868"
+  HREF="node46.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html862"
+  HREF="node44.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html856"
+  HREF="node44.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html864"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html866"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html869"
+  HREF="node46.html">Including plt figures in a L<SUP>A</SUP>TEX document</A>
+<B>Up:</B> <A NAME="tex2html863"
+  HREF="node44.html">Preparing Printed Output</A>
+<B> Previous:</B> <A NAME="tex2html857"
+  HREF="node44.html">Preparing Printed Output</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001710000000000000000"></A><A NAME="sec:epsf"></A>
+<BR>
+Generating EPSF using <TT>plt</TT> 
+</H1>
+<P>
+<FONT SIZE="+2"><A NAME="2687"></A>To make <TT>plt</TT> produce an EPSF file suitable for inclusion in a L<SUP><SMALL>A</SMALL></SUP>T<SMALL>E</SMALL>X
+document, simply pipe the output of <TT>plt</TT> to <TT>lwcat -eps</TT>, adding
+any other <TT>plt</TT> or <TT>lwplt</TT> options you wish, and capture the output
+of <TT>lwcat</TT> in a file with the suffix <TT>.ps</TT> (this suffix is required by
+L<SUP><SMALL>A</SMALL></SUP>T<SMALL>E</SMALL>X's <TT>epsfig</TT> package).  Note that <TT>lwcat</TT>'s <TT>-c<EM>N</EM></TT>
+options are ignored when generating EPSF.
+</FONT>
+<P>
+<FONT SIZE="+2">You may wish to print a ``proof'' copy of your <TT>plt</TT> figure.  To do so,
+simply print the <TT>.ps</TT> file, for example, using the command
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+lpr file.ps
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<BR> <HR>
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

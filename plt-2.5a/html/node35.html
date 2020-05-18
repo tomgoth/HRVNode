@@ -1,0 +1,245 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Legends </TITLE>
+<META NAME="description" CONTENT="Legends ">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node36.html">
+<LINK REL="previous" HREF="node34.html">
+<LINK REL="up" HREF="node33.html">
+<LINK REL="next" HREF="node36.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html726"
+  HREF="node36.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html720"
+  HREF="node33.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html714"
+  HREF="node34.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html722"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html724"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html727"
+  HREF="node36.html">Placing multiple plots on a page</A>
+<B>Up:</B> <A NAME="tex2html721"
+  HREF="node33.html">Plotting Two or More Data Sets Together</A>
+<B> Previous:</B> <A NAME="tex2html715"
+  HREF="node34.html">Plotting multiple data sets on one set</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001020000000000000000"></A><A NAME="sec:legends"></A>
+<BR>
+Legends 
+</H1>
+<P>
+<FONT SIZE="+2"><A NAME="1664"></A><A NAME="1665"></A>A legend (also known as a key) is useful when two or more data plots are drawn
+on the same axes, as in the previous section.  A legend typically includes <EM>sample plot segments</EM> (short segments drawn using the same line styles used for
+the data plots), each of which is followed by <EM>legend text</EM> (typically a
+description of the associated plot).  Figure&nbsp;<A HREF="#fig:example10">7.3</A> illustrates a
+plot that includes a boxed legend.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="3457"></A><A NAME="3458"></A>The <TT>-lp</TT> option is used to specify the location for the legend,
+and the <TT>-le</TT> option is used to define an entry to be shown as
+part of the legend.  These options take their arguments as follows:
+</FONT>
+<P>
+
+<BLOCKQUOTE><FONT SIZE="+2"><TT>-lp</TT> <I>xw0 yw0 boxscale seglength opaque</I>
+<BR><TT>-le</TT> <I>linenumber plotnumber text</I>
+</FONT></BLOCKQUOTE>
+<P>
+<FONT SIZE="+2"><A NAME="1679"></A>The first two arguments of <TT>-lp</TT> define the window coordinates of
+the upper left corner (<TT>LT</TT>) of the legend text.  <TT>plt</TT> draws
+a box around the legend text, determining the width and height of the
+box based on the size of the text and sample plot segments it
+encloses, but you can adjust the width of the box using the optional
+<EM>boxscale</EM> argument (which is a factor that multiplies the width
+calculated by <TT>plt</TT>).  Thus a <EM>boxscale</EM> of 1.05 creates a box
+5% larger than the default size; as a special case, a <EM>boxscale</EM>
+of 0 suppresses the box entirely.  The optional <EM>seglength</EM>
+argument tells <TT>plt</TT> how long to make the sample plot segments in
+the legend, as a fraction of the x axis length (by default, <TT>plt</TT>
+draws these segments so that they are 5% of the length of the x
+axis).  If <EM>opaque</EM> is <TT>yes</TT> (default), the background of the
+legend box is opaque white;  otherwise, the legend box is transparent
+(any previously drawn material remains visible through the legend box).
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="1692"></A>The first argument of <TT>-le</TT> specifies the line number of the entry
+within the legend (the top line is line number 0).  Each plot drawn by
+<TT>plt</TT> has an implicit <EM>plotnumber</EM> (the first has a <EM>plotnumber</EM> of 0); this is the second argument of <TT>-le</TT>, used to
+determine the line style for the entry's sample plot segment).  The
+third and final argument of <TT>-le</TT> is the text to be shown next to
+the sample plot segment.
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:example10"></A><A NAME="3460"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 7.3:</STRONG>
+See section&nbsp;<A HREF="#sec:legends">7.2</A>, <EM>Legends</EM>, for details on how this plot was created.
+</CAPTION>
+<TR><TD><IMG
+ WIDTH="700" HEIGHT="580" BORDER="0"
+ SRC="img85.png"
+ ALT="\begin{figure}\begin{center}
+\fcolorbox{blue}{white}{
+\epsfig{file=figure10,height=10cm}}
+\end{center}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<FONT SIZE="+2">Study figure&nbsp;<A HREF="#fig:example10">7.3</A> to see how these options work.
+This plot was produced using the command
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+plt example10.data % -f example10.format
+</PRE>
+<DIV ALIGN="CENTER"></DIV><FONT SIZE="+2">
+where the data file, <TT>example10.data</TT>, was produced by this program
+fragment:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+for (i = 0; i &lt; 20; i++)
+    printf("%d %.3lf %.3lf %.3lf\n",
+           i,
+           sin(0.4*i*PI) + 1.5,
+           (double)random()/(double)RAND_MAX + 3.8,
+           .1 + 0.15*(double)random()/(double)RAND_MAX);
+</PRE>
+<DIV ALIGN="CENTER"></DIV><FONT SIZE="+2">
+and  <TT>example10.format</TT> contains:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+t Making Legends with Symbols
+x X Axis Units
+xa 0 20 1
+ya 0 5
+
+# Move the y axis slightly to the left.
+yo .02
+
+# Make four plots on the same set of axes.
+p 0,1n(W5,L1) 0,1S1 0,2n(W12,G.8) 0,2,3E0
+
+# Put legend text at window coordinates (.67,.64) and
+# widen the legend box by 5%.
+lp .67 .64 1.05
+
+# Describe plot 2 in the top line (line 0) of the legend.
+le 0 2 Random Series
+
+# Plot 3 is the same as plot 2, but with a different
+# plotstyle (using symbols).  By using a second "le"
+# command for line 0 here, we create a sample plot
+# segment that is composed by overlaying the two
+# plotstyles.  The text has already been supplied in
+# the previous command, so it is omitted here.
+le 0 3
+
+# The plot number is omitted from the next "le" command,
+# because the text that is to appear on line 1 of the
+# legend is a continuation of the description of the
+# data in line 0.  The "-" means that no sample data
+# segment will be drawn when this command is executed.
+le 1 - (Synthesized)
+
+# Describe plots 0 and 1.
+le 2 0 Sine Function
+le 2 1
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2">(The <TT>-yo</TT> option is described in chapter&nbsp;<A HREF="node42.html#sec:ax2">12</A>.)
+The line beginning with ``<TT>p&nbsp;0</TT>...'' makes four plots using
+several different plot styles:
+</FONT>
+<P>
+
+<UL>
+<LI>Plot number 0 (<TT>0,1n(W5,L1)</TT>) plots columns 0 and 1 in normal plot
+(<TT>n</TT>) style, using a line width of 5 (<TT>W5</TT>, slightly broader than the
+default, 3 or 4) and a dotted line (<TT>L1</TT>).  
+</LI>
+<LI>Plot number 1 (<TT>0,1S1</TT>) replots columns 0 and 1, this time as
+a scatter plot (<TT>S1</TT>), where the ``<TT>1</TT>'' indicates the use of
+symbol number 1 (an open inverted triangle).
+</LI>
+<LI>Plot number 2 (<TT>0,2n(W12,G.8)</TT>) plots columns 0 and 2 in
+normal plot style, using a broad line (<TT>W12</TT>) drawn in 80% grey
+(<TT>G.8</TT>).
+</LI>
+<LI>Plot number 3 (<TT>0,2,3E0</TT>) replots columns 0 and 2 as a
+scatter plot with error bars from column 3, using symbol number 0
+(an open circle).
+</LI>
+</UL>
+<P>
+<FONT SIZE="+2"><EM>Transient fontgroup modifications</EM> such as ``<TT>(W5,L1)</TT>'' and ``<TT>(W12,G.8)</TT>'' are described in detail in
+chapter&nbsp;<A HREF="node41.html#sec:font-groups">11</A>.  Note that the order of the overlay
+affects the appearance; since the open symbols (numbers 0 through 4)
+used in plots 1 and 3 have opaque centers, they appear differently if
+drawn on top of (after) other elements than if drawn below (before)
+those elements.
+</FONT>
+<P>
+<HR>
+<A NAME="tex2html726"
+  HREF="node36.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html720"
+  HREF="node33.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html714"
+  HREF="node34.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html722"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html724"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html727"
+  HREF="node36.html">Placing multiple plots on a page</A>
+<B>Up:</B> <A NAME="tex2html721"
+  HREF="node33.html">Plotting Two or More Data Sets Together</A>
+<B> Previous:</B> <A NAME="tex2html715"
+  HREF="node34.html">Plotting multiple data sets on one set</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

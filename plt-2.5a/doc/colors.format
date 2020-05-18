@@ -1,0 +1,35 @@
+X 0 1
+Y 0 1
+sf a CSkyBlue
+sf red Cred
+sf green Cgreen
+sf blue Cblue
+sf PapayaWhip CPapayaWhip
+sf coral Ccoral
+sf yellow Cyellow
+sf custom1 C#007f00
+sf custom2 C#cc007f
+sf custom3 C#101010
+sf white Fh-b Cwhite
+sf black Fh Cblack
+D (red) .1 .8 .3 1.0
+L (white) .2 .9 CC red
+D (green) .4 .8 .6 1.0
+L (white) .5 .9 CC green
+D (blue) .7 .8 .9 1.0
+L (white) .8 .9 CC blue
+D (PapayaWhip) .1 .5 .3 .7
+L (black) .2 .6 CC PapayaWhip
+D (coral) .4 .5 .6 .7
+L (white) .5 .6 CC coral
+D (yellow) .7 .5 .9 .7
+L (black) .8 .6 CC yellow
+D (custom1) .1 .2 .3 .4
+L (white) .2 .3 CC #007f00
+D (custom2) .4 .2 .6 .4
+L (white) .5 .3 CC #cc007f
+D (custom3) .7 .2 .9 .4
+L (white) .8 .3 CC #101010
+x (green) x axis
+y (red) y axis
+t (blue) Plotting in color

@@ -1,0 +1,37 @@
+# The entire format file is scanned, so the x axis title is
+# rendered in the font specified by the "sf t" option below.
+x Time (seconds)
+
+# Specify black 24-point Helvetica Bold for the "t" fontgroup.
+# Although black is the default color, it needs to be specified
+# explicitly (see below).
+sf t Fh-b,P24,Cblack
+
+# Specify red for the "p" fontgroup.
+sf p Cred
+
+# Here, a transient fontgroup modification (P/2) overrides the
+# previously defined point size setting for the "t" font, so
+# that the y axis title is rendered half as large as the
+# (unscaled) x axis title.
+y (P/2) Amplitude
+
+# As shown in the previous line, if the argument following
+# an option begins with "(", it is interpreted as a local
+# fontgroup spec.  In order to use a string beginning with
+# "(" as a string argument, it is necessary to quote it:
+t "(Noisy) Sinusoid"
+# Note that this title is rendered in 24-point type;  the
+# effect of the local spec used earlier is limited to the
+# line on which it appeared.
+
+# Here, we make two plots, first a normal plot using the
+# "p" fontgroup (in red), then a scatter plot using triangles.
+# The effect of the "(t)" is to specify that the "t" fontgroup
+# must be used for the second plot;  thus the triangles are
+# black, not red, and are sized to match the 24-point type of
+# fontgroup "t".
+p 0,1n(p) 0,1Striangle(t)
+# If, however, the color had not been specified explicitly
+# for fontgroup "t", plt would not change the color between
+# plots, and the triangles would be rendered in red.

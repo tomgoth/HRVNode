@@ -1,0 +1,243 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Placing multiple plots on a page </TITLE>
+<META NAME="description" CONTENT="Placing multiple plots on a page ">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="previous" HREF="node35.html">
+<LINK REL="up" HREF="node33.html">
+<LINK REL="next" HREF="node37.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html738"
+  HREF="node37.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html732"
+  HREF="node33.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html728"
+  HREF="node35.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html734"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html736"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html739"
+  HREF="node37.html">Labelling Your Plot</A>
+<B>Up:</B> <A NAME="tex2html733"
+  HREF="node33.html">Plotting Two or More Data Sets Together</A>
+<B> Previous:</B> <A NAME="tex2html729"
+  HREF="node35.html">Legends</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001030000000000000000"></A><A NAME="sec:plot-windows"></A>
+<BR>
+Placing multiple plots on a page 
+</H1>
+<P>
+<FONT SIZE="+2"><A NAME="3462"></A><A NAME="3463"></A><A NAME="1747"></A>In this section, the concept of using multiple windows within a single
+screen or page is introduced.  You will need to become familiar with
+the following options:
+</FONT>
+<P>
+
+<BLOCKQUOTE><FONT SIZE="+2"><TT>-W</TT> <I>xp0 yp0 xp1 yp1</I>
+<BR><TT>-w</TT> <I>type subsection</I>
+</FONT></BLOCKQUOTE>
+<P>
+<FONT SIZE="+2"><A NAME="1754"></A>The arguments of the <TT>-W</TT> option are the <EM>page coordinates</EM> of
+the lower left <IMG
+ WIDTH="92" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img86.png"
+ ALT="$(xp0,yp0)$"> and upper right <IMG
+ WIDTH="92" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$(xp1,yp1)$"> corners of the
+plot window.  (Recall that the default plot window, which fills the
+entire page or screen, has corners with page coordinates <IMG
+ WIDTH="50" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img36.png"
+ ALT="$(0,0)$"> and
+<IMG
+ WIDTH="50" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img37.png"
+ ALT="$(1,1)$">.)  All output is scaled to fit within this window.  
+</FONT>
+<P>
+<FONT SIZE="+2">Study figure&nbsp;<A HREF="#fig:example16">7.4</A>, in which the <TT>-W</TT> option is used to scale
+entire plots and the <TT>-s e</TT> option (see chapter&nbsp;<A HREF="node40.html#sec:suppress">10</A>) is
+used to suppress erasure so that the plots appear on the same page.
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:example16"></A><A NAME="3465"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 7.4:</STRONG>
+This example demonstrates how a plot can be
+scaled and placed on the page; it was produced using these commands:
+</CAPTION>
+<TR><TD><IMG
+ WIDTH="743" HEIGHT="762" BORDER="0"
+ SRC="img88.png"
+ ALT="\begin{figure}\begin{center}
+\fcolorbox{blue}{white}{
+\epsfig{file=figure16,heig...
+...DE'' -W .6 .55 .9 .8 -se -sf all P14\end{boxedverbatim}
+\end{center}\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<FONT SIZE="+2">The <TT>-w</TT> option can address several windows that have been
+predefined for convenience.  The first argument of <TT>-w</TT> may be
+<TT>m</TT> (a single window that fits within a frame to be described
+shortly), <TT>b</TT> (one of two windows covering either the top or
+bottom of the page), or <TT>q</TT> (one of four windows covering the
+upper left, upper right, lower left, or lower right quadrant of the
+page).  The variant types <TT>ms</TT>, <TT>bs</TT>, and <TT>qs</TT> are windows
+of reduced size to allow extra room for axis labels.  Use the <EM>subsection</EM> argument (which may have values 0, 1, 2, 3, or 4) to
+specify which window is to be used for the current plot.  By
+convention, subsection 0 is used to start a new page (erase the
+screen) and to draw a grid and a title for the page.  When using
+subsections 1, 2, 3, or 4, the plot is drawn on the current page
+without erasing anything that may have been plotted there already.
+</FONT>
+<P>
+<FONT SIZE="+2">Figures&nbsp;<A HREF="#fig:example11">7.5</A>, <A HREF="#fig:example12">7.6</A>, and <A HREF="#fig:example13">7.7</A>
+illustrate the use of <TT>-wm</TT>, <TT>-wb</TT>, and <TT>-wq</TT> respectively.  All
+three use the data file <TT>example11.data</TT>, which contains:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+0 0 0 9 1
+1 3 1 6 0
+2 2 2 7 1
+3 4 3 4 2
+4 3 4 5 3
+5 5 3 3 4
+6 4 2 4 3
+7 7 1 2 2
+8 6 0 3 1
+9 9 1 0 0
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:example11"></A><A NAME="3467"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 7.5:</STRONG>
+This plot was created using the commands:
+</CAPTION>
+<TR><TD><IMG
+ WIDTH="700" HEIGHT="647" BORDER="0"
+ SRC="img89.png"
+ ALT="\begin{figure}\begin{center}
+\fcolorbox{blue}{white}{
+\epsfig{file=figure11,heig...
+...ple11.data 0 1 -wm 1 -t ''Window 1''\end{boxedverbatim}
+\end{center}\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:example12"></A><A NAME="3469"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 7.6:</STRONG>
+This plot was created using the commands:
+</CAPTION>
+<TR><TD><IMG
+ WIDTH="700" HEIGHT="671" BORDER="0"
+ SRC="img90.png"
+ ALT="\begin{figure}\begin{center}
+\fcolorbox{blue}{white}{
+\epsfig{file=figure12,heig...
+...ple11.data 0 2 -wb 2 -t ''Window 2''\end{boxedverbatim}
+\end{center}\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:example13"></A><A NAME="3471"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 7.7:</STRONG>
+This plot was created using the commands:
+</CAPTION>
+<TR><TD><IMG
+ WIDTH="700" HEIGHT="719" BORDER="0"
+ SRC="img91.png"
+ ALT="\begin{figure}\begin{center}
+\fcolorbox{blue}{white}{
+\epsfig{file=figure13,heig...
+...ple11.data 0 4 -wq 4 -t ''Window 4''\end{boxedverbatim}
+\end{center}\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<FONT SIZE="+2"><A NAME="1823"></A><A NAME="3472"></A>When reducing the size of a plot, it is often desirable to avoid rescaling
+any text in the plot, so that it remains readable.  The <TT>-ch</TT> option
+makes this possible:
+</FONT>
+<P>
+<DL>
+<DT><STRONG><TT>-ch</TT> <EM>height-factor width-factor</EM></STRONG></DT>
+<DD>Use this option to resize text;  the arguments specify factors by which the
+normal height and width of characters output by <TT>plt</TT> are to be enlarged
+(or reduced, if a factor is less than 1).
+</DD>
+</DL>
+<P>
+<HR>
+<A NAME="tex2html738"
+  HREF="node37.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html732"
+  HREF="node33.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html728"
+  HREF="node35.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html734"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html736"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html739"
+  HREF="node37.html">Labelling Your Plot</A>
+<B>Up:</B> <A NAME="tex2html733"
+  HREF="node33.html">Plotting Two or More Data Sets Together</A>
+<B> Previous:</B> <A NAME="tex2html729"
+  HREF="node35.html">Legends</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

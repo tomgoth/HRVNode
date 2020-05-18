@@ -1,0 +1,21 @@
+x
+t
+xa -10 10 - - - -25
+ya -100 100 - - - -2.5
+
+a (P20,W16) 4.8 48 2.5 25
+l  1.5 15 CC Data coordinates (5,50)
+c (Ldotted) 5 -25 5 75 
+c (Ldotted) -2.5 50 7.5 50
+
+B (Cred,Ldotted) 0 0 1 1
+A (Cred,P20,W16) .99 .99 .9 .9
+L (Cred) .89 .9 RC Window coordinates (1,1)
+A (Cred,P20,W16) .01 .01 .1 .1
+L (Cred) .11 .1 LC Window coordinates (0,0)
+
+B (Cblue,Ldotted) -.264 -.30 1.063 1.23
+A (Cblue,P20,W16) 1.06 1.225 .95 1.1
+L (Cblue) .94 1.1 RC Page coordinates (1,1)
+A (Cblue,P20,W16) -.26 -.295 -.15 -.19
+L (Cblue) -.14 -.19 LC Page coordinates (0,0)

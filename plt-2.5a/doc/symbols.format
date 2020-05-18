@@ -1,0 +1,14 @@
+X 100 450
+Y 0 600
+s xyt
+p 0,4S0 0,3S1 0,2S2 0,1S3 0,0S4 2,4S5 2,3S6 2,2S7 2,1S8 2,0S9
+l 125 500 LC 0   circle
+l 125 400 LC 1   utriangle
+l 125 300 LC 2   diamond
+l 125 200 LC 3   square
+l 125 100 LC 4   triangle
+l 325 500 LC 5   fcircle
+l 325 400 LC 6   futriangle
+l 325 300 LC 7   fdiamond
+l 325 200 LC 8   fsquare
+l 325 100 LC 9   ftriangle

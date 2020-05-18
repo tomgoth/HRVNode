@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>A brief history of plt</TITLE>
+<META NAME="description" CONTENT="A brief history of plt">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node6.html">
+<LINK REL="previous" HREF="node4.html">
+<LINK REL="up" HREF="node4.html">
+<LINK REL="next" HREF="node6.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html290"
+  HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html284"
+  HREF="node4.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html278"
+  HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html286"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html288"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html291"
+  HREF="node6.html">How to read this book</A>
+<B>Up:</B> <A NAME="tex2html285"
+  HREF="node4.html">Introduction</A>
+<B> Previous:</B> <A NAME="tex2html279"
+  HREF="node4.html">Introduction</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00410000000000000000">
+A brief history of <TT>plt</TT></A>
+</H1>
+<P>
+<FONT SIZE="+2"><A NAME="88"></A><A NAME="3275"></A><A NAME="3276"></A><A NAME="91"></A>Early versions of Unix included an elegant utility called <TT>graph</TT>, which
+accepted simple text files such as:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+1 1
+2 4
+3 9
+4 16
+</PRE>
+<DIV ALIGN="CENTER"></DIV><FONT SIZE="+2">
+
+producing from them neatly scaled and labelled 2D plots in a device-independent
+format.  <TT>graph</TT> was accompanied by <TT>plot</TT>, which consisted of a family
+of interpreters (drivers) that translated <TT>graph</TT>'s output for a wide
+variety of mostly obsolete graphics terminals.  I wrote a number of <TT>plot</TT>
+drivers for slightly-less obsolete devices around 1982, and Paul Albrecht wrote
+the first version of <TT>plt</TT> as a replacement for <TT>graph</TT> when it
+disappeared from the standard Unix toolkit, sometime after Version 6.  (Try
+it out: type the numbers above into a file named <TT>squares</TT>, putting two
+numbers on each line, then run the command ``<TT>plt squares</TT>''.  It's that
+easy!)
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="105"></A><A NAME="106"></A>Early versions of <TT>plt</TT> used drivers I had written for the Tektronix 4010
+(a vector graphics terminal with a storage display; we had a few of them around
+the lab), the Tektronix 4662 XY plotter that was capable of changing pens (the
+first color output device we had), the NEC Spinwriter (an impact printer with
+fine-resolution paper control, for which a special type wheel with a brass
+``.'' was available, for plotting applications such as ours), and even dumb
+terminals (with 80x24 resolution).  During the mid-1980s, MIT's Project Athena
+produced the first versions of the X Window System, and Apple produced the
+first PostScript printer (the LaserWriter).  Paul wrote X11 and PostScript
+drivers and integrated them with <TT>plt</TT>, in order to make better use of the
+enhanced capabilities of these environments than was possible using only the
+Unix <TT>plot</TT> API.  It is these two drivers, with updates I have made since
+the early 1990s, that are the nucleus of <TT>plt</TT> today.
+</FONT>
+<P>
+<HR>
+<A NAME="tex2html290"
+  HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html284"
+  HREF="node4.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html278"
+  HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html286"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html288"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html291"
+  HREF="node6.html">How to read this book</A>
+<B>Up:</B> <A NAME="tex2html285"
+  HREF="node4.html">Introduction</A>
+<B> Previous:</B> <A NAME="tex2html279"
+  HREF="node4.html">Introduction</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

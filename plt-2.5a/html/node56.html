@@ -1,0 +1,186 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Compiling and Using plt under MS-Windows</TITLE>
+<META NAME="description" CONTENT="Compiling and Using plt under MS-Windows">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="previous" HREF="node55.html">
+<LINK REL="up" HREF="node53.html">
+<LINK REL="next" HREF="node57.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html1021"
+  HREF="node57.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1015"
+  HREF="node53.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1011"
+  HREF="node55.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1017"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1019"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html1022"
+  HREF="node57.html">What's New?</A>
+<B>Up:</B> <A NAME="tex2html1016"
+  HREF="node53.html">How to get and install plt</A>
+<B> Previous:</B> <A NAME="tex2html1012"
+  HREF="node55.html">Compiling and Using plt under Mac OS</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION002130000000000000000">
+Compiling and Using <TT>plt</TT> under MS-Windows</A>
+</H1>
+<P>
+<FONT SIZE="+2">It is possible without much trouble to compile and use <TT>plt</TT> under
+MS-Windows.  Do not attempt to use a commercial C compiler for this purpose,
+however.  The only C compiler that is known to work is Cygwin <TT>gcc</TT>
+(which is freely available from <TT>http://www.cygwin.com/</TT>
+and comes accompanied by a complete set of development tools and other
+utilities including GNU <TT>tar</TT>, <TT>make</TT>, <TT>bash</TT>, <TT>cat</TT>,
+<TT>dd</TT>, <TT>rm</TT>, and <TT>tr</TT>).
+</FONT>
+<P>
+
+<UL>
+<LI>Download and install Cygwin.  In the <EM>Select Packages</EM> dialog, you
+will see a collapsed tree view of the numerous packages available.  Click the
+View button once so that the indicator to its right changes from ``Category''
+to ``Full''.  You may resize the dialog box as needed until the package names
+are visible.  To select a package for installation, click on its rotating
+selector (in the New column) to cycle through the available choices until
+a version number appears.  In most cases, you should choose the highest version
+number from among those that are available (this is usually the first
+alternative offered).  Be sure to choose at least the following packages for
+installation:
+<DL>
+<DT></DT>
+<DD><EM>bc</EM>
+Needed by <TT>pltf</TT> for function plotting.
+</DD>
+<DT></DT>
+<DD><EM>gcc</EM>
+Needed to compile <TT>plt</TT>.
+</DD>
+<DT></DT>
+<DD><EM>gv</EM>
+Needed to preview PostScript plots
+</DD>
+<DT></DT>
+<DD><EM>ImageMagick</EM>
+Needed to make PNG plots (for use on web pages, etc.)
+</DD>
+<DT></DT>
+<DD><EM>make</EM>
+Needed to install <TT>plt</TT>.
+</DD>
+<DT></DT>
+<DD><EM>xorg-x11-devel</EM>
+Needed to make screen plots
+</DD>
+</DL>
+
+<P>
+</LI>
+<LI>Download <TT>plt.tar.gz</TT> using your web browser.
+
+<P>
+</LI>
+<LI>Open a Cygwin terminal emulator window (the Cygwin installation will have
+created a desktop icon for this) and perform the remaining steps by typing
+into it.
+
+<P>
+</LI>
+<LI>Follow the instructions in the Linux or Unix section above for unpacking
+the compressed archive of <TT>plt</TT> sources (<TT>plt.tar.gz</TT>).
+
+<P>
+</LI>
+<LI>Compile and install <TT>plt</TT> by typing:
+</LI>
+</UL>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+make install
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+
+<UL>
+<LI>To test the installation, start the X server (e.g., using <TT>startx</TT>)
+if it is not running already, and then (from an X terminal window) type:
+</LI>
+</UL>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+make xdemo
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2">To test the PostScript driver, try this:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+make psdemo
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<HR>
+<A NAME="tex2html1021"
+  HREF="node57.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1015"
+  HREF="node53.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1011"
+  HREF="node55.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1017"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1019"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html1022"
+  HREF="node57.html">What's New?</A>
+<B>Up:</B> <A NAME="tex2html1016"
+  HREF="node53.html">How to get and install plt</A>
+<B> Previous:</B> <A NAME="tex2html1012"
+  HREF="node55.html">Compiling and Using plt under Mac OS</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Margins, cropping, and bounding boxes </TITLE>
+<META NAME="description" CONTENT="Margins, cropping, and bounding boxes ">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node48.html">
+<LINK REL="previous" HREF="node46.html">
+<LINK REL="up" HREF="node44.html">
+<LINK REL="next" HREF="node48.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html896"
+  HREF="node48.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html890"
+  HREF="node44.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html884"
+  HREF="node46.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html892"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html894"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html897"
+  HREF="node48.html">Processing, previewing and printing</A>
+<B>Up:</B> <A NAME="tex2html891"
+  HREF="node44.html">Preparing Printed Output</A>
+<B> Previous:</B> <A NAME="tex2html885"
+  HREF="node46.html">Including plt figures in a L<SUP>A</SUP>TEX document</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001730000000000000000"></A><A NAME="sec:margins"></A>
+<BR>
+Margins, cropping, and bounding boxes 
+</H1>
+<P>
+<FONT SIZE="+2"><A NAME="2771"></A>Every PostScript file included in a L<SUP><SMALL>A</SMALL></SUP>T<SMALL>E</SMALL>X document must have a defined
+bounding box.  Normally, the bounding box is defined using a structured comment
+at the beginning of the PostScript file.  For example, the PostScript source
+for the figures shown above begins like this:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+%!PS-Adobe-3.0
+%%BoundingBox: 90 252 540 684
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2">In some cases, you may need to redefine the bounding box, either to
+adjust the amount of white space surrounding the figure or to crop
+your figure by selecting a clipping region.  You may do so either by
+editing the PostScript file or in the L<SUP><SMALL>A</SMALL></SUP>T<SMALL>E</SMALL>X source file.  Any
+bounding box definitions in the L<SUP><SMALL>A</SMALL></SUP>T<SMALL>E</SMALL>X source override those in the
+PostScript file.  For details, see section 11.3, ``Merging Text and
+PostScript Graphics'', in <EM>The L<SUP><SMALL>A</SMALL></SUP>T<SMALL>E</SMALL>X Companion</EM>, pp. 317-320.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="2780"></A>An easy way to determine the correct bounding box is to view your figure using
+<TT>ghostview</TT>.  Move the mouse pointer to the lower left corner of the figure
+and note the coordinates (displayed by <TT>ghostview</TT> immediately above the
+<TT>File</TT> button); these are the first two numbers in the BoundingBox line.
+Now move the mouse pointer to the upper right corner of the figure; the
+coordinates displayed are the last two numbers in the BoundingBox line.
+</FONT>
+<P>
+<FONT SIZE="+2">Using this technique, we can find a bounding box for the upper left panel in
+<TT>fig.ps</TT>.  To plot that panel only, as shown here
+</FONT>
+<DIV ALIGN="CENTER"><FONT SIZE="+2"><BLINK><FONT COLOR="#ffffff">
+<!-- MATH
+ $\epsfig{file=fig,height=6cm,bbllx=100,bblly=425,bburx=300,
+        bbury=625,clip=}$
+ -->
+<IMG
+ WIDTH="315" HEIGHT="292" ALIGN="BOTTOM" BORDER="0"
+ SRC="img121.png"
+ ALT="\epsfig{file=fig,height=6cm,bbllx=100,bblly=425,bburx=300,
+bbury=625,clip=}"></FONT></BLINK>
+</FONT></DIV><FONT SIZE="+2">
+we can use the commands
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+\begin{center}
+\epsfig{file=fig,height=6cm,bbllx=100,bblly=425,bburx=300,
+        bbury=625,clip=}
+\end{center}
+</PRE>
+<DIV ALIGN="CENTER"></DIV><FONT SIZE="+2">
+(This plot does not ``float'' within the text, since it was not put
+into a <TT>figure</TT> environment; rather, it appears in the same place
+in the output as in the L<SUP><SMALL>A</SMALL></SUP>T<SMALL>E</SMALL>X source file.)  Note that the ``<TT>=</TT>'' is required in the <TT>clip=</TT> option, although no value follows
+the ``<TT>=</TT>''.  Also note that the <TT>clip=</TT> option is ignored
+by pdfL<SUP><SMALL>A</SMALL></SUP>T<SMALL>E</SMALL>X (see this figure in the PDF version of this book).
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="2801"></A>In some cases, <TT>plt</TT> does not respect its own window definitions
+and may plot elements that fall outside of the bounding box.  These elements
+will appear in the L<SUP><SMALL>A</SMALL></SUP>T<SMALL>E</SMALL>X output unless you choose to suppress them using
+the <TT>clip=</TT> option.  Such elements are usually close to the bounding box,
+and no special treatment is required.
+</FONT>
+<P>
+<HR>
+<A NAME="tex2html896"
+  HREF="node48.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html890"
+  HREF="node44.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html884"
+  HREF="node46.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html892"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html894"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html897"
+  HREF="node48.html">Processing, previewing and printing</A>
+<B>Up:</B> <A NAME="tex2html891"
+  HREF="node44.html">Preparing Printed Output</A>
+<B> Previous:</B> <A NAME="tex2html885"
+  HREF="node46.html">Including plt figures in a L<SUP>A</SUP>TEX document</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

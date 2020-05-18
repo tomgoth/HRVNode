@@ -1,0 +1,254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>On-Screen Plots </TITLE>
+<META NAME="description" CONTENT="On-Screen Plots ">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node52.html">
+<LINK REL="previous" HREF="node50.html">
+<LINK REL="up" HREF="book.html">
+<LINK REL="next" HREF="node52.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html950"
+  HREF="node52.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html944"
+  HREF="book.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html938"
+  HREF="node50.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html946"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html948"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html951"
+  HREF="node52.html">Scripting with plt</A>
+<B>Up:</B> <A NAME="tex2html945"
+  HREF="book.html">plt Tutorial and Cookbook</A>
+<B> Previous:</B> <A NAME="tex2html939"
+  HREF="node50.html">Preparing Plots for the Web</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001900000000000000000"></A><A NAME="sec:screen-output"></A>
+<BR>
+On-Screen Plots 
+</H1>
+<P>
+<FONT SIZE="+2"><A NAME="2924"></A><A NAME="2925"></A><A NAME="2926"></A><A NAME="2927"></A><A NAME="2928"></A><A NAME="2929"></A><A NAME="2930"></A>This appendix describes how to get additional control over on-screen
+plots made under the X Window System.  The X Window System is a
+standard component of GNU/Linux and virtually all current versions of
+Unix, including Mac OS X.  A high-quality implementation of X is
+freely available for MS-Windows (Cygwin/X, from <TT>http://www.cygwin.com/</TT>).  If you are not using the X Window System,
+the features described here are not available; see
+appendix&nbsp;<A HREF="node44.html#sec:printed-output">B</A> for information about making
+PostScript plots that can be viewed or printed using GhostScript and
+<TT>gv</TT> or GSView.
+</FONT>
+<P>
+<FONT SIZE="+2">Classic versions of <TT>plt</TT> also included screen drivers for a
+variety of (mostly obsolete) graphics terminals.  These non-X screen
+drivers are available in the <TT>classic</TT> directory of the <TT>plt</TT>
+source distribution, but they lack support for some of the advanced
+features of <TT>plt</TT>; they are not described further in this book.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="2938"></A><A NAME="2939"></A><A NAME="2940"></A><A NAME="2941"></A><A NAME="2942"></A>All of the features described in this book are available when using
+<TT>plt</TT> under the X Window System to make on-screen plots.  (Classic
+versions of <TT>plt</TT> did not support text scaling and rotation, grey
+scale and color plotting, polygon fills, line width and style (dotted,
+dashed, etc.), opaque-center outline symbols, or progressive display
+in quickplot mode, all of which are now supported under X.)
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="2945"></A>In normal use, there is little you will need to know specifically
+about making screen plots; simply use <TT>plt</TT> as described
+throughout this book, and you will get screen plots unless you have
+selected PostScript output using the methods described in the previous
+appendix.  Your plots will appear in a window named <TT>Plt Window</TT>,
+which you can dismiss by typing an escape character (or <TT>q</TT>, or
+<TT>x</TT>) into the window.  If you don't dismiss the <TT>plt</TT> window,
+your next plot will appear in the same window; if you use the <TT>-o</TT>
+or <TT>-s e</TT> option, the previous contents of the window will not be
+erased, and you will be able to overlay plots.
+</FONT>
+<P>
+<FONT SIZE="+2">The <TT>plt</TT> window can be resized (using whatever controls your
+window manager provides, typically by clicking and dragging the window
+frame using the mouse), but its contents will not be rescaled; run
+<TT>plt</TT> again to obtain a plot sized to fit the window.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="3562"></A>If you would like to create a new <TT>plt</TT> window while keeping an existing
+one intact, use the command:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+xpltwin
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2">You don't need to run <TT>xpltwin</TT> to create the first <TT>plt</TT> window;
+<TT>plt</TT> looks to see if one exists and invokes <TT>xpltwin</TT> to create
+one if necessary.  If two or more <TT>plt</TT> windows exist, <TT>plt</TT>
+draws into the most recently created one.
+</FONT>
+<P>
+<FONT SIZE="+2"><TT>xpltwin</TT> accepts an optional geometry specification, using this syntax:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"><FONT SIZE="+2"><!-- MATH
+ $\fbox{
+{\tt xpltwin} {\tt -g} {\em width}{\tt x}{\em height}{\tt +-}{\em xoff}{\tt +-}{\em yoff}}$
+ -->
+<IMG
+ WIDTH="355" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img122.png"
+ ALT="\fbox{
+{\tt xpltwin} {\tt -g} {\em width}{\tt x}{\em height}{\tt +-}{\em xoff}{\tt +-}{\em yoff}}"></FONT></DIV>
+<P>
+<FONT SIZE="+2">The <TT>-g</TT> option accepts a geometry string (in the same format used
+by many other X applications) to specify the initial size of the
+window, and (if the window manager cooperates, which many do not) the
+window placement on the screen.  The geometry string may also be
+specified as the value of the <TT>XPGEOMETRY</TT> environment variable;
+the command-line option overrides the environment variable if both are
+provided.  If the geometry is unspecified, the window will fill one
+quarter of the screen, and will be centered on the screen if possible.
+The geometry string can also be saved as an X resource named
+<TT>xplt.geometry</TT>;  you can save your preferred size in your <TT>.Xdefaults</TT> resource file by adding an entry such as:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+xplt.geometry: 800x600
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2">The resource is overridden by either the <TT>XPGEOMETRY</TT> environment
+variable or a command-line geometry string if either is set.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="2988"></A>It is also possible to set the names of your preferred fonts in your
+<TT>.Xdefaults</TT> file.  The defaults are:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+xplt.font_h:    "-*-helvetica-medium-r-*-*-%d-*-*-*-*-*-*-*"
+xplt.font_hb:   "-*-helvetica-bold-r-*-*-%d-*-*-*-*-*-*-*"
+xplt.font_ho:   "-*-helvetica-medium-o-*-*-%d-*-*-*-*-*-*-*"
+xplt.font_hbo:  "-*-helvetica-bold-o-*-*-%d-*-*-*-*-*-*-*"
+xplt.font_hob:  "-*-helvetica-bold-o-*-*-%d-*-*-*-*-*-*-*"
+xplt.font_c:    "-*-courier-medium-r-*-*-%d-*-*-*-*-*-*-*"
+xplt.font_cb:   "-*-courier-bold-r-*-*-%d-*-*-*-*-*-*-*"
+xplt.font_co:   "-*-courier-medium-o-*-*-%d-*-*-*-*-*-*-*"
+xplt.font_cbo:  "-*-courier-bold-o-*-*-%d-*-*-*-*-*-*-*"
+xplt.font_cob:  "-*-courier-bold-o-*-*-%d-*-*-*-*-*-*-*"
+xplt.font_t:    "-*-times-medium-r-*-*-%d-*-*-*-*-*-*-*"
+xplt.font_tr:   "-*-times-medium-r-*-*-%d-*-*-*-*-*-*-*"
+xplt.font_tb:   "-*-times-bold-r-*-*-%d-*-*-*-*-*-*-*"
+xplt.font_ti:   "-*-times-medium-i-*-*-%d-*-*-*-*-*-*-*"
+xplt.font_tbi:  "-*-times-bold-i-*-*-%d-*-*-*-*-*-*-*"
+xplt.font_tib:  "-*-times-bold-i-*-*-%d-*-*-*-*-*-*-*"
+xplt.font_s:    "-*-symbol-medium-r-*-*-%d-*-*-*-*-*-*-*"
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2"><A NAME="3564"></A><A NAME="2995"></A>The final part of the resource name (e.g., <TT>tbi</TT> in <TT>xplt.font_tbi</TT>) indicates the font name as supplied in the <TT>F</TT>
+parameter of the <TT>-sf option</TT>, such as <TT>t-b-i</TT> in this
+example.  The values attached to these names should normally be
+scalable font names, but with <TT>%d</TT> at the position that
+corresponds to the font size.  You can use non-scalable fonts,
+or you can force a scalable font to be used only at one size by
+providing font names without <TT>%d</TT>.  Use the <TT>xfontsel</TT>
+or <TT>xlsfonts</TT> utilities provided with most versions of the X
+Window System to see what fonts are available on your system.
+</FONT>
+<P>
+<FONT SIZE="+2">The <TT>plt</TT> window can be given a name other than <TT>Plt Window</TT> by
+setting the value of the environment variable <TT>XPLTWIN</TT> to
+the name you have chosen.  For example, using the Bourne or a similar
+shell, you can create a window named ``<TT>Power Spectrum</TT>'' and plot
+into it using these commands:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+XPLTWIN="Power Spectrum"
+export XPLTWIN
+plt spectrum.data 0 1 -f spectrum.format
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2">If you use <TT>csh</TT> or a similar shell, use
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+setenv XPLTWIN "Power Spectrum"
+</PRE>
+<DIV ALIGN="CENTER"></DIV><FONT SIZE="+2">
+instead of the ``<TT>XPLTWIN=...</TT>'' and ``<TT>export XPLTWIN</TT>'' commands
+above.
+</FONT>
+<P>
+<FONT SIZE="+2">By giving multiple <TT>plt</TT> windows different names and then changing
+the value of <TT>XPLTWIN</TT>, you can redirect successive plots to any
+of these windows in any order.
+</FONT>
+<P>
+<HR>
+<A NAME="tex2html950"
+  HREF="node52.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html944"
+  HREF="book.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html938"
+  HREF="node50.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html946"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html948"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html951"
+  HREF="node52.html">Scripting with plt</A>
+<B>Up:</B> <A NAME="tex2html945"
+  HREF="book.html">plt Tutorial and Cookbook</A>
+<B> Previous:</B> <A NAME="tex2html939"
+  HREF="node50.html">Preparing Plots for the Web</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

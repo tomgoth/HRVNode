@@ -1,0 +1,29 @@
+N=9
+WORDS=22
+
+BRAVE=-e"x=rnd(0)*($N-1)/$N,y=rnd(0)*($N-1)/$N"
+MAYBE=-e"x=r,y=(1.8*sin(3*PI*(row%$N)/$N)+2)/$N+.35*c"
+BORING=-e"x=r,y=c"
+
+case $1 in
+	"")	echo "Are you Brave (Yes, No, Maybe)?"
+		read ANS;;
+	*)	ANS=$1; shift;;
+esac
+
+case $ANS in
+	y*|Y*)	CASE="$BRAVE";;
+	m*|M*)	CASE="$MAYBE";;
+	*)	CASE="$BORING";;
+esac
+
+math : -i"c,r,x,y" -e"c=int(row/$N)/$N,r=(row%$N)/$N" $CASE \
+-o"$N*x+0.5,$N-($N*y+0.5),row%$WORDS,row%$N==0" -t"row > $N*$N-1.1" | \
+plt % -F"
+p  0,1,2t  0,1,3c(Ldot)
+tf sdemo.l
+xa 0 $N 1 - 1
+ya 0 $N 1 - 1
+t (Ft-b)  Mary had a little lamb.
+ex
+x"

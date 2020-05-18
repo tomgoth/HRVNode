@@ -1,0 +1,213 @@
+%!PS-Adobe-3.0
+%%BoundingBox: 55 241 574 673
+%%Title: (plt/lwcat output)
+%%CreationDate: Sun May 13 19:02:02 2001
+%!
+%%BoundingBox: 54 54 556 737
+% plt.pro	PostScript prolog for plt
+% Last revised: 11 May 2001 (GBM)
+
+count /numstack exch def
+save 100 dict begin /plt exch def
+
+/ED	{exch def} def
+/IN	{exch 72 mul def} def
+
+/CLOSE	{count numstack sub {pop} repeat plt end restore} def
+
+/BF	{gsave INIT} def
+/EF	{grestore} def
+
+/LS	{} def
+/INIT	{0 setlinecap LS /DMTX matrix currentmatrix def
+	/XOFF [0 0 0 -.5 -1 -1 -1 -.5 -.5 0 -.5 -1] def
+	/YOFF [0 -.37 -1 -1 -1 -.37 0 0 -.37 -.74 -.74 -.74] def
+	/XM 0 def /YM 0 def /XYM 0 def} def
+
+/WSUBST	{} def
+
+/WDEF	{/ury ED /urx ED /lly ED /llx ED
+	WSUBST /y1 IN /x1 IN /y0 IN /x0 IN /FSCL ED
+	gsave matrix setmatrix
+	x0 2 add y0 2 add translate 
+	x1 x0 sub 4 sub urx llx sub div
+	y1 y0 sub 4 sub ury lly sub div scale
+	llx neg lly neg translate
+	/PMTX matrix currentmatrix def grestore} def
+
+/M	{newpath PMTX transform moveto} def
+/N	{PMTX dtransform rlineto} def
+/L	{N currentpoint stroke moveto} def
+/F	{closepath 0 eq {fill} {FS} ifelse} def
+/FS	{gsave fill grestore gsave 0 0 0 setrgbcolor stroke grestore} def 
+
+/XC	0 def
+/YC	0 def
+/T	{/ang ED /pos ED /YY ED /XX ED
+	XX -32767 eq
+	 {YY -32767 eq
+	  {XC YC moveto}
+	  {0 YY M currentpoint XC exch moveto pop}
+	 ifelse}
+	 {YY -32767 eq
+	  {XX 0 M currentpoint pop YC moveto}
+	  {XX YY M}
+	 ifelse}
+	ifelse
+	ang rotate
+	/str ED str stringwidth pop
+	XOFF pos get mul
+	YOFF pos get PS mul XYM FSCL mul add
+	rmoveto str show 0 .37 PS mul XYM FSCL mul add rmoveto
+	/XYM 0 def SDM currentpoint /YC ED /XC ED} def
+
+/GT	{7 0 T} def
+/XT	{/XYM XM neg def 3 0 T /XM 0 def} def
+/XTR	{/XYM XM def 7 0 T /XM 0 def} def
+/YT	{/XYM YM def 7 90 T /YM 0 def} def
+/YTR	{/XYM YM neg def 3 90 T /YM 0 def} def
+
+/XN	{/XM PS def 3 0 T} def
+/XNR	{/XM PS def 9 0 T} def
+/YN	{-1 1 0 YNUM} def
+/YNR	{1 0 0 YNUM} def
+/YNUM	{6 3 roll M /str ED str stringwidth pop add /len ED
+	len mul .2 PS mul add mul PS -.37 mul rmoveto
+	str show /YM len .2 PS mul add YM MAX def} def
+
+/SP	{/y ED /x ED /yp ED /yn ED /str ED
+	x y M currentpoint
+	str false charpath PBOX newpath
+	exch dup add x0 x1 add 2 div sub
+	exch dup add y0 y1 add 2 div sub moveto
+	str false charpath gsave fill EB} def
+
+/SY	{/y ED /x ED /yp ED /yn ED /st ED
+	newpath x y M PS 4 div dup scale
+	[{CIR} {UTRI} {DI} {SQ} {TRI}] st 5 mod get exec
+	closepath SDM gsave 
+	[{1 FILL stroke} {fill} {stroke}] st 5 idiv 3 mod get exec
+	EB} def
+
+/EB {	grestore PMTX concat PBOX SDM
+	y1 y sub yp le {yp y1 EB2} if 
+	y0 y sub yn ge {yn y0 EB2} if} def
+/EB2	{newpath x exch M 0 exch N x0 x sub 0 N x1 x0 sub 0 N stroke} def
+
+/CIR	{currentpoint newpath 1.1 0 360 arc} def
+/TRI	{0 1.2 rmoveto -1.2 -2.4 rlineto 2.4 0 rlineto} def
+/DI	{ 0 -1.5 rmoveto 1.3 1.5 rlineto
+	-1.3 1.5  rlineto -1.3 -1.5 rlineto} def
+/UTRI	{180 rotate TRI 180 rotate} def
+/SQ	{1 1 rmoveto -2 0 rlineto 0 -2 rlineto 2 0
+	rlineto} def
+
+/LW	{.2 mul FSCL mul setlinewidth} def
+/SF	{FSCL mul /PS ED findfont PS scalefont setfont} def
+/DL	{PS mul .05 mul} def
+
+/solid		{{}0} def
+/dotted		{[1 DL 3 DL] 0} def
+/longdashed	{[7 DL] 0} def
+/shortdashed	{[4 DL 5 DL] 0} def
+/dotdashed	{[1 DL 5 DL 6 DL 5 DL] 0} def
+
+/MAX	{2 copy lt {exch pop} {pop} ifelse} def
+/SDM	{DMTX setmatrix} def
+/FILL	{gsave setgray fill grestore} def
+/PBOX	{pathbbox /y1 ED /x1 ED /y0 ED /x0 ED} def
+INIT
+0.85 0.775 3.35 7.975 9.35 0 0 4320 3600 WDEF
+/Times-Roman 16 SF
+solid setdash
+0 0 0 setrgbcolor
+3 LW
+/Times-Roman 14 SF
+4103 720 M
+-3239 0 L
+864 672 M
+0 48 L
+(0) 864 672 XN
+1188 688 M
+0 32 L
+1512 672 M
+0 48 L
+(2) 1512 672 XN
+1836 688 M
+0 32 L
+2160 672 M
+0 48 L
+(4) 2160 672 XN
+2483 688 M
+0 32 L
+2807 672 M
+0 48 L
+(6) 2807 672 XN
+3131 688 M
+0 32 L
+3455 672 M
+0 48 L
+(8) 3455 672 XN
+3779 688 M
+0 32 L
+4103 672 M
+0 48 L
+(10) 4103 672 XN
+4 LW
+/Times-Roman 16 SF
+(X is 1 to 9,  Y is -2 to 4) 2483 505 XT
+3 LW
+/Times-Roman 14 SF
+864 3060 M
+0 -2340 L
+816 720 M
+48 0 L
+(-2) 816 720 YN
+832 915 M
+32 0 L
+816 1110 M
+48 0 L
+(-1) 816 1110 YN
+832 1305 M
+32 0 L
+816 1500 M
+48 0 L
+(0) 816 1500 YN
+832 1695 M
+32 0 L
+816 1890 M
+48 0 L
+(1) 816 1890 YN
+832 2085 M
+32 0 L
+816 2280 M
+48 0 L
+(2) 816 2280 YN
+832 2475 M
+32 0 L
+816 2670 M
+48 0 L
+(3) 816 2670 YN
+832 2865 M
+32 0 L
+816 3060 M
+48 0 L
+(4) 816 3060 YN
+4 LW
+/Times-Roman 16 SF
+(Plotstyle t) 2483 3284 8 0 T
+2 LW
+/Times-Roman 12 SF
+(Mi) 1188 1500 7 0 T
+(Re) 1512 1110 7 0 T
+(Do) 1836 720 7 0 T
+(Fa) 2160 1890 7 0 T
+(Ti) 2483 3060 7 0 T
+(Fa) 2807 1890 7 0 T
+(Do) 3131 720 7 0 T
+(Re) 3455 1110 7 0 T
+(Mi) 3779 1500 7 0 T
+864 720 M
+showpage CLOSE
+%%EOF
+%%EndDocument

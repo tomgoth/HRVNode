@@ -1,0 +1,8 @@
+#!/bin/sh
+# file: gvcat			G. Moody	4 April 2001
+#
+# Collect plt | lwcat output, show it on-screen using GV, then clean up
+
+cat >/tmp/gvcat.$$
+GV /tmp/gvcat.$$
+rm -f /tmp/gvcat.$$

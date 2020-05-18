@@ -1,0 +1,4 @@
+ecg 2 128 7680
+ecg.dat 16 200/mV 12 0 21 8245 0 ECG0
+ecg.dat 16 200/mV 12 0 5 -5509 0 ECG1
+#Produced by xform from record afpdb/t01, beginning at 0:0

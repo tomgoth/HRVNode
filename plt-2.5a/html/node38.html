@@ -1,0 +1,285 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Concatenating labels </TITLE>
+<META NAME="description" CONTENT="Concatenating labels ">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="previous" HREF="node37.html">
+<LINK REL="up" HREF="node37.html">
+<LINK REL="next" HREF="node39.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html765"
+  HREF="node39.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html759"
+  HREF="node37.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html755"
+  HREF="node37.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html761"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html763"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html766"
+  HREF="node39.html">Drawing Line Segments, Arrows, and Boxes</A>
+<B>Up:</B> <A NAME="tex2html760"
+  HREF="node37.html">Labelling Your Plot</A>
+<B> Previous:</B> <A NAME="tex2html756"
+  HREF="node37.html">Labelling Your Plot</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001110000000000000000"></A><A NAME="sec:concatenation"></A>
+<BR>
+Concatenating labels 
+</H1>
+<P>
+<FONT SIZE="+2"><A NAME="1929"></A><A NAME="1930"></A><A NAME="1931"></A>Labels can be concatenated if you wish to incorporate font changes,
+subscripts or superscripts, or other special effects in labels.  The
+plot title in figure&nbsp;<A HREF="node34.html#fig:example7">7.2</A>, page&nbsp;<A HREF="node34.html#fig:example7"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>,
+illustrates how this can be done.  <TT>plt</TT> keeps track of the <TT>RC</TT> point of each label, and uses these coordinates in place of
+omitted <IMG
+ WIDTH="52" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$(x,y)$"> or <IMG
+ WIDTH="81" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img35.png"
+ ALT="$(xw,yw)$"> coordinates in label options.  If the
+coordinates are omitted from the first label in any given plot, the
+<TT>RC</TT> point of the plot title is used to determine the label
+coordinates.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="1937"></A>This facility would be of little use if it were not possible to change
+the style used by <TT>plt</TT> for rendering the text of labels.  This
+can be done using <EM>fontgroup substitution</EM>, as described in detail
+in chapter&nbsp;<A HREF="node41.html#sec:font-groups">11</A>, beginning on
+page&nbsp;<A HREF="node41.html#sec:font-groups">11</A>.  In a nutshell, what you do is to describe
+the style you want in an extra argument that is enclosed in
+parentheses and that immediately follows the option name, as in:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+-L (Ft-b-i,P20,Cmaroon) .5 .5 CC Marooned!
+</PRE>
+<DIV ALIGN="CENTER"></DIV><FONT SIZE="+2">
+(This sets the label ``Marooned!'' in 20-point Times Bold Italic of an
+appropriate color.)
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="1946"></A><A NAME="1947"></A>If you wish simply to concatenate labels, perhaps changing the font or
+text color, use <TT>LC</TT> as the text box coordinate for the second
+(and subsequent) labels, as in:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+-L (Cblue,Fh) .4 .7 CC Hello,
+-L (Cgreen,Fh-o) - - LC " World!"
+</PRE>
+<DIV ALIGN="CENTER"></DIV><FONT SIZE="+2">
+These commands produce a blue Helvetica ``Hello,'' centered on window
+coordinates (.4,.7) followed by a green Helvetica-Oblique ``World!''.
+Note that the entire string is not centered on (.4,.7);  if you want
+to center a multi-part label you will need to do some experimentation.
+Also note the use of quotation marks to force the inclusion of the
+initial space before ``World!''.
+</FONT>
+<P>
+<FONT SIZE="+2">In the following example, Greek and Roman letters are mixed to produce
+the equation <!-- MATH
+ $\mathrm{y = A\, sin ( \omega t + \phi )}$
+ -->
+<IMG
+ WIDTH="158" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img95.png"
+ ALT="$\mathrm{y = A\, sin ( \omega t + \phi )}$">:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+-L .3 .5 CC y = A sin(
+-L (Fs) - - LC w
+-L - - LC "t + "
+-L (Fs) - - LC f
+-L - - LC )
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2"><A NAME="1958"></A><A NAME="1959"></A><A NAME="1960"></A><A NAME="1961"></A><A NAME="1962"></A><A NAME="1963"></A>To create a subscript or subscript, use <TT>LN</TT> or <TT>LB</TT>
+respectively as the text box coordinate for the label containing the
+subscript or superscript, and use <TT>LB</TT> or <TT>LN</TT> to return to
+the original baseline afterwards.  It is often effective to reduce the
+point size of superscripts and subscripts, as in this example, which produces
+<!-- MATH
+ $y = x^{\alpha} + x_{0}{\beta}$
+ -->
+<IMG
+ WIDTH="122" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img96.png"
+ ALT="$y = x^{\alpha} + x_{0}{\beta}$">:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+L .6 .3 LC y = x
+L (Fs,P*.8) - - LB a
+L - - LN " + x"
+L (P*.8) - - LN 0
+L (Fs) - - LB b
+</PRE>
+<DIV ALIGN="CENTER"></DIV><FONT SIZE="+2">
+The same effects are possible in a vertical label, as in this example:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+vl .6 .5 LC 1 -
+y = x
+vl (Fs,P*.8) - - LB 1 -
+a
+vl - - LN 1 -
+ + x
+vl (P*.8) - - LN 1 -
+0
+vl (Fs) - - LB 1 -
+b
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:labels"></A><A NAME="3484"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 8.2:</STRONG>
+Labels with superscripts and font changes</CAPTION>
+<TR><TD><IMG
+ WIDTH="564" HEIGHT="467" BORDER="0"
+ SRC="img97.png"
+ ALT="\begin{figure}\begin{center}
+\fcolorbox{blue}{white}{
+\epsfig{file=labels,height=8cm}}
+\end{center}\index{superscripts}%\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<FONT SIZE="+2">See figure&nbsp;<A HREF="#fig:labels">8.2</A> for examples of this technique.  This
+figure was created using the command
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+plt cos2.data 0 1 -f labels.format
+</PRE>
+<DIV ALIGN="CENTER"></DIV><FONT SIZE="+2">
+where <TT>cos2.data</TT> was created using this program fragment:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+for (i = -180; i &lt;= 180; i += 5) {
+    c = cos(M_PI*i/180.0);
+    printf("%d %g\n", i, c*c);
+}
+</PRE>
+<DIV ALIGN="CENTER"></DIV><FONT SIZE="+2">
+and <TT>labels.format</TT> contains:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+xa -180 180 15 - 3
+ya 0 1
+
+# Set the first part of the plot title using the -t option.
+t Plot of y = cos
+# Concatenate the remaining pieces using -L options.
+L (P*.8) - - LB 2
+L - - LN (
+L (Fs) - - LC q
+# "q" in Symbol font is theta.
+L - - LC )
+
+# Avoid drawing a normal x-axis label.
+x ""
+# Instead of a normal x-axis label, draw this label using
+# the -L option with ym = -.16, to put it in the same
+# position as a normal x-axis label.
+L (Fs) .425 -.16 LC q
+L - - LC " (degrees)"
+
+# Similarly, draw this label using -vl with xm = -.115 to put it
+# in the same position as a normal y-axis label.  (We don't need
+# to suppress the normal y-axis label, because plt produces one
+# only if requested explicitly.)
+vl -.115 .44 LC 1 -
+cos
+vl (P*.8) - - LB 1 -
+2
+vl - - LN 1 -
+(
+vl (Fs) - - LC 1 -
+q
+vl - - LC 1 -
+)
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2"><A NAME="2003"></A><A NAME="2004"></A>Another way to create subscripts and superscripts is to specify an
+appropriate <IMG
+ WIDTH="16" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$y$"> or <IMG
+ WIDTH="31" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img93.png"
+ ALT="$yw$"> while omitting the x coordinate (for
+horizontal labels).  Some experimentation may be needed to achieve the
+desired results.
+</FONT>
+<P>
+<FONT SIZE="+2">These methods cannot be used directly to concatenate text in axis labels.
+If you need to do this, suppress <TT>plt</TT>'s standard axis label,
+either by supplying an empty string as the argument for <TT>-x</TT> or <TT>-y</TT>,
+or by using the appropriate <TT>-s</TT> option (see chapter&nbsp;<A HREF="node40.html#sec:suppress">10</A>);
+then create your own axis label using the options described above.
+</FONT>
+<P>
+<HR>
+<A NAME="tex2html765"
+  HREF="node39.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html759"
+  HREF="node37.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html755"
+  HREF="node37.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html761"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html763"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html766"
+  HREF="node39.html">Drawing Line Segments, Arrows, and Boxes</A>
+<B>Up:</B> <A NAME="tex2html760"
+  HREF="node37.html">Labelling Your Plot</A>
+<B> Previous:</B> <A NAME="tex2html756"
+  HREF="node37.html">Labelling Your Plot</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>String arrays </TITLE>
+<META NAME="description" CONTENT="String arrays ">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="previous" HREF="node26.html">
+<LINK REL="up" HREF="node20.html">
+<LINK REL="next" HREF="node28.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html613"
+  HREF="node28.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html607"
+  HREF="node20.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html603"
+  HREF="node26.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html609"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html611"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html614"
+  HREF="node28.html">Coordinate Systems</A>
+<B>Up:</B> <A NAME="tex2html608"
+  HREF="node20.html">Preparing Input for plt</A>
+<B> Previous:</B> <A NAME="tex2html604"
+  HREF="node26.html">Format files</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00670000000000000000"></A><A NAME="sec:string-arrays"></A>
+<BR>
+String arrays 
+</H1>
+<P>
+<FONT SIZE="+2"><A NAME="818"></A><A NAME="819"></A><A NAME="820"></A>In chapter&nbsp;<A HREF="node31.html#sec:plotting-data">6</A>, you will encounter <TT>plt</TT> options that
+make use of yet another type of input, namely arrays of strings.  String arrays
+can be supplied to <TT>plt</TT> using the <TT>-fs</TT>, <TT>-ts</TT>, and <TT>-tf</TT>
+options.  These options take arguments as follows:
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="3325"></A><A NAME="3326"></A><A NAME="3327"></A></FONT>
+<BLOCKQUOTE><FONT SIZE="+2"><TT>-fs "</TT><!-- MATH
+ $string_{0} \ \  string_{1} \ \  ...$
+ -->
+<IMG
+ WIDTH="169" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img31.png"
+ ALT="$string_{0} \ \ string_{1} \ \ ...$"><TT>"</TT>
+<BR><TT>-ts "</TT><!-- MATH
+ $string_{0} \ \  string_{1} \ \  ...$
+ -->
+<IMG
+ WIDTH="169" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img31.png"
+ ALT="$string_{0} \ \ string_{1} \ \ ...$"><TT>"</TT> <EM>tbc</EM>
+<BR><TT>-tf</TT> <EM>file</EM> <EM>tbc</EM>
+</FONT></BLOCKQUOTE>
+<P>
+<FONT SIZE="+2">The string argument of <TT>-fs</TT> and <TT>-ts</TT> is treated as an array of
+strings (words) separated by white space.  The <EM>file</EM> argument of <TT>-tf</TT>
+is the name of a file that contains an array of strings separated by newlines
+(the strings may include spaces or tabs in this case).  The <TT>-fs</TT> option
+defines the <EM>fontgroup string array</EM>; the <TT>-ts</TT> and <TT>-tf</TT> options
+define the <EM>text string array</EM>.  In each case, strings within a string
+array are referred to by their index numbers, and (as for the column numbers in
+the data file) the index number of the first string in a string array is 0, not
+1.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="853"></A>Entries in the text string array can be plotted in the same manner as data
+points, by using other options described in chapter&nbsp;<A HREF="node31.html#sec:plotting-data">6</A>,
+together with a data file that specifies the data coordinates and the index
+numbers of the strings within the text string array.  The <EM>tbc</EM> argument of
+<TT>-tf</TT> and <TT>-ts</TT> is optional; if provided, it specifies a <EM>text box
+coordinate</EM> used to determine how the strings are placed relative to the
+coordinates specified by the data file (see chapter&nbsp;<A HREF="node28.html#sec:coord-systems">4</A>).
+If <EM>tbc</EM> is omitted, <TT>plt</TT> centers the strings on the specified
+coordinates.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="862"></A><A NAME="863"></A><A NAME="864"></A>The fontgroup string array associated with <TT>-fs</TT> has a different purpose;
+using the appropriate options, these strings can be used to set the font, line
+style (solid, dotted, etc.), or plotting color.  Examples of the use of these
+options appear in chapter&nbsp;<A HREF="node31.html#sec:plotting-data">6</A>.
+</FONT>
+<P>
+<HR>
+<A NAME="tex2html613"
+  HREF="node28.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html607"
+  HREF="node20.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html603"
+  HREF="node26.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html609"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html611"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html614"
+  HREF="node28.html">Coordinate Systems</A>
+<B>Up:</B> <A NAME="tex2html608"
+  HREF="node20.html">Preparing Input for plt</A>
+<B> Previous:</B> <A NAME="tex2html604"
+  HREF="node26.html">Format files</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>``Quickplot'' mode </TITLE>
+<META NAME="description" CONTENT="``Quickplot'' mode ">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="previous" HREF="node29.html">
+<LINK REL="up" HREF="node29.html">
+<LINK REL="next" HREF="node31.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html654"
+  HREF="node31.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html648"
+  HREF="node29.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html644"
+  HREF="node29.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html650"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html652"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html655"
+  HREF="node31.html">Plotting Data</A>
+<B>Up:</B> <A NAME="tex2html649"
+  HREF="node29.html">Titles and Axes</A>
+<B> Previous:</B> <A NAME="tex2html645"
+  HREF="node29.html">Titles and Axes</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00810000000000000000"></A><A NAME="sec:quickplot"></A>
+<BR>
+``Quickplot'' mode 
+</H1>
+<P>
+<FONT SIZE="+2"><A NAME="1024"></A>In normal operation, <TT>plt</TT> performs two passes over its input data.  During
+the first pass, it reads the data from a file or from its standard input,
+allocates memory sufficient to keep the data to be plotted, and determines
+suitable axis ranges; during the second pass, <TT>plt</TT> renders the plot.  When
+making a screen plot, the intermediate steps are not visible; for efficiency,
+the <TT>plt</TT> window is not (re)drawn until the entire image has been prepared
+in memory.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="3356"></A><A NAME="3357"></A><A NAME="3358"></A><A NAME="3359"></A><A NAME="1032"></A><A NAME="1033"></A><A NAME="1034"></A><A NAME="1035"></A><A NAME="1036"></A>If, however, you specify both x and y axis ranges using any of the <TT>-xa</TT>,
+<TT>-ya</TT>, <TT>-X</TT>, and <TT>-Y</TT> options described above, <EM>and</EM> if you are
+making only one plot (i.e., not using any of the methods described in
+chapter&nbsp;<A HREF="node33.html#sec:multiplots">7</A> to plot multiple data sets on a single set of
+axes), then <TT>plt</TT> runs in <EM>quickplot</EM> mode.  In quickplot mode, the
+data are read and plotted immediately without buffering, so that for large data
+sets the memory requirements and the time needed to render the plot are
+significantly reduced.  Quickplot mode allows you to plot data sets that
+are larger than the total amount of available memory.  Furthermore, under Unix,
+GNU/Linux, and Mac OS X, quickplot mode permits progressive display of
+screen plots, so that you do not need to wait for <TT>plt</TT> to read an
+entire multi-megabyte input file before seeing any output.  If the data are
+provided by a pipe from another process, <TT>plt</TT> can render them in real
+time (depending on your hardware speed, at rates up to 50 frames per second,
+or even faster if you change the symbol <TT>QPFREQ</TT> in <TT>xw.c</TT> and
+recompile <TT>plt</TT>; see appendix&nbsp;<A HREF="node53.html#sec:distribution">F</A>).
+</FONT>
+<P>
+<FONT SIZE="+2">Figure&nbsp;<A HREF="#fig:henon">5.3</A> illustrates the final state of a plot of 25,000 points
+from a H&#233;non series.  The command used to generate the figure was:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+henon | plt % -p s. -X -1.5 1.5 -Y -.5 .5 -t "Henon Attractor"
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2">
+You can see quickplot mode in action if you compile <TT>henon</TT> from the
+source (a file named <TT>henon.c</TT>, provided in the <TT>doc</TT> directory of
+the <TT>plt</TT> distribution) and then run the command above.  Delays are
+included in <TT>henon.c</TT> so that you will be able to see what happens
+even with a fast CPU.  Over a period of several seconds, the picture of the
+H&#233;non attractor emerges.
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:henon"></A><A NAME="3361"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.3:</STRONG>
+H&#233;non attractor, produced in <EM>quickplot</EM>
+mode</CAPTION>
+<TR><TD><IMG
+ WIDTH="977" HEIGHT="504" BORDER="0"
+ SRC="img44.png"
+ ALT="\begin{figure}\begin{center}
+\fcolorbox{blue}{white}{
+\epsfig{file=henon,height=8cm}}
+\end{center}.
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<HR>
+<A NAME="tex2html654"
+  HREF="node31.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html648"
+  HREF="node29.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html644"
+  HREF="node29.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html650"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html652"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html655"
+  HREF="node31.html">Plotting Data</A>
+<B>Up:</B> <A NAME="tex2html649"
+  HREF="node29.html">Titles and Axes</A>
+<B> Previous:</B> <A NAME="tex2html645"
+  HREF="node29.html">Titles and Axes</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

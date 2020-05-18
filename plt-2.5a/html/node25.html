@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Generating abscissas automatically </TITLE>
+<META NAME="description" CONTENT="Generating abscissas automatically ">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node26.html">
+<LINK REL="previous" HREF="node24.html">
+<LINK REL="up" HREF="node20.html">
+<LINK REL="next" HREF="node26.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html587"
+  HREF="node26.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html581"
+  HREF="node20.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html575"
+  HREF="node24.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html583"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html585"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html588"
+  HREF="node26.html">Format files</A>
+<B>Up:</B> <A NAME="tex2html582"
+  HREF="node20.html">Preparing Input for plt</A>
+<B> Previous:</B> <A NAME="tex2html576"
+  HREF="node24.html">Data specifications</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00650000000000000000"></A><A NAME="sec:gen-abs"></A>
+<BR>
+Generating abscissas automatically 
+</H1>
+<P>
+<FONT SIZE="+2"><A NAME="3319"></A>If <TT>plt</TT>'s argument list includes only one <EM>column-number</EM>,
+<TT>plt</TT> reads the y values (the ordinates) from that column of the
+data file.  In this case, if the data file contains more than one
+column, <TT>plt</TT> reads the x values (the abscissas) from column 0.
+If the data file contains only one column, <TT>plt</TT> automatically
+supplies the abscissas.  The automatically generated abscissas can be
+referred to as column 0, and the ordinates become column 1.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="3320"></A>If you have multi-column data that lacks abscissas, you can force
+<TT>plt</TT> to generate a column of abscissas using the <TT>-cz</TT> (column
+zero) option.  When you use <TT>-cz</TT>, your data columns are renumbered,
+so that the first one (which would normally be called column 0) becomes
+column 1, the second becomes column 2, etc.
+</FONT>
+<P>
+<FONT SIZE="+2">When <TT>plt</TT> supplies the x values, it creates a column of x values
+starting with <IMG
+ WIDTH="57" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.png"
+ ALT="$x_{from}$"> (by default, 0), and incrementing by
+<IMG
+ WIDTH="48" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.png"
+ ALT="$x_{incr}$"> (by default, 1) for each subsequent value of x.  The <TT>-cz</TT> option can be used to change these values, as follows:
+</FONT>
+<BLOCKQUOTE><FONT SIZE="+2"><TT>-cz</TT> <!-- MATH
+ $x_{from} \ \ x_{incr}$
+ -->
+<IMG
+ WIDTH="110" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img27.png"
+ ALT="$x_{from} \ \ x_{incr}$"></FONT></BLOCKQUOTE>
+<P>
+<FONT SIZE="+2">This feature is illustrated in figure&nbsp;<A HREF="#fig:ecg">3.1</A>.  The data file
+<TT>ecg.dat</TT> contains samples of two ECG signals taken at 128 samples per
+signal per second, hence <IMG
+ WIDTH="48" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.png"
+ ALT="$x_{incr}$"> is set to <IMG
+ WIDTH="34" HEIGHT="44" ALIGN="MIDDLE" BORDER="0"
+ SRC="img28.png"
+ ALT="$\frac{1}{128}$">, or 0.00781, so
+that the x units on the plot are seconds.  Since the plot begins with
+row 1024 (<IMG
+ WIDTH="60" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img29.png"
+ ALT="$8 \cdot 128$">), <IMG
+ WIDTH="57" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.png"
+ ALT="$x_{from}$"> is set to 8, so that the x axis
+marks indicate the elapsed time in seconds from the beginning of the data
+file.
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:ecg"></A><A NAME="3322"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.1:</STRONG>
+Produced using the command:
+</CAPTION>
+<TR><TD><IMG
+ WIDTH="657" HEIGHT="667" BORDER="0"
+ SRC="img30.png"
+ ALT="\begin{figure}\begin{center}
+\fcolorbox{blue}{white}{
+\epsfig{file=ecg,height=10...
+...0,1n(Cred) 0,2n(Cblue)''\end{boxedverbatim}
+\end{center}\end{center}\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<HR>
+<A NAME="tex2html587"
+  HREF="node26.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html581"
+  HREF="node20.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html575"
+  HREF="node24.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html583"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html585"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html588"
+  HREF="node26.html">Format files</A>
+<B>Up:</B> <A NAME="tex2html582"
+  HREF="node20.html">Preparing Input for plt</A>
+<B> Previous:</B> <A NAME="tex2html576"
+  HREF="node24.html">Data specifications</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

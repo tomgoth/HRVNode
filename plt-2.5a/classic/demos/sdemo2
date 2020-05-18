@@ -1,0 +1,8 @@
+plt % -pt[Fsymbol] -ts "RED WHITE BLUE" -X 0 10 -Y 0 10 \
+-t"Scatterplot with Greek RED, WHITE, and BLUE" <<!
+1 1 0
+3 3 2
+5 8 1
+7 2 2
+9 6 0
+!

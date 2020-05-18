@@ -1,0 +1,28 @@
+#! /bin/sh
+# file: pltpng			G. Moody	22 February 2002
+#				Last revised:    25 March 2009
+# Convert a PostScript file to a PNG image, using ImageMagick's 'convert'.
+# Unlike 'convert', this script can be used in a pipeline since it can read
+# the standard input and write to the standard output.
+
+case $# in
+  0) PSFILE=$$.ps; PNGFILE=$$.png; cat >$$.ps;;
+  1) case $1 in
+        *.eps) PSFILE=$1; PNGFILE=`basename $1 .eps`.png ;;
+        *.ps)  PSFILE=$1; PNGFILE=`basename $1 .ps`.png  ;;
+	*) echo "usage: $0 [ file.[e]ps ]" ;;
+     esac ;;
+  *) echo "$0: Too many arguments ($#). Only need one: the PostScript filespec";;
+esac
+
+CONVERT -crop 0x0 -density 288 -geometry 25% $PSFILE $PNGFILE
+# -crop 0x0: crop tightly around the image
+# -density 288 -geometry 25%: improve the image quality by rasterizing at 4
+#    times the default resolution, then decimating to the standard resolution
+#    (72 dpi) but with anti-aliasing.  If this fails due to insufficient
+#    memory, try -density 144 -geometry 50% .
+
+case $# in
+  0) cat $PNGFILE; rm -f $PNGFILE $PSFILE;;
+esac
+

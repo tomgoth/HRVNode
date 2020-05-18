@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Scripting with plt </TITLE>
+<META NAME="description" CONTENT="Scripting with plt ">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node53.html">
+<LINK REL="previous" HREF="node51.html">
+<LINK REL="up" HREF="book.html">
+<LINK REL="next" HREF="node53.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html964"
+  HREF="node53.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html958"
+  HREF="book.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html952"
+  HREF="node51.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html960"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html962"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html965"
+  HREF="node53.html">How to get and install plt</A>
+<B>Up:</B> <A NAME="tex2html959"
+  HREF="book.html">plt Tutorial and Cookbook</A>
+<B> Previous:</B> <A NAME="tex2html953"
+  HREF="node51.html">On-Screen Plots</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION002000000000000000000"></A><A NAME="sec:scripting"></A>
+<BR>
+Scripting with <TT>plt</TT> 
+</H1>
+<P>
+<FONT SIZE="+2">Using shell scripts (batch files), it is possible to automate the
+process of making many similar plots using <TT>plt</TT>.  This appendix
+briefly illustrates how <TT>plt</TT> can be used in scripts.  General
+techniques for writing shell scripts are well beyond the scope of this
+book.  (There are other books devoted to this subject; choose one that
+describes your shell, such as the O'Reilly book <EM>Learning the bash
+shell</EM>, by Newham and Rosenblatt.  If you use MS-Windows, install the
+<TT>bash</TT> shell, included in the free Cygwin toolkit available from
+<TT>http://www.cygwin.com/</TT>.  If you don't know what a shell
+is, begin by reading an introductory book on Unix or Linux.)
+</FONT>
+<P>
+<FONT SIZE="+2">Often it is useful to preview a plot on-screen before (or instead of)
+producing a printed copy.  Writing a script makes it easy to do this.
+For example, we might create a script named <TT>foo</TT>, to produce
+figure&nbsp;<A HREF="node36.html#fig:example11">7.5</A>:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+#! /bin/sh
+
+plt $* -wm 0 -t "This is the main title for the plot"
+plt $* example11.data 0 1 -wm 1 -t "Window 1"
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2">The file <TT>foo</TT> containing this script should be put in a directory
+in your <TT>PATH</TT>, and should be marked as executable using the
+command:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+chmod +x foo
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2"><A NAME="3041"></A>When you run this script, any command-line arguments you give to <TT>foo</TT> are passed to <TT>plt</TT> (the shell replaces ``$*'' with these
+arguments).  Thus the command ``<TT>foo</TT>'' runs <TT>plt</TT> with no
+arguments other than those listed above, but the command ``<TT>foo&nbsp;-T&nbsp;lw</TT>'' runs the same <TT>plt</TT> commands with the additional arguments
+``<TT>-T lw</TT>''.  The output in the second case will be a stream of
+PostScript code; to print the plot, pipe the output to <TT>lwcat</TT>, as in:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+foo -T lw | lwcat
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2"><TT>plt</TT> provides the <TT>-dev</TT> option to allow you to specify
+options to be processed only if a specific device type is being used
+for output.  The <TT>-dev</TT> option can be useful in scripts, since
+it permits you to choose different options for screen plots and
+printed plots (for example, you might want to use color in screen
+plots and shades of grey in printed plots).  The syntax is:
+</FONT>
+<P>
+<DL>
+<DD><A NAME="3566"></A></DD>
+<DT><STRONG><TT>-dev</TT> <EM>device</EM> <TT>"</TT><EM>options ...</EM><TT>"</TT></STRONG></DT>
+<DD>The value of <EM>device</EM> can be either ``<TT>lw</TT>'' (for PostScript output)
+or ``<TT>xw</TT>'' (for X11 output).  Following <EM>device</EM> should be a
+quoted string containing one or more options (with initial hyphens
+omitted, as in <TT>-F</TT> format strings).  These options will have
+effect only if the same <EM>device</EM> is selected for output
+(by using <TT>-T</TT>&nbsp;<EM>device</EM> or by setting the value of the
+environment variable <TT>PTERM</TT> equal to <EM>device</EM>).
+</DD>
+</DL>
+<P>
+<FONT SIZE="+2">For example, consider this variant of the script above:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+#! /bin/sh
+
+plt $* -wm 0 -dev lw -t "This is the main title for the plot"
+plt $* example11.data 0 1 -wm 1 -dev lw "sf p G.5" \
+ -dev xw "sf p Cred"
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2"><A NAME="3079"></A>If this script is run without any arguments (or with the arguments
+``<TT>-T xw</TT>''), the plot appears in an X11 window with the data
+in red;  if it is run with the arguments ``<TT>-T lw</TT>'', and the
+output is piped to <TT>lwcat</TT>, the plot is printed with the data
+in 50% grey.
+</FONT>
+<P>
+<HR>
+<A NAME="tex2html964"
+  HREF="node53.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html958"
+  HREF="book.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html952"
+  HREF="node51.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html960"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html962"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html965"
+  HREF="node53.html">How to get and install plt</A>
+<B>Up:</B> <A NAME="tex2html959"
+  HREF="book.html">plt Tutorial and Cookbook</A>
+<B> Previous:</B> <A NAME="tex2html953"
+  HREF="node51.html">On-Screen Plots</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

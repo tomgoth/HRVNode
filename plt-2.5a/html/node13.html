@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Screen and printed plots</TITLE>
+<META NAME="description" CONTENT="Screen and printed plots">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node14.html">
+<LINK REL="previous" HREF="node12.html">
+<LINK REL="up" HREF="node12.html">
+<LINK REL="next" HREF="node14.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html416"
+  HREF="node14.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html410"
+  HREF="node12.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html404"
+  HREF="node12.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html412"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html414"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html417"
+  HREF="node14.html">Adding titles and axis labels</A>
+<B>Up:</B> <A NAME="tex2html411"
+  HREF="node12.html">Tutorial: Simple Plots</A>
+<B> Previous:</B> <A NAME="tex2html405"
+  HREF="node12.html">Tutorial: Simple Plots</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00541000000000000000">
+Screen and printed plots</A>
+</H2>
+<P>
+<FONT SIZE="+2">The simplest way to plot these data is to type this command into a
+terminal window:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+plt heartrate.data
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2"><A NAME="430"></A><A NAME="3302"></A>A new window will open, containing a plot as in
+figure&nbsp;<A HREF="#fig:simple0">2.2</A>.  You may be surprised to see <TT>plt</TT> exit
+to the shell prompt while the window containing the plot remains
+on-screen.  If you run <TT>plt</TT> again, it will draw its output into
+the same window as the first.  This feature allows you to create
+complex overlaid plots using several invocations of <TT>plt</TT>, as
+described in chapter&nbsp;<A HREF="node33.html#sec:multiplots">7</A>, beginning on
+page&nbsp;<A HREF="node33.html#sec:multiplots"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.  To dismiss the window, type an <I>Esc</I> (or <TT>Q</TT>, or <TT>X</TT>) into it.  (If you wish to look at two or
+more plots in separate windows, open a new window for <TT>plt</TT> using
+<TT>xpltwin</TT>; see appendix&nbsp;<A HREF="node51.html#sec:screen-output">D</A>, beginning on
+page&nbsp;<A HREF="node51.html#sec:screen-output"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>, for details). The same capability
+for creating overlays is also available when producing printed output;
+see appendix&nbsp;<A HREF="node44.html#sec:printed-output">B</A>, beginning on
+page&nbsp;<A HREF="node44.html#sec:printed-output"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>, for details.
+</FONT>
+<P>
+<FONT SIZE="+2">In order to illustrate the appearance of a <TT>plt</TT> screen plot,
+figure&nbsp;<A HREF="#fig:simple0">2.2</A> was prepared from a screen dump.  You can
+make printed plots of much better quality using <TT>plt</TT>, however,
+and with much less trouble than required to print a screen dump.  The
+same plot can be printed simply by adding the optional arguments
+``<TT>-T lw</TT>'' to the <TT>plt</TT> command, and then redirecting its
+output to <TT>lwcat</TT>, like this:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+plt heartrate.data -T lw | lwcat
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2">This command will send the plot to the default printer, producing
+output as in figure&nbsp;<A HREF="#fig:simple1">2.3</A>.  Since PostScript plots are
+in vector rather than raster form, they can be rescaled in documents
+such as this without introducing artifacts, and their resolution is
+generally much higher than raster images despite their much smaller file
+sizes.
+</FONT>
+<P>
+<FONT SIZE="+2">If you wish to capture the PostScript output in order to include it in
+a document such as this one, use <TT>lwcat</TT>'s <TT>-eps</TT> option, and
+redirect its standard output to a file, as in:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+plt heartrate.data -T lw | lwcat -eps &gt;heartrate.eps
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2">See appendix&nbsp;<A HREF="node44.html#sec:printed-output">B</A> for more examples and additional
+details about making PostScript plots and including them in other
+documents.
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:simple0"></A><A NAME="3303"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 2.2:</STRONG>
+Simple screen plot</CAPTION>
+<TR><TD><IMG
+ WIDTH="585" HEIGHT="455" BORDER="0"
+ SRC="img12.png"
+ ALT="\begin{figure}\begin{center}
+\epsfig{file=simple0,height=8cm}\end{center}\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<DIV ALIGN="CENTER"><A NAME="fig:simple1"></A><A NAME="3304"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 2.3:</STRONG>
+Simple printed plot</CAPTION>
+<TR><TD><IMG
+ WIDTH="435" HEIGHT="378" BORDER="0"
+ SRC="img13.png"
+ ALT="\begin{figure}\begin{center}
+\epsfig{file=simple1,height=8cm}\end{center}\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<HR>
+<A NAME="tex2html416"
+  HREF="node14.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html410"
+  HREF="node12.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html404"
+  HREF="node12.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html412"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html414"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html417"
+  HREF="node14.html">Adding titles and axis labels</A>
+<B>Up:</B> <A NAME="tex2html411"
+  HREF="node12.html">Tutorial: Simple Plots</A>
+<B> Previous:</B> <A NAME="tex2html405"
+  HREF="node12.html">Tutorial: Simple Plots</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

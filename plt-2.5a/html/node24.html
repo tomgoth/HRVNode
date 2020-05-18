@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Data specifications </TITLE>
+<META NAME="description" CONTENT="Data specifications ">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node25.html">
+<LINK REL="previous" HREF="node23.html">
+<LINK REL="up" HREF="node20.html">
+<LINK REL="next" HREF="node25.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html573"
+  HREF="node25.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html567"
+  HREF="node20.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html561"
+  HREF="node23.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html569"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html571"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html574"
+  HREF="node25.html">Generating abscissas automatically</A>
+<B>Up:</B> <A NAME="tex2html568"
+  HREF="node20.html">Preparing Input for plt</A>
+<B> Previous:</B> <A NAME="tex2html562"
+  HREF="node23.html">Binary data files</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00640000000000000000"></A><A NAME="sec:data-spec"></A>
+<BR>
+Data specifications 
+</H1>
+<P>
+<FONT SIZE="+2"><A NAME="3315"></A>Use a <EM>data specification</EM> to advise <TT>plt</TT> of the format of
+your data file, or to select rows from the file that you wish to plot.
+Any <TT>plt</TT> command may include a data specification.  A data
+specification is required in order to use a binary data file that lacks a
+header.  The data specification is a string beginning with ``<TT>:</TT>'', and always precedes the name of the data file in the <TT>plt</TT>
+command line.  Up to four optional specifiers, separated by commas,
+can follow the ``<TT>:</TT>'', as in:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+plt :s2,1024,2049,1 ecg.dat \
+    -cz 8 .00781 -F"p 0,1n(Cred) 0,2n(Cblue)"
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2">
+This command produces Figure&nbsp;<A HREF="node25.html#fig:ecg">3.1</A> on page&nbsp;<A HREF="node25.html#fig:ecg"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.  The data
+specification in this example is ``<TT>:s2,1024,2049,1</TT>'', the data file is
+<TT>ecg.dat</TT>, the <TT>-cz</TT> option is described in the next section, and the
+remaining arguments are options described later in this book.  All four
+optional specifiers are shown in this example; in order, they are:
+</FONT>
+<P>
+<DL>
+<DT><STRONG><EM>format</EM></STRONG></DT>
+<DD>This specifier is used for binary data files only.  It is a letter that
+indicates the data type, followed by a number that indicates the number of
+values (columns) per row.  Use one of ``<TT>s</TT>'', ``<TT>f</TT>'', or ``<TT>d</TT>''
+to specify <TT>short</TT> (integer), <TT>float</TT>, or <TT>double</TT> format data
+respectively.  In the example, <EM>format</EM> is ``<TT>s2</TT>'', indicating that
+the input is a binary data file containing <TT>short</TT> integer data in 2
+columns.  If <EM>format</EM> is omitted, <TT>plt</TT> assumes the input is a text
+data file.
+
+<P>
+</DD>
+<DT><STRONG><EM>min-row</EM></STRONG></DT>
+<DD>If present, <TT>plt</TT> excludes rows with smaller row numbers.  In the
+example, <EM>min-row</EM> is 1024.
+
+<P>
+</DD>
+<DT><STRONG><EM>max-row</EM></STRONG></DT>
+<DD>If present, <TT>plt</TT> excludes rows with equal or greater row numbers.
+In the example, <EM>max-row</EM> is 2049.
+
+<P>
+</DD>
+<DT><STRONG><EM>dec</EM></STRONG></DT>
+<DD>If present, <TT>plt</TT> includes only one of every <EM>dec</EM>
+rows, beginning with <EM>min-row</EM>.  In the example, <EM>dec</EM> is 1 (all rows
+are plotted); this is the default, and could have been omitted.
+</DD>
+</DL>
+<P>
+<FONT SIZE="+2">Omitted specifiers are replaced with default values; the defaults are to
+include all rows.  For example, the specification ``<TT>:100</TT>'' excludes rows
+1-99 and includes all others; the specification ``<TT>:2,,2</TT>'' excludes all
+odd-numbered rows, and ``<TT>:1,,2</TT>'' (or ``<TT>:,,2</TT>'') excludes all
+even-numbered rows.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="756"></A><A NAME="3316"></A>If your data file contains an embedded prolog of a type other than the
+two-byte header used by <TT>plt</TT>, you may be able to skip over it
+using an appropriate value of <EM>min-row</EM> in your data
+specification.  If the file contains binary data, and if the length of
+the prolog is not a multiple of the size of a row in bytes, you will
+need to use another method; the Unix utility <TT>dd</TT> may be useful
+for this purpose, as in:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"><FONT SIZE="+2"><!-- MATH
+ $\fbox{{\tt dd ibs=1 skip=}{\em nbytes} {\tt <}{\em data-file} {\tt | plt ...}}$
+ -->
+<IMG
+ WIDTH="433" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="\fbox{{\tt dd ibs=1 skip=}{\em nbytes} {\tt &lt;}{\em data-file} {\tt \vert plt ...}}"></FONT></DIV>
+<P>
+<HR>
+<A NAME="tex2html573"
+  HREF="node25.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html567"
+  HREF="node20.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html561"
+  HREF="node23.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html569"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html571"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html574"
+  HREF="node25.html">Generating abscissas automatically</A>
+<B>Up:</B> <A NAME="tex2html568"
+  HREF="node20.html">Preparing Input for plt</A>
+<B> Previous:</B> <A NAME="tex2html562"
+  HREF="node23.html">Binary data files</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,251 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Plotting multiple data sets on one set of axes </TITLE>
+<META NAME="description" CONTENT="Plotting multiple data sets on one set of axes ">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node35.html">
+<LINK REL="previous" HREF="node33.html">
+<LINK REL="up" HREF="node33.html">
+<LINK REL="next" HREF="node35.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html712"
+  HREF="node35.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html706"
+  HREF="node33.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html700"
+  HREF="node33.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html708"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html710"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html713"
+  HREF="node35.html">Legends</A>
+<B>Up:</B> <A NAME="tex2html707"
+  HREF="node33.html">Plotting Two or More Data Sets Together</A>
+<B> Previous:</B> <A NAME="tex2html701"
+  HREF="node33.html">Plotting Two or More Data Sets Together</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001010000000000000000"></A><A NAME="sec:overlays"></A>
+<BR>
+Plotting multiple data sets on one set of axes 
+</H1>
+<P>
+<FONT SIZE="+2"><TT>plt</TT> can plot more than one data set on the same set of axes.
+There are several ways to overlay plots.
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:example6"></A><A NAME="3440"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 7.1:</STRONG>
+Produced using the command:
+</CAPTION>
+<TR><TD><IMG
+ WIDTH="1391" HEIGHT="617" BORDER="0"
+ SRC="img81.png"
+ ALT="\begin{figure}\begin{center}
+\begin{tabular}{p{10cm}p{1.5cm}}
+\fcolorbox{blue}{w...
+... columns 0 and 2, and using columns 0 and
+1 to make a normal plot).
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<FONT SIZE="+2"><A NAME="3441"></A>Figure&nbsp;<A HREF="#fig:example6">7.1</A> demonstrates the use of the <TT>-p</TT> option to
+specify multiple plots in a single invocation of <TT>plt</TT>, using a data
+file that includes a column of ordinates for each plot.  The figure can
+be produced using any of these commands:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+plt example5.data 0 3 0 2 1 -F"p s+ s* m"
+    -x "x axis" -y "y axis" -t "plot of y=x; y=2x and y=3x"
+
+plt example5.data 0 1 2 3 -F"p 0,3s+ 0,2s* 1m"
+    -x "x axis" -y "y axis" -t "plot of y=x; y=2x and y=3x"
+
+plt example5.data % -F"p 0,3s+ 0,2s* 1m"
+    -x "x axis" -y "y axis" -t "plot of y=x; y=2x and y=3x"
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2"><A NAME="3442"></A>There are several ways of specifying the data columns to be ``taken'' by the
+<TT>-p</TT> plotstyles.  In the first command, the data columns are listed (after
+the name of the data file) in the order they are taken (the first '<TT>s</TT>'
+takes column 0 as <IMG
+ WIDTH="17" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$x$"> and column 3 as <IMG
+ WIDTH="16" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$y$">, the second '<TT>s</TT>' takes column 0
+as <IMG
+ WIDTH="17" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$x$"> and column 2 as <IMG
+ WIDTH="16" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$y$">, and the '<TT>m</TT>' takes column 1 as <IMG
+ WIDTH="16" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$y$"> and
+implicitly takes column 0 as <IMG
+ WIDTH="17" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$x$">).  In the second command, <EM>all</EM> of the
+data columns are listed in order after the name of the data file, and each
+plotstyle name is prefixed with a comma-separated list of the data columns it
+takes.  The third command illustrates how ``<TT>%</TT>'' can be used as shorthand
+for ``all of the data columns, in order''; it is equivalent to the second
+command.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="3443"></A><A NAME="3444"></A>If the data sets to be overlaid come from different files, it will be easiest
+to invoke <TT>plt</TT> once with each data file, and to use a different method to
+create the overlay.  The <TT>-fa</TT> and <TT>-o</TT> options allow you to do this.
+Plot the data from the first file in the usual way, but use <TT>-fa</TT> to record
+the axis limits into a format file.  Then plot the data from the second file
+using this format file and the <TT>-o</TT> option, which suppresses all output
+except your new data plot.  Study figure&nbsp;<A HREF="#fig:example7">7.2</A>, which overlays the
+plot of <IMG
+ WIDTH="108" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img82.png"
+ ALT="$y = 5 x + 20$"> over that of <IMG
+ WIDTH="73" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img83.png"
+ ALT="$y = 2x^{2}$">.
+</FONT>
+<DIV ALIGN="CENTER"><A NAME="fig:example7"></A><A NAME="3448"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 7.2:</STRONG>
+Overlaid plots (see text for
+explanation).</CAPTION>
+<TR><TD><IMG
+ WIDTH="701" HEIGHT="467" BORDER="0"
+ SRC="img84.png"
+ ALT="\begin{figure}\begin{center}
+\begin{tabular}{p{10cm}p{1.5cm}}
+\fcolorbox{blue}{w...
+...8 35
+4 32 40
+5 50 45\end{boxedverbatim}
+}
+\end{tabular}\end{center}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+<FONT SIZE="+2">
+In this example, the axis specifications for the plot
+of <IMG
+ WIDTH="73" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img83.png"
+ ALT="$y = 2x^{2}$"> are written into the format file <TT>example7.axes</TT>:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+plt example7.data 0 1 -f example7.format
+</PRE>
+<DIV ALIGN="CENTER"></DIV><FONT SIZE="+2">
+where <TT>example7.format</TT> contains:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+t Plot of y = 5x+20 and y = 2x
+L (P*.8) - - LB 2
+x x axis
+y y axis
+xa -6 6 1 - 1 0
+ya -5 55 5 - 5 0
+fa example7.axes
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2"><A NAME="1631"></A><A NAME="1632"></A><A NAME="1633"></A><A NAME="1634"></A><A NAME="1635"></A><FONT SIZE="-1">[In <TT>example7.format</TT>, the second line (<TT>L (P*.8) - - LB 2</TT>)
+appends a small superscript 2 to the plot title.  <TT>(P*.8)</TT> reduces the
+point size to 80% of the default, and ``<TT>- - LB"</TT>'' aligns the
+left bottom point of the 2 at the <TT>RC</TT> point of the previous string
+(the title).  See chapter&nbsp;<A HREF="node41.html#sec:font-groups">11</A> for a discussion of
+how text styles, including point size, can be modified;  and see
+chapter&nbsp;<A HREF="node37.html#sec:labelling">8</A> for details on the <TT>-L</TT> option and on
+creating superscripts and subscripts in plot titles and other text.]</FONT>
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="3450"></A>The information written by the command above into <TT>example7.axes</TT>
+is recalled in the command below (using the <TT>-f</TT> option), and the
+new plot is then overlaid using the <TT>-o</TT> option.
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+plt example7.data 0 2 -f example7.axes -o
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2"><A NAME="3451"></A><A NAME="3452"></A><A NAME="3453"></A><A NAME="3454"></A><A NAME="3455"></A>Although a single data file, <TT>example7.data</TT>, contains data for both plots
+in this example, the data might just as easily have been collected from
+different files.  Note that if you know ahead of time what axis limits you will
+use, you don't need <TT>-fa</TT>; just use <TT>-xa</TT>, <TT>-ya</TT>, <TT>-X</TT>, or <TT>-Y</TT> with the appropriate axis limits when making the second plot.
+</FONT>
+<P>
+<HR>
+<A NAME="tex2html712"
+  HREF="node35.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html706"
+  HREF="node33.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html700"
+  HREF="node33.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html708"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html710"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html713"
+  HREF="node35.html">Legends</A>
+<B>Up:</B> <A NAME="tex2html707"
+  HREF="node33.html">Plotting Two or More Data Sets Together</A>
+<B> Previous:</B> <A NAME="tex2html701"
+  HREF="node33.html">Plotting Two or More Data Sets Together</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

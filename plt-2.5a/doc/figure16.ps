@@ -1,0 +1,647 @@
+%!PS-Adobe-3.0
+%%BoundingBox: 55 241 574 673
+%%Title: (plt/lwcat output)
+%%CreationDate: Fri Mar 23 12:01:20 2001
+%!PS-Adobe-3.0
+%%BoundingBox: 86 276 558 643
+% pslw.pro	Prolog file for plt with the LaserWriter
+% Last revised: 23 March 2001 (GBM)
+
+count /numstack exch def
+save 100 dict begin /pslw exch def
+
+/ED	{exch def} def
+/IN	{exch 72 mul def} def
+
+/CLOSE	{count numstack sub {pop} repeat pslw end restore} def
+
+/BF	{gsave INIT} def
+/EF	{grestore} def
+
+/LS	{} def
+/INIT	{0 setlinecap LS /DMTX matrix currentmatrix def
+	/XOFF [0 0 0 -.5 -1 -1 -1 -.5 -.5 -.5 -.6 -.6] def
+	/YOFF [0 -.37 -1 -1 -1 -.37 0 0 -.37 .25 -1.25 .25] def
+	/XM 0 def /YM 0 def /XYM 0 def} def
+
+/WSUBST	{} def
+
+/WDEF	{/ury ED /urx ED /lly ED /llx ED
+	WSUBST /y1 IN /x1 IN /y0 IN /x0 IN /FSCL ED
+	gsave matrix setmatrix
+	x0 2 add y0 2 add translate 
+	x1 x0 sub 4 sub urx llx sub div
+	y1 y0 sub 4 sub ury lly sub div scale
+	llx neg lly neg translate
+	/PMTX matrix currentmatrix def grestore} def
+
+/M	{newpath PMTX transform moveto} def
+/N	{PMTX dtransform rlineto} def
+/L	{N currentpoint stroke moveto} def
+/F	{closepath 0 eq {fill} {FS} ifelse} def
+/FS	{gsave fill grestore gsave 0 0 0 setrgbcolor stroke grestore} def 
+
+/T	{/ang ED /pos ED M ang rotate
+	/str ED str stringwidth pop
+	XOFF pos get mul
+	YOFF pos get PS mul XYM FSCL mul add
+	rmoveto str show
+	/XYM 0 def SDM} def
+
+/GT	{7 0 T} def
+/XT	{/XYM XM neg def 3 0 T /XM 0 def} def
+/XTR	{/XYM XM def 7 0 T /XM 0 def} def
+/YT	{/XYM YM def 7 90 T /YM 0 def} def
+/YTR	{/XYM YM neg def 3 90 T /YM 0 def} def
+
+/XN	{/XM PS def 3 0 T} def
+/XNR	{/XM PS def 9 0 T} def
+/XE	{10 1.25 XEX} def
+/XER	{11 1.5 XEX} def
+/XEX	{6 -1 roll /exp ED PS mul /XM ED 0 T EX} def
+
+/YN	{-1 1 0 YNUM} def
+/YNR	{1 0 0 YNUM} def
+/YE	{-1 1 YEX} def
+/YER	{1 0 YEX} def
+
+/YEX	{6 -1 roll /exp ED exp stringwidth pop .65 mul YNUM EX} def
+/YNUM	{6 3 roll M /str ED str stringwidth pop add /len ED
+	len mul .2 PS mul add mul PS -.37 mul rmoveto
+	str show /YM len .2 PS mul add YM MAX def} def
+
+/EX	{0 PS .6 mul rmoveto .65 .65 scale exp show SDM} def
+
+/SP	{/y ED /x ED /yp ED /yn ED /str ED
+	x y M currentpoint
+	str false charpath PBOX newpath
+	exch dup add x0 x1 add 2 div sub
+	exch dup add y0 y1 add 2 div sub moveto
+	str false charpath gsave fill EB} def
+
+/SY	{/y ED /x ED /yp ED /yn ED /st ED
+	newpath x y M PS 4 div dup scale
+	[{CIR} {UTRI} {DI} {SQ} {TRI}] st 5 mod get exec
+	closepath SDM gsave 
+	[{1 FILL stroke} {fill} {stroke}] st 5 idiv 3 mod get exec
+	EB} def
+
+/EB {	grestore PMTX concat PBOX SDM
+	y1 y sub yp le {yp y1 EB2} if 
+	y0 y sub yn ge {yn y0 EB2} if} def
+/EB2	{newpath x exch M 0 exch N x0 x sub 0 N x1 x0 sub 0 N stroke} def
+
+/CIR	{currentpoint newpath 1.1 0 360 arc} def
+/TRI	{0 1.2 rmoveto -1.2 -2.4 rlineto 2.4 0 rlineto} def
+/DI	{ 0 -1.5 rmoveto 1.3 1.5 rlineto
+	-1.3 1.5  rlineto -1.3 -1.5 rlineto} def
+/UTRI	{180 rotate TRI 180 rotate} def
+/SQ	{1 1 rmoveto -2 0 rlineto 0 -2 rlineto 2 0
+	rlineto} def
+
+/LW	{.2 mul FSCL mul setlinewidth} def
+/SF	{FSCL mul /PS ED findfont PS scalefont setfont} def
+/DL	{PS mul .05 mul} def
+
+/solid		{{}0} def
+/dotted		{[1 DL 3 DL] 0} def
+/longdashed	{[7 DL] 0} def
+/shortdashed	{[4 DL 5 DL] 0} def
+/dotdashed	{[1 DL 5 DL 6 DL 5 DL] 0} def
+
+/MAX	{2 copy lt {exch pop} {pop} ifelse} def
+/SDM	{DMTX setmatrix} def
+/FILL	{gsave setgray fill grestore} def
+/PBOX	{pathbbox /y1 ED /x1 ED /y0 ED /x0 ED} def
+INIT
+0.85 0.775 3.35 7.975 9.35 0 0 4320 3600 WDEF
+/Times-Roman 16 SF
+solid setdash
+0 setgray
+0 0 0 setrgbcolor
+3 LW
+/Times-Roman 16 SF
+4103 720 M
+-3239 0 L
+864 664 M
+0 56 L
+(0) 864 664 XN
+1188 683 M
+0 37 L
+1512 664 M
+0 56 L
+(1) 1512 664 XN
+1836 683 M
+0 37 L
+2160 664 M
+0 56 L
+(2) 2160 664 XN
+2483 683 M
+0 37 L
+2807 664 M
+0 56 L
+(3) 2807 664 XN
+3131 683 M
+0 37 L
+3455 664 M
+0 56 L
+(4) 3455 664 XN
+3779 683 M
+0 37 L
+4103 664 M
+0 56 L
+(5) 4103 664 XN
+4 LW
+(FREQUENCY IN HERTZ) 2483 494 XT
+3 LW
+864 3060 M
+0 -2340 L
+808 720 M
+56 0 L
+(0.0) 808 720 YN
+827 954 M
+37 0 L
+808 1188 M
+56 0 L
+(0.2) 808 1188 YN
+827 1422 M
+37 0 L
+808 1656 M
+56 0 L
+(0.4) 808 1656 YN
+827 1890 M
+37 0 L
+808 2124 M
+56 0 L
+(0.6) 808 2124 YN
+827 2358 M
+37 0 L
+808 2592 M
+56 0 L
+(0.8) 808 2592 YN
+827 2826 M
+37 0 L
+808 3060 M
+56 0 L
+(1.0) 808 3060 YN
+4 LW
+(THIS IS THE AMPLITUDE) 597 1890 YT
+(FREQUENCY RESPONSE OF THE FILTER) 2483 3284 8 0 T
+2 LW
+864 3031 M
+32 -3 N
+33 -4 N
+32 -4 N
+33 -5 N
+32 -6 N
+32 -6 N
+33 -6 N
+32 -8 N
+33 -8 N
+32 -9 N
+32 -10 N
+33 -11 N
+32 -12 N
+32 -14 N
+33 -15 N
+32 -16 N
+33 -18 N
+32 -19 N
+32 -22 N
+33 -23 N
+32 -25 N
+33 -27 N
+32 -30 N
+32 -31 N
+33 -34 N
+32 -35 N
+33 -38 N
+32 -40 N
+32 -41 N
+33 -44 N
+32 -45 N
+32 -47 N
+33 -49 N
+32 -49 N
+33 -50 N
+32 -52 N
+32 -51 N
+33 -52 N
+32 -52 N
+33 -51 N
+32 -51 N
+32 -51 N
+33 -50 N
+32 -49 N
+33 -47 N
+32 -47 N
+32 -45 N
+33 -43 N
+32 -43 N
+32 -41 N
+33 -39 N
+32 -37 N
+33 -37 N
+32 -34 N
+32 -33 N
+33 -32 N
+32 -30 N
+33 -29 N
+32 -27 N
+32 -26 N
+33 -25 N
+32 -23 N
+33 -23 N
+32 -21 N
+32 -20 N
+33 -19 N
+32 -18 N
+33 -17 N
+32 -16 N
+32 -15 N
+33 -15 N
+32 -13 N
+32 -13 N
+33 -12 N
+32 -12 N
+33 -11 N
+32 -10 N
+32 -10 N
+33 -9 N
+32 -9 N
+33 -8 N
+32 -8 N
+32 -7 N
+33 -7 N
+32 -6 N
+33 -7 N
+32 -5 N
+32 -6 N
+33 -5 N
+32 -5 N
+32 -5 N
+33 -4 N
+32 -4 N
+33 -4 N
+32 -4 N
+32 -3 N
+33 -4 N
+32 -3 N
+33 -3 N
+0 0 L
+864 720 M
+0.85 0.775 3.35 7.975 9.35 0 0 4320 3600 WDEF
+/Times-Roman 16 SF
+solid setdash
+0 setgray
+0 0 0 setrgbcolor
+3 LW
+/Times-Roman 12 SF
+2160 1079 M
+-865 0 L
+1295 1050 M
+0 29 L
+(0) 1295 1050 XN
+1382 1060 M
+0 19 L
+1468 1050 M
+0 29 L
+(1) 1468 1050 XN
+1555 1060 M
+0 19 L
+1641 1050 M
+0 29 L
+(2) 1641 1050 XN
+1728 1060 M
+0 19 L
+1814 1050 M
+0 29 L
+(3) 1814 1050 XN
+1901 1060 M
+0 19 L
+1987 1050 M
+0 29 L
+(4) 1987 1050 XN
+2074 1060 M
+0 19 L
+2160 1050 M
+0 29 L
+(5) 2160 1050 XN
+4 LW
+(FREQUENCY) 1727 1035 XT
+3 LW
+1295 1620 M
+0 -541 L
+1266 1079 M
+29 0 L
+(0.0) 1266 1079 YN
+1276 1133 M
+19 0 L
+1266 1187 M
+29 0 L
+(0.2) 1266 1187 YN
+1276 1241 M
+19 0 L
+1266 1295 M
+29 0 L
+(0.4) 1266 1295 YN
+1276 1349 M
+19 0 L
+1266 1404 M
+29 0 L
+(0.6) 1266 1404 YN
+1276 1458 M
+19 0 L
+1266 1512 M
+29 0 L
+(0.8) 1266 1512 YN
+1276 1566 M
+19 0 L
+1266 1620 M
+29 0 L
+(1.0) 1266 1620 YN
+4 LW
+(AMPLITUDE) 1214 1349 YT
+(FREQUENCY RESP.) 1727 1691 8 0 T
+2 LW
+1295 1613 M
+9 0 N
+8 -1 N
+9 -1 N
+9 -1 N
+8 -2 N
+9 -1 N
+9 -2 N
+8 -1 N
+9 -2 N
+9 -2 N
+8 -3 N
+9 -2 N
+8 -3 N
+9 -3 N
+9 -4 N
+8 -3 N
+9 -5 N
+9 -4 N
+8 -5 N
+9 -5 N
+9 -6 N
+8 -6 N
+9 -7 N
+9 -7 N
+8 -8 N
+9 -8 N
+9 -9 N
+8 -9 N
+9 -10 N
+9 -10 N
+8 -11 N
+9 -10 N
+8 -12 N
+9 -11 N
+9 -12 N
+8 -12 N
+9 -11 N
+9 -12 N
+8 -12 N
+9 -12 N
+9 -12 N
+8 -12 N
+9 -11 N
+9 -12 N
+8 -11 N
+9 -10 N
+9 -11 N
+8 -10 N
+9 -10 N
+9 -9 N
+8 -9 N
+9 -9 N
+8 -8 N
+9 -8 N
+9 -8 N
+8 -7 N
+9 -7 N
+9 -7 N
+8 -6 N
+9 -6 N
+9 -6 N
+8 -5 N
+9 -5 N
+9 -5 N
+8 -5 N
+9 -4 N
+9 -4 N
+8 -4 N
+9 -4 N
+9 -4 N
+8 -3 N
+9 -3 N
+8 -3 N
+9 -3 N
+9 -3 N
+8 -2 N
+9 -3 N
+9 -2 N
+8 -2 N
+9 -2 N
+9 -2 N
+8 -2 N
+9 -1 N
+9 -2 N
+8 -1 N
+9 -2 N
+9 -1 N
+8 -1 N
+9 -2 N
+9 -1 N
+8 -1 N
+9 -1 N
+8 -1 N
+9 -1 N
+9 -1 N
+8 0 N
+9 -1 N
+9 -1 N
+8 -1 N
+0 0 L
+1295 1079 M
+0.85 0.775 3.35 7.975 9.35 0 0 4320 3600 WDEF
+/Times-Roman 16 SF
+solid setdash
+0 setgray
+0 0 0 setrgbcolor
+3 LW
+/Times-Roman 14 SF
+3888 1980 M
+-1297 0 L
+2591 1944 M
+0 36 L
+(0) 2591 1944 XN
+2721 1956 M
+0 24 L
+2850 1944 M
+0 36 L
+(1) 2850 1944 XN
+2980 1956 M
+0 24 L
+3110 1944 M
+0 36 L
+(2) 3110 1944 XN
+3239 1956 M
+0 24 L
+3369 1944 M
+0 36 L
+(3) 3369 1944 XN
+3499 1956 M
+0 24 L
+3629 1944 M
+0 36 L
+(4) 3629 1944 XN
+3758 1956 M
+0 24 L
+3888 1944 M
+0 36 L
+(5) 3888 1944 XN
+4 LW
+(FREQUENCY) 3239 1902 XT
+3 LW
+2591 2880 M
+0 -900 L
+2555 1980 M
+36 0 L
+(0.0) 2555 1980 YN
+2567 2070 M
+24 0 L
+2555 2160 M
+36 0 L
+(0.2) 2555 2160 YN
+2567 2250 M
+24 0 L
+2555 2340 M
+36 0 L
+(0.4) 2555 2340 YN
+2567 2430 M
+24 0 L
+2555 2520 M
+36 0 L
+(0.6) 2555 2520 YN
+2567 2610 M
+24 0 L
+2555 2700 M
+36 0 L
+(0.8) 2555 2700 YN
+2567 2790 M
+24 0 L
+2555 2880 M
+36 0 L
+(1.0) 2555 2880 YN
+4 LW
+(AMPLITUDE) 2474 2430 YT
+(FREQUENCY RESPONSE) 3239 2985 8 0 T
+2 LW
+2591 2869 M
+13 -1 N
+13 -2 N
+13 -2 N
+13 -1 N
+13 -2 N
+13 -3 N
+13 -2 N
+13 -3 N
+13 -3 N
+13 -4 N
+13 -4 N
+13 -4 N
+13 -5 N
+13 -5 N
+13 -6 N
+13 -6 N
+12 -7 N
+13 -7 N
+13 -8 N
+13 -9 N
+13 -10 N
+13 -11 N
+13 -11 N
+13 -12 N
+13 -13 N
+13 -13 N
+13 -15 N
+13 -15 N
+13 -16 N
+13 -17 N
+13 -18 N
+13 -18 N
+13 -18 N
+13 -19 N
+13 -20 N
+13 -19 N
+13 -20 N
+13 -20 N
+13 -20 N
+13 -20 N
+13 -19 N
+13 -20 N
+13 -19 N
+13 -19 N
+13 -18 N
+13 -18 N
+13 -17 N
+13 -17 N
+13 -16 N
+12 -16 N
+13 -15 N
+13 -15 N
+13 -14 N
+13 -13 N
+13 -13 N
+13 -12 N
+13 -11 N
+13 -11 N
+13 -11 N
+13 -10 N
+13 -9 N
+13 -9 N
+13 -9 N
+13 -8 N
+13 -8 N
+13 -7 N
+13 -7 N
+13 -7 N
+13 -6 N
+13 -6 N
+13 -5 N
+13 -5 N
+13 -5 N
+13 -5 N
+13 -5 N
+13 -4 N
+13 -4 N
+13 -3 N
+13 -4 N
+13 -3 N
+13 -3 N
+13 -3 N
+13 -3 N
+12 -3 N
+13 -2 N
+13 -3 N
+13 -2 N
+13 -2 N
+13 -2 N
+13 -2 N
+13 -2 N
+13 -2 N
+13 -1 N
+13 -2 N
+13 -1 N
+13 -1 N
+13 -2 N
+13 -1 N
+13 -1 N
+0 0 L
+2591 1980 M
+showpage CLOSE
+%%EOF
+%%EndDocument

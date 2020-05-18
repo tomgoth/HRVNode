@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Preparing Input for plt </TITLE>
+<META NAME="description" CONTENT="Preparing Input for plt ">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node28.html">
+<LINK REL="previous" HREF="node8.html">
+<LINK REL="up" HREF="book.html">
+<LINK REL="next" HREF="node21.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html510"
+  HREF="node21.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html504"
+  HREF="book.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html498"
+  HREF="node19.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html506"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html508"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html511"
+  HREF="node21.html">Text data files</A>
+<B>Up:</B> <A NAME="tex2html505"
+  HREF="book.html">plt Tutorial and Cookbook</A>
+<B> Previous:</B> <A NAME="tex2html499"
+  HREF="node19.html">Plotting a function of a single variable</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00600000000000000000"></A><A NAME="sec:data-prep"></A>
+<BR>
+Preparing Input for <TT>plt</TT> 
+</H1>
+<P>
+<FONT SIZE="+2"><A NAME="3313"></A>Conceptually, all data presented to <TT>plt</TT> must be organized in
+rows and columns.  Columns are numbered beginning with zero, and each
+column contains values for a variable that can be used as an abscissa
+(x coordinate), ordinate (y coordinate), or (with appropriate options
+discussed later in this book) a grey level, color, or other plot
+attributes.  Rows are numbered beginning with one, and each row
+contains a value for each column.  Within a data file, values are
+always arranged in row-major order (all elements of row 1, followed by
+all elements of row 2, etc.).
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="678"></A><TT>plt</TT> can read data from a file or from a pipe.  A command-line argument
+that is not otherwise recognized by <TT>plt</TT> is assumed to be the name of a
+data file.  Any legal file name is acceptable; if it begins with a character
+that would cause <TT>plt</TT> to interpret it as an option, simply prefix the name
+with ``<TT>./</TT>''.  If no data file is named, <TT>plt</TT> reads data from the
+standard input.
+</FONT>
+<P>
+<BR> <HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html512"
+  HREF="node21.html">Text data files</A>
+<LI><A NAME="tex2html513"
+  HREF="node22.html">Comma-separated value (CSV) files</A>
+<LI><A NAME="tex2html514"
+  HREF="node23.html">Binary data files</A>
+<LI><A NAME="tex2html515"
+  HREF="node24.html">Data specifications </A>
+<LI><A NAME="tex2html516"
+  HREF="node25.html">Generating abscissas automatically </A>
+<LI><A NAME="tex2html517"
+  HREF="node26.html">Format files</A>
+<LI><A NAME="tex2html518"
+  HREF="node27.html">String arrays </A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<A NAME="tex2html510"
+  HREF="node21.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html504"
+  HREF="book.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html498"
+  HREF="node19.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html506"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html508"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html511"
+  HREF="node21.html">Text data files</A>
+<B>Up:</B> <A NAME="tex2html505"
+  HREF="book.html">plt Tutorial and Cookbook</A>
+<B> Previous:</B> <A NAME="tex2html499"
+  HREF="node19.html">Plotting a function of a single variable</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

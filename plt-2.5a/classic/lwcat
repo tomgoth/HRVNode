@@ -1,0 +1,79 @@
+#! /bin/sh
+#	lwcat			Paul Albrecht
+#
+#	The prolog file has been changed so that the CLOSE call no longer
+#	automatically does a showpage.   Now the shell variable lwcat variable
+#	C contains the showpage, which may be supressed.  This gives one the
+#	option of overalpping graphs with with text (e.g. from troff).  The 
+#	`-no' option will keep the generated graph from being flushed
+#	out onto paper.
+#
+#	Modified 16 August 1990 (by G. Moody) so that `make' inserts the
+#	correct directory name in PROLOG during installation.
+
+PROLOG=PSPDIR/pslw.pro
+SPOOLER='lpr -Plw'
+C=showpage
+
+WDEF=""
+FILES=""
+
+while [ "$1" != "" ]
+do
+OPT="$1"
+shift
+case "$OPT" in
+	-no) C="";;
+	-ps) SPOOLER=cat;;
+#
+	-sq)WDEF="0.80 1.25 3.50 7.25  9.50";;
+	-sq2)WDEF="0.55 2.5 2.5 7 8";;
+	-t) WDEF="0.80 1.25 3.50 7.50  9.50";;
+	-t2)WDEF="0.80 1.25 3.50 7.50  7.50";;
+	-v)	WDEF="0.90 0.75 0.75 7.75 10.25";; 
+	-v2)	WDEF="0.90 0.75 0.75 7.75 9.25";;
+	-CinC) WDEF="0.60 1.25 3.50 6.0  6.65";;
+#
+	-c2) C="copypage $C ";;
+	-c3) C="copypage copypage $C ";;
+	-c4) C="copypage copypage copypage $C";;
+	-c5) C="copypage copypage copypage copypage $C";;
+	-c6) C="copypage copypage copypage copypage copypage $C";;
+	-*) echo "Argument error: $OPT" >/dev/tty; exit;;
+	*)	FILES="$FILES $OPT";
+esac
+done
+
+#######################################################
+#	WDEF takes 5 arguments:  FSCL x0 y0 x1 y1
+#
+#	FSCL is how much to scale the font size by;
+#	(x0,y0) and (x1,y1) are the corners of the rectangle
+#	into which the plot will go (specified in inches).
+#
+#	The FSCL, x0, y0, x1, y1 override the settings that
+#	are specified to plt via PTERM or the -size commands.
+#	When specifing the LaserWrite plot window using PTERM,
+#	put the arguments for the -size option after the "lw".
+#
+#######################################################
+
+(
+cat $PROLOG
+
+if [ "$WDEF" != "" ]
+then	echo "/WSUBST { pop pop pop pop pop $WDEF} def"
+fi
+
+if [ "$FILES" = "" ]
+then	FILES="-"
+fi
+
+for i in $FILES
+do
+	echo INIT
+	cat $i
+done
+
+echo $C CLOSE
+) | $SPOOLER

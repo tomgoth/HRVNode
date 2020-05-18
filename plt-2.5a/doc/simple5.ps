@@ -1,0 +1,502 @@
+%!PS-Adobe-3.0
+%%BoundingBox: 55 241 574 673
+%%Title: (plt/lwcat output)
+%%CreationDate: Wed May  9 13:51:19 2001
+%!
+%%BoundingBox: 54 54 556 737
+% plt.pro	PostScript prolog for plt
+% Last revised: 7 May 2001 (GBM)
+
+count /numstack exch def
+save 100 dict begin /plt exch def
+
+/ED	{exch def} def
+/IN	{exch 72 mul def} def
+
+/CLOSE	{count numstack sub {pop} repeat plt end restore} def
+
+/BF	{gsave INIT} def
+/EF	{grestore} def
+
+/LS	{} def
+/INIT	{0 setlinecap LS /DMTX matrix currentmatrix def
+	/XOFF [0 0 0 -.5 -1 -1 -1 -.5 -.5 0 -.5 -1] def
+	/YOFF [0 -.37 -1 -1 -1 -.37 0 0 -.37 -.74 -.74 -.74] def
+	/XM 0 def /YM 0 def /XYM 0 def} def
+
+/WSUBST	{} def
+
+/WDEF	{/ury ED /urx ED /lly ED /llx ED
+	WSUBST /y1 IN /x1 IN /y0 IN /x0 IN /FSCL ED
+	gsave matrix setmatrix
+	x0 2 add y0 2 add translate 
+	x1 x0 sub 4 sub urx llx sub div
+	y1 y0 sub 4 sub ury lly sub div scale
+	llx neg lly neg translate
+	/PMTX matrix currentmatrix def grestore} def
+
+/M	{newpath PMTX transform moveto} def
+/N	{PMTX dtransform rlineto} def
+/L	{N currentpoint stroke moveto} def
+/F	{closepath 0 eq {fill} {FS} ifelse} def
+/FS	{gsave fill grestore gsave 0 0 0 setrgbcolor stroke grestore} def 
+
+/XC	0 def
+/YC	0 def
+/T	{/ang ED /pos ED /YY ED /XX ED
+	XX -32767 eq
+	 {YY -32767 eq
+	  {XC YC moveto}
+	  {0 YY M currentpoint XC exch moveto pop}
+	 ifelse}
+	 {YY -32767 eq
+	  {XX 0 M currentpoint pop YC moveto}
+	  {XX YY M}
+	 ifelse}
+	ifelse
+	ang rotate
+	/str ED str stringwidth pop
+	XOFF pos get mul
+	YOFF pos get PS mul XYM FSCL mul add
+	rmoveto str show 0 .37 PS mul XYM FSCL mul add rmoveto
+	/XYM 0 def SDM currentpoint /YC ED /XC ED} def
+
+/GT	{7 0 T} def
+/XT	{/XYM XM neg def 3 0 T /XM 0 def} def
+/XTR	{/XYM XM def 7 0 T /XM 0 def} def
+/YT	{/XYM YM def 7 90 T /YM 0 def} def
+/YTR	{/XYM YM neg def 3 90 T /YM 0 def} def
+
+/XN	{/XM PS def 3 0 T} def
+/XNR	{/XM PS def 9 0 T} def
+/XE	{10 1.25 XEX} def
+/XER	{11 1.5 XEX} def
+/XEX	{6 -1 roll /exp ED PS mul /XM ED 0 T EX} def
+
+/YN	{-1 1 0 YNUM} def
+/YNR	{1 0 0 YNUM} def
+/YE	{-1 1 YEX} def
+/YER	{1 0 YEX} def
+
+/YEX	{6 -1 roll /exp ED exp stringwidth pop .65 mul YNUM EX} def
+/YNUM	{6 3 roll M /str ED str stringwidth pop add /len ED
+	len mul .2 PS mul add mul PS -.37 mul rmoveto
+	str show /YM len .2 PS mul add YM MAX def} def
+
+/EX	{0 PS .6 mul rmoveto .65 .65 scale exp show SDM} def
+
+/SP	{/y ED /x ED /yp ED /yn ED /str ED
+	x y M currentpoint
+	str false charpath PBOX newpath
+	exch dup add x0 x1 add 2 div sub
+	exch dup add y0 y1 add 2 div sub moveto
+	str false charpath gsave fill EB} def
+
+/SY	{/y ED /x ED /yp ED /yn ED /st ED
+	newpath x y M PS 4 div dup scale
+	[{CIR} {UTRI} {DI} {SQ} {TRI}] st 5 mod get exec
+	closepath SDM gsave 
+	[{1 FILL stroke} {fill} {stroke}] st 5 idiv 3 mod get exec
+	EB} def
+
+/EB {	grestore PMTX concat PBOX SDM
+	y1 y sub yp le {yp y1 EB2} if 
+	y0 y sub yn ge {yn y0 EB2} if} def
+/EB2	{newpath x exch M 0 exch N x0 x sub 0 N x1 x0 sub 0 N stroke} def
+
+/CIR	{currentpoint newpath 1.1 0 360 arc} def
+/TRI	{0 1.2 rmoveto -1.2 -2.4 rlineto 2.4 0 rlineto} def
+/DI	{ 0 -1.5 rmoveto 1.3 1.5 rlineto
+	-1.3 1.5  rlineto -1.3 -1.5 rlineto} def
+/UTRI	{180 rotate TRI 180 rotate} def
+/SQ	{1 1 rmoveto -2 0 rlineto 0 -2 rlineto 2 0
+	rlineto} def
+
+/LW	{.2 mul FSCL mul setlinewidth} def
+/SF	{FSCL mul /PS ED findfont PS scalefont setfont} def
+/DL	{PS mul .05 mul} def
+
+/solid		{{}0} def
+/dotted		{[1 DL 3 DL] 0} def
+/longdashed	{[7 DL] 0} def
+/shortdashed	{[4 DL 5 DL] 0} def
+/dotdashed	{[1 DL 5 DL 6 DL 5 DL] 0} def
+
+/MAX	{2 copy lt {exch pop} {pop} ifelse} def
+/SDM	{DMTX setmatrix} def
+/FILL	{gsave setgray fill grestore} def
+/PBOX	{pathbbox /y1 ED /x1 ED /y0 ED /x0 ED} def
+INIT
+0.85 0.775 3.35 7.975 9.35 0 0 4320 3600 WDEF
+/Times-Roman 16 SF
+dotted setdash
+0 0 0 setrgbcolor
+0.1 LW
+/Times-Roman 12 SF
+dotted setdash
+864 3060 M
+0 -2340 L
+1066 3060 M
+0 -2340 L
+1269 3060 M
+0 -2340 L
+1471 3060 M
+0 -2340 L
+1674 3060 M
+0 -2340 L
+1876 3060 M
+0 -2340 L
+2079 3060 M
+0 -2340 L
+2281 3060 M
+0 -2340 L
+2484 3060 M
+0 -2340 L
+2686 3060 M
+0 -2340 L
+2888 3060 M
+0 -2340 L
+3091 3060 M
+0 -2340 L
+3293 3060 M
+0 -2340 L
+3496 3060 M
+0 -2340 L
+3698 3060 M
+0 -2340 L
+3901 3060 M
+0 -2340 L
+4103 3060 M
+0 -2340 L
+solid setdash
+3 LW
+/Times-Roman 14 SF
+4103 720 M
+-3239 0 L
+864 672 M
+0 48 L
+(60) 864 672 XN
+1066 688 M
+0 32 L
+1269 688 M
+0 32 L
+1471 688 M
+0 32 L
+1674 672 M
+0 48 L
+(120) 1674 672 XN
+1876 688 M
+0 32 L
+2079 688 M
+0 32 L
+2281 688 M
+0 32 L
+2484 672 M
+0 48 L
+(180) 2484 672 XN
+2686 688 M
+0 32 L
+2888 688 M
+0 32 L
+3091 688 M
+0 32 L
+3293 672 M
+0 48 L
+(240) 3293 672 XN
+3496 688 M
+0 32 L
+3698 688 M
+0 32 L
+3901 688 M
+0 32 L
+4103 672 M
+0 48 L
+(300) 4103 672 XN
+4 LW
+/Times-Roman 16 SF
+(Time \(seconds\)) 2483 505 XT
+dotted setdash
+0.1 LW
+/Times-Roman 12 SF
+dotted setdash
+4103 720 M
+-3239 0 L
+4103 1305 M
+-3239 0 L
+4103 1890 M
+-3239 0 L
+4103 2475 M
+-3239 0 L
+4103 3060 M
+-3239 0 L
+solid setdash
+3 LW
+/Times-Roman 14 SF
+864 3060 M
+0 -2340 L
+816 720 M
+48 0 L
+(0) 816 720 YN
+832 1305 M
+32 0 L
+816 1890 M
+48 0 L
+(40) 816 1890 YN
+832 2475 M
+32 0 L
+816 3060 M
+48 0 L
+(80) 816 3060 YN
+4 LW
+/Times-Roman 16 SF
+(Heart rate \(beats per minute\)) 613 1890 YT
+(Heart rate time series) 2483 3284 8 0 T
+0 0 1 setrgbcolor
+2 LW
+/Times-Roman 6 SF
+0 0 0 873 2595 SY
+0 0 0 885 2525 SY
+0 0 0 898 2480 SY
+0 0 0 912 2573 SY
+0 0 0 925 2682 SY
+0 0 0 937 2629 SY
+0 0 0 949 2456 SY
+0 0 0 963 2640 SY
+0 0 0 975 2515 SY
+0 0 0 988 2437 SY
+0 0 0 1002 2409 SY
+0 0 0 1016 2510 SY
+0 0 0 1029 2465 SY
+0 0 0 1043 2480 SY
+0 0 0 1056 2600 SY
+0 0 0 1069 2732 SY
+0 0 0 1081 2658 SY
+0 0 0 1093 2652 SY
+0 0 0 1105 2701 SY
+0 0 0 1117 2758 SY
+0 0 0 1129 2688 SY
+0 0 0 1141 2442 SY
+0 0 0 1155 2694 SY
+0 0 0 1167 2635 SY
+0 0 0 1179 2525 SY
+0 0 0 1192 2573 SY
+0 0 0 1205 2600 SY
+0 0 0 1218 2520 SY
+0 0 0 1231 2361 SY
+0 0 0 1245 2562 SY
+0 0 0 1258 2567 SY
+0 0 0 1271 2546 SY
+0 0 0 1284 2536 SY
+0 0 0 1297 2658 SY
+0 0 0 1309 2578 SY
+0 0 0 1322 2525 SY
+0 0 0 1335 2530 SY
+0 0 0 1348 2707 SY
+0 0 0 1360 2432 SY
+0 0 0 1374 2551 SY
+0 0 0 1387 2670 SY
+0 0 0 1399 2442 SY
+0 0 0 1413 2405 SY
+0 0 0 1451 2374 SY
+0 0 0 1465 2396 SY
+0 0 0 1479 2670 SY
+0 0 0 1491 2437 SY
+0 0 0 1505 2319 SY
+0 0 0 1520 2589 SY
+0 0 0 1533 2589 SY
+0 0 0 1545 2460 SY
+0 0 0 1559 2446 SY
+0 0 0 1573 2694 SY
+0 0 0 1585 2612 SY
+0 0 0 1597 2485 SY
+0 0 0 1611 2640 SY
+0 0 0 1623 2805 SY
+0 0 0 1634 2707 SY
+0 0 0 1646 2557 SY
+0 0 0 1659 2664 SY
+0 0 0 1671 2701 SY
+0 0 0 1683 2536 SY
+0 0 0 1696 2500 SY
+0 0 0 1710 2682 SY
+0 0 0 1722 2557 SY
+0 0 0 1735 2437 SY
+0 0 0 1748 2606 SY
+0 0 0 1761 2600 SY
+0 0 0 1773 2365 SY
+0 0 0 1788 2460 SY
+0 0 0 1801 2713 SY
+0 0 0 1813 2752 SY
+0 0 0 1825 2635 SY
+0 0 0 1837 2745 SY
+0 0 0 1849 2726 SY
+0 0 0 1861 2635 SY
+0 0 0 1873 2589 SY
+0 0 0 1886 2635 SY
+0 0 0 1898 2536 SY
+0 0 0 1911 2505 SY
+0 0 0 1925 2629 SY
+0 0 0 1937 2682 SY
+0 0 0 1949 2428 SY
+0 0 0 1963 2490 SY
+0 0 0 1976 2646 SY
+0 0 0 1989 2551 SY
+0 0 0 2002 2432 SY
+0 0 0 2015 2646 SY
+0 0 0 2028 2752 SY
+0 0 0 2039 2629 SY
+0 0 0 2052 2646 SY
+0 0 0 2064 2819 SY
+0 0 0 2075 2758 SY
+0 0 0 2087 2612 SY
+0 0 0 2100 2646 SY
+0 0 0 2112 2752 SY
+0 0 0 2123 2635 SY
+0 0 0 2164 2612 SY
+0 0 0 2177 2428 SY
+0 0 0 2190 2541 SY
+0 0 0 2203 2771 SY
+0 0 0 2215 2562 SY
+0 0 0 2228 2303 SY
+0 0 0 2243 2551 SY
+0 0 0 2256 2573 SY
+0 0 0 2269 2460 SY
+0 0 0 2282 2510 SY
+0 0 0 2295 2765 SY
+0 0 0 2307 2589 SY
+0 0 0 2320 2536 SY
+0 0 0 2333 2541 SY
+0 0 0 2346 2726 SY
+0 0 0 2358 2612 SY
+0 0 0 2370 2428 SY
+0 0 0 2384 2617 SY
+0 0 0 2396 2805 SY
+0 0 0 2435 2623 SY
+0 0 0 2448 2567 SY
+0 0 0 2461 2391 SY
+0 0 0 2475 2480 SY
+0 0 0 2488 2739 SY
+0 0 0 2500 2758 SY
+0 0 0 2512 2726 SY
+0 0 0 2523 2726 SY
+0 0 0 2535 2840 SY
+0 0 0 2546 2713 SY
+0 0 0 2558 2546 SY
+0 0 0 2571 2658 SY
+0 0 0 2583 2606 SY
+0 0 0 2626 2418 SY
+0 0 0 2640 2378 SY
+0 0 0 2654 2374 SY
+0 0 0 2669 2485 SY
+0 0 0 2682 2405 SY
+0 0 0 2696 2428 SY
+0 0 0 2710 2505 SY
+0 0 0 2723 2409 SY
+0 0 0 2737 2428 SY
+0 0 0 2751 2432 SY
+0 0 0 2765 2520 SY
+0 0 0 2778 2485 SY
+0 0 0 2792 2456 SY
+0 0 0 2805 2551 SY
+0 0 0 2818 2510 SY
+0 0 0 2831 2490 SY
+0 0 0 2845 2460 SY
+0 0 0 2858 2612 SY
+0 0 0 2871 2595 SY
+0 0 0 2883 2456 SY
+0 0 0 2897 2470 SY
+0 0 0 2911 2623 SY
+0 0 0 2923 2578 SY
+0 0 0 2936 2437 SY
+0 0 0 2950 2505 SY
+0 0 0 2963 2676 SY
+0 0 0 2975 2682 SY
+0 0 0 2987 2635 SY
+0 0 0 2999 2745 SY
+0 0 0 3011 2719 SY
+0 0 0 3023 2732 SY
+0 0 0 3035 2670 SY
+0 0 0 3047 2726 SY
+0 0 0 3059 2567 SY
+0 0 0 3072 2490 SY
+0 0 0 3085 2510 SY
+0 0 0 3098 2688 SY
+0 0 0 3110 2600 SY
+0 0 0 3123 2701 SY
+0 0 0 3135 2791 SY
+0 0 0 3146 2719 SY
+0 0 0 3158 2713 SY
+0 0 0 3170 2847 SY
+0 0 0 3181 2833 SY
+0 0 0 3192 2719 SY
+0 0 0 3204 2826 SY
+0 0 0 3215 2899 SY
+0 0 0 3226 2819 SY
+0 0 0 3237 2745 SY
+0 0 0 3249 2778 SY
+0 0 0 3261 2562 SY
+0 0 0 3274 2480 SY
+0 0 0 3287 2546 SY
+0 0 0 3300 2396 SY
+0 0 0 3314 2465 SY
+0 0 0 3328 2606 SY
+0 0 0 3340 2515 SY
+0 0 0 3353 2658 SY
+0 0 0 3366 2791 SY
+0 0 0 3377 2833 SY
+0 0 0 3388 2688 SY
+0 0 0 3400 2490 SY
+0 0 0 3414 2551 SY
+0 0 0 3427 2546 SY
+0 0 0 3440 2324 SY
+0 0 0 3454 2296 SY
+0 0 0 3469 2446 SY
+0 0 0 3483 2432 SY
+0 0 0 3497 2378 SY
+0 0 0 3511 2500 SY
+0 0 0 3525 2670 SY
+0 0 0 3537 2456 SY
+0 0 0 3550 2409 SY
+0 0 0 3564 2578 SY
+0 0 0 3577 2713 SY
+0 0 0 3589 2465 SY
+0 0 0 3603 2480 SY
+0 0 0 3616 2694 SY
+0 0 0 3628 2617 SY
+0 0 0 3641 2541 SY
+0 0 0 3654 2676 SY
+0 0 0 3666 2791 SY
+0 0 0 3677 2573 SY
+0 0 0 3690 2432 SY
+0 0 0 3704 2640 SY
+0 0 0 3716 2475 SY
+0 0 0 3730 2409 SY
+0 0 0 3767 2606 SY
+0 0 0 3780 2646 SY
+0 0 0 3792 2771 SY
+0 0 0 3803 2701 SY
+0 0 0 3815 2606 SY
+0 0 0 3828 2670 SY
+0 0 0 3840 2525 SY
+0 0 0 3853 2324 SY
+0 0 0 3868 2500 SY
+0 0 0 3881 2629 SY
+0 0 0 3894 2485 SY
+0 0 0 3907 2383 SY
+0 0 0 3921 2551 SY
+0 0 0 3934 2584 SY
+0 0 0 3947 2485 SY
+0 0 0 3960 2606 SY
+0 0 0 3973 2713 SY
+0 0 0 3985 2578 SY
+0 0 0 3998 2365 SY
+0 0 0 4012 2370 SY
+0 0 0 4026 2525 SY
+0 0 0 4039 2562 SY
+0 0 0 4052 2589 SY
+0 0 0 4065 2739 SY
+0 0 0 4077 2713 SY
+0 0 0 4089 2771 SY
+864 720 M
+showpage CLOSE
+%%EOF
+%%EndDocument

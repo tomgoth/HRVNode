@@ -1,0 +1,39 @@
+for i in "$@"
+do
+	THIS="$i";
+	case $LAST in
+		-T)	PTERM="$THIS"
+			;;
+		-T*)
+			echo "$0: space required after -T option" >/dev/tty;
+			exit
+			;;
+	esac
+	LAST="$THIS"
+done
+
+D=${DISPLAY-xxx}
+case $D in
+	xxx) ;;
+	*)   PTERM=${PTERM-xw} ;;
+esac
+
+PTERM=${PTERM-$TERM}
+export PTERM
+
+case $PTERM in
+	x*)		PTERM=xw; exec xplt "$@"
+				;;
+	lw*)		exec lwplt "$@"
+				;;
+	go|go140)	exec gplt -T go140 "$@"
+				;;
+	go235)		exec gplt -T $PTERM "$@"
+				;;
+	4010|4014|tek)	exec gplt -T 4014 "$@"
+				;;
+	sun*)		exec sunplt "$@"
+				;;
+	*)		echo "Unrecognized PTERM!!!" >/dev/tty; exit
+				;;
+esac

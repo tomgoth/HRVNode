@@ -1,0 +1,10 @@
+plt $* -wq 0 : -t"THE TITLE FOR THE ENTIRE GRAPH GOES HERE"
+
+plt ldemo.data 2 3 -wqs 1 -lx -g in -t"LPF: Log Freq & Tics in" $*
+
+plt ldemo.data 4 5 -wqs 4 -lx -ly -g both -t"LPF: Log Freq & Ampl" $*
+
+plt ldemo.data 0 1 -wqs 3 -lx e -g out  -t"Alternate base & Tics out" $*
+
+plt ldemo.data 6 7 -wqs 2 -lx -ly - yes \
+-g grid,sym,out -t"Log axes with grid" $*

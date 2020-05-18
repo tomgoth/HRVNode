@@ -1,0 +1,60 @@
+s xyt
+X 0 1
+Y 0 1
+sf fontgroup1 Fh,P100,G.8
+sf fontgroup2 Fh-b,P20
+L (fontgroup1) .20 .80 - Sample
+B -.17 .68 .57 .97
+C -.17 .91 .57 .91
+L (fontgroup2) -.17 .70 RT LB
+L (fontgroup2) .20 .70 CT CB
+L (fontgroup2) .57 .70 LT RB
+L (fontgroup2) -.17 .80 RC LC
+L (fontgroup2) .20 .80 CC CC
+L (fontgroup2) .57 .80 LC RC
+L (fontgroup2) -.17 .90 RC LN
+L (fontgroup2) .20 .90 CC CN
+L (fontgroup2) .57 .90 LC RN
+L (fontgroup2) -.17 .97 RB LT
+L (fontgroup2) .20 .97 CB CT
+L (fontgroup2) .57 .97 LB RT
+B .67 -.02 .885 1.02
+C .72 -.02 .72 1.02
+vl (fontgroup1) .80 .50 CC -
+Sample
+vl (fontgroup2) .87 -.02 RT -
+LB
+vl (fontgroup2) .87 .50 CT -
+CB
+vl (fontgroup2) .87 1.02 LT -
+RB
+vl (fontgroup2) .80 -.02 RC -
+LC
+vl (fontgroup2) .80 .50 CC -
+CC
+vl (fontgroup2) .80 1.02 LC -
+RC
+vl (fontgroup2) .73 -.02 RC -
+LN
+vl (fontgroup2) .73 .50 CC -
+CN
+vl (fontgroup2) .73 1.02 LC -
+RN
+vl (fontgroup2) .67 -.02 RB -
+LT
+vl (fontgroup2) .67 .50 CB -
+CT
+vl (fontgroup2) .67 1.02 LB -
+RT
+L (fontgroup1) .1 .25 RB X
+B -.05 .25 .1 .54
+C -.05 .48 .1 .48
+L (fontgroup1) .1 .25 LC n
+B .1 .135 .215 .425
+C .1 .365 .215 .365
+L (fontgroup2) .3 .5 LC L .1 .25 RB X
+A .11 .46 .29 .5
+L (fontgroup2) .3 .35 LC L .1 .25 LC n
+A .225 .345 .29 .35
+A .09 .24 0 .1
+L (fontgroup2) .1 .1 CT Window coordinates (.1, .25)

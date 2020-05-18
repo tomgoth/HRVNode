@@ -1,0 +1,403 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Options</TITLE>
+<META NAME="description" CONTENT="Options">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node65.html">
+<LINK REL="previous" HREF="node63.html">
+<LINK REL="up" HREF="node63.html">
+<LINK REL="next" HREF="node65.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html1183"
+  HREF="node65.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1177"
+  HREF="node63.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1171"
+  HREF="node63.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1179"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1181"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html1184"
+  HREF="node65.html">Screen and printed plots</A>
+<B>Up:</B> <A NAME="tex2html1178"
+  HREF="node63.html">Description</A>
+<B> Previous:</B> <A NAME="tex2html1172"
+  HREF="node63.html">Description</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION002313100000000000000">
+Options</A>
+</H3><FONT SIZE="+2">Following is a brief summary of
+<TT>plt</TT>'s options.  Note that many options require arguments.  <TT>plt</TT> chooses a suitable
+default for most such arguments if the argument is supplied as `<TT>-</TT>'.  See the
+<I>plt Tutorial and Cookbook</I> for further details. </FONT><DL>
+<DT><STRONG><TT>-p</TT><I> plot-styles</I> </STRONG></DT>
+<DD>Specify style(s)
+for data plots.  Available <I>plot-styles</I> include `<TT>c</TT>', `<TT>C</TT>', `<TT>e+</TT><I>c</I>', `<TT>e-</TT><I>c</I>', `<TT>e:</TT><I>c</I>', `<TT>E+</TT><I>n</I>', `<TT>E-</TT><I>n</I>',
+`<TT>E:</TT><I>n</I>', `<TT>f</TT>', `<TT>i</TT>', `<TT>l</TT>', `<TT>m</TT>', `<TT>n</TT>', `<TT>N</TT>', `<TT>o</TT>', `<TT>O</TT>', `<TT>s</TT><I>c</I>', `<TT>S</TT><I>n</I>', and `<TT>t</TT>'. 
+</DD>
+<DT><STRONG><TT>-s</TT><I> elements</I> </STRONG></DT>
+<DD>Suppress <I>elements</I>
+of output.  Elements that can be suppressed include `<TT>e</TT>' (erasing the screen
+or beginning a new page before plotting), `<TT>a</TT>' (anything associated with axes),
+`<TT>x</TT>' (anything associated with the x axis), `<TT>y</TT>' (anything associated with the
+y axis), `<TT>g</TT>' (the grid), `<TT>m</TT>' (x and y axis tick marks), `<TT>n</TT>' (x and y tick mark
+numbers), `<TT>t</TT>' (x and y axis labels and plot title), `<TT>l</TT>' (user-supplied labels),
+`<TT>p</TT>' (data plots), and `<TT>f</TT>' (``figures'' - boxes, line segments, arrows, and legends).
+In addition, these <I>elements</I> modify the effects of any other elements that
+follow:  `<TT>X</TT>' (restrict effects to x axis), `<TT>Y</TT>' (restrict effects to y axis),
+and `<TT>A</TT>' (apply effects to both axes);  and the element `<TT>C</TT>' reenables all elements.
+
+<P>
+</DD>
+<DT><STRONG><TT>-X</TT><I> xmin xmax</I> </STRONG></DT>
+<DD>Set the x-axis range (see also <TT>-xa</TT>). 
+</DD>
+<DT><STRONG><TT>-Y</TT><I> ymin ymax</I> </STRONG></DT>
+<DD>Set the y-axis
+range (see also <TT>-ya</TT>). 
+</DD>
+<DT><STRONG><TT>-t</TT><I> title</I> </STRONG></DT>
+<DD>Set the title for the plot (enclose <I>title</I> in
+quotes if it contains whitespace or begins with `<TT>(</TT>' or `<TT>[</TT>'). 
+</DD>
+<DT><STRONG><TT>-T</TT><I> type</I> </STRONG></DT>
+<DD>Specify
+the output <I>type</I>, which may be <TT>xw</TT> (X11 window, the default under Unix or
+Linux and not available under MS-Windows), or <TT>lw</TT> (PostScript, the default
+under MS-Windows). 
+</DD>
+<DT><STRONG><TT>-g</TT><I> grid-mode</I> </STRONG></DT>
+<DD>Specify the grid style, which may be <TT>in</TT>, <TT>out</TT>
+(default), <TT>both</TT>, <TT>none</TT>, <TT>sym</TT> (make symmetric axes at top and right), <TT>grid</TT>
+(extend major ticks across the entire plot), <TT>xgrid</TT>, <TT>ygrid</TT>, or <TT>sub</TT> (extend
+all ticks across the entire plot). 
+</DD>
+<DT><STRONG><TT>-h</TT> [ <I> option-prefix ...</I> ] </STRONG></DT>
+<DD>Show help on options
+beginning with <I>option-prefix</I> (which should not begin with `<TT>-</TT>').  If <I>option-prefix</I>
+is omitted, show help on all options. 
+</DD>
+</DL>
+<P>
+<FONT SIZE="+2">Within the next group of options,
+those with upper-case names (`<TT>-A</TT>', `<TT>-B</TT>', ...) use <I>window coordinates</I> between (0,0)
+and (1,1); those with lower-case names (`<TT>-a</TT>', `<TT>-b</TT>', ...) use <I>data coordinates</I>. </FONT><DL>
+<DT><STRONG><TT>-a</TT><I> x0
+y0 x1 y1</I> </STRONG></DT>
+<DD>Draw an arrow to <I>(x0,y0)</I> from <I>(x1,y1)</I>. 
+</DD>
+<DT><STRONG><TT>-A</TT><I> xw0 yw0 xw1 yw1</I> </STRONG></DT>
+<DD>Draw an
+arrow to <I>(xw0,yw0)</I> from <I>(xw1,yw1)</I>. 
+</DD>
+<DT><STRONG><TT>-b</TT><I> x0 y0 x1 y1</I> </STRONG></DT>
+<DD>Draw a box with opposite
+corners at <I>(x0,y0) and <I>(x1,y1)</I></I>. 
+</DD>
+<DT><STRONG><TT>-B</TT><I> xw0 yw0 xw1 yw1</I> </STRONG></DT>
+<DD>Draw a box with opposite
+corners at <I>(xw0,yw0) and <I>(xw1,yw1)</I></I>. 
+</DD>
+<DT><STRONG><TT>-c</TT><I> x0 y0 x1 y1</I> </STRONG></DT>
+<DD>Connect points <I>(x0,y0)</I>
+and <I>(x1,y1)</I>. 
+</DD>
+<DT><STRONG><TT>-C</TT><I> xw0 yw0 xw1 yw1</I> </STRONG></DT>
+<DD>Connect points <I>(xw0,yw0)</I> and <I>(xw1,yw1)</I>. 
+</DD>
+<DT><STRONG><TT>-d</TT><I>
+x0 y0 x1 y1</I> </STRONG></DT>
+<DD>Draw a dark (filled) box with opposite corners at <I>(x0,y0) and
+<I>(x1,y1)</I></I>. 
+</DD>
+<DT><STRONG><TT>-D</TT><I> xw0 yw0 xw1 yw1</I> </STRONG></DT>
+<DD>Draw a dark (filled) box with opposite corners
+at <I>(xw0,yw0) and <I>(xw1,yw1)</I></I>. 
+</DD>
+<DT><STRONG><TT>-l</TT><I> x y tbc label-string</I> </STRONG></DT>
+<DD>Print <I>label-string</I> at <I>(x,y)</I>.
+ The <I>tbc</I> argument is a two-character text box coordinate that specifies
+how the label is to be positioned relative to <I>(x,y)</I>;  the default (<TT>CC</TT>)
+centers the string at <I>(x,y)</I>. 
+</DD>
+<DT><STRONG><TT>-L</TT><I> xw yw tbc label-string</I> </STRONG></DT>
+<DD>As for <TT>-l</TT>, but using
+window coordinates <I>(xw,yw)</I>. 
+</DD>
+<DT><STRONG><TT>-w</TT><I> configuration subwindow</I> </STRONG></DT>
+<DD>Confine the plot to
+a predefined window, specified by the arguments. <I>configuration</I> specifies
+the number of subwindows (panels), using one of `<TT>m</TT>' (1), `<TT>b</TT>' (2), or `<TT>q</TT>' (4),
+and <I>subwindow</I>' specifies which panel is to be plotted (0 or 1 for `<TT>m</TT>'; 0,
+1, or 2 for `<TT>b</TT>'; or 0, 1, 2, 3, or 4 for `<TT>q</TT>').  In each case, subwindow 0 creates
+the frame of the entire plot, and the other subwindows refer to regions
+where data can be plotted.  Use this option with `<TT>-o</TT>' or `<TT>-s e</TT>' to create multi-panel
+plots in stages without starting a new page or erasing the window before
+starting each new stage. 
+</DD>
+<DT><STRONG><TT>-W</TT><I> xp0 yp0 xp1 yp1</I> </STRONG></DT>
+<DD>Define the region of the page
+in which to plot.  The arguments are <I>page coordinates</I>;  the page coordinates
+(0,0) and (1,1) correspond to the lower left and upper right corners of
+the page. 
+</DD>
+<DT><STRONG><TT>-f</TT><I> format-file</I> </STRONG></DT>
+<DD>Read options from the specified <I>format-file</I>. 
+</DD>
+<DT><STRONG><TT>-fa</TT><I> format-file</I>
+</STRONG></DT>
+<DD>Record the current axis parameters as options in the specified <I>format-file</I>
+(for use with a later <TT>plt</TT> command).  The previous contents of <I>format-file</I>,
+if any, will be overwritten. 
+</DD>
+<DT><STRONG><TT>-F</TT><I> format-string</I> </STRONG></DT>
+<DD>Read options from the specified
+<I>format-string</I>. 
+</DD>
+<DT><STRONG><TT>-o</TT> </STRONG></DT>
+<DD>Suppress all output except data plots. 
+</DD>
+<DT><STRONG><TT>-cz</TT><I> xfrom xincr</I> </STRONG></DT>
+<DD>Generate
+abscissas, beginning with <I>xfrom</I> (default: 0) and incrementing by <I>xincr</I>
+(default: 1) at each step. 
+</DD>
+<DT><STRONG><TT>-ex</TT> </STRONG></DT>
+<DD>Don't exclude points outside axis limits. 
+</DD>
+<DT><STRONG><TT>-hl</TT><I>
+x y tbc n file</I> </STRONG></DT>
+<DD>Print the next <I>n</I> (default: 1000) lines of the specified
+<I>file</I> as a label, placing the reference point for the first line of the
+label at data coordinates <I>(x,y)</I>.  The <I>tbc</I> argument is defined as for <TT>-l</TT> and
+is applied to each line of the label.  The <I>file</I> is opened when first used
+by <TT>-hl</TT> or <TT>-vl</TT>, and remains open, so that successive <TT>-hl</TT> or <TT>-vl</TT> options referring
+to the same <I>file</I> read and print successive lines.  At most <TT>MAXLABELFILES</TT>
+(defined in <TT>plt.h</TT>, currently 6) <I>file</I>s of label strings can be open at once.
+
+<P>
+</DD>
+<DT><STRONG><TT>-vl</TT><I> x y tbc n file</I> </STRONG></DT>
+<DD>As for <TT>-hl</TT>, but print the label in a vertical orientation
+(rotated 90 degrees counterclockwise). 
+</DD>
+<DT><STRONG><TT>-le</TT><I> linenumber plotnumber</I> [ <I>text</I> ]
+</STRONG></DT>
+<DD>Define the specified <I>linenumber</I> in the legend (see also <TT>-lp</TT>). Line numbers
+in the legend begin with 0 (the top line);  plot numbers also begin with
+0 (these refer to the data plots, and are used here to determine the line
+style for the entry's sample plot segment).  The <I>text</I> is printed to the right
+of the sample plot segment.  To create an entry with more than one line
+of text, use additional <TT>-le</TT> options with different <I>linenumber</I>s as necessary,
+omitting the <I>plotnumber</I> (use `<TT>-</TT>') for all but the first.  If the same data
+are plotted more than once in a single figure to create an overlay (for
+example, using symbols over line segments), an overlaid legend entry can
+be created using additional <TT>-le</TT> options with the same <I>linenumber</I> and different
+<I>plotnumbers</I>, omitting the <I>text</I> for all but the first. 
+</DD>
+<DT><STRONG><TT>-lp</TT><I> xw0 yw0</I> [ <I>boxscale</I>
+[ <I>seglength</I> [ <I>opaque</I> ] </STRONG></DT>
+<DD>] ] Define the window coordinates <I>(xw0, yw0)</I> of
+the upper left corner of the plot legend text, and other attributes for
+the plot legend (key). <TT>plt</TT> determines the size of the box it draws around
+the legend, but the calculated width of the box is multiplied by <I>boxscale</I>.
+ The <I>seglength</I> option specifies the length of the sample plot segments,
+as a fraction of the x-axis length (default: 0.05).  If <I>opaque</I> is `<TT>yes</TT>' (default),
+the background of the legend is opaque white; otherwise, the background
+is transparent (any previously drawn material remains visible through the
+legend box).  Unless a <TT>-lp</TT> option is provided, no legend is printed. 
+</DD>
+<DT><STRONG><TT>-lx</TT> [
+<I>base</I> [ <I>subticks</I> ] </STRONG></DT>
+<DD>] Draw a logarithmic x-axis;  <I>base</I> is the base of the
+logarithms (default: 10), and <I>subticks</I> is either `<TT>yes</TT>' or `<TT>no</TT>'.  If the axis
+has a small number of major ticks, <TT>plt</TT> draws subticks by default; use the
+<I>subticks</I> argument to change <TT>plt</TT>'s default behavior. 
+</DD>
+<DT><STRONG><TT>-ly</TT> [ <I>base</I> [ <I>subticks</I>
+] </STRONG></DT>
+<DD>] Draw a logarithmic y-axis. 
+</DD>
+<DT><STRONG><TT>-tf</TT><I> file</I> [ <I>tbc</I> ] </STRONG></DT>
+<DD>Load the text string array
+from the specified <I>file</I>.  Each line of the <I>file</I> defines an element of the
+string array;  using plot styles <TT>c</TT> or <TT>t</TT>, these strings can be plotted in
+the same manner as data points.  The optional <I>tbc</I> specifies how the positions
+of the strings are to be modified when they are printed, in the same way
+as for <TT>-l</TT>;  by default, the strings are centered on the coordinates specified
+for them. 
+</DD>
+<DT><STRONG><TT>-ts "</TT><I>string0 string1 ...<TT>"</TT></I> [ <I>tbc</I> ] </STRONG></DT>
+<DD>Load the text string array from
+the quoted argument (whitespace separates strings in the array) rather
+than from a file;  otherwise, this option is the same as <TT>-tf</TT>. 
+</DD>
+<DT><STRONG><TT>-fs "</TT><I>string0
+string1 ...<TT>"</TT></I> </STRONG></DT>
+<DD>Load the font string array from the quoted argument.  Using appropriate
+plot style (<TT>-p</TT>) options, the strings can be used to change the font, line
+style (solid, dotted, dashed, etc.), or drawing color. 
+</DD>
+<DT><STRONG><TT>-x</TT><I> string</I> </STRONG></DT>
+<DD>Set the x-axis
+title to <I>string</I> (which must be quoted if this option is used on the command
+line or if <I>string</I> begins with `(' or `['). 
+</DD>
+<DT><STRONG><TT>-xa</TT><I> xmin xmax tick fmt tskip ycross</I>
+</STRONG></DT>
+<DD>Specify the x-axis range (as <I>xmin</I> to <I>xmax</I>); the interval between x-axis tick
+marks; the format, <I>fmt</I>, in which to print the numbers (e.g., ``<TT>%.3f</TT>'', ``<TT>%.2e</TT>'';  any
+format that <TT><I>printf(3)</I></TT> can use for printing floating-point numbers is acceptable);
+the number of ticks per labelled tick, <I>tskip</I>; and <I>ycross</I>, the point on
+the y-axis that the x-axis should cross, in y-units.  Any of these parameters
+may be supplied as ``-'', which causes <TT>plt</TT> to choose a reasonable value based
+on the input data. 
+</DD>
+<DT><STRONG><TT>-xe</TT><I> xmin-error xmax-error</I> </STRONG></DT>
+<DD>Use this option to specify the
+amount by which the x-axis range is allowed to exceed the range of x-values
+in the input data, when <TT>plt</TT> determines the x-axis range automatically. 
+</DD>
+<DT><STRONG><TT>-xm</TT><I>
+tick-base</I> </STRONG></DT>
+<DD>Make x-axis ticks be multiples of the specified <I>tick-base</I>. 
+</DD>
+<DT><STRONG><TT>-xo</TT><I> x-axis-offset</I>
+</STRONG></DT>
+<DD>Move the x-axis down by <I>x-axis-offset</I> (expressed as a fraction of the y-axis
+length). 
+</DD>
+<DT><STRONG><TT>-xr</TT> </STRONG></DT>
+<DD>Draw the x-axis at the top of the plot 
+</DD>
+<DT><STRONG><TT>-xt</TT><I> x label</I> [ <I>tick-size</I>
+] </STRONG></DT>
+<DD>Add an extra labelled tick at the specified <I>x</I> position, and label it
+with the specified <I>label</I> (which may be any string).  The optional <I>tick-size</I>
+argument specifies the length of the added tick, as a fraction of the default
+length for labelled ticks (e.g., a value of 1.5 makes the added tick 50 longer
+than the standard size). 
+</DD>
+<DT><STRONG><TT>-xts</TT><I> x</I> [ <I>tick-size</I> ] </STRONG></DT>
+<DD>Force a labelled tick to appear
+on the x-axis at the specified <I>x</I> (the positions of the other labelled x-ticks
+are adjusted accordingly). <I>tick-size</I> is defined as for <TT>-xt</TT>. 
+</DD>
+<DT><STRONG><TT>-y</TT><I> string</I> </STRONG></DT>
+<DD>Set the
+y-axis title to <I>string</I> (see <TT>-x</TT>). 
+</DD>
+<DT><STRONG><TT>-ya</TT><I> ymin ymax tick fmt tskip xcross</I> </STRONG></DT>
+<DD>Set up
+the y-axis (see <TT>-xa</TT>). 
+</DD>
+<DT><STRONG><TT>-ye</TT><I> ymin-error ymax-error</I> </STRONG></DT>
+<DD>Set the allowable error in the
+y-axis range (see <TT>-xe</TT>). 
+</DD>
+<DT><STRONG><TT>-ym</TT><I> tick-base</I> </STRONG></DT>
+<DD>Make y-axis ticks be multiples of the specified
+<I>tick-base</I>. 
+</DD>
+<DT><STRONG><TT>-yo</TT><I> y-axis-offset</I> </STRONG></DT>
+<DD>Move the y-axis to the left by <I>y-axis-offset</I> (expressed
+as a fraction of the x-axis length). 
+</DD>
+<DT><STRONG><TT>-yr</TT> </STRONG></DT>
+<DD>Draw the y-axis at the right edge
+of the plot. 
+</DD>
+<DT><STRONG><TT>-yt</TT><I> y label</I> [ <I>tick-size</I> ] </STRONG></DT>
+<DD>Add an extra labelled tick at the specified
+<I>y</I> position (see <TT>-xt</TT>). 
+</DD>
+<DT><STRONG><TT>-yts</TT><I> y</I> [ <I>tick-size</I> ] </STRONG></DT>
+<DD>Force a labelled tick to appear
+on the y-axis at the specified <I>y</I> (see <TT>-xts</TT>). 
+</DD>
+<DT><STRONG><TT>-dev</TT><I> pterm option</I> </STRONG></DT>
+<DD>Process <I>option</I>
+only if the value of <TT>PTERM</TT> is <I>pterm</I>. The <TT>-dev</TT> option may be useful in scripts
+that produce screen or printed plots in different formats. 
+</DD>
+<DT><STRONG><TT>-sf</TT><I> name specification</I>
+</STRONG></DT>
+<DD>Create a new font group with the specified <I>name</I> and set its specifications
+(font, point size, color/grey level, line width, and line style).  See the
+chapter titled <I>Colors, Line Styles, and Fonts</I> in the <I>plt Tutorial and Cookbook</I>
+for details. 
+</DD>
+<DT><STRONG><TT>-ch</TT><I> height-factor width-factor</I> </STRONG></DT>
+<DD>Modify the height and width of
+all characters printed in the plot by the specified factors. 
+</DD>
+<DT><STRONG><TT>-size</TT><I> fscl width
+height left-margin bottom-margin</I> </STRONG></DT>
+<DD>Specify the size and position of the plot
+on the page.  The <I>width</I>, <I>height</I>, <I>left-margin</I>, and <I>bottom-margin</I> are specified
+in <I>inches</I> (1 inch = 25.4 mm).  <I>fscl</I> is a factor applied to the point size
+of all printed characters, <I>independently</I> of the scaling applied to the
+rest of the plot.  This option is effective for printed plots only. 
+</DD>
+</DL>
+<P>
+<HR>
+<A NAME="tex2html1183"
+  HREF="node65.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1177"
+  HREF="node63.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1171"
+  HREF="node63.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1179"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1181"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html1184"
+  HREF="node65.html">Screen and printed plots</A>
+<B>Up:</B> <A NAME="tex2html1178"
+  HREF="node63.html">Description</A>
+<B> Previous:</B> <A NAME="tex2html1172"
+  HREF="node63.html">Description</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

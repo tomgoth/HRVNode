@@ -1,0 +1,201 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Titles and Axes </TITLE>
+<META NAME="description" CONTENT="Titles and Axes ">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node31.html">
+<LINK REL="previous" HREF="node28.html">
+<LINK REL="up" HREF="book.html">
+<LINK REL="next" HREF="node30.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html641"
+  HREF="node30.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html635"
+  HREF="book.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html629"
+  HREF="node28.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html637"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html639"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html642"
+  HREF="node30.html">``Quickplot'' mode</A>
+<B>Up:</B> <A NAME="tex2html636"
+  HREF="book.html">plt Tutorial and Cookbook</A>
+<B> Previous:</B> <A NAME="tex2html630"
+  HREF="node28.html">Coordinate Systems</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00800000000000000000"></A><A NAME="sec:ax1"></A>
+<BR>
+Titles and Axes 
+</H1>
+<P>
+<FONT SIZE="+2"><A NAME="3340"></A><A NAME="3341"></A><A NAME="3342"></A>By now you should know how to make a simple plot of data as in the
+previous examples.  You are now ready to label your plot.  Using the
+<TT>-x</TT> and <TT>-y</TT> options, you can label the x and y axes
+respectively.  Using the <TT>-t</TT> option, you can give your plot a
+title.  Figure&nbsp;<A HREF="#fig:example2">5.1</A> demonstrates the use of these options.
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+plt example1.data 0 2  -t "Time vs Amp" \
+    -x "time in seconds" -y "amplitude in cm"
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2"><A NAME="3343"></A>Note that the data file name and the column numbers should immediately
+follow ``<TT>plt</TT>''.
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:example2"></A><A NAME="3345"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.1:</STRONG>
+Produced using the command:
+</CAPTION>
+<TR><TD><IMG
+ WIDTH="700" HEIGHT="667" BORDER="0"
+ SRC="img42.png"
+ ALT="\begin{figure}\begin{center}
+\fcolorbox{blue}{white}{
+\epsfig{file=figure2,heigh...
+... in seconds'' -y ''amplitude in cm''\end{boxedverbatim}
+\end{center}\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<FONT SIZE="+2"><A NAME="3346"></A><A NAME="3347"></A><A NAME="3348"></A><A NAME="3349"></A>With the <TT>-xa</TT> (x axis) and <TT>-ya</TT> (y axis) options, you can
+specify <EM>min</EM> and <EM>max</EM> (the endpoints of your axes), <EM>tick</EM> (how often you want tick marks to appear), <EM>fmt</EM> (the format
+in which to print the numbers, e.g., %.3f, %.2e), <EM>tskip</EM> (how
+often to skip when labelling the ticks, and <EM>cross</EM> (where you want
+the axis you are specifying to cross the other axis, in units of the
+other axis).  If you do not need to change the default ticks and axis
+crossing points, the <TT>-X</TT> and <TT>-Y</TT> options accept
+axis endpoint arguments only.  These options take their arguments as
+follows:
+</FONT>
+<P>
+
+<BLOCKQUOTE><FONT SIZE="+2"><TT>-xa</TT> <I>xmin xmax tick fmt tskip ycross</I>
+<BR><TT>-ya</TT> <I>ymin ymax tick fmt tskip xcross</I>
+<BR>
+<BR><TT>-X</TT> <I>xmin xmax</I>
+<BR><TT>-Y</TT> <I>xmin xmax</I>
+</FONT></BLOCKQUOTE>
+<P>
+<FONT SIZE="+2"><A NAME="3350"></A><A NAME="3351"></A><A NAME="3352"></A>Figure&nbsp;<A HREF="#fig:example3">5.2</A>, on page&nbsp;<A HREF="node29.html#fig:example3"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>,
+demonstrates how <TT>-xa</TT> and <TT>-ya</TT> are used, and also the use of
+the <TT>-f</TT> option with a format file.  The format file, named <TT>example3.format</TT>, looks like this:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+t Time vs Amp
+x time in seconds
+y amplitude in cm
+xa 0 5 .5 - 2 0
+ya 0 5 .5 - 2 0
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2">As for the data file, the name of the format file, including the
+suffix if any, is completely arbitrary.  Note that each option within
+the format file (in this example, <TT>t</TT>, <TT>x</TT>, <TT>y</TT>, <TT>xa</TT>,
+and <TT>ya</TT>) must be given without an initial ``<TT>-</TT>'', but that a
+``<TT>-</TT>'' in place of an option argument will cause <TT>plt</TT> to
+choose its own ``suitable value'' for that argument.  Either a number
+based on the size of the plot and data limits will be chosen, or <TT>plt</TT> will use a default value in place of the ``<TT>-</TT>'' argument.
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:example3"></A><A NAME="3354"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.2:</STRONG>
+Produced using the command:</CAPTION>
+<TR><TD><IMG
+ WIDTH="700" HEIGHT="643" BORDER="0"
+ SRC="img43.png"
+ ALT="\begin{figure}\begin{center}
+\fcolorbox{blue}{white}{
+\epsfig{file=figure3,heigh...
+...example1.data 0 2 -f example3.format\end{boxedverbatim}
+\end{center}\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<FONT SIZE="+2"><TT>plt</TT> offers a large number of options that give you control over
+virtually every aspect of how axes are drawn and labelled;  these are
+described in chapter&nbsp;<A HREF="node42.html#sec:ax2">12</A>, beginning on page&nbsp;<A HREF="node42.html#sec:ax2"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.
+</FONT>
+<P>
+<BR> <HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html643"
+  HREF="node30.html">``Quickplot'' mode </A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<A NAME="tex2html641"
+  HREF="node30.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html635"
+  HREF="book.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html629"
+  HREF="node28.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html637"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html639"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html642"
+  HREF="node30.html">``Quickplot'' mode</A>
+<B>Up:</B> <A NAME="tex2html636"
+  HREF="book.html">plt Tutorial and Cookbook</A>
+<B> Previous:</B> <A NAME="tex2html630"
+  HREF="node28.html">Coordinate Systems</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

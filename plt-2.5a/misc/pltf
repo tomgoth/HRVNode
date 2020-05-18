@@ -1,0 +1,56 @@
+#! /bin/sh
+# file: pltf		G. Moody	24 February 2002
+
+EXP=
+XMIN=
+XMAX=
+DX=
+case $# in
+  1) EXP="$1" ;;
+  2) EXP="$1"; XMIN=$2 ;;
+  3) EXP="$1"; XMIN=$2; XMAX=$3 ;;
+  4) EXP="$1"; XMIN=$2; XMAX=$3; DX=$4 ;;
+esac
+
+if [ "x$EXP" = "x" ]
+then
+cat <<!
+This program produces a table of a function of x.  It can understand
+all of the normal arithmetic operators (use ^ for "to the power of"
+and % for "the remainder of"), parentheses, and a few functions:
+  s(x)     sine of x (where x is in radians)
+  c(x)     cosine of x (where x is in radians)
+  a(x)	   arctangent of x (returns result in radians)
+  l(x)     natural (base e) logarithm of x
+  e(x)     exponential of x
+  j(n,x)   n-th order Bessel function of x (where n is an integer)
+  sqrt(x)  square root of x (x >= 0
+
+!
+
+echo -n "f(x) = "
+read EXP
+echo -n "Enter the minimum value of x [-50]: "
+read XMIN
+echo -n "Enter the maximum value of x [50]: "
+read XMAX
+echo -n "Enter the increment of x [1]: "
+read DX
+fi
+
+if [ "x$XMIN" = "x" ]
+then
+    XMIN=-50
+fi
+if [ "x$XMAX" = "x" ]
+then
+    XMAX=50
+fi
+if [ "x$DX" = "x" ]
+then
+    DX=1
+fi
+ 
+ftable "$EXP" $XMIN $XMAX $DX | \
+ bc -l | \
+ plt 0 1 -t "f(x) = $EXP" -x x -y "f(x)"

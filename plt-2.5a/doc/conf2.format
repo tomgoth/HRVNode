@@ -1,0 +1,10 @@
+s ex
+# size .7 5 5
+sf p W1
+W - .53 - .9
+p 0,1,5O(G.95,P*1.5) 0,2,4O(G.85)
+t Confidence Limits for Spline Power Estimates
+xts .85
+xa .82 1 .01 - 5
+y Estimate/True HI Power
+yo 0.02

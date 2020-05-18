@@ -1,0 +1,420 @@
+%!PS-Adobe-3.0
+%%BoundingBox: 55 241 574 673
+%%Title: (plt/lwcat output)
+%%CreationDate: Tue Apr 10 17:33:23 2001
+%!
+%%BoundingBox: 54 54 556 737
+% pslw.pro	Prolog file for plt with the LaserWriter
+% Last revised: 30 March 2001 (GBM)
+
+count /numstack exch def
+save 100 dict begin /pslw exch def
+
+/ED	{exch def} def
+/IN	{exch 72 mul def} def
+
+/CLOSE	{count numstack sub {pop} repeat pslw end restore} def
+
+/BF	{gsave INIT} def
+/EF	{grestore} def
+
+/LS	{} def
+/INIT	{0 setlinecap LS /DMTX matrix currentmatrix def
+	/XOFF [0 0 0 -.5 -1 -1 -1 -.5 -.5 0 -.5 -1] def
+	/YOFF [0 -.37 -1 -1 -1 -.37 0 0 -.37 -.74 -.74 -.74] def
+	/XM 0 def /YM 0 def /XYM 0 def} def
+
+/WSUBST	{} def
+
+/WDEF	{/ury ED /urx ED /lly ED /llx ED
+	WSUBST /y1 IN /x1 IN /y0 IN /x0 IN /FSCL ED
+	gsave matrix setmatrix
+	x0 2 add y0 2 add translate 
+	x1 x0 sub 4 sub urx llx sub div
+	y1 y0 sub 4 sub ury lly sub div scale
+	llx neg lly neg translate
+	/PMTX matrix currentmatrix def grestore} def
+
+/M	{newpath PMTX transform moveto} def
+/N	{PMTX dtransform rlineto} def
+/L	{N currentpoint stroke moveto} def
+/F	{closepath 0 eq {fill} {FS} ifelse} def
+/FS	{gsave fill grestore gsave 0 0 0 setrgbcolor stroke grestore} def 
+
+/XC	0 def
+/YC	0 def
+/T	{/ang ED /pos ED /YY ED /XX ED
+	XX -32767 eq
+	 {YY -32767 eq
+	  {XC YC moveto}
+	  {0 YY M currentpoint XC exch moveto pop}
+	 ifelse}
+	 {YY -32767 eq
+	  {XX 0 M currentpoint pop YC moveto}
+	  {XX YY M}
+	 ifelse}
+	ifelse
+	ang rotate
+	/str ED str stringwidth pop
+	XOFF pos get mul
+	YOFF pos get PS mul XYM FSCL mul add
+	rmoveto str show 0 .37 PS mul XYM FSCL mul add rmoveto
+	/XYM 0 def SDM currentpoint /YC ED /XC ED} def
+
+/GT	{7 0 T} def
+/XT	{/XYM XM neg def 3 0 T /XM 0 def} def
+/XTR	{/XYM XM def 7 0 T /XM 0 def} def
+/YT	{/XYM YM def 7 90 T /YM 0 def} def
+/YTR	{/XYM YM neg def 3 90 T /YM 0 def} def
+
+/XN	{/XM PS def 3 0 T} def
+/XNR	{/XM PS def 9 0 T} def
+/XE	{10 1.25 XEX} def
+/XER	{11 1.5 XEX} def
+/XEX	{6 -1 roll /exp ED PS mul /XM ED 0 T EX} def
+
+/YN	{-1 1 0 YNUM} def
+/YNR	{1 0 0 YNUM} def
+/YE	{-1 1 YEX} def
+/YER	{1 0 YEX} def
+
+/YEX	{6 -1 roll /exp ED exp stringwidth pop .65 mul YNUM EX} def
+/YNUM	{6 3 roll M /str ED str stringwidth pop add /len ED
+	len mul .2 PS mul add mul PS -.37 mul rmoveto
+	str show /YM len .2 PS mul add YM MAX def} def
+
+/EX	{0 PS .6 mul rmoveto .65 .65 scale exp show SDM} def
+
+/SP	{/y ED /x ED /yp ED /yn ED /str ED
+	x y M currentpoint
+	str false charpath PBOX newpath
+	exch dup add x0 x1 add 2 div sub
+	exch dup add y0 y1 add 2 div sub moveto
+	str false charpath gsave fill EB} def
+
+/SY	{/y ED /x ED /yp ED /yn ED /st ED
+	newpath x y M PS 4 div dup scale
+	[{CIR} {UTRI} {DI} {SQ} {TRI}] st 5 mod get exec
+	closepath SDM gsave 
+	[{1 FILL stroke} {fill} {stroke}] st 5 idiv 3 mod get exec
+	EB} def
+
+/EB {	grestore PMTX concat PBOX SDM
+	y1 y sub yp le {yp y1 EB2} if 
+	y0 y sub yn ge {yn y0 EB2} if} def
+/EB2	{newpath x exch M 0 exch N x0 x sub 0 N x1 x0 sub 0 N stroke} def
+
+/CIR	{currentpoint newpath 1.1 0 360 arc} def
+/TRI	{0 1.2 rmoveto -1.2 -2.4 rlineto 2.4 0 rlineto} def
+/DI	{ 0 -1.5 rmoveto 1.3 1.5 rlineto
+	-1.3 1.5  rlineto -1.3 -1.5 rlineto} def
+/UTRI	{180 rotate TRI 180 rotate} def
+/SQ	{1 1 rmoveto -2 0 rlineto 0 -2 rlineto 2 0
+	rlineto} def
+
+/LW	{.2 mul FSCL mul setlinewidth} def
+/SF	{FSCL mul /PS ED findfont PS scalefont setfont} def
+/DL	{PS mul .05 mul} def
+
+/solid		{{}0} def
+/dotted		{[1 DL 3 DL] 0} def
+/longdashed	{[7 DL] 0} def
+/shortdashed	{[4 DL 5 DL] 0} def
+/dotdashed	{[1 DL 5 DL 6 DL 5 DL] 0} def
+
+/MAX	{2 copy lt {exch pop} {pop} ifelse} def
+/SDM	{DMTX setmatrix} def
+/FILL	{gsave setgray fill grestore} def
+/PBOX	{pathbbox /y1 ED /x1 ED /y0 ED /x0 ED} def
+INIT
+0.85 0.775 3.35 7.975 9.35 0 0 4320 3600 WDEF
+/Times-Roman 16 SF
+solid setdash
+0 0 0 setrgbcolor
+4 LW
+/Times-Roman 16 SF
+(CPU Prices \(April 2001\)) 2160 3491 8 0 T
+3 LW
+/Times-Roman 14 SF
+0 3366 M
+4320 0 N
+0 0 L
+0 3388 M
+4320 0 N
+0 0 L
+0 1667 M
+4320 0 N
+0 0 L
+0 1685 M
+4320 0 N
+0 0 L
+0 0 M
+0 3600 N
+4320 0 N
+0 -3600 N
+-4320 0 N
+0 0 L
+0.85 0.775 3.35 7.975 9.35 0 0 4320 3600 WDEF
+/Times-Roman 16 SF
+solid setdash
+0 0 0 setrgbcolor
+3 LW
+/Times-Roman 14 SF
+3888 2159 M
+-3241 0 L
+647 2115 M
+0 44 L
+(0) 647 2115 XN
+1187 2130 M
+0 29 L
+1727 2115 M
+0 44 L
+(500) 1727 2115 XN
+2268 2130 M
+0 29 L
+2808 2115 M
+0 44 L
+(1000) 2808 2115 XN
+3348 2130 M
+0 29 L
+3888 2115 M
+0 44 L
+(1500) 3888 2115 XN
+4 LW
+/Times-Roman 16 SF
+(Clock speed \(MHz\)) 2267 2046 XT
+3 LW
+/Times-Roman 14 SF
+647 3240 M
+0 -1081 L
+603 2159 M
+44 0 L
+(0) 603 2159 YN
+618 2267 M
+29 0 L
+603 2375 M
+44 0 L
+(100) 603 2375 YN
+618 2483 M
+29 0 L
+603 2591 M
+44 0 L
+(200) 603 2591 YN
+618 2699 M
+29 0 L
+603 2808 M
+44 0 L
+(300) 603 2808 YN
+618 2916 M
+29 0 L
+603 3024 M
+44 0 L
+(400) 603 3024 YN
+618 3132 M
+29 0 L
+603 3240 M
+44 0 L
+(500) 603 3240 YN
+4 LW
+/Times-Roman 16 SF
+(Price \(US $\)) 399 2699 YT
+2 LW
+/Times-Roman 12 SF
+0 0 1 setrgbcolor
+5 0 0 1943 2248 SY
+5 0 0 2051 2248 SY
+5 0 0 2159 2250 SY
+5 0 0 2268 2248 SY
+5 0 0 2376 2274 SY
+5 0 0 2484 2321 SY
+5 0 0 2592 2358 SY
+(Duron) 2592 2267 8 0 T
+1 0 0 setrgbcolor
+6 0 0 2484 2354 SY
+6 0 0 2592 2392 SY
+6 0 0 2700 2453 SY
+6 0 0 2808 2457 SY
+6 0 0 3024 2492 SY
+6 0 0 3240 2565 SY
+6 0 0 3456 2628 SY
+(Athlon \(200 MHz FSB\)) 3240 2375 8 0 T
+0 0.392157 0 setrgbcolor
+7 0 0 2808 2479 SY
+7 0 0 3089 2537 SY
+7 0 0 3240 2574 SY
+7 0 0 3521 2626 SY
+(Athlon \(266 MHz FSB\)) 2808 2699 8 0 T
+0.529412 0.807843 0.921569 setrgbcolor
+8 0 0 1438 2243 SY
+8 0 0 1511 2254 SY
+8 0 0 1583 2252 SY
+8 0 0 1654 2256 SY
+8 0 0 1727 2252 SY
+8 0 0 1799 2261 SY
+8 0 0 1870 2261 SY
+8 0 0 1943 2274 SY
+8 0 0 2015 2291 SY
+8 0 0 2088 2265 SY
+8 0 0 2159 2308 SY
+8 0 0 2231 2321 SY
+8 0 0 2302 2345 SY
+8 0 0 2376 2384 SY
+(Celeron) 1079 2300 8 0 T
+0 0 0 setrgbcolor
+9 0 0 1619 2382 SY
+9 0 0 1727 2405 SY
+9 0 0 1835 2410 SY
+9 0 0 1943 2377 SY
+9 0 0 2051 2386 SY
+9 0 0 2088 2380 SY
+9 0 0 2159 2418 SY
+9 0 0 2231 2418 SY
+9 0 0 2268 2425 SY
+9 0 0 2376 2488 SY
+9 0 0 2484 2490 SY
+9 0 0 2518 2511 SY
+9 0 0 2663 2602 SY
+9 0 0 2808 2645 SY
+(Pentium III) 1727 2548 8 0 T
+0.701961 0.701961 0.701961 setrgbcolor
+9 0 0 3456 2758 SY
+9 0 0 3672 2849 SY
+9 0 0 3888 3197 SY
+(Pentium 4) 3348 3024 8 0 T
+647 2159 M
+0.85 0.775 3.35 7.975 9.35 0 0 4320 3600 WDEF
+/Times-Roman 16 SF
+solid setdash
+0 0 0 setrgbcolor
+3 LW
+/Times-Roman 14 SF
+3888 450 M
+-3241 0 L
+647 406 M
+0 44 L
+(0) 647 406 XN
+1052 421 M
+0 29 L
+1457 406 M
+0 44 L
+(500) 1457 406 XN
+1862 421 M
+0 29 L
+2268 406 M
+0 44 L
+(1000) 2268 406 XN
+2673 421 M
+0 29 L
+3078 406 M
+0 44 L
+(1500) 3078 406 XN
+3483 421 M
+0 29 L
+3888 406 M
+0 44 L
+(2000) 3888 406 XN
+4 LW
+/Times-Roman 16 SF
+(Clock speed \(normalized by family for FP performance\)) 2267 337 XT
+3 LW
+/Times-Roman 14 SF
+647 1529 M
+0 -1079 L
+603 450 M
+44 0 L
+(0) 603 450 YN
+618 558 M
+29 0 L
+603 666 M
+44 0 L
+(100) 603 666 YN
+618 774 M
+29 0 L
+603 882 M
+44 0 L
+(200) 603 882 YN
+618 989 M
+29 0 L
+603 1097 M
+44 0 L
+(300) 603 1097 YN
+618 1205 M
+29 0 L
+603 1313 M
+44 0 L
+(400) 603 1313 YN
+618 1421 M
+29 0 L
+603 1529 M
+44 0 L
+(500) 603 1529 YN
+4 LW
+/Times-Roman 16 SF
+(Price \(US $\)) 399 989 YT
+2 LW
+/Times-Roman 12 SF
+0 0 1 setrgbcolor
+5 0 0 2008 538 SY
+5 0 0 2122 538 SY
+5 0 0 2235 541 SY
+5 0 0 2349 538 SY
+5 0 0 2462 564 SY
+5 0 0 2575 612 SY
+5 0 0 2689 649 SY
+(Duron) 2689 558 8 0 T
+1 0 0 setrgbcolor
+6 0 0 2642 644 SY
+6 0 0 2759 683 SY
+6 0 0 2876 743 SY
+6 0 0 2993 748 SY
+6 0 0 3228 782 SY
+6 0 0 3463 856 SY
+6 0 0 3697 918 SY
+(Athlon \(200 MHz FSB\)) 3402 666 8 0 T
+0 0.392157 0 setrgbcolor
+7 0 0 2993 769 SY
+7 0 0 3299 828 SY
+7 0 0 3463 864 SY
+7 0 0 3768 916 SY
+(Athlon \(266 MHz FSB\)) 3402 989 8 0 T
+0.529412 0.807843 0.921569 setrgbcolor
+8 0 0 1217 534 SY
+8 0 0 1270 545 SY
+8 0 0 1321 543 SY
+8 0 0 1373 547 SY
+8 0 0 1426 543 SY
+8 0 0 1477 551 SY
+8 0 0 1528 551 SY
+8 0 0 1581 564 SY
+8 0 0 1633 582 SY
+8 0 0 1686 556 SY
+8 0 0 1737 599 SY
+8 0 0 1789 612 SY
+8 0 0 1840 636 SY
+8 0 0 1893 674 SY
+(Celeron) 971 590 8 0 T
+0 0 0 setrgbcolor
+9 0 0 1376 672 SY
+9 0 0 1457 696 SY
+9 0 0 1538 700 SY
+9 0 0 1619 668 SY
+9 0 0 1700 677 SY
+9 0 0 1728 670 SY
+9 0 0 1781 709 SY
+9 0 0 1835 709 SY
+9 0 0 1862 715 SY
+9 0 0 1943 778 SY
+9 0 0 2024 780 SY
+9 0 0 2050 802 SY
+9 0 0 2159 892 SY
+9 0 0 2268 936 SY
+(Pentium III) 1457 838 8 0 T
+0.701961 0.701961 0.701961 setrgbcolor
+9 0 0 2754 1048 SY
+9 0 0 2916 1138 SY
+9 0 0 3078 1486 SY
+(Pentium 4) 2673 1313 8 0 T
+647 450 M
+showpage CLOSE
+%%EOF
+%%EndDocument

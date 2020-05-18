@@ -1,0 +1,36 @@
+#! /bin/sh
+# file: plt		P. Albrecht and G. Moody	
+#			Last revised:	25 March 2009
+# This script chooses the correct plt binary (either xplt or lwplt) and runs
+# it with the same command-line arguments that were passed to this script.
+
+# First, check for a -T option.
+for i in "$@"
+do
+    if [ "$LAST" = -T ]
+    then PTERM="$i"
+    fi
+    case "$i" in
+	-T) ;;
+      -Tx*) PTERM="xw" ;;
+     -Tlw*) PTERM="lw" ;;
+       -T*) echo "$0: unrecognized option" "$i" >/dev/tty; exit ;;
+    esac
+    LAST="$i"
+done
+
+# If PTERM hasn't been set, use the X driver if an X server is running.
+if [ x$DISPLAY != x ]
+then PTERM=${PTERM-xw}
+fi
+
+# If PTERM still hasn't been set, use the PostScript driver.
+PTERM=${PTERM-lw}
+export PTERM
+
+# Finally, choose the binary based on the value of PTERM.
+case $PTERM in
+     x*) PTERM=xw; exec BINDIR/xplt "$@" ;;
+    lw*) PTERM=lw; exec BINDIR/lwplt "$@" ;;
+      *) echo "$0: unrecognized PTERM" >/dev/tty; exit ;;
+esac

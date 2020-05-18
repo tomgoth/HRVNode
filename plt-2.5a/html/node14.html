@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Adding titles and axis labels</TITLE>
+<META NAME="description" CONTENT="Adding titles and axis labels">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node15.html">
+<LINK REL="previous" HREF="node13.html">
+<LINK REL="up" HREF="node12.html">
+<LINK REL="next" HREF="node15.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html430"
+  HREF="node15.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html424"
+  HREF="node12.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html418"
+  HREF="node13.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html426"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html428"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html431"
+  HREF="node15.html">Setting up the axes</A>
+<B>Up:</B> <A NAME="tex2html425"
+  HREF="node12.html">Tutorial: Simple Plots</A>
+<B> Previous:</B> <A NAME="tex2html419"
+  HREF="node13.html">Screen and printed plots</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00542000000000000000">
+Adding titles and axis labels</A>
+</H2>
+<P>
+<FONT SIZE="+2">Now that we know how to make simple screen and printed plots, let's
+refine the plot a bit.  First, we can provide a title for the plot,
+and for the x and y axes using the <TT>-t</TT>, <TT>-x</TT>, and <TT>-y</TT>
+options, like this:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+plt heartrate.data -t "Heart rate time series" \
+  -x "Time (seconds)" -y "Heart rate (beats per minute)"
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2">
+(The ``<TT><IMG
+ WIDTH="16" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$\backslash$"></TT>'' at the end of the first line means that the
+command is continued on the next line; you may enter the command on
+two lines, ending the first with a backslash, or you may combine both
+lines into one, omitting the backslash.)
+</FONT>
+<P>
+<FONT SIZE="+2">This command produces the neatly labelled version of the plot shown in
+figure&nbsp;<A HREF="#fig:simple2">2.4</A>.  This and all of the later figures in this
+book were prepared as PostScript plots, using <TT>plt</TT>'s ``<TT>-T
+lw</TT>'' option and piping the output to <TT>lwcat</TT> as in
+figure&nbsp;<A HREF="node13.html#fig:simple1">2.3</A>.  Except in the discussion of printed output in
+appendix&nbsp;<A HREF="node44.html#sec:printed-output">B</A>, however, the <TT>plt</TT> commands
+shown here omit ``<TT>-T lw | lwcat</TT>'', so that they can be
+used to make screen plots.
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:simple2"></A><A NAME="3305"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 2.4:</STRONG>
+Simple plot with titles and axis labels</CAPTION>
+<TR><TD><IMG
+ WIDTH="468" HEIGHT="379" BORDER="0"
+ SRC="img15.png"
+ ALT="\begin{figure}\begin{center}
+\epsfig{file=simple2,height=8cm}\end{center}\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<HR>
+<A NAME="tex2html430"
+  HREF="node15.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html424"
+  HREF="node12.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html418"
+  HREF="node13.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html426"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html428"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html431"
+  HREF="node15.html">Setting up the axes</A>
+<B>Up:</B> <A NAME="tex2html425"
+  HREF="node12.html">Tutorial: Simple Plots</A>
+<B> Previous:</B> <A NAME="tex2html419"
+  HREF="node13.html">Screen and printed plots</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

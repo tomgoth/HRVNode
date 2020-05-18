@@ -1,0 +1,54 @@
+# Comments (lines beginning with "#") and empty lines are ignored in format
+# files.
+
+# Set font and point size for font group "l" (labels).
+sf l Fs,P20
+
+# Define two custom font groups, "fontgroup1" and "fontgroup2".
+sf fontgroup1 W40,G.2
+sf fontgroup2 Fh-b,P30,G.8
+
+# Plot the data three times, first with a broad dark line, then with a medium
+# light line, finally as a scatter plot with open diamonds (symbol 2)
+p 0,1n(fontgroup1) 0,1n(W10,G.8) 0,1S2
+
+# Print the plot title.
+t (fontgroup2) This is an example
+
+# Local specifications are given below for the x and y axis titles.  These
+# would override defaults for the predefined title (-sf t ...) font group had
+# any been set.
+x (Fc-o,P15) This is the x axis
+y (Fc,P6) This is the y axis
+
+# The label uses font group l defaults set above unless local instructions are
+# given.  The choice of font "s" (Symbol) above means that the Roman letters
+# in the label string are rendered as Greek letters on the plot.
+L .1 .87 - l = t + g
+
+# Set y axis parameters.  By specifying the crossing point at x = -10, we
+# place the y axis away from the data at x=0, and the axes do not actually
+# touch each other.
+ya -2 2 - - 2 -10
+
+# Construct the legend (key).  The final argument (.1) of the lp option
+# lengthens the sample plot segment to 10% of the x axis length.  Three
+# entries are overlaid on line 0 of the legend in order to construct a
+# sample plot segment with the same appearance as in the data plot.
+lp .65 .15 1.05 .1
+le 0 0 dummy data
+le 0 1
+le 0 2
+
+# Draw an arrow, using local specifications for the point size (determines
+# the size of the arrowhead), grey level, and line width.
+a (P30,G.6,W30) 30 -1.3 50 -1.7
+
+# Label the arrow, overriding the default font so that the label is printed
+# using Roman rather than Greek characters.
+l (Ft) 50 -1.8 - arrow
+
+# Demonstrate line segment drawing using local specifications.  First draw
+# a broad black line segment, then a narrow white line segment over the first.
+c (W100,G0) 0 1.8 100 1.8
+c (W2,G.99) 0 1.8 100 1.8

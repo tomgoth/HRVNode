@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Description</TITLE>
+<META NAME="description" CONTENT="Description">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node66.html">
+<LINK REL="previous" HREF="node62.html">
+<LINK REL="up" HREF="node60.html">
+<LINK REL="next" HREF="node64.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html1167"
+  HREF="node64.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1161"
+  HREF="node60.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1155"
+  HREF="node62.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1163"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1165"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html1168"
+  HREF="node64.html">Options</A>
+<B>Up:</B> <A NAME="tex2html1162"
+  HREF="node60.html">plt</A>
+<B> Previous:</B> <A NAME="tex2html1156"
+  HREF="node62.html">Synopsis</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION002313000000000000000">
+Description</A>
+</H2>
+<P>
+<FONT SIZE="+2">This man
+page is intended as a supplement to the command-line help provided by <TT>plt</TT>
+itself (using the <TT>-h</TT> option, see below).  If you have not previously used
+<TT>plt</TT>, please look at the <I>plt Tutorial and Cookbook</I>, which is included in
+the <TT>plt</TT> package (see <TT>SOURCES</TT> below). 
+</FONT>
+<P>
+<FONT SIZE="+2"><TT>plt</TT> is a non-interactive (command line-driven)
+plotting utility. <TT>plt</TT> can produce publication-quality 2D plots in PostScript
+from easily-produced text or binary data files, and can also create screen
+plots under the X Window System. 
+</FONT>
+<P>
+<FONT SIZE="+2">All data presented to <TT>plt</TT> must be organized
+in rows and columns. Columns are numbered beginning with zero, and each
+column contains values for a variable that can be used as an abscissa (x
+coordinate), ordinate (y coordinate), or (with appropriate options described
+below) a grey level, color, or other plot attributes.  Rows are numbered
+beginning with one, and each row contains a value for each column. Within
+a <I>data-file</I>, values are always arranged in row-major order (all elements
+of row 1, followed by all elements of row 2, etc.). 
+</FONT>
+<P>
+<FONT SIZE="+2">Usually, data must be
+in text form in order for <TT>plt</TT> to read them. Each non-empty, non-comment line
+(row) in the input should contain a value for each column that will be
+plotted; any additional values or other extra text at the end of a row
+will be ignored. Columns can be separated by any number of spaces or tabs.
+ Commas and single or double quotation marks can also be used as column
+separators with current versions of <TT>plt</TT>, though not with older versions.
+It is not necessary to line up the values in each row.  There may also be
+spaces or tabs at the beginning of a line, and these will also be ignored.
+</FONT>
+<P>
+<FONT SIZE="+2">If no <I>data-file</I> is specified, <TT>plt</TT> reads data from its standard input.  The
+command-line arguments <I>xcol</I> and <I>ycol</I> specify the column numbers for the
+abscissas and ordinates respectively.  If only one column number is specified,
+it is taken as <I>ycol</I>, and <TT>plt</TT> generates a series of abscissas automatically.
+ If the <I>data-file</I> contains no more than two columns, both <I>xcol</I> and <I>ycol</I>
+may be omitted. 
+</FONT>
+<P>
+<FONT SIZE="+2">By default, <TT>plt</TT> reads all rows of the <I>data-file</I> and scales
+the x and y axes so that all data can be plotted.  An optional <I>data-spec</I>,
+a string beginning with a colon (:), can be used to select a subset of
+the rows in the <I>data-file</I>.  For details on using a <I>data-spec</I>, and for information
+about reading binary data files using <TT>plt</TT>, see the <I>plt Tutorial and Cookbook</I>.
+</FONT>
+<P>
+<FONT SIZE="+2"><TT>plt</TT> recognizes a large number of <I>options</I> for controlling and customizing
+plots.  To see a summary of all options, run ``<TT>plt -h</TT>''; if this command is followed
+by one or more strings (which should not begin with hyphens), <TT>plt</TT> prints
+one-line summaries of all options beginning with those strings only. 
+</FONT>
+<P>
+<FONT SIZE="+2"><TT>plt</TT>
+can read its options from command-line arguments, from a <I>format file</I> (specified
+using the <TT>-f</TT> option), or from a <I>format string</I> (supplied on the command line,
+following the <TT>-F</TT> option).   When using format files or format strings, omit
+the hyphen (-) before each option. 
+</FONT>
+<BR> <HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html1169"
+  HREF="node64.html">Options</A>
+<LI><A NAME="tex2html1170"
+  HREF="node65.html">Screen
+and printed plots</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<A NAME="tex2html1167"
+  HREF="node64.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1161"
+  HREF="node60.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1155"
+  HREF="node62.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1163"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1165"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html1168"
+  HREF="node64.html">Options</A>
+<B>Up:</B> <A NAME="tex2html1162"
+  HREF="node60.html">plt</A>
+<B> Previous:</B> <A NAME="tex2html1156"
+  HREF="node62.html">Synopsis</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

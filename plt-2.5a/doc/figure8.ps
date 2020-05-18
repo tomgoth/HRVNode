@@ -1,0 +1,239 @@
+%!PS-Adobe-3.0
+%%BoundingBox: 55 241 574 673
+%%Title: (plt/lwcat output)
+%%CreationDate: Fri Mar 30 17:32:48 2001
+%!
+%%BoundingBox: 54 54 556 737
+% pslw.pro	Prolog file for plt with the LaserWriter
+% Last revised: 30 March 2001 (GBM)
+
+count /numstack exch def
+save 100 dict begin /pslw exch def
+
+/ED	{exch def} def
+/IN	{exch 72 mul def} def
+
+/CLOSE	{count numstack sub {pop} repeat pslw end restore} def
+
+/BF	{gsave INIT} def
+/EF	{grestore} def
+
+/LS	{} def
+/INIT	{0 setlinecap LS /DMTX matrix currentmatrix def
+	/XOFF [0 0 0 -.5 -1 -1 -1 -.5 -.5 0 -.5 -1] def
+	/YOFF [0 -.37 -1 -1 -1 -.37 0 0 -.37 -.74 -.74 -.74] def
+	/XM 0 def /YM 0 def /XYM 0 def} def
+
+/WSUBST	{} def
+
+/WDEF	{/ury ED /urx ED /lly ED /llx ED
+	WSUBST /y1 IN /x1 IN /y0 IN /x0 IN /FSCL ED
+	gsave matrix setmatrix
+	x0 2 add y0 2 add translate 
+	x1 x0 sub 4 sub urx llx sub div
+	y1 y0 sub 4 sub ury lly sub div scale
+	llx neg lly neg translate
+	/PMTX matrix currentmatrix def grestore} def
+
+/M	{newpath PMTX transform moveto} def
+/N	{PMTX dtransform rlineto} def
+/L	{N currentpoint stroke moveto} def
+/F	{closepath 0 eq {fill} {FS} ifelse} def
+/FS	{gsave fill grestore gsave 0 0 0 setrgbcolor stroke grestore} def 
+
+/XC	0 def
+/YC	0 def
+/T	{/ang ED /pos ED /YY ED /XX ED
+	XX -32767 eq
+	 {YY -32767 eq
+	  {XC YC moveto}
+	  {0 YY M currentpoint XC exch moveto pop}
+	 ifelse}
+	 {YY -32767 eq
+	  {XX 0 M currentpoint pop YC moveto}
+	  {XX YY M}
+	 ifelse}
+	ifelse
+	ang rotate
+	/str ED str stringwidth pop
+	XOFF pos get mul
+	YOFF pos get PS mul XYM FSCL mul add
+	rmoveto str show 0 .37 PS mul XYM FSCL mul add rmoveto
+	/XYM 0 def SDM currentpoint /YC ED /XC ED} def
+
+/GT	{7 0 T} def
+/XT	{/XYM XM neg def 3 0 T /XM 0 def} def
+/XTR	{/XYM XM def 7 0 T /XM 0 def} def
+/YT	{/XYM YM def 7 90 T /YM 0 def} def
+/YTR	{/XYM YM neg def 3 90 T /YM 0 def} def
+
+/XN	{/XM PS def 3 0 T} def
+/XNR	{/XM PS def 9 0 T} def
+/XE	{10 1.25 XEX} def
+/XER	{11 1.5 XEX} def
+/XEX	{6 -1 roll /exp ED PS mul /XM ED 0 T EX} def
+
+/YN	{-1 1 0 YNUM} def
+/YNR	{1 0 0 YNUM} def
+/YE	{-1 1 YEX} def
+/YER	{1 0 YEX} def
+
+/YEX	{6 -1 roll /exp ED exp stringwidth pop .65 mul YNUM EX} def
+/YNUM	{6 3 roll M /str ED str stringwidth pop add /len ED
+	len mul .2 PS mul add mul PS -.37 mul rmoveto
+	str show /YM len .2 PS mul add YM MAX def} def
+
+/EX	{0 PS .6 mul rmoveto .65 .65 scale exp show SDM} def
+
+/SP	{/y ED /x ED /yp ED /yn ED /str ED
+	x y M currentpoint
+	str false charpath PBOX newpath
+	exch dup add x0 x1 add 2 div sub
+	exch dup add y0 y1 add 2 div sub moveto
+	str false charpath gsave fill EB} def
+
+/SY	{/y ED /x ED /yp ED /yn ED /st ED
+	newpath x y M PS 4 div dup scale
+	[{CIR} {UTRI} {DI} {SQ} {TRI}] st 5 mod get exec
+	closepath SDM gsave 
+	[{1 FILL stroke} {fill} {stroke}] st 5 idiv 3 mod get exec
+	EB} def
+
+/EB {	grestore PMTX concat PBOX SDM
+	y1 y sub yp le {yp y1 EB2} if 
+	y0 y sub yn ge {yn y0 EB2} if} def
+/EB2	{newpath x exch M 0 exch N x0 x sub 0 N x1 x0 sub 0 N stroke} def
+
+/CIR	{currentpoint newpath 1.1 0 360 arc} def
+/TRI	{0 1.2 rmoveto -1.2 -2.4 rlineto 2.4 0 rlineto} def
+/DI	{ 0 -1.5 rmoveto 1.3 1.5 rlineto
+	-1.3 1.5  rlineto -1.3 -1.5 rlineto} def
+/UTRI	{180 rotate TRI 180 rotate} def
+/SQ	{1 1 rmoveto -2 0 rlineto 0 -2 rlineto 2 0
+	rlineto} def
+
+/LW	{.2 mul FSCL mul setlinewidth} def
+/SF	{FSCL mul /PS ED findfont PS scalefont setfont} def
+/DL	{PS mul .05 mul} def
+
+/solid		{{}0} def
+/dotted		{[1 DL 3 DL] 0} def
+/longdashed	{[7 DL] 0} def
+/shortdashed	{[4 DL 5 DL] 0} def
+/dotdashed	{[1 DL 5 DL 6 DL 5 DL] 0} def
+
+/MAX	{2 copy lt {exch pop} {pop} ifelse} def
+/SDM	{DMTX setmatrix} def
+/FILL	{gsave setgray fill grestore} def
+/PBOX	{pathbbox /y1 ED /x1 ED /y0 ED /x0 ED} def
+INIT
+0.85 0.775 3.35 7.975 9.35 0 0 4320 3600 WDEF
+/Times-Roman 16 SF
+solid setdash
+0 0 0 setrgbcolor
+3 LW
+/Times-Roman 14 SF
+313 2311 M
+0 679 N
+2397 0 N
+0 -679 N
+-2397 0 N
+0 0 L
+313 2849 M
+2397 0 N
+0 0 L
+3034 673 M
+0 2434 N
+697 0 N
+0 -2434 N
+-697 0 N
+0 0 L
+3196 673 M
+0 2434 N
+0 0 L
+702 1305 M
+0 679 N
+486 0 N
+0 -679 N
+-486 0 N
+0 0 L
+702 1843 M
+486 0 N
+0 0 L
+1188 1036 M
+0 678 N
+372 0 N
+0 -678 N
+-372 0 N
+0 0 L
+1188 1574 M
+372 0 N
+0 0 L
+1803 1890 M
+-583 -94 N
+0 0 L
+1262 1786 M
+-42 10 N
+36 22 N
+0 0 L
+1803 1539 M
+-210 -12 N
+0 0 L
+1633 1513 M
+-40 14 N
+38 18 N
+0 0 L
+864 954 M
+292 328 N
+0 0 L
+1118 1262 M
+38 20 N
+-16 -40 N
+0 0 L
+0.8 0.8 0.8 setrgbcolor
+3 LW
+/Helvetica 100 SF
+(Sample) 1512 2592 8 0 T
+0 0 0 setrgbcolor
+/Helvetica-Bold 20 SF
+(LB) 313 2358 4 0 T
+(CB) 1512 2358 3 0 T
+(RB) 2710 2358 2 0 T
+(LC) 313 2592 5 0 T
+(CC) 1512 2592 8 0 T
+(RC) 2710 2592 1 0 T
+(LN) 313 2826 5 0 T
+(CN) 1512 2826 8 0 T
+(RN) 2710 2826 1 0 T
+(LT) 313 2990 6 0 T
+(CT) 1512 2990 7 0 T
+(RT) 2710 2990 0 0 T
+0.8 0.8 0.8 setrgbcolor
+/Helvetica 100 SF
+(Sample) 3455 1890 8 90 T
+0 0 0 setrgbcolor
+/Helvetica-Bold 20 SF
+(LB) 3682 673 4 90 T
+(CB) 3682 1890 3 90 T
+(RB) 3682 3107 2 90 T
+(LC) 3455 673 5 90 T
+(CC) 3455 1890 8 90 T
+(RC) 3455 3107 1 90 T
+(LN) 3228 673 5 90 T
+(CN) 3228 1890 8 90 T
+(RN) 3228 3107 1 90 T
+(LT) 3034 673 6 90 T
+(CT) 3034 1890 7 90 T
+(RT) 3034 3107 0 90 T
+0.8 0.8 0.8 setrgbcolor
+/Helvetica 100 SF
+(X) 1188 1305 6 0 T
+(n) 1188 1305 1 0 T
+0 0 0 setrgbcolor
+/Helvetica-Bold 20 SF
+(L .1 .25 RB X) 1836 1890 1 0 T
+(L .1 .25 LC n) 1836 1539 1 0 T
+(Window coordinates \(.1, .25\)) 1188 954 3 0 T
+showpage CLOSE
+%%EOF
+%%EndDocument

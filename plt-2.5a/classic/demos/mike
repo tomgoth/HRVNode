@@ -1,0 +1,22 @@
+math : -t"row*5 > 100" -o"row*5, sin(2*PI*row/7)+(rnd(0)-.5)/10" |
+plt % $*  -F"
+W .15 - .85
+p 0,1n (W40,G.8) 0,1n (W10,G0) 0,1S2
+t (Fh,P30,G.8) This is an example 
+x (Fc-o,P15) This is the x axis
+##################################
+y (Ft-b) This is the y axis
+ya -2 2
+ly
+yo .03
+##################################
+lp .65 .15 1.05
+le 0 0 dummy data
+le 0 1
+le 0 2
+#################################
+L (Fs,P20) .1 .87 - l = t + g
+a (P30,G.6,W30) 30 -1.3 50 -1.7
+l 50 -1.8 - arrow
+c (W100,G.99) 0 1.8 100 1.8
+c (W2,G0) 0 1.8 100 1.8"

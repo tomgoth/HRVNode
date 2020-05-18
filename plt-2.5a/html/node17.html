@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Using color</TITLE>
+<META NAME="description" CONTENT="Using color">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="previous" HREF="node16.html">
+<LINK REL="up" HREF="node12.html">
+<LINK REL="next" HREF="node18.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html470"
+  HREF="node18.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html464"
+  HREF="node12.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html460"
+  HREF="node16.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html466"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html468"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html471"
+  HREF="node18.html">Plotting an image</A>
+<B>Up:</B> <A NAME="tex2html465"
+  HREF="node12.html">Tutorial: Simple Plots</A>
+<B> Previous:</B> <A NAME="tex2html461"
+  HREF="node16.html">A simple scatter plot</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00545000000000000000">
+Using color</A>
+</H2>
+<P>
+<FONT SIZE="+2">We conclude this tutorial by adding a <EM>transient
+fontgroup specification</EM> (see chapter&nbsp;<A HREF="node41.html#sec:font-groups">11</A>) that has
+the effect of modifying the appearance of the scatter plot symbols.
+To do this, we append ``<TT>(P/2,Cblue)</TT>'' to the argument of the
+<TT>-p</TT> option, like this:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+plt heartrate.data -t "Heart rate time series" \
+  -x "Time (seconds)" -y "Heart rate (beats per minute)" \
+  -xa 60 300 15 - 4 0 -ya 0 80 20 -g grid,sub \
+  -p "0,1Scircle(P/2,Cblue)"
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:simple5"></A><A NAME="3308"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 2.7:</STRONG>
+Scatter plot in color</CAPTION>
+<TR><TD><IMG
+ WIDTH="468" HEIGHT="379" BORDER="0"
+ SRC="img18.png"
+ ALT="\begin{figure}\begin{center}
+\epsfig{file=simple5,height=8cm}\end{center}\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<FONT SIZE="+2">(Since the shell (command interpreter) normally treats parentheses as
+special characters, it is necessary to enclose the entire argument of
+<TT>-p</TT> in quotation marks, in order to pass it as shown to <TT>plt</TT>
+without shell interpretation.)
+</FONT>
+<P>
+<FONT SIZE="+2">Fontgroup modifications provide an extremely powerful and flexible way to
+control the appearance of a plot.  In this example, ``<TT>P/2</TT>''
+reduces the size of the circles by a factor of 2, and ``<TT>Cblue</TT>''
+causes them to be drawn in blue.  (A complete list of color names is
+included in appendix&nbsp;<A HREF="node43.html#sec:color-names">A</A>.)
+</FONT>
+<P>
+<HR>
+<A NAME="tex2html470"
+  HREF="node18.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html464"
+  HREF="node12.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html460"
+  HREF="node16.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html466"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html468"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html471"
+  HREF="node18.html">Plotting an image</A>
+<B>Up:</B> <A NAME="tex2html465"
+  HREF="node12.html">Tutorial: Simple Plots</A>
+<B> Previous:</B> <A NAME="tex2html461"
+  HREF="node16.html">A simple scatter plot</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

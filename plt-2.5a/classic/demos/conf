@@ -1,0 +1,49 @@
+#!/bin/sh
+#	conf:	plt example
+#
+#	Demonstrates the use of the `O' plot type:  
+#	takes 3 columns: x, y-lower, y-upper, outlines
+#	the region between the line (x,y-lower) and the line
+#	(x,y-upper) in black and then fills the region in the
+#	user specified gray level.  The 'o' option outlines in the
+#	current gray level, but does not fill.  The 'f' option fills
+#	in the current gray level, but does not outline.
+#	Confusing, yes.
+#
+#	Other Features in this example:
+#		1)	P*1.5 means multiply point size by 1.5
+#			(Other new legal forms:  P+3, W-2, W/4, etc.)
+#		2)	The point size for the `O' plot type has no effect
+#			on the graph, but changes the size of the box in
+#			the legend (only on devices for which font size scaling
+#			is supported by plt).
+#		3)	The use of the `xts' option to force a labeled tic mark at
+#			x = 0.85.
+
+plt pow.lohi 0 1 2 3 4 5 -F"
+size .7 5 5
+sf p W1
+W - .1 - .47
+p 0,1,5O(G.99,P*1.5) 0,2,4O(G.85)
+lp .7 1.2 .9
+le 0 0   5% Conf. Limits
+le 1 1 25% Conf. Limits
+t
+y Power Error
+yo 0.02
+y Estimate/True LO Power
+xts .85
+xa .82 1 .01 - 5
+x Fraction Available Data" $*
+
+plt pow.lohi 0 6 7 8 9 10 -F"
+s ex
+size .7 5 5
+sf p W1
+W - .53 - .9
+p 0,1,5O(G.99,P*1.5) 0,2,4O(G.85)
+t Confidence Limits for Spline Power Estimates
+xts .85
+xa .82 1 .01 - 5
+y Estimate/True HI Power
+yo 0.02" $*

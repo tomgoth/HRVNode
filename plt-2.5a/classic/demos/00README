@@ -1,0 +1,3 @@
+This file contains various demonstration programs which illustrate `plt' usage.
+The programs `conf', `ldemo', `over', `scaled', and `sdemo2' require only
+`plt';  the others also require PA's `math'.

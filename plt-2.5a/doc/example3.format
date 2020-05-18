@@ -1,0 +1,5 @@
+t Time vs Amp
+x time in seconds
+y amplitude in cm
+xa 0 5 .5 - 2 0
+ya 0 5 .5 - 2 0

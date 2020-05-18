@@ -1,0 +1,12 @@
+t Making Legends with Symbols
+x X Axis Units
+xa 0 20 1
+ya 0 5
+yo .02
+p 0,1n(W5,L1) 0,1S1 0,2n(W12,G.8) 0,2,3E0
+lp .67 .64 1.05 - yes
+le 0 2 Random Series
+le 0 3
+le 1 - (Synthesized)
+le 2 0 Sine Function
+le 2 1

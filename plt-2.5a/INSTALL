@@ -1,0 +1,120 @@
+file: INSTALL			G. Moody	 3 April 2001
+				Last revised:	25 March 2009
+Compiling and installing `plt'
+==============================
+
+The most recent version of 'plt' is always freely available from PhysioNet
+(http://physionet.org/physiotools/plt/).
+
+Under Unix or GNU/Linux:
+------------------------
+
+`plt' has been successfully compiled under many versions of GNU/Linux,
+including Fedora 10 and Ubuntu Hardy (both x86 and x86_64), as well as under
+many other versions of Unix, including SunOS, Solaris, HP-UX, and AIX.
+
+ * Use 'cd' to navigate to the directory containing this file.
+ * Make any needed changes to the site-dependent variables in `Makefile'.
+ * Compile and install `plt' by typing:
+	make install
+   You may need root privileges for this step unless you have changed the
+   installation directories in `Makefile'.  If the `make' command fails,
+   read `Makefile' to see how to proceed.
+ * To test the installation, start your X server if it is not running already,
+   then from an X terminal window, type:
+	make xdemo
+   If you have `gv' (included in most GNU/Linux distributions, and freely
+   available from http://wwwthep.physik.uni-mainz.de/~plass/gv/), you can
+   see the same demonstration in PostScript format by typing:
+	make psdemo 
+ * (Optional)  If you wish to generate PNG images using `lwcat -png', install
+   ImageMagick (free download from http://www.imagemagick.org/) if you have not
+   already done so.  Most GNU/Linux distributions include ImageMagick already.
+ * (Optional)  If you wish to generate PDF images using `lwcat -pdf', install
+   epstopdf, available from http://tug.ctan.org/tex-archive/support/epstopdf/,
+   and included in the tetex, TeX Live (http://www.tug.org/texlive/), and MiKTeX
+   (http://www.miktex.org/) distributions.
+
+Under Mac OS X (Darwin):
+------------------------
+
+`plt' has been successfully compiled on x86 Macs running OS X 10.5 (Leopard), as
+well as on PPC Macs running Mac OS X 10.3.9 (Darwin 7.9.0) and several earlier
+versions.  On Leopard, install XCode, change XLIBDIR to /usr/X11/lib (in the
+top-level Makefile) and follow the instructions above (use 'sudo make install'
+to perform the installation with root privileges;  enter your own password
+when prompted).
+
+The instructions below were developed several years ago.  They have not been
+tested recently, but they may still be helpful.
+
+You will need to obtain and install several packages of free software needed by
+`plt'.  For those not available from Apple, we suggest using Fink
+(http://www.finkproject.org/), an easy-to-install collection of free Unix
+tools that have been ported to Mac OS X.
+
+Before compiling `plt', download and install:
+ * X11 for Mac OS X (included in current Mac OS X CD sets, or from
+   http://www.apple.com/downloads/macosx/apple/x11formacosx.html)
+ * Apple's XCode developer tools, including the X11 SDK from XCode's Packages
+   folder (included in current Mac OS X CD sets, or from
+   http://developer.apple.com/tools/xcode/).
+ * gv (from Fink; sources from http://wwwthep.physik.uni-mainz.de/~plass/gv/
+   and http://www.ghostscript.com/)
+ * ImageMagick (from Fink; sources from http://www.imagemagick.org/)
+
+Now follow the instructions above for Unix or Linux (use 'sudo make install'
+to perform the installation with root privileges;  enter your own password
+when prompted).
+
+Under MS-Windows (9x/NT/2000/ME/XP):
+------------------------------------
+
+`plt' has been successfully compiled under MS-Windows XP and earlier versions,
+using Cygwin gcc and other free development tools described below.
+
+IMPORTANT:
+   Do not attempt to use a commercial C compiler to compile `plt';  it won't
+   work, because `plt' uses POSIX (Unix) interfaces that are not available
+   under MS-Windows except when using Cygwin gcc (see below).
+
+There are two suggested methods for installing `plt' if you are using
+MS-Windows.
+
+Method A:
+ * Install Linux, then follow the instructions above.  Try it, you'll like it!
+
+Method B:
+ * Download and install Cygwin (http://www.cygwin.com/; a tutorial guide is
+   available at http://physionet.org/physiotools/cygwin/).  In the 'Select
+   Packages' dialog, you will see a collapsed tree view of the numerous
+   packages available.  Click the View button once so that the indicator to its
+   right changes from 'Category' to 'Full'.  You may resize the dialog box as
+   needed until the package names are visible.  To select a package for
+   installation, click on its rotating selector (in the New column) to cycle
+   through the available choices until a version number appears.  In most
+   cases, you should choose the highest version number from among those that
+   are available (this is usually the first alternative offered).  Be sure to
+   choose at least the following packages for installation:
+	bc
+	gcc
+	gv
+	ImageMagick
+	libX11-devel
+	make
+	X-start-menu-icons
+   Other packages needed by these will be installed automatically.
+ * Open a Cygwin terminal emulator window (the Cygwin installation will have
+   created a desktop icon for this), and perform the remaining steps by typing
+   into it.
+ * Use 'cd' to navigate to the directory containing this file.
+ * Change XINCDIR to /usr/X11R6/include, and XLIBDIR to /usr/X11R6/lib (in the
+   top-level Makefile, using your favorite text editor).
+ * Compile and install `plt' by typing:
+	make install
+ * To test the installation, start your X server if it is not running already
+   (e.g., by typing 'startx' in the Cygwin terminal window), then from an X
+   terminal window, type:
+	make xdemo
+   You can see the same demonstration in PostScript format by typing:
+	make psdemo 

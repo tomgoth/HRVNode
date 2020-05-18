@@ -1,0 +1,41 @@
+# Define axis ranges, but don't draw the axes.
+X 0 1
+Y 0 1
+s xy
+# Use black, wide lines for figures by default.
+sf f Cblack,W15,P20
+# Draw labels in black 20 point Helvetica Bold.
+sf l Cblack,P20,Fh-b
+# Draw the plot title in 24 point Helvetica Bold.
+t (Fh-b,P24) How to Hack
+# Draw a green-outlined box and label it.
+B (Cgreen) .1 .3 .3 .4
+L .2 .35 CC Write
+# Draw an arrow from the right edge of the box.
+A .4 .35 .3 .35
+# Draw a diamond using line segments, and label it.
+C (Cred) .4 .35 .5 .45
+C (Cred) .5 .45 .6 .35
+C (Cred) .6 .35 .5 .25
+C (Cred) .5 .25 .4 .35
+L .5 .35 CC Done?
+# Draw a line and arrow from the top of the diamond.
+C .5 .45 .5 .7
+A .4 .7 .5 .7
+# Label the line and arrow.
+L .51 .45 LB No
+# Draw a filled light blue box.
+D (CLightBlue) .2 .65 .4 .75
+# Outline it in dark blue, and label it.
+B (CDarkBlue) .2 .65 .4 .75
+L .3 .7 CC Think!
+# Draw a line and arrow from this box to the first.
+C .2 .7 .15 .7
+A .15 .4 .15 .7
+# Draw an arrow from the right corner of the diamond.
+A .7 .35 .6 .35
+# Label the arrow.
+L .6 .35 LT Yes
+# Draw a filled box in 30% grey, and label it in white.
+D (Cgrey30) .7 .3 .9 .4
+L (Cwhite) .8 .35 CC Sleep

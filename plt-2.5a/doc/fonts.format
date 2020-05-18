@@ -1,0 +1,58 @@
+t
+xa 0 1
+ya 0 1
+s xy
+
+L (P16,Fh-b) .4 1.22 CT Using fonts
+
+L (P16,Fc) .2 1.1 RC Courier
+L (P12,Fc) .25 1.1 LB "ABCDEFGHIJKLMNOPQRSTUVWXYZ ~!@#$%^&*()_+{}: <>?|"
+L (P12,Fc) .25 1.06 LB "abcdefghijklmnopqrstuvwxyz `1234567890-=[];',./\"
+
+L (P16,Fc-b) .2 1 RC Courier Bold
+L (P12,Fc-b) .25 1 LB "ABCDEFGHIJKLMNOPQRSTUVWXYZ ~!@#$%^&*()_+{}: <>?|"
+L (P12,Fc-b) .25 .96 LB "abcdefghijklmnopqrstuvwxyz `1234567890-=[];',./\"
+
+L (P16,Fc-o) .2 .9 RC Courier Oblique
+L (P12,Fc-o) .25 .9 LB "ABCDEFGHIJKLMNOPQRSTUVWXYZ ~!@#$%^&*()_+{}: <>?|"
+L (P12,Fc-o) .25 .86 LB "abcdefghijklmnopqrstuvwxyz `1234567890-=[];',./\"
+
+L (P16,Fc-b-o) .2 .8 RC Courier Bold Oblique
+L (P12,Fc-b-o) .25 .8 LB "ABCDEFGHIJKLMNOPQRSTUVWXYZ ~!@#$%^&*()_+{}: <>?|"
+L (P12,Fc-b-o) .25 .76 LB "abcdefghijklmnopqrstuvwxyz `1234567890-=[];',./\"
+
+L (P16,Fh) .2 .68 RC Helvetica
+L (P12,Fh) .25 .68 LB "ABCDEFGHIJKLMNOPQRSTUVWXYZ ~!@#$%^&*()_+{}: <>?|"
+L (P12,Fh) .25 .64 LB "abcdefghijklmnopqrstuvwxyz `1234567890-=[];',./\"
+
+L (P16,Fh-b) .2 .58 RC Helvetica Bold
+L (P12,Fh-b) .25 .58 LB "ABCDEFGHIJKLMNOPQRSTUVWXYZ ~!@#$%^&*()_+{}: <>?|"
+L (P12,Fh-b) .25 .54 LB "abcdefghijklmnopqrstuvwxyz `1234567890-=[];',./\"
+
+L (P16,Fh-o) .2 .48 RC Helvetica Oblique
+L (P12,Fh-o) .25 .48 LB "ABCDEFGHIJKLMNOPQRSTUVWXYZ ~!@#$%^&*()_+{}: <>?|"
+L (P12,Fh-o) .25 .44 LB "abcdefghijklmnopqrstuvwxyz `1234567890-=[];',./\"
+
+L (P16,Fh-b-o) .2 .38 RC Helvetica Bold Oblique
+L (P12,Fh-b-o) .25 .38 LB "ABCDEFGHIJKLMNOPQRSTUVWXYZ ~!@#$%^&*()_+{}: <>?|"
+L (P12,Fh-b-o) .25 .34 LB "abcdefghijklmnopqrstuvwxyz `1234567890-=[];',./\"
+
+L (P16,Ft) .2 .26 RC Times
+L (P12,Ft) .25 .26 LB "ABCDEFGHIJKLMNOPQRSTUVWXYZ ~!@#$%^&*()_+{}: <>?|"
+L (P12,Ft) .25 .22 LB "abcdefghijklmnopqrstuvwxyz `1234567890-=[];',./\"
+
+L (P16,Ft-b) .2 .16 RC Times Bold
+L (P12,Ft-b) .25 .16 LB "ABCDEFGHIJKLMNOPQRSTUVWXYZ ~!@#$%^&*()_+{}: <>?|"
+L (P12,Ft-b) .25 .12 LB "abcdefghijklmnopqrstuvwxyz `1234567890-=[];',./\"
+
+L (P16,Ft-i) .2 .06 RC Times Italic
+L (P12,Ft-i) .25 .06 LB "ABCDEFGHIJKLMNOPQRSTUVWXYZ ~!@#$%^&*()_+{}: <>?|"
+L (P12,Ft-i) .25 .02 LB "abcdefghijklmnopqrstuvwxyz `1234567890-=[];',./\"
+
+L (P16,Ft-b-i) .2 -.04 RC Times Bold Italic
+L (P12,Ft-b-i) .25 -.04 LB "ABCDEFGHIJKLMNOPQRSTUVWXYZ ~!@#$%^&*()_+{}: <>?|"
+L (P12,Ft-b-i) .25 -.08 LB "abcdefghijklmnopqrstuvwxyz `1234567890-=[];',./\"
+
+L (P16,Ft) .2 -.16 RC Symbol
+L (P12,Fs) .25 -.16 LB "ABCDEFGHIJKLMNOPQRSTUVWXYZ ~!@#$%^&*()_+{}: <>?|"
+L (P12,Fs) .25 -.2 LB "abcdefghijklmnopqrstuvwxyz `1234567890-=[];',./\"

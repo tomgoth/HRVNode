@@ -1,0 +1,607 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Colors, Line Styles, and Fonts </TITLE>
+<META NAME="description" CONTENT="Colors, Line Styles, and Fonts ">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node42.html">
+<LINK REL="previous" HREF="node40.html">
+<LINK REL="up" HREF="book.html">
+<LINK REL="next" HREF="node42.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html807"
+  HREF="node42.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html801"
+  HREF="book.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html795"
+  HREF="node40.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html803"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html805"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html808"
+  HREF="node42.html">Advanced Axis Options</A>
+<B>Up:</B> <A NAME="tex2html802"
+  HREF="book.html">plt Tutorial and Cookbook</A>
+<B> Previous:</B> <A NAME="tex2html796"
+  HREF="node40.html">Suppressing Plot Elements</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001400000000000000000"></A><A NAME="sec:font-groups"></A>
+<BR>
+Colors, Line Styles, and Fonts 
+</H1>
+<P>
+<FONT SIZE="+2"><A NAME="2134"></A><A NAME="2135"></A>The user can separately control how text and line segments are
+rendered in five different contexts: axes and their numbering (<TT>a</TT>), figures (lines, boxes, and arrows, <TT>f</TT>), labels (<TT>l</TT>),
+data plots (<TT>p</TT>), axis and graph titles (<TT>t</TT>), and all of
+these at once (<TT>all</TT>).  The contexts (<TT>a</TT>, <TT>f</TT>, <TT>l</TT>,
+<TT>p</TT>, and <TT>t</TT>) are the five <EM>predefined font groups</EM>.  The
+table below matches each of the predefined font groups with the <TT>plt</TT> options having related outputs.
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3 BORDER="1">
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><FONT SIZE="+2">
+<I>Font group</I> </FONT></TD>
+<TD ALIGN="LEFT"><FONT SIZE="+2"> <I>Options</I> </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><FONT SIZE="+2">  
+</FONT><FONT SIZE="+2"><TT>a</TT> </FONT></TD>
+<TD ALIGN="LEFT"><FONT SIZE="+2"> </FONT><FONT SIZE="+2"><TT>xa</TT>, </FONT><FONT SIZE="+2"><TT>ya</TT>, </FONT><FONT SIZE="+2"><TT>X</TT>, </FONT><FONT SIZE="+2"><TT>Y</TT> (axes and numbering) </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>f</TT> </FONT></TD>
+<TD ALIGN="LEFT"><FONT SIZE="+2"> </FONT><FONT SIZE="+2"><TT>A</TT>, </FONT><FONT SIZE="+2"><TT>a</TT>, </FONT><FONT SIZE="+2"><TT>B</TT>, </FONT><FONT SIZE="+2"><TT>b</TT>, </FONT><FONT SIZE="+2"><TT>C</TT>, </FONT><FONT SIZE="+2"><TT>c</TT>, </FONT><FONT SIZE="+2"><TT>D</TT>, </FONT><FONT SIZE="+2"><TT>d</TT>, </FONT><FONT SIZE="+2"><TT>le</TT>, </FONT><FONT SIZE="+2"><TT>lp</TT> (figures and legends) </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>l</TT> </FONT></TD>
+<TD ALIGN="LEFT"><FONT SIZE="+2"> </FONT><FONT SIZE="+2"><TT>L</TT>, </FONT><FONT SIZE="+2"><TT>l</TT>, </FONT><FONT SIZE="+2"><TT>hl</TT>, </FONT><FONT SIZE="+2"><TT>vl</TT> (labels) </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>p</TT> </FONT></TD>
+<TD ALIGN="LEFT"><FONT SIZE="+2"> </FONT><FONT SIZE="+2"><TT>p</TT> and sub-options (data plots) </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>t</TT> </FONT></TD>
+<TD ALIGN="LEFT"><FONT SIZE="+2"> </FONT><FONT SIZE="+2"><TT>x</TT>, </FONT><FONT SIZE="+2"><TT>y</TT>, </FONT><FONT SIZE="+2"><TT>t</TT> (titles)
+</FONT></TD>
+</TR>
+</TABLE></DIV>
+<P>
+<FONT SIZE="+2">A font group is defined by the following six parameters:
+</FONT>
+<P>
+<DL>
+<DT><STRONG><TT>F</TT></STRONG></DT>
+<DD><A NAME="2185"></A>font name (see figure&nbsp;<A HREF="#fig:fonts">11.1</A>), one of:
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><TT>c</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=57>courier</TD>
+<TD ALIGN="LEFT"><TT>h</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=57>helvetica</TD>
+<TD ALIGN="LEFT"><TT>t</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=57>times</TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><TT>c-b</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=57>courier-bold</TD>
+<TD ALIGN="LEFT"><TT>h-b</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=57>helvetica-bold</TD>
+<TD ALIGN="LEFT"><TT>t-b</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=57>times-bold</TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><TT>c-o</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=57>courier-oblique</TD>
+<TD ALIGN="LEFT"><TT>h-o</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=57>helvetica-oblique</TD>
+<TD ALIGN="LEFT"><TT>t-i</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=57>times-italic</TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><TT>c-b-o</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=57>courier-bold-oblique</TD>
+<TD ALIGN="LEFT"><TT>h-b-o</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=57>helvetica-bold-oblique</TD>
+<TD ALIGN="LEFT"><TT>t-b-i</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=57>times-bold-italic</TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><TT>s</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=57>symbol</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=57>&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=57>&nbsp;</TD>
+</TR>
+</TABLE>
+</DIV>
+
+<P>
+</DD>
+<DT><STRONG><TT>P</TT></STRONG></DT>
+<DD><A NAME="2208"></A><A NAME="2209"></A><A NAME="2210"></A>point size (an integer <IMG
+ WIDTH="37" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$\ge 0$">; 12 or 14 are normal point sizes)
+
+<P>
+</DD>
+<DT><STRONG><TT>C</TT></STRONG></DT>
+<DD><A NAME="2212"></A>color (see appendix&nbsp;<A HREF="node43.html#sec:color-names">A</A>, <EM>Color Names</EM>, beginning
+on page&nbsp;<A HREF="node43.html#sec:color-names"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>)
+
+<P>
+</DD>
+<DT><STRONG><TT>G</TT></STRONG></DT>
+<DD><A NAME="2217"></A>grey level (see figure&nbsp;<A HREF="#fig:linestyles">11.2</A>); the grey level can be between
+0.0 (black) and 1.0 (white)
+
+<P>
+</DD>
+<DT><STRONG><TT>W</TT></STRONG></DT>
+<DD><A NAME="2220"></A><A NAME="2221"></A>line width (an integer <IMG
+ WIDTH="37" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$\ge 0$">);  a normal line width is 3 or 4.  By
+convention, a line width of 0 produces the narrowest possible line;  on
+some high-resolution devices, such lines may not be visible, however.  See
+figure&nbsp;<A HREF="#fig:linestyles">11.2</A>.
+
+<P>
+</DD>
+<DT><STRONG><TT>L</TT></STRONG></DT>
+<DD><A NAME="2224"></A>line style (see figure&nbsp;<A HREF="#fig:linestyles">11.2</A>); select from the following
+using either the number (0-4) or the one-word name:
+
+<P>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT">0</TD>
+<TD ALIGN="LEFT"><TT>solid</TT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT">1</TD>
+<TD ALIGN="LEFT"><TT>dotted</TT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT">2</TD>
+<TD ALIGN="LEFT"><TT>shortdashed</TT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT">3</TD>
+<TD ALIGN="LEFT"><TT>dotdashed</TT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT">4</TD>
+<TD ALIGN="LEFT"><TT>longdashed</TT></TD>
+</TR>
+</TABLE>
+</DIV>
+</DD>
+</DL>
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:fonts"></A><A NAME="3503"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 11.1:</STRONG>
+Samples of available fonts</CAPTION>
+<TR><TD><IMG
+ WIDTH="700" HEIGHT="580" BORDER="0"
+ SRC="img103.png"
+ ALT="\begin{figure}\begin{center}
+\fcolorbox{blue}{white}{
+\epsfig{file=fonts,height=10cm}}
+\end{center}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:linestyles"></A><A NAME="3505"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 11.2:</STRONG>
+Line widths and styles, and grey
+levels.  On very high resolution output devices, lines rendered with
+zero width <TT>(W0)</TT> may not be visible; a safer choice for a thin
+line is <TT>(W1)</TT>.  On older PostScript printers, however, zero-width lines
+are usually visible because resolution is not too high, and they often
+are rendered much faster than lines of any other width.  Note that
+grey levels can also be specified using colors; for example, the
+font group specification <TT>(Cgrey45)</TT> is equivalent to <TT>(G.45)</TT>.
+</CAPTION>
+<TR><TD><IMG
+ WIDTH="700" HEIGHT="580" BORDER="0"
+ SRC="img104.png"
+ ALT="\begin{figure}\begin{center}
+\fcolorbox{blue}{white}{
+\epsfig{file=linestyles,height=10cm}}
+\end{center}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<FONT SIZE="+2"><A NAME="3506"></A>Use the <TT>-sf</TT> option to define a font group or to modify the
+parameters of a predefined font group:
+</FONT>
+<P>
+
+<BLOCKQUOTE><FONT SIZE="+2"><TT>-sf</TT> <EM>fontgroup specs ...</EM>
+</FONT></BLOCKQUOTE>
+<P>
+<FONT SIZE="+2">The <EM>fontgroup</EM> argument is the name of the font group; this can
+be one of <TT>a</TT>, <TT>f</TT>, <TT>l</TT>, <TT>p</TT>, or <TT>t</TT>, or you can
+specify any other name you choose for a custom font group.  The <EM>specs</EM> arguments can include any of the parameter names <TT>F</TT>, <TT>P</TT>, <TT>C</TT>, <TT>G</TT>, <TT>W</TT>, or <TT>L</TT>, followed immediately by the
+value to be given to the parameter;  separate parameters with commas.
+For example, the following specifies that titles should be shown using
+18-point Times Bold Oblique:
+</FONT>
+<P>
+
+<BLOCKQUOTE><FONT SIZE="+2"><TT>-sf t Ft-b-o,P18</TT>
+</FONT></BLOCKQUOTE>
+<P>
+<FONT SIZE="+2"><A NAME="3507"></A>Before it produces any output, <TT>plt</TT> scans the entire command line
+(and the format file, if <TT>-f</TT> is used) for font group definitions
+made using <TT>-sf</TT>.  Thus the position of <TT>-sf</TT> among the other
+options makes no difference to the final result.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="3508"></A><EM>Fontgroup substitution</EM> can be used to make <TT>plt</TT> use any
+desired fontgroup to control the appearance of any desired element.
+Although each <TT>plt</TT> option that renders text or graphics has an
+associated font group that normally determines its appearance, any
+other font group can take on this function if you substitute it
+by naming it when using the option.  For most <TT>plt</TT> options, do
+this by supplying the font group's name in parentheses immediately
+after the option, as in these examples:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+-B "(p)" .1 .1 .3 .5
+-L "(t)" .6 .4 CB "Group A (n=25)"
+</PRE>
+<DIV ALIGN="CENTER"></DIV><FONT SIZE="+2">
+(The quotation marks should be omitted within a format file;  they are
+needed on the command line to protect the parentheses from the shell.)
+When using fontgroup substitution after a <TT>-p</TT> option,
+however, the font group name should follow the plotstyle specification,
+as in:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+-p "0,1Striangle(t)"
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2">Even more flexibility is possible using <EM>transient fontgroup
+modifications</EM>.  These can be performed using the same syntax as for
+fontgroup substitutions, except that what goes inside the parentheses
+is a list of fontgroup parameters, for example:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+-D "(Cmagenta)" .1 .6 .2 .7
+-p "0,1n(W3,Ldashed)"
+</PRE>
+<DIV ALIGN="CENTER"></DIV><FONT SIZE="+2">
+Transient fontgroup modifications apply only to the option in which they
+are defined.
+</FONT>
+<P>
+<FONT SIZE="+2">In addition to absolute parameter values, as above, <EM>relative
+parameter values</EM> may be supplied in a font group specification.
+Relative parameter values are given in the form <EM><IMG
+ WIDTH="21" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$&lt;$">op<IMG
+ WIDTH="45" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img105.png"
+ ALT="$&gt;N$"></EM>, where
+<EM>op</EM> is one of the arithmetic operators (<TT>+</TT>, <TT>-</TT>, <TT>*</TT>, or
+<TT>/</TT>) and <IMG
+ WIDTH="24" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img23.png"
+ ALT="$N$"> is the amount by which the previous value of the parameter
+is to be increased, decreased, multiplied, or divided respectively.  For
+example, <TT>W*2</TT> doubles the previous line width.
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:fontgroup1"></A><A NAME="3512"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 11.3:</STRONG>
+This example illustrates the effects
+of fontgroup redefinitions and substitutions, transient fontgroup
+modifications, and the use of relative parameter values in fontgroup
+specifications.  See the main text for details.</CAPTION>
+<TR><TD><IMG
+ WIDTH="713" HEIGHT="505" BORDER="0"
+ SRC="img106.png"
+ ALT="\begin{figure}\begin{center}
+\begin{tabular}{p{10cm}p{1.5cm}}
+\fcolorbox{blue}{w...
+...5 -0.964
+100 -0.830\end{boxedverbatim}
+}}
+\end{tabular}\end{center}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<P>
+<FONT SIZE="+2">Figure&nbsp;<A HREF="#fig:fontgroup1">11.3</A> was created using:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+plt example14.data -f fontgroup.format
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2">The data file, <TT>example14.data</TT>, contains 21 samples of a noisy sinusoid.
+The format file, <TT>fontgroup.format</TT>, contains:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+# The entire format file is scanned for "sf" options before
+# anything is rendered, so the x axis title is rendered in
+# the font specified by the "sf t" option below.
+x Time (seconds)
+
+# Specify black 24-point Helvetica Bold for the "t" fontgroup.
+# Although black is the default color, it needs to be specified
+# explicitly (see below).
+sf t Fh-b,P24,Cblack
+
+# Specify red for the "p" fontgroup.
+sf p Cred
+
+# Here, a transient fontgroup modification (P/2) overrides the
+# previously defined point size setting for the "t" font, so
+# that the y axis title is rendered half as large as the
+# (unscaled) x axis title.
+y (P/2) Amplitude
+
+# As shown in the previous line, if the argument following
+# an option begins with "(", it is interpreted as a local
+# fontgroup spec.  In order to use a string beginning with
+# "(" as a string argument, it is necessary to quote it:
+t "(Noisy) Sinusoid"
+# Note that this title is rendered in 24-point type;  the
+# effect of the local spec used earlier is limited to the
+# line on which it appeared.
+
+# Here, we make two plots, first a normal plot using the
+# "p" fontgroup (in red), then a scatter plot using triangles.
+# The effect of the "(t)" is to specify that the "t" fontgroup
+# must be used for the second plot;  thus the triangles are
+# black, not red, and are sized to match the 24-point type of
+# fontgroup "t".
+p 0,1n(p) 0,1Striangle(t)
+# If, however, the color had not been specified explicitly
+# for fontgroup "t", plt would not change the color between
+# plots, and the triangles would be rendered in red.
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:example14"></A><A NAME="3514"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 11.4:</STRONG>
+Font groups have been
+redefined to create many of the special effects in this example. See the main
+text for details.</CAPTION>
+<TR><TD><IMG
+ WIDTH="700" HEIGHT="580" BORDER="0"
+ SRC="img107.png"
+ ALT="\begin{figure}\begin{center}
+\fcolorbox{blue}{white}{
+\epsfig{file=figure14,height=10cm}}
+\end{center}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<FONT SIZE="+2">
+Figure&nbsp;<A HREF="#fig:example14">11.4</A> shows several more complex uses of
+different font groups.  This figure was produced using the command:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+plt example14.data % -f example14.format
+</PRE>
+<DIV ALIGN="CENTER"></DIV><FONT SIZE="+2">
+using the same data file as in the previous example.  The format file,
+<TT>example14.format</TT>, contains:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+# Set font and point size for font group "l" (labels).
+sf l Fs,P20
+
+# Define two custom font groups, "fontgroup1" and "fontgroup2".
+sf fontgroup1 W40,G.2
+sf fontgroup2 Fh-b,P30,G.8
+
+# Plot the data three times, first with a broad dark line,
+# then with a medium light line, finally with open diamonds
+# (symbol 2).
+p 0,1n(fontgroup1) 0,1n(W10,G.8) 0,1S2
+
+# Print the plot title.
+t (fontgroup2) This is an example
+
+# Local specifications are given below for the x and y axis
+# titles.  These would override defaults for the predefined
+# title (-sf t ...) font group had any been set.
+x (Fc-o,P15) This is the x axis
+y (Fc,P6) This is the y axis
+
+# The label uses font group l defaults set above unless local
+# instructions are given.  The choice of font "s" (Symbol)
+# above means that the Roman letters in the label string are
+# rendered as Greek letters on the plot.
+L .1 .87 - l = t + g
+
+# Set y axis parameters.  By specifying the crossing point at
+# x = -10, we place the y axis away from the data at x=0, and
+# the axes do not actually touch each other.
+ya -2 2 - - 2 -10
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<DIV ALIGN="CENTER"><FONT SIZE="+2">[<TT>example14.format</TT> continues on the next page]
+</FONT></DIV>
+<DIV ALIGN="CENTER"><FONT SIZE="+2">[<TT>example14.format</TT>, continued]
+</FONT></DIV>
+<P>
+<DIV ALIGN="CENTER"></DIV><PRE>
+# Construct the legend (key).  The final argument (.1) of the
+# lp option lengthens the sample plot segment to 10% of the x
+# axis length.  Three entries are overlaid on line 0 of the
+# legend in order to construct a sample plot segment with the
+# same appearance as in the data plot.
+lp .65 .15 1.05 .1
+le 0 0 dummy data
+le 0 1
+le 0 2
+
+# Draw an arrow, using local specifications for the point size
+# (determines the size of the arrowhead), grey level, and line
+# width.
+a (P30,G.6,W30) 30 -1.3 50 -1.7
+
+# Label the arrow, overriding the default font so that the
+# label is printed  using Roman rather than Greek characters.
+l (Ft) 50 -1.8 - arrow
+
+# Demonstrate line segment drawing using local specifications.
+# First draw  a broad black line segment, then a narrow white
+# line segment over the first.
+c (W100,G0) 0 1.8 100 1.8
+c (W2,G.99) 0 1.8 100 1.8
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+
+<P>
+<FONT SIZE="+2"><A NAME="2363"></A>Figure&nbsp;<A HREF="#fig:colors">11.5</A> illustrates how <TT>plt</TT> can be used to produce
+plots in color.  This plot was created using the command:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+plt -f colors.format
+</PRE>
+<DIV ALIGN="CENTER"></DIV><FONT SIZE="+2">
+The file <TT>colors.format</TT> contains:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+X 0 1
+Y 0 1
+sf a CSkyBlue
+sf red Cred
+sf green Cgreen
+sf blue Cblue
+sf PapayaWhip CPapayaWhip
+sf coral Ccoral
+sf yellow Cyellow
+sf custom1 C#007f00
+sf custom2 C#cc007f
+sf custom3 C#101010
+sf white Fh-b Cwhite
+sf black Fh Cblack
+D (red) .1 .8 .3 1.0
+L (white) .2 .9 CC red
+D (green) .4 .8 .6 1.0
+L (white) .5 .9 CC green
+D (blue) .7 .8 .9 1.0
+L (white) .8 .9 CC blue
+D (PapayaWhip) .1 .5 .3 .7
+L (black) .2 .6 CC PapayaWhip
+D (coral) .4 .5 .6 .7
+L (white) .5 .6 CC coral
+D (yellow) .7 .5 .9 .7
+L (black) .8 .6 CC yellow
+D (custom1) .1 .2 .3 .4
+L (white) .2 .3 CC #007f00
+D (custom2) .4 .2 .6 .4
+L (white) .5 .3 CC #cc007f
+D (custom3) .7 .2 .9 .4
+L (white) .8 .3 CC #101010
+x (green) x axis
+y (red) y axis
+t (blue) Plotting in color
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2">See appendix&nbsp;<A HREF="node43.html#sec:color-names">A</A>, <EM>Color Names</EM>, beginning on
+page&nbsp;<A HREF="node43.html#sec:color-names"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>), for details on specifying arbitrary
+colors, and for a complete list of predefined colors.
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:colors"></A><A NAME="3516"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 11.5:</STRONG>
+The color blocks are drawn using the <TT>-D</TT>
+(dark box) option.  See the main text for details.</CAPTION>
+<TR><TD><IMG
+ WIDTH="700" HEIGHT="580" BORDER="0"
+ SRC="img108.png"
+ ALT="\begin{figure}\begin{center}
+\fcolorbox{blue}{white}{
+\epsfig{file=colors,height=10cm}}
+\end{center}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<HR>
+<A NAME="tex2html807"
+  HREF="node42.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html801"
+  HREF="book.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html795"
+  HREF="node40.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html803"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html805"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html808"
+  HREF="node42.html">Advanced Axis Options</A>
+<B>Up:</B> <A NAME="tex2html802"
+  HREF="book.html">plt Tutorial and Cookbook</A>
+<B> Previous:</B> <A NAME="tex2html796"
+  HREF="node40.html">Suppressing Plot Elements</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

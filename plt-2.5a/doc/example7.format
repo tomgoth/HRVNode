@@ -1,0 +1,11 @@
+t Plot of y = 5x+20 and y = 2x
+L (P*.8) - - LB 2
+# The previous line appends a superscript 2 to the plot title.
+# (P*.8) reduces the point size to 80% of the default, and
+# "- - LB" aligns the left bottom point of the 2 at the RC point
+# of the previous string (the title).
+x x axis
+y y axis
+xa -6 6 1 - 1 0
+ya -5 55 5 - 5 0
+fa example7.axes

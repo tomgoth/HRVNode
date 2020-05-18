@@ -1,0 +1,333 @@
+\subsection*{Name}
+plt - make 2-D plots 
+\subsection*{Synopsis}
+\texttt{plt} [ \textit{data-spec} ] [ \textit{data-file} ] [ [ \textit{xcol} ]
+\textit{ycol} ] [ \textit{options ...} ] [ \texttt{-T lw $|$ lwcat} [ \textit{lwcat-options} ] ] 
+\subsection*{Description}
+
+
+This man
+page is intended as a supplement to the command-line help provided by \texttt{plt}
+itself (using the \texttt{-h} option, see below).  If you have not previously used
+\texttt{plt}, please look at the \textit{plt Tutorial and Cookbook}, which is included in
+the \texttt{plt} package (see \texttt{SOURCES} below). 
+
+\texttt{plt} is a non-interactive (command line-driven)
+plotting utility. \texttt{plt} can produce publication-quality 2D plots in PostScript
+from easily-produced text or binary data files, and can also create screen
+plots under the X Window System. 
+
+All data presented to \texttt{plt} must be organized
+in rows and columns. Columns are numbered beginning with zero, and each
+column contains values for a variable that can be used as an abscissa (x
+coordinate), ordinate (y coordinate), or (with appropriate options described
+below) a grey level, color, or other plot attributes.  Rows are numbered
+beginning with one, and each row contains a value for each column. Within
+a \textit{data-file}, values are always arranged in row-major order (all elements
+of row 1, followed by all elements of row 2, etc.). 
+
+Usually, data must be
+in text form in order for \texttt{plt} to read them. Each non-empty, non-comment line
+(row) in the input should contain a value for each column that will be
+plotted; any additional values or other extra text at the end of a row
+will be ignored. Columns can be separated by any number of spaces or tabs.
+ Commas and single or double quotation marks can also be used as column
+separators with current versions of \texttt{plt}, though not with older versions.
+It is not necessary to line up the values in each row.  There may also be
+spaces or tabs at the beginning of a line, and these will also be ignored.
+
+
+If no \textit{data-file} is specified, \texttt{plt} reads data from its standard input.  The
+command-line arguments \textit{xcol} and \textit{ycol} specify the column numbers for the
+abscissas and ordinates respectively.  If only one column number is specified,
+it is taken as \textit{ycol}, and \texttt{plt} generates a series of abscissas automatically.
+ If the \textit{data-file} contains no more than two columns, both \textit{xcol} and \textit{ycol}
+may be omitted. 
+
+By default, \texttt{plt} reads all rows of the \textit{data-file} and scales
+the x and y axes so that all data can be plotted.  An optional \textit{data-spec},
+a string beginning with a colon (:), can be used to select a subset of
+the rows in the \textit{data-file}.  For details on using a \textit{data-spec}, and for information
+about reading binary data files using \texttt{plt}, see the \textit{plt Tutorial and Cookbook}.
+
+
+\texttt{plt} recognizes a large number of \textit{options} for controlling and customizing
+plots.  To see a summary of all options, run ``\texttt{plt -h}''; if this command is followed
+by one or more strings (which should not begin with hyphens), \texttt{plt} prints
+one-line summaries of all options beginning with those strings only. 
+
+\texttt{plt}
+can read its options from command-line arguments, from a \textit{format file} (specified
+using the \texttt{-f} option), or from a \textit{format string} (supplied on the command line,
+following the \texttt{-F} option).   When using format files or format strings, omit
+the hyphen (-) before each option. 
+\subsubsection*{Options}Following is a brief summary of
+\texttt{plt}'s options.  Note that many options require arguments.  \texttt{plt} chooses a suitable
+default for most such arguments if the argument is supplied as `\texttt{-}'.  See the
+\textit{plt Tutorial and Cookbook} for further details. \begin{description}
+\item [\texttt{-p}\textit{ plot-styles} ] Specify style(s)
+for data plots.  Available \textit{plot-styles} include `\texttt{c}', `\texttt{C}', `\texttt{e+}\textit{c}', `\texttt{e-}\textit{c}', `\texttt{e:}\textit{c}', `\texttt{E+}\textit{n}', `\texttt{E-}\textit{n}',
+`\texttt{E:}\textit{n}', `\texttt{f}', `\texttt{i}', `\texttt{l}', `\texttt{m}', `\texttt{n}', `\texttt{N}', `\texttt{o}', `\texttt{O}', `\texttt{s}\textit{c}', `\texttt{S}\textit{n}', and `\texttt{t}'. 
+\item [\texttt{-s}\textit{ elements} ] Suppress \textit{elements}
+of output.  Elements that can be suppressed include `\texttt{e}' (erasing the screen
+or beginning a new page before plotting), `\texttt{a}' (anything associated with axes),
+`\texttt{x}' (anything associated with the x axis), `\texttt{y}' (anything associated with the
+y axis), `\texttt{g}' (the grid), `\texttt{m}' (x and y axis tick marks), `\texttt{n}' (x and y tick mark
+numbers), `\texttt{t}' (x and y axis labels and plot title), `\texttt{l}' (user-supplied labels),
+`\texttt{p}' (data plots), and `\texttt{f}' (``figures'' -- boxes, line segments, arrows, and legends).
+In addition, these \textit{elements} modify the effects of any other elements that
+follow:  `\texttt{X}' (restrict effects to x axis), `\texttt{Y}' (restrict effects to y axis),
+and `\texttt{A}' (apply effects to both axes);  and the element `\texttt{C}' reenables all elements.
+
+\item [\texttt{-X}\textit{ xmin xmax} ] Set the x-axis range (see also \texttt{-xa}). 
+\item [\texttt{-Y}\textit{ ymin ymax} ] Set the y-axis
+range (see also \texttt{-ya}). 
+\item [\texttt{-t}\textit{ title} ] Set the title for the plot (enclose \textit{title} in
+quotes if it contains whitespace or begins with `\texttt{(}' or `\texttt{[}'). 
+\item [\texttt{-T}\textit{ type} ] Specify
+the output \textit{type}, which may be \texttt{xw} (X11 window, the default under Unix or
+Linux and not available under MS-Windows), or \texttt{lw} (PostScript, the default
+under MS-Windows). 
+\item [\texttt{-g}\textit{ grid-mode} ] Specify the grid style, which may be \texttt{in}, \texttt{out}
+(default), \texttt{both}, \texttt{none}, \texttt{sym} (make symmetric axes at top and right), \texttt{grid}
+(extend major ticks across the entire plot), \texttt{xgrid}, \texttt{ygrid}, or \texttt{sub} (extend
+all ticks across the entire plot). 
+\item [\texttt{-h} [ \textit{ option-prefix ...} ] ] Show help on options
+beginning with \textit{option-prefix} (which should not begin with `\texttt{-}').  If \textit{option-prefix}
+is omitted, show help on all options. 
+\end{description}
+
+
+Within the next group of options,
+those with upper-case names (`\texttt{-A}', `\texttt{-B}', ...) use \textit{window coordinates} between (0,0)
+and (1,1); those with lower-case names (`\texttt{-a}', `\texttt{-b}', ...) use \textit{data coordinates}. \begin{description}
+\item [\texttt{-a}\textit{ x0
+y0 x1 y1} ] Draw an arrow to \textit{(x0,y0)} from \textit{(x1,y1)}. 
+\item [\texttt{-A}\textit{ xw0 yw0 xw1 yw1} ] Draw an
+arrow to \textit{(xw0,yw0)} from \textit{(xw1,yw1)}. 
+\item [\texttt{-b}\textit{ x0 y0 x1 y1} ] Draw a box with opposite
+corners at \textit{(x0,y0) and \textit{(x1,y1)}}. 
+\item [\texttt{-B}\textit{ xw0 yw0 xw1 yw1} ] Draw a box with opposite
+corners at \textit{(xw0,yw0) and \textit{(xw1,yw1)}}. 
+\item [\texttt{-c}\textit{ x0 y0 x1 y1} ] Connect points \textit{(x0,y0)}
+and \textit{(x1,y1)}. 
+\item [\texttt{-C}\textit{ xw0 yw0 xw1 yw1} ] Connect points \textit{(xw0,yw0)} and \textit{(xw1,yw1)}. 
+\item [\texttt{-d}\textit{
+x0 y0 x1 y1} ] Draw a dark (filled) box with opposite corners at \textit{(x0,y0) and
+\textit{(x1,y1)}}. 
+\item [\texttt{-D}\textit{ xw0 yw0 xw1 yw1} ] Draw a dark (filled) box with opposite corners
+at \textit{(xw0,yw0) and \textit{(xw1,yw1)}}. 
+\item [\texttt{-l}\textit{ x y tbc label-string} ] Print \textit{label-string} at \textit{(x,y)}.
+ The \textit{tbc} argument is a two-character text box coordinate that specifies
+how the label is to be positioned relative to \textit{(x,y)};  the default (\texttt{CC})
+centers the string at \textit{(x,y)}. 
+\item [\texttt{-L}\textit{ xw yw tbc label-string} ] As for \texttt{-l}, but using
+window coordinates \textit{(xw,yw)}. 
+\item [\texttt{-w}\textit{ configuration subwindow} ] Confine the plot to
+a predefined window, specified by the arguments. \textit{configuration} specifies
+the number of subwindows (panels), using one of `\texttt{m}' (1), `\texttt{b}' (2), or `\texttt{q}' (4),
+and \textit{subwindow}' specifies which panel is to be plotted (0 or 1 for `\texttt{m}'; 0,
+1, or 2 for `\texttt{b}'; or 0, 1, 2, 3, or 4 for `\texttt{q}').  In each case, subwindow 0 creates
+the frame of the entire plot, and the other subwindows refer to regions
+where data can be plotted.  Use this option with `\texttt{-o}' or `\texttt{-s e}' to create multi-panel
+plots in stages without starting a new page or erasing the window before
+starting each new stage. 
+\item [\texttt{-W}\textit{ xp0 yp0 xp1 yp1} ] Define the region of the page
+in which to plot.  The arguments are \textit{page coordinates};  the page coordinates
+(0,0) and (1,1) correspond to the lower left and upper right corners of
+the page. 
+\item [\texttt{-f}\textit{ format-file} ] Read options from the specified \textit{format-file}. 
+\item [\texttt{-fa}\textit{ format-file}
+] Record the current axis parameters as options in the specified \textit{format-file}
+(for use with a later \texttt{plt} command).  The previous contents of \textit{format-file},
+if any, will be overwritten. 
+\item [\texttt{-F}\textit{ format-string} ] Read options from the specified
+\textit{format-string}. 
+\item [\texttt{-o} ] Suppress all output except data plots. 
+\item [\texttt{-cz}\textit{ xfrom xincr} ] Generate
+abscissas, beginning with \textit{xfrom} (default: 0) and incrementing by \textit{xincr}
+(default: 1) at each step. 
+\item [\texttt{-ex} ] Don't exclude points outside axis limits. 
+\item [\texttt{-hl}\textit{
+x y tbc n file} ] Print the next \textit{n} (default: 1000) lines of the specified
+\textit{file} as a label, placing the reference point for the first line of the
+label at data coordinates \textit{(x,y)}.  The \textit{tbc} argument is defined as for \texttt{-l} and
+is applied to each line of the label.  The \textit{file} is opened when first used
+by \texttt{-hl} or \texttt{-vl}, and remains open, so that successive \texttt{-hl} or \texttt{-vl} options referring
+to the same \textit{file} read and print successive lines.  At most \texttt{MAXLABELFILES}
+(defined in \texttt{plt.h}, currently 6) \textit{file}s of label strings can be open at once.
+
+\item [\texttt{-vl}\textit{ x y tbc n file} ] As for \texttt{-hl}, but print the label in a vertical orientation
+(rotated 90 degrees counterclockwise). 
+\item [\texttt{-le}\textit{ linenumber plotnumber} [ \textit{text} ]
+] Define the specified \textit{linenumber} in the legend (see also \texttt{-lp}). Line numbers
+in the legend begin with 0 (the top line);  plot numbers also begin with
+0 (these refer to the data plots, and are used here to determine the line
+style for the entry's sample plot segment).  The \textit{text} is printed to the right
+of the sample plot segment.  To create an entry with more than one line
+of text, use additional \texttt{-le} options with different \textit{linenumber}s as necessary,
+omitting the \textit{plotnumber} (use `\texttt{-}') for all but the first.  If the same data
+are plotted more than once in a single figure to create an overlay (for
+example, using symbols over line segments), an overlaid legend entry can
+be created using additional \texttt{-le} options with the same \textit{linenumber} and different
+\textit{plotnumbers}, omitting the \textit{text} for all but the first. 
+\item [\texttt{-lp}\textit{ xw0 yw0} [ \textit{boxscale}
+[ \textit{seglength} [ \textit{opaque} ] ] ] ] Define the window coordinates \textit{(xw0, yw0)} of
+the upper left corner of the plot legend text, and other attributes for
+the plot legend (key). \texttt{plt} determines the size of the box it draws around
+the legend, but the calculated width of the box is multiplied by \textit{boxscale}.
+ The \textit{seglength} option specifies the length of the sample plot segments,
+as a fraction of the x-axis length (default: 0.05).  If \textit{opaque} is `\texttt{yes}' (default),
+the background of the legend is opaque white; otherwise, the background
+is transparent (any previously drawn material remains visible through the
+legend box).  Unless a \texttt{-lp} option is provided, no legend is printed. 
+\item [\texttt{-lx} [
+\textit{base} [ \textit{subticks} ] ] ] Draw a logarithmic x-axis;  \textit{base} is the base of the
+logarithms (default: 10), and \textit{subticks} is either `\texttt{yes}' or `\texttt{no}'.  If the axis
+has a small number of major ticks, \texttt{plt} draws subticks by default; use the
+\textit{subticks} argument to change \texttt{plt}'s default behavior. 
+\item [\texttt{-ly} [ \textit{base} [ \textit{subticks}
+] ] ] Draw a logarithmic y-axis. 
+\item [\texttt{-tf}\textit{ file} [ \textit{tbc} ] ] Load the text string array
+from the specified \textit{file}.  Each line of the \textit{file} defines an element of the
+string array;  using plot styles \texttt{c} or \texttt{t}, these strings can be plotted in
+the same manner as data points.  The optional \textit{tbc} specifies how the positions
+of the strings are to be modified when they are printed, in the same way
+as for \texttt{-l};  by default, the strings are centered on the coordinates specified
+for them. 
+\item [\texttt{-ts "}\textit{string0 string1 ...\texttt{"}} [ \textit{tbc} ] ] Load the text string array from
+the quoted argument (whitespace separates strings in the array) rather
+than from a file;  otherwise, this option is the same as \texttt{-tf}. 
+\item [\texttt{-fs "}\textit{string0
+string1 ...\texttt{"}} ] Load the font string array from the quoted argument.  Using appropriate
+plot style (\texttt{-p}) options, the strings can be used to change the font, line
+style (solid, dotted, dashed, etc.), or drawing color. 
+\item [\texttt{-x}\textit{ string} ] Set the x-axis
+title to \textit{string} (which must be quoted if this option is used on the command
+line or if \textit{string} begins with `(' or `['). 
+\item [\texttt{-xa}\textit{ xmin xmax tick fmt tskip ycross}
+] Specify the x-axis range (as \textit{xmin} to \textit{xmax}); the interval between x-axis tick
+marks; the format, \textit{fmt}, in which to print the numbers (e.g., ``\texttt{\%.3f}'', ``\texttt{\%.2e}'';  any
+format that \texttt{\textsf{printf(3)}} can use for printing floating-point numbers is acceptable);
+the number of ticks per labelled tick, \textit{tskip}; and \textit{ycross}, the point on
+the y-axis that the x-axis should cross, in y-units.  Any of these parameters
+may be supplied as ``-'', which causes \texttt{plt} to choose a reasonable value based
+on the input data. 
+\item [\texttt{-xe}\textit{ xmin-error xmax-error} ] Use this option to specify the
+amount by which the x-axis range is allowed to exceed the range of x-values
+in the input data, when \texttt{plt} determines the x-axis range automatically. 
+\item [\texttt{-xm}\textit{
+tick-base} ] Make x-axis ticks be multiples of the specified \textit{tick-base}. 
+\item [\texttt{-xo}\textit{ x-axis-offset}
+] Move the x-axis down by \textit{x-axis-offset} (expressed as a fraction of the y-axis
+length). 
+\item [\texttt{-xr} ] Draw the x-axis at the top of the plot 
+\item [\texttt{-xt}\textit{ x label} [ \textit{tick-size}
+] ] Add an extra labelled tick at the specified \textit{x} position, and label it
+with the specified \textit{label} (which may be any string).  The optional \textit{tick-size}
+argument specifies the length of the added tick, as a fraction of the default
+length for labelled ticks (e.g., a value of 1.5 makes the added tick 50 longer
+than the standard size). 
+\item [\texttt{-xts}\textit{ x} [ \textit{tick-size} ] ] Force a labelled tick to appear
+on the x-axis at the specified \textit{x} (the positions of the other labelled x-ticks
+are adjusted accordingly). \textit{tick-size} is defined as for \texttt{-xt}. 
+\item [\texttt{-y}\textit{ string} ] Set the
+y-axis title to \textit{string} (see \texttt{-x}). 
+\item [\texttt{-ya}\textit{ ymin ymax tick fmt tskip xcross} ] Set up
+the y-axis (see \texttt{-xa}). 
+\item [\texttt{-ye}\textit{ ymin-error ymax-error} ] Set the allowable error in the
+y-axis range (see \texttt{-xe}). 
+\item [\texttt{-ym}\textit{ tick-base} ] Make y-axis ticks be multiples of the specified
+\textit{tick-base}. 
+\item [\texttt{-yo}\textit{ y-axis-offset} ] Move the y-axis to the left by \textit{y-axis-offset} (expressed
+as a fraction of the x-axis length). 
+\item [\texttt{-yr} ] Draw the y-axis at the right edge
+of the plot. 
+\item [\texttt{-yt}\textit{ y label} [ \textit{tick-size} ] ] Add an extra labelled tick at the specified
+\textit{y} position (see \texttt{-xt}). 
+\item [\texttt{-yts}\textit{ y} [ \textit{tick-size} ] ] Force a labelled tick to appear
+on the y-axis at the specified \textit{y} (see \texttt{-xts}). 
+\item [\texttt{-dev}\textit{ pterm option} ] Process \textit{option}
+only if the value of \texttt{PTERM} is \textit{pterm}. The \texttt{-dev} option may be useful in scripts
+that produce screen or printed plots in different formats. 
+\item [\texttt{-sf}\textit{ name specification}
+] Create a new font group with the specified \textit{name} and set its specifications
+(font, point size, color/grey level, line width, and line style).  See the
+chapter titled \textit{Colors, Line Styles, and Fonts} in the \textit{plt Tutorial and Cookbook}
+for details. 
+\item [\texttt{-ch}\textit{ height-factor width-factor} ] Modify the height and width of
+all characters printed in the plot by the specified factors. 
+\item [\texttt{-size}\textit{ fscl width
+height left-margin bottom-margin} ] Specify the size and position of the plot
+on the page.  The \textit{width}, \textit{height}, \textit{left-margin}, and \textit{bottom-margin} are specified
+in \textit{inches} (1 inch = 25.4 mm).  \textit{fscl} is a factor applied to the point size
+of all printed characters, \textit{independently} of the scaling applied to the
+rest of the plot.  This option is effective for printed plots only. 
+\end{description}
+
+\subsubsection*{Screen
+and printed plots}
+
+By default, \texttt{plt} makes an X11 screen plot.  To make a printed
+plot, use the option \texttt{-T lw}, and pipe the output of \texttt{plt} to \texttt{\textsf{lwcat}(1)}.  Under
+Unix, GNU/Linux, or MacOS/X, \texttt{lwcat} uses the standard \texttt{lpr} print spooler
+to send \texttt{plt}'s output in PostScript format to the default printer.  When running
+with a Cygwin/bash window under MS-Windows, or when using \texttt{lwcat}'s \texttt{-gv} option
+under Unix or Linux, the PostScript output is displayed on-screen using
+GhostScript (\texttt{GSView} under MS-Windows, or \texttt{gv} otherwise; these programs can
+save the output in a file or send it to a printer). 
+\subsection*{Examples}
+
+
+Create a text
+file with the following contents: 
+
+	0  0  0
+
+ 
+
+	1  1  1
+
+ 
+
+	2  4  8
+
+ 
+
+	3  9 27
+
+ 
+
+	4 16 64
+
+ 
+
+and call the file \textit{powers}.  Plot the first column vs. the second by: 
+
+	\texttt{plt powers 0 1 -t "Squares of small integers" -x "Integer" -y "Square"}
+
+ 
+
+The same file can be used to generate a number of different plots, by choosing
+different columns.  To plot the third column vs. the first, try: 
+
+	\texttt{plt powers 2 0 -t "Marshmallows" -x "Mass (kg)" -y "Height (m)"
+} 
+\subsection*{See Also}
+
+
+\texttt{\textsf{imageplt}(1)}, \texttt{\textsf{lwcat}(1)}, \texttt{\textsf{pltf}(1)} 
+
+The \textit{plt Tutorial and Cookbook} (a
+book-length introduction to \texttt{plt}, included in the \texttt{plt} source package) contains
+many more examples. 
+\subsection*{Availability}
+\texttt{plt} is available as part of PhysioToolkit
+(see \texttt{SOURCES} below) under the GPL. 
+\subsection*{Authors}
+\texttt{plt} was originally written by
+Paul Albrecht, and is currently maintained by George B. Moody (\texttt{george@mit.edu}).
+
+\subsection*{Sources}
+\texttt{http://www.physionet.org/physiotools/plt/} 
+\

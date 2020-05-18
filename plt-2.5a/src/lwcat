@@ -1,0 +1,254 @@
+#! /bin/sh
+# file: lwcat		P. Albrecht and G. Moody
+#			Last revised:	25 March 2009
+#
+# Add prolog and epilog to lwplt output to make a complete PostScript document
+#
+# Usage:
+#   lwcat [OPTION ...] [FILE ...]
+# Use the FILE argument to specify the name(s) of the input file(s), which
+# should have been created by lwplt (i.e., plt -T lw). If no FILE is specified,
+# lwcat reads its standard input.  OPTIONs and FILEs may be given in any order,
+# but all options are interpreted before any files are processed.
+#
+# By default, lwcat spools its output directly to the default printer via lpr.
+# Command-line options may be given to modify this behavior:
+#  -no	spool the output, but don't eject the page (use this option if you
+#	wish to overlay the output with additional material produced by another
+#	program, such as troff)
+#  -ps  write PostScript to the standard output (do not spool)
+#  -psv collect PostScript in a temporary file and view with gv (ghostscript)
+#  -gv  same as -psv
+#  -eps	write EPSF (encapsulated PostScript format) to the standard output
+#	(do not spool)
+#  -pdf write PDF (portable document format) to the standard output (do not
+#       spool)
+#  -png write PNG (portable network graphics) format to the standard output
+#	(do not spool)
+# Note that the output produced using -eps is only a close approximation to
+# EPSF;  it is acceptable to LaTeX's epsfig package, at least.
+#
+# By default, the output appears within a 6.75x6 inch window, the lower
+# left corner of which is positioned 1 inch from the left edge and 3.5 inches
+# from the bottom edge of the page.  Additional command-line options may be
+# used to modify the size and location of the output:
+#  -landscape   use landscape mode (rotate plot 90 degrees counterclockwise)
+#  -sq	   plot in a 6x6 inch window, 1.25 inches from the left edge and 3.5
+#	    inches from the bottom edge
+#  -t      plot in a 6.25x6.25 inch window, positioned as for -sq
+#  -t2     plot in a 6.25x4 inch window, positioned as for -sq
+#  -CinC   plot in a 4.75x3.15 inch window, positioned as for -sq
+#  -sq2	   plot in a 4.5x5.5 inch window, 2.5 inches from left and bottom edges
+#  -v      plot in a 7x9.5 inch window, 0.75 inches from left and bottom edges
+#  -v2     plot in a 7x8.5 inch window, positioned as for -v
+#  -va4    plot in a 190x275 mm window, centered on an A4 sheet
+#  -full   plot in a 7.5x10 inch window, centered on an 8.5x11 inch sheet
+#  -slide  plot in a 7.5x5 inch window, 0.5 inches from the left edge and 3
+#	    inches from the bottom edge (3:2 aspect ratio, as for 35mm slides)
+#  -screen plot in a 7.5x5.625 inch window, 0.5 inches from the left edge and
+#           2.375 inches from the bottom edge (4:3 screen aspect ratio)
+#  -golden plot in a 7.5x4.635 inch window, 0.5 inches from the left edge and
+#	    3.365 inches from the bottom edge, approx. the "golden ratio",
+#	    (1+sqrt(5))/2 = 1.61803...
+#  -strip  plot in a 8x0.8 inch window
+#  -custom plot in a custom window (see below)
+# Other window options can be easily added by adding additional WDEF, LDEF,
+# and H settings as shown below.  WDEF is a string containing 5 numbers
+# separated by spaces.  The first number is a font scaling factor.  The next
+# two numbers are the X and Y coordinates (in inches) of the lower left corner
+# of the window, and the last two numbers are the X and Y coordinates of the
+# upper right corner.  LDEF is defined in the same way as WDEF, but is used
+# only when making landscape plots;  the X and Y coordinates are those on the
+# rotated, translated page.  H is used together with LDEF;  it is the
+# translation (the distance in inches) between the origins of the unrotated
+# and rotated page coordinate systems (usually the length of the short edge of
+# the sheet).
+#
+# The -custom option reads up to 5 arguments that follow it; in order, these
+# arguments are:
+#    width (default: 5)
+#    height (default: same as width)
+#    left margin (default: 0)
+#    bottom margin (default: same as left margin)
+#    font scaling factor (default: 1)
+# If any of these are omitted, the defaults are used instead.  If one of the
+# 5 arguments immediately following -custom begins with '-', lwcat assumes that
+# -custom's argument list has ended, and it treats the remaining arguments as
+# ordinary options.  The units of width, height, and margins are inches.  For
+# example:
+#    lwcat -custom 5 7 0.5
+# sets up to make a plot 5 inches wide, 7 inches high, with 0.5 inch left and
+# bottom margins.
+
+# By default, lwcat prints a single copy.  Multiple copies can be produced
+# using the options -c2, -c3, -c4, -c5, or -c6;  this will almost always be
+# much faster than rerunning lwcat, since the document is downloaded and
+# rasterized only once when using these options.  To print more than 6 copies,
+# repeat or combine these options as needed, e.g., to print ten copies, use
+#  lwcat -c4 -c6 ...
+# (or lwcat -c5 -c5, etc.) These options are ignored if EPSF output has been
+# selected.
+
+# `make' inserts the correct directory name in PLTPRO during installation.
+PLTPRO=${PLTPRO-PSPDIR/plt.pro}
+
+# Send the output to 'gvcat' if running in a Cygwin terminal emulator, or to
+# 'lpr' otherwise (command-line options may override this, see below).
+if [ x$TERM = xcygwin ]
+then SPOOLER=BINDIR/gvcat
+else SPOOLER=LPR
+fi
+
+C=""
+
+WDEF=""
+FILES=""
+EPSF=""
+LANDSCAPE=""
+LDEF="0.90 0.75 0.75 10.25  7.75"
+H=8.5
+
+# Interpret command-line arguments
+while [ "$1" != "" ]
+do
+OPT="$1"
+shift
+case "$OPT" in
+# Process spooling and format options
+	-no)	C="";;
+	-eps)	if [ "x$SPOOLER" != "xgvcat" ]; then
+		    SPOOLER=cat;
+		fi
+		EPSF=yes;;
+	-pdf)	SPOOLER="EPSTOPDF --filter"; EPSF=yes;;
+	-png)	SPOOLER=BINDIR/pltpng; EPSF=yes;;
+	-ps)	SPOOLER=cat;;
+	-psv)   SPOOLER=BINDIR/gvcat;;
+	-gv)    SPOOLER=BINDIR/gvcat;;
+# Process window options
+	-sq)	WDEF="0.80 1.25 3.50  7.25  9.50"
+		LDEF="0.80 3.50 1.25  9.50  7.25"; H=8 ;;
+	-sq2)	WDEF="0.55 2.50 2.50  7.00  8.00"
+		LDEF="0.55 2.50 2.50  8.00  7.00"; H=7.75 ;;
+	-t)	WDEF="0.80 1.25 3.50  7.50  9.50"
+		LDEF="0.80 3.50 1.25  9.50  7.50"; H=8.25 ;;
+	-t2)	WDEF="0.80 1.25 3.50  7.50  7.50"
+		LDEF="0.80 3.50 1.25  7.50  7.50"; H=8.25 ;;
+	-v)	WDEF="0.90 0.75 0.75  7.75 10.25"
+		LDEF="0.90 0.75 0.75 10.25  7.75"; H=8.5 ;;
+	-v2)	WDEF="0.90 0.75 0.75  7.75  9.25"
+	        LDEF="0.90 0.75 0.75  9.25  7.75"; H=8.5 ;;
+	-va4)   WDEF="0.90 0.40 0.40  7.87 11.30"
+	        LDEF="0.90 0.40 0.40 11.30  7.87"; H=8.22 ;;
+	-CinC)	WDEF="0.60 1.25 3.50  6.00  6.65"
+		LDEF="0.60 3.50 1.25  6.65  6.00"; H=6.75 ;; 
+	-full)	WDEF="0.90 0.50 0.50  8.00 10.50"
+		LDEF="0.90 0.50 0.50 10.50  8.00"; H=8.5 ;;
+	-slide)	WDEF="0.90 0.50 3.00  8.00  8.00"
+		LDEF="0.90 3.00 0.50  8.00  8.00"; H=8.5 ;;
+	-screen)WDEF="0.90 0.50 2.375 8.00  8.00"
+		LDEF="0.90 2.375 0.50 8.00  8.00"; H=8.5 ;;
+	-golden)WDEF="0.90 0.50 3.365 8.00  8.00"
+		LDEF="0.90 3.365 0.50 8.00  8.00"; H=8.5 ;;
+        -strip) WDEF="0.50 0.50 0.50  8.50  1.30"
+	        LDEF="0.50 0.50 0.50  1.30  8.50"; H=8.5 ;;
+        -custom) X0=0; WIDTH=5; FSCL=1
+		if [ "x$1" != "x" ]; then
+		    case $1 in
+			-*) ;;
+			*) WIDTH=$1; shift ;;
+		    esac
+		fi
+		if [ "x$1" != "x" ]; then
+		    case $1 in
+			-*) ;;
+			*) HEIGHT=$1; shift ;;
+		    esac
+		fi
+		if [ "x$1" != "x" ]; then
+		    case $1 in
+			-*) ;;
+			*) X0=$1; shift ;;
+		    esac
+		fi
+		if [ "x$1" != "x" ]; then
+		    case $1 in
+			-*) ;;
+			*) Y0=$1; shift ;;
+		    esac
+		fi
+		if [ "x$1" != "x" ]; then
+		    case $1 in
+			-*) ;;
+			*) FSCL=$1; shift ;;
+		    esac
+		fi
+		Y0=${Y0-$X0}; HEIGHT=${HEIGHT-$WIDTH}
+	        X1=`echo $WIDTH + $X0 | bc`
+		Y1=`echo $HEIGHT + $Y0 | bc`
+		WDEF="$FSCL $X0 $Y0 $X1 $Y1"
+		LDEF="$FSCL $Y0 $X0 $Y1 $X1"
+		H=`echo $WIDTH + $X0` ;;
+# Add other window options here (see comments on WDEF above)
+	-landscape)     LANDSCAPE=yes ;;
+# Process multi-copy options
+	-c2)	C="copypage $C ";;
+	-c3)	C="copypage copypage $C " ;;
+	-c4)	C="copypage copypage copypage $C" ;;
+	-c5)	C="copypage copypage copypage copypage $C" ;;
+	-c6)	C="copypage copypage copypage copypage copypage $C" ;;
+# Complain about undefined options
+	-*)	echo "Argument error: $OPT" >/dev/tty; exit ;;
+# Collect input file names
+	*)	FILES="$FILES $OPT";
+esac
+done
+
+export WDEF
+
+# Generate output
+(
+if [ "$EPSF" != "" ]
+then
+	# disable any multi-copy options selected
+	C=showpage
+	# Generate EPS header, including bounding box
+	BINDIR/makeplthead $WDEF
+else
+        C="$C showpage"
+	# Write default header and bounding box
+	echo "%!"
+	echo "%%BoundingBox: 54 54 556 737"
+fi
+
+# write the prolog
+cat $PLTPRO
+
+if [ "$LANDSCAPE" != "" ]
+then
+       WDEF="$LDEF"
+       echo "/LS      { 90 rotate 0 $H 72 mul neg translate} def"
+fi
+
+if [ "$WDEF" != "" ]
+then
+	echo "/WSUBST { pop pop pop pop pop $WDEF} def"
+fi
+
+if [ "$FILES" = "" ]
+then	FILES="-"
+fi
+for i in $FILES
+do
+	echo INIT
+	cat $i
+done
+
+echo $C CLOSE
+if [ "$EPSF" != "" ]
+then
+	# Append EPS trailer
+	echo "%%EOF"
+        echo "%%EndDocument"
+fi
+) | $SPOOLER

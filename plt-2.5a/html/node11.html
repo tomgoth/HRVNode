@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>More about options </TITLE>
+<META NAME="description" CONTENT="More about options ">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node12.html">
+<LINK REL="previous" HREF="node10.html">
+<LINK REL="up" HREF="node8.html">
+<LINK REL="next" HREF="node12.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html383"
+  HREF="node12.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html377"
+  HREF="node8.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html371"
+  HREF="node10.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html379"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html381"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html384"
+  HREF="node12.html">Tutorial: Simple Plots</A>
+<B>Up:</B> <A NAME="tex2html378"
+  HREF="node8.html">Getting Started with plt</A>
+<B> Previous:</B> <A NAME="tex2html372"
+  HREF="node10.html">Using plt without an X server</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00530000000000000000"></A><A NAME="sec:more-options"></A>
+<A NAME="335"></A>
+<BR>
+More about options 
+</H1><FONT SIZE="+2"><A NAME="336"></A><A NAME="3291"></A>One of the most useful options is <TT>-h</TT>, which causes <TT>plt</TT> to
+print a (very) concise summary of its options on the standard output.
+Since there are many options, the output of ``<TT>plt -h</TT>'' will scroll
+off of your screen, so you may wish to send it to <TT>more</TT> (or a similar
+pager): 
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+plt -h | more
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2">If the <TT>-h</TT> option is followed by one or more strings (which should not
+begin with hyphens), <TT>plt</TT> prints one-line summaries of all
+options beginning with those strings only.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="3292"></A>As an alternative to supplying options and their arguments on the
+command line, you may write them into a <EM>format file</EM> that can
+be read by <TT>plt</TT>.  This facility is particularly useful when you
+create a series of complex plots using some or all of the same
+options.  You can put some of your options in a format file and supply
+others on the command line.  Within a format file, omit the initial
+hyphen (<TT>-</TT>) from each option name.  To use a format file, supply
+the option <TT>-f</TT> followed by the name of the format file, as in:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+plt data-file 0 1 -f format-file
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2"><A NAME="3293"></A>A third way to pass options to <TT>plt</TT> is within a quoted <EM>format
+string</EM>, following the <TT>-F</TT> option.  Use the same syntax in a
+format string as in a format file.
+For examples of <TT>-f</TT> and <TT>-F</TT>, compare
+figures&nbsp;<A HREF="node29.html#fig:example3">5.2</A> and&nbsp;<A HREF="node31.html#fig:example4">6.1</A> on
+pages&nbsp;<A HREF="node29.html#fig:example3"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A> and&nbsp;<A HREF="node31.html#fig:example4"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.
+</FONT>
+<P>
+<FONT SIZE="+2">Let's see how a simple plot can be created, using <TT>example1.data</TT>.
+If we would like the first column to be the set of x coordinates and the
+third column to be the set of y coordinates, we can type:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+plt example1.data 0 2
+</PRE>
+<DIV ALIGN="CENTER"></DIV><FONT SIZE="+2">
+and our plot would look like figure&nbsp;<A HREF="#fig:example1">2.1</A>.
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:example1"></A><A NAME="3297"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 2.1:</STRONG>
+Produced using the command:</CAPTION>
+<TR><TD><IMG
+ WIDTH="1391" HEIGHT="617" BORDER="0"
+ SRC="img11.png"
+ ALT="\begin{figure}
+% latex2html id marker 373
+\begin{center}
+\begin{tabular}{p{10cm}...
+...} window for an on-screen plot, or of
+the page for a printed plot.)
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<FONT SIZE="+2"><A NAME="3299"></A>Notice that in the command line, the argument ``<TT>0</TT>'' corresponds
+to the first column of <TT>example1.data</TT>, and the argument ``<TT>2</TT>'' to the third column.  Column 0 becomes the x axis;  column 2
+becomes the y axis.  Likewise, the argument ``<TT>1</TT>'' in either of
+these two positions would correspond to column 1 (the second column)
+of <TT>example1.data</TT>, and would become either the x or the y axis
+depending upon its position.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="408"></A><TT>plt</TT> can produce both screen and printed plots.  If you try the
+examples exactly as shown in the main part of this book, you will
+obtain screen plots.  Although you can use other software to make and
+print screen dumps of these plots, this is neither the best nor the
+easiest way to print your plots on paper.  The following sections show
+how you can obtain publication-quality plots on PostScript or other types
+of printers, with only minor changes to the <TT>plt</TT> commands needed
+to make the corresponding screen plots.
+</FONT>
+<P>
+<HR>
+<A NAME="tex2html383"
+  HREF="node12.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html377"
+  HREF="node8.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html371"
+  HREF="node10.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html379"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html381"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html384"
+  HREF="node12.html">Tutorial: Simple Plots</A>
+<B>Up:</B> <A NAME="tex2html378"
+  HREF="node8.html">Getting Started with plt</A>
+<B> Previous:</B> <A NAME="tex2html372"
+  HREF="node10.html">Using plt without an X server</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

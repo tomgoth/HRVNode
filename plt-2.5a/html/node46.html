@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Including plt figures in a LATEX document </TITLE>
+<META NAME="description" CONTENT="Including plt figures in a LATEX document ">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node47.html">
+<LINK REL="previous" HREF="node45.html">
+<LINK REL="up" HREF="node44.html">
+<LINK REL="next" HREF="node47.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html882"
+  HREF="node47.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html876"
+  HREF="node44.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html870"
+  HREF="node45.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html878"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html880"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html883"
+  HREF="node47.html">Margins, cropping, and bounding boxes</A>
+<B>Up:</B> <A NAME="tex2html877"
+  HREF="node44.html">Preparing Printed Output</A>
+<B> Previous:</B> <A NAME="tex2html871"
+  HREF="node45.html">Generating EPSF using plt</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001720000000000000000"></A><A NAME="sec:latex"></A>
+<BR>
+Including <TT>plt</TT> figures in a L<SUP><SMALL>A</SMALL></SUP>T<SMALL>E</SMALL>X document 
+</H1>
+<P>
+<FONT SIZE="+2">To create a L<SUP><SMALL>A</SMALL></SUP>T<SMALL>E</SMALL>X document that includes <TT>plt</TT> figures, insert
+the line
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+\usepackage{epsfig}
+</PRE>
+<DIV ALIGN="CENTER"></DIV><FONT SIZE="+2">
+at the top of the L<SUP><SMALL>A</SMALL></SUP>T<SMALL>E</SMALL>X source file, after the <code>\documentclass</code>
+statement.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="3548"></A>Figure&nbsp;<A HREF="#fig:a1">B.1</A>
+</FONT>
+<DIV ALIGN="CENTER"><A NAME="fig:a1"></A><A NAME="3550"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure B.1:</STRONG>
+File <TT>fig.ps</TT>, created using <TT>plt</TT> and included here
+using <TT>epsfig</TT></CAPTION>
+<TR><TD><IMG
+ WIDTH="928" HEIGHT="878" BORDER="0"
+ SRC="img118.png"
+ ALT="\begin{figure}\begin{center}
+\fcolorbox{blue}{white}{
+\epsfig{file=fig}}
+.
+\end{center}\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+<FONT SIZE="+2">
+was generated using <TT>plt -T lw ... | lwcat -eps &gt;fig.ps</TT>, and was
+included in this document using the commands
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+\begin{figure}
+\begin{center}
+\epsfig{file=fig}
+\caption{File {\tt fig.ps}, ....}
+\end{center}
+\end{figure}
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2">There is a problem here, because the figure doesn't fit between the
+L<SUP><SMALL>A</SMALL></SUP>T<SMALL>E</SMALL>X margins.  Both the figure and the first line of this caption
+are inside a <TT>center</TT> environment, but the figure begins at the
+left margin. (There are empty areas at both the left and right edges of
+the figure.)  The caption is properly centered between the margins,
+but is not centered with respect to the figure.
+</FONT>
+<P>
+<FONT SIZE="+2">Figure&nbsp;<A HREF="#fig:a1">B.1</A> was drawn in its ``natural size'', and appears at
+the same scale (though not at the same location on the page) as it
+would appear if <TT>fig.ps</TT> were printed by itself.  Figure&nbsp;<A HREF="#fig:a2">B.2</A>
+</FONT>
+<DIV ALIGN="CENTER"><A NAME="fig:a2"></A><A NAME="3552"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure B.2:</STRONG>
+This figure was also produced from <TT>fig.ps</TT>,
+but has beenrescaled to a height of 10 cm.  Note that this
+caption is right-justified, since it appears outside of the <TT>center</TT>
+environment, unlike the caption in figure&nbsp;<A HREF="#fig:a1">B.1</A>.</CAPTION>
+<TR><TD><IMG
+ WIDTH="610" HEIGHT="580" BORDER="0"
+ SRC="img119.png"
+ ALT="\begin{figure}\begin{center}
+\fcolorbox{blue}{white}{
+\epsfig{file=fig,height=10cm}}
+\end{center}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+<FONT SIZE="+2">
+is also drawn from <TT>fig.ps</TT>, but it has been centered and scaled using
+the commands
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+\begin{figure}[h]
+\begin{center}
+\epsfig{file=fig,height=10cm}
+\end{center}
+\caption{This figure ....}
+\end{figure}
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2"><A NAME="2755"></A>The <TT>epsfig</TT> package allows a great deal of control over characteristics
+such as the aspect ratio (height and width may be scaled independently), the
+orientation, and the bounding box of the figure (which indirectly determines
+the amount of white space surrounding it).
+</FONT>
+<DIV ALIGN="CENTER"><A NAME="fig:a3"></A><A NAME="3554"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure B.3:</STRONG>
+A rescaled, stretched, and rotated figure.</CAPTION>
+<TR><TD><IMG
+ WIDTH="473" HEIGHT="694" BORDER="0"
+ SRC="img120.png"
+ ALT="\begin{figure}\begin{center}
+\fcolorbox{blue}{white}{
+\epsfig{file=fig,height=8cm,width=12cm,angle=90}}
+\end{center}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+<FONT SIZE="+2">
+Figure&nbsp;<A HREF="#fig:a3">B.3</A> illustrates how this can be done, using the commands
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+\begin{figure}
+\begin{center}
+\epsfig{file=fig,height=8cm,width=12cm,angle=90}
+\end{center}
+\caption{A rescaled, stretched, and rotated figure.}
+\end{figure}
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<HR>
+<A NAME="tex2html882"
+  HREF="node47.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html876"
+  HREF="node44.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html870"
+  HREF="node45.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html878"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html880"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html883"
+  HREF="node47.html">Margins, cropping, and bounding boxes</A>
+<B>Up:</B> <A NAME="tex2html877"
+  HREF="node44.html">Preparing Printed Output</A>
+<B> Previous:</B> <A NAME="tex2html871"
+  HREF="node45.html">Generating EPSF using plt</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

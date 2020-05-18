@@ -1,0 +1,10 @@
+#!/bin/sh
+
+cd ../html
+for i in *.html
+do
+  sed 's/<BODY /<BODY bgcolor="FFFFFF" /' <$i | \
+  sed 's+HREF="book.html">book+HREF="book.html">plt Tutorial and Cookbook+' | \
+  sed "s+plass/+\~plass/+" >tmp.$$
+  mv tmp.$$ $i
+done

@@ -1,0 +1,60 @@
+\subsection*{Name}
+pltf - make function plots 
+\subsection*{Synopsis}
+\texttt{pltf} [ \textit{expression} [ \textit{xmin} [ \textit{xmax} [
+\textit{xinc} ] ] ] ] 
+\subsection*{Description}
+
+
+\texttt{pltf} provides a simple way to use \textsf{\texttt{bc}(1)} and \textsf{\texttt{plt}(1)}
+to generate plots of many common functions of a single variable.  The command-line
+arguments are interpreted according to their position; \texttt{pltf} asks for values
+for any missing arguments. 
+
+The first argument, \textit{expression}, can be any expression
+valid as input to \textsf{\texttt{bc}(1)}, with the additional feature that the variable
+\texttt{x} may appear anywhere in the expression where a number would be allowed
+by \texttt{bc}. Some examples of valid expressions are: \begin{description}
+\item [\texttt{x$\char94{}$3+3*x$\char94{}$2+3*x+1} ] 
+\item [\texttt{(x + 1)$\char94{}$3} ] 
+\item [\texttt{s(sqrt(x$\char94{}$2))}
+] 
+\end{description}
+
+
+The first two of these are equivalent;  note that whitespace and parentheses
+are allowed in expressions, although it is necessary to enclose such expressions
+in double quotes (e.g., \texttt{"(x + 1)*e(x)"}) when entering them as command-line
+arguments in order to protect them from the shell.  The last expression
+is the sine of the square root of x squared;  see \textsf{\texttt{bc}(1)} for a complete
+list of available special functions, or invoke \texttt{pltf} with no command-line
+arguments to obtain a list. 
+
+The second and third arguments specify the domain
+of the function (the values over which \texttt{x} should vary), and the fourth argument
+specifies the \texttt{x}-increment (the difference between consecutive values of
+\texttt{x} for which the expression is to be evaluated). 
+
+\texttt{pltf} is a shell script that
+uses a helper application, \texttt{ftable}, to prepare input for \texttt{bc -l}.  Invoke \texttt{ftable}
+directly (using the same arguments as for \texttt{pltf}) if you need to change the
+format of the plot or make a printed version of it.  See the source for
+\texttt{pltf} to see how to do this. 
+\subsection*{See Also}
+
+
+\textsf{\texttt{imageplt}(1)}, \textsf{\texttt{plt}(1)} 
+\subsection*{Availability}
+\texttt{pltf}
+is available as part of the \texttt{plt} package in PhysioToolkit (see \texttt{SOURCES} below)
+under the GPL. 
+\subsection*{Author}
+George B. Moody (\texttt{george@mit.edu}) 
+\subsection*{Sources}
+
+
+\texttt{http://www.physionet.org/physiotools/plt/plt/misc/pltf}
+
+
+\texttt{http://www.physionet.org/physiotools/plt/plt/misc/ftable.c} 
+\

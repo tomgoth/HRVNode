@@ -1,0 +1,53 @@
+file: QUICKSTART		G. Moody	 3 April 2001
+				Last revised:	25 April 2005
+Using `plt'
+==========
+
+The most recent version of 'plt' is always freely available from PhysioNet
+(http://physionet.org/physiotools/plt/).
+
+If you haven't compiled and installed `plt' yet, follow the instructions
+in `INSTALL'.  The last step of the installation is to run a demonstration
+of `plt', which will show you a wide variety of example plots.
+
+Look at the shell scripts `xdemo.sh' and `psdemo.sh' (in the `doc' directory)
+to see how the example plots are created, and follow these examples.
+
+`plt' has a vast number of options.  You can always get a one-line summary of
+each of them by running the command:
+    plt -h
+If one or more strings (which should not begin with `-') follow the `-h', `plt'
+prints summaries for the options beginning with those strings only.  For
+example,
+    plt -h x y
+shows all of the options whose names begin with `x' or `y'.
+
+Under Unix or Linux, it is usually most convenient to preview your plots on the
+X11 display before printing them.  The simplest way to do this is to run your
+`plt' command without a `-T' option; to print, just rerun the same command, but
+add `-T lw' to the `plt' argument list, and pipe the output to `lwcat'.  For
+example:
+    plt xxx ...			(to preview the plot in an X window)
+    plt -T lw xxx ... | lwcat	(to print the same plot on the printer)
+
+Under MS-Windows, if you have installed XFree86 and you have started the
+X server, follow the same instructions as for Unix or Linux.  Otherwise, set
+the TERM variable to `cygwin' (this is done automatically if you are using
+the Cygwin terminal emulator).  Unless the X server is running, all `plt'
+output must be piped to `lwcat' for viewing or printing:
+    plt xxx ... | lwcat		(to preview the plot in a GSView window; use
+				the GSView controls to print it if desired)
+
+More information
+================
+
+In the 'doc' directory, the file `book.pdf' is the `plt Tutorial and Cookbook'.
+Read the `plt Tutorial and Cookbook' to see how the example plots were
+constructed, and to learn about the most effective ways to use `plt' with your
+own data.  Open `doc/book.pdf' using Adobe Reader or `gv' to view the book
+on-screen or to print all or part of it.  You can also read a hypertext version
+of the book by opening html/index.html in your web browser.
+
+The `doc' directory also contains the data and format files used to create
+the examples, the LaTeX source for the `plt Tutorial and Cookbook', and a
+few more examples not included in the book.

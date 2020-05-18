@@ -1,0 +1,28 @@
+case $1 in
+	lw)	PROGNAME="$0"
+		shift
+		PTERM=lw
+		export PTERM
+		$PROGNAME "$@" | lwcat
+		exit
+		;;
+esac
+
+plt ldemo.data 4 5 -t"Frequency Response" -x"Frequency (Hz)" \
+-y"Amplitude" -F"ya -2 0 .25 %.3f" $*
+
+plt -se kari 0 1 $* -F"
+hl - 1.1 cc
+DEVIATION
+sf all P14
+b 
+W .35 .3 .6 .5
+t
+vl -.2 - cc
+RADS
+x
+y
+ya -0.01036 0.01036 0.02072 %.6f 1
+yts -0.01036
+xa  0 .45 .45 %.2f 1
+"

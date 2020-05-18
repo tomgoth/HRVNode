@@ -1,0 +1,17 @@
+xa 0 600
+ya 0 500
+x Time Between Stimulations (msecs)
+y Refractory Period (msecs)
+p 0,1,2,3l
+# Note: the previous line ends with a lower-case L, not a numeral 1!o
+t ch 1.2
+l 400 200 CC fires every beat
+L .1 .9 CC . . .
+hl .45 .81 CC 2
+fires every
+other beat
+hl .25 .92 - 4
+  fires
+ every
+third
+beat

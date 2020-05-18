@@ -1,0 +1,15 @@
+N=10
+S=6
+L=0.5
+
+math : -i"x,y,n" -t "row > $N*$N-.5" \
+-e"x=row%$N,y=int(row/$N),y-=(x%2)/2,n=0" \
+-o"x+$L*cos(2*PI*n/$S),y+$L*sin(2*PI*n/$S),(n==$S)*(14.99-rnd(0)/5)" \
+-b"n++ < $S,-1" -o"x,y,100+int(20*rnd(0))" |
+plt % -F"
+W 0 0 1 1
+p (Fh)
+tf sdemo.l
+xe 0 0
+ye 0 0
+s xyt"

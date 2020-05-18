@@ -1,0 +1,34 @@
+xa -180 180 15 - 3
+ya 0 1
+
+# Set the first part of the plot title using the -t option.
+t Plot of y = cos
+# Concatenate the remaining pieces using -L options.
+L (P*.8) - - LB 2
+L - - LN (
+L (Fs) - - LC q
+# "q" in Symbol font is theta.
+L - - LC )
+
+# Avoid drawing a normal x-axis label.
+x ""
+# Instead of a normal x-axis label, draw this label using
+# the -L option with ym = -.16, to put it in the same
+# position as a normal x-axis label.
+L (Fs) .425 -.16 LC q
+L - - LC " (degrees)"
+
+# Similarly, draw this label using -vl with xm = -.115 to put it
+# in the same position as a normal y-axis label.  (We don't need
+# to suppress the normal y-axis label, because plt produces one
+# only if requested explicitly.)
+vl -.115 .44 LC 1 -
+cos
+vl (P*.8) - - LB 1 -
+2
+vl - - LN 1 -
+(
+vl (Fs) - - LC 1 -
+q
+vl - - LC 1 -
+)

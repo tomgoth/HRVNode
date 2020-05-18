@@ -1,0 +1,342 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Advanced Axis Options </TITLE>
+<META NAME="description" CONTENT="Advanced Axis Options ">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node43.html">
+<LINK REL="previous" HREF="node41.html">
+<LINK REL="up" HREF="book.html">
+<LINK REL="next" HREF="node43.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html821"
+  HREF="node43.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html815"
+  HREF="book.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html809"
+  HREF="node41.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html817"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html819"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html822"
+  HREF="node43.html">Color Names</A>
+<B>Up:</B> <A NAME="tex2html816"
+  HREF="book.html">plt Tutorial and Cookbook</A>
+<B> Previous:</B> <A NAME="tex2html810"
+  HREF="node41.html">Colors, Line Styles, and Fonts</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001500000000000000000"></A><A NAME="sec:ax2"></A>
+<BR>
+Advanced Axis Options 
+</H1>
+<P>
+<FONT SIZE="+2">This chapter introduces more options for manipulating and labelling
+your axes, to provide fine control over the appearance of your plots.
+</FONT>
+<P>
+<DL>
+<DD><A NAME="3518"></A><A NAME="3519"></A></DD>
+<DT><STRONG><TT>-lx</TT> <EM>base subticks</EM></STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG><TT>-ly</TT> <EM>base subticks</EM></STRONG></DT>
+<DD>Use these options to create logarithmic x and y axes;  <EM>base</EM> is the
+base of the logarithms (default: 10), and <EM>subticks</EM> is either <TT>yes</TT>
+or <TT>no</TT>.  If the axis has a small number of major ticks, <TT>plt</TT>
+draws subticks by default;  use the <EM>subticks</EM> argument to change
+<TT>plt</TT>'s default behavior.
+
+<P>
+The <TT>-lx</TT> and <TT>-ly</TT> options affect only how the axes are
+drawn;  <TT>plt</TT> does not log-transform the input data, so you must provide
+the logarithms of the data to be plotted.  Note that <EM>base</EM> does
+not have to be numeric;  for example, ``<TT>-lx e</TT>'' will cause plt
+to draw a logarithmic x-axis with ticks labelled <IMG
+ WIDTH="24" HEIGHT="23" ALIGN="BOTTOM" BORDER="0"
+ SRC="img109.png"
+ ALT="$e^0$">, <IMG
+ WIDTH="24" HEIGHT="23" ALIGN="BOTTOM" BORDER="0"
+ SRC="img110.png"
+ ALT="$e^1$">, <IMG
+ WIDTH="24" HEIGHT="23" ALIGN="BOTTOM" BORDER="0"
+ SRC="img111.png"
+ ALT="$e^2$">,
+... (or other integer powers of <IMG
+ WIDTH="15" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img51.png"
+ ALT="$e$"> as appropriate for the range of abscissas).
+
+<P>
+<A NAME="3520"></A><A NAME="3521"></A></DD>
+<DT><STRONG><TT>-xe</TT> <EM>xmin-error xmax-error</EM></STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG><TT>-ye</TT> <EM>ymin-error ymax-error</EM></STRONG></DT>
+<DD>These options can be used to set the amounts by which the axis ranges are
+allowed to exceed the ranges of the data when <TT>plt</TT> determines the
+axis ranges automatically.
+
+<P>
+<A NAME="3522"></A><A NAME="3523"></A></DD>
+<DT><STRONG><TT>-xm</TT> <EM>tick-base</EM></STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG><TT>-ym</TT> <EM>tick-base</EM></STRONG></DT>
+<DD>Make axis ticks a multiple of the specified <EM>tick-base</EM>.
+
+<P>
+<A NAME="3524"></A><A NAME="3525"></A></DD>
+<DT><STRONG><TT>-xo</TT> <EM>x-axis-offset</EM></STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG><TT>-yo</TT> <EM>y-axis-offset</EM></STRONG></DT>
+<DD>These options allow the axes to be moved from their default positions;
+they are particularly useful if data would otherwise be obscured by axis
+markings.  The <TT>-xo</TT> option moves the x axis down by <EM>x-axis-offset</EM>,
+which is expressed as a fraction of the y axis length;  the <TT>-yo</TT> option
+moves the y axis left by <EM>y-axis-offset</EM>, which is a fraction of the x axis
+length (see figure&nbsp;<A HREF="node41.html#fig:example14">11.4</A>).
+
+<P>
+<A NAME="3526"></A><A NAME="3527"></A></DD>
+<DT><STRONG><TT>-xr</TT></STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG><TT>-yr</TT></STRONG></DT>
+<DD>Use these options to plot the x axis at the top of the plot, or the y
+axis on the right side of the plot.
+
+<P>
+<A NAME="3528"></A><A NAME="3529"></A></DD>
+<DT><STRONG><TT>-xt</TT> <EM>x label tick-size</EM></STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG><TT>-yt</TT> <EM>y label tick-size</EM></STRONG></DT>
+<DD>These options add an extra labelled tick at the specified <IMG
+ WIDTH="17" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$x$"> or <IMG
+ WIDTH="16" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$y$"> position
+on the corresponding axis.  <EM>label</EM> can be any string;  if omitted, the
+label is <IMG
+ WIDTH="17" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$x$"> or <IMG
+ WIDTH="16" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$y$">, formatted in the same way as the other labelled axis
+ticks.  <EM>tick-size</EM> specifies the length of the tick, as a multiple of
+the default length for labelled ticks;  if omitted, <EM>tick-size</EM> is 1.
+Use a negative <EM>tick-size</EM> to change the direction of the tick and the
+placement of the label (the result depends also on the <EM>grid-mode</EM>;
+see <TT>-g</TT> below).
+
+<P>
+<A NAME="3530"></A><A NAME="3531"></A></DD>
+<DT><STRONG><TT>-xts</TT> <EM>x tick-size</EM></STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG><TT>-yts</TT> <EM>y tick-size</EM></STRONG></DT>
+<DD>Use these options to force a labelled tick to be placed at the specified <IMG
+ WIDTH="17" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$x$"> or
+<IMG
+ WIDTH="16" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$y$"> positions on the axes, and to multiply the lengths of all ticks on the
+corresponding axis by the factor <EM>tick-size</EM> (other than any extra ticks
+generated using <TT>-xt</TT> or <TT>-yt</TT>).  Use a negative <EM>tick-size</EM> to
+change the direction of the tick and the placement of the labels (the result
+depends also on the <EM>grid-mode</EM>; see <TT>-g</TT> below).
+
+<P>
+<A NAME="3532"></A></DD>
+<DT><STRONG><TT>-g</TT> <EM>grid-mode ...</EM></STRONG></DT>
+<DD>The <TT>-g</TT> option accepts one or more <EM>grid-mode</EM> specifiers,
+which define how to create a grid.  Note that if more than one <EM>grid-mode</EM> is supplied, they must be surrounded by quotes or separated
+by commas, because <TT>-g</TT> takes only one string as its argument.
+The defined <EM>grid-modes</EM> are:
+
+<P>
+<TABLE CELLPADDING=3>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><TT>in</TT></TD>
+<TD ALIGN="LEFT">puts ticks inside the grid</TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><TT>out</TT></TD>
+<TD ALIGN="LEFT">puts ticks outside the grid (default)</TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><TT>both</TT></TD>
+<TD ALIGN="LEFT">puts ticks inside and outside the grid</TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><TT>none</TT></TD>
+<TD ALIGN="LEFT">suppresses ticks</TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><TT>sym</TT></TD>
+<TD ALIGN="LEFT">make symmetric axes (at top and right)</TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><TT>grid</TT></TD>
+<TD ALIGN="LEFT">make a full grid (extend major ticks across the entire plot)</TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><TT>xgrid</TT></TD>
+<TD ALIGN="LEFT">extend major x axis ticks across the entire plot</TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><TT>ygrid</TT></TD>
+<TD ALIGN="LEFT">extend major y axis ticks across the entire plot</TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><TT>sub</TT></TD>
+<TD ALIGN="LEFT">make a fine grid (extend all ticks across the entire plot)</TD>
+</TR>
+</TABLE>
+</DD>
+</DL>
+<P>
+<FONT SIZE="+2">Figure&nbsp;<A HREF="#fig:example17">12.1</A> demonstrates several of these options,
+featuring logarithmic axes and a variety of grid modes.  The data
+file, <TT>ldemo.data</TT>, is included in the <TT>doc</TT> directory of the
+<TT>plt</TT> distribution (see appendix&nbsp;<A HREF="node53.html#sec:distribution">F</A>).
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:example17"></A><A NAME="3534"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 12.1:</STRONG>
+This example demonstrates several of the
+advanced axis options.  It was produced using these commands:
+</CAPTION>
+<TR><TD><IMG
+ WIDTH="851" HEIGHT="762" BORDER="0"
+ SRC="img112.png"
+ ALT="\begin{figure}\begin{center}
+\fcolorbox{blue}{white}{
+\epsfig{file=figure17,heig...
+...rid,sym,out -t''Log axes with grid''\end{boxedverbatim}
+\end{center}\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<FONT SIZE="+2"><A NAME="3535"></A><A NAME="2499"></A>As a final example, figure&nbsp;<A HREF="#fig:conf">12.2</A> demonstrates use of the <TT>O</TT> plotstyle, the <TT>-yo</TT> option for shifting the y axis to the
+left, the <TT>-xts option</TT> to create an extra labelled tick mark, the
+<TT>-size</TT> option (see appendix&nbsp;<A HREF="node44.html#sec:printed-output">B</A>), relative
+parameter values in transient fontgroup specifications, overlays, and
+multiple plot windows.  The figure was created using the following commands:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+plt power.data 0 1 2 3 4 5 -F"
+size .7 5 5
+sf p W1
+W - .1 - .47
+# P*1.5 means multiply point size by 1.5.  The point size for the 'O'
+# plot type has no effect on the plot, but changes the height of the
+# box in the legend.
+p 0,1,5O(G.95,P*1.5) 0,2,4O(G.85)
+lp .7 1.2 .9
+le 0 0   5% Conf. Limits
+le 1 1 25% Conf. Limits
+t
+y Power Error
+yo 0.02
+y Estimate/True LO Power
+xts .85
+xa .82 1 .01 - 5
+x Fraction Available Data"
+
+plt power.data 0 6 7 8 9 10 -F"
+s ex
+size .7 5 5
+sf p W1
+W - .53 - .9
+p 0,1,5O(G.95,P*1.5) 0,2,4O(G.85)
+t Confidence Limits for Spline Power Estimates
+xts .85
+xa .82 1 .01 - 5
+y Estimate/True HI Power
+yo 0.02"
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2">The data file, <TT>power.data</TT>, is included in the <TT>doc</TT> directory of
+the <TT>plt</TT> distribution (see appendix&nbsp;<A HREF="node53.html#sec:distribution">F</A>).
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:conf"></A><A NAME="3537"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 12.2:</STRONG>
+A complex plot (see text).</CAPTION>
+<TR><TD><IMG
+ WIDTH="700" HEIGHT="580" BORDER="0"
+ SRC="img113.png"
+ ALT="\begin{figure}\begin{center}
+\fcolorbox{blue}{white}{
+\epsfig{file=conf,height=10cm}}
+\end{center}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<HR>
+<A NAME="tex2html821"
+  HREF="node43.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html815"
+  HREF="book.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html809"
+  HREF="node41.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html817"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html819"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html822"
+  HREF="node43.html">Color Names</A>
+<B>Up:</B> <A NAME="tex2html816"
+  HREF="book.html">plt Tutorial and Cookbook</A>
+<B> Previous:</B> <A NAME="tex2html810"
+  HREF="node41.html">Colors, Line Styles, and Fonts</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

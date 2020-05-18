@@ -1,0 +1,755 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Plotting Data </TITLE>
+<META NAME="description" CONTENT="Plotting Data ">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node33.html">
+<LINK REL="previous" HREF="node29.html">
+<LINK REL="up" HREF="book.html">
+<LINK REL="next" HREF="node32.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html668"
+  HREF="node32.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html662"
+  HREF="book.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html656"
+  HREF="node30.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html664"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html666"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html669"
+  HREF="node32.html">A gallery of plotstyles</A>
+<B>Up:</B> <A NAME="tex2html663"
+  HREF="book.html">plt Tutorial and Cookbook</A>
+<B> Previous:</B> <A NAME="tex2html657"
+  HREF="node30.html">``Quickplot'' mode</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00900000000000000000"></A><A NAME="sec:plotting-data"></A>
+<BR>
+Plotting Data 
+</H1>
+<P>
+<FONT SIZE="+2"><A NAME="3363"></A>Most of the previous examples have illustrated how two columns of data can be
+plotted as a connected set of line segments.  This is <TT>plt</TT>'s
+default style for plotting data, but many other styles are supported
+using the <TT>-p</TT> option to choose a <EM>plotstyle</EM>.  For example, data can
+be plotted using points, characters, strings, or symbols (scatter
+plots);  with error bars;  or using lines of various widths, grey levels,
+colors, or patterns (solid, dotted, etc.).
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="1078"></A><A NAME="1079"></A><A NAME="1080"></A><A NAME="1081"></A><A NAME="1082"></A>To specify a plotstyle, we can use the <TT>-p</TT> option, followed by
+sub-options that control how the points are plotted.  Each sub-option
+can also have an optional argument following it.  This argument can
+change the font, point size, color, gray scale, line width, or line
+style (solid, dotted, dashed, etc.)  of the current plot.  (If you want
+to use those control options that enable you to make font changes, you
+will need to read and understand chapter&nbsp;<A HREF="node41.html#sec:font-groups">11</A>, <EM>Colors, Line Styles, and Fonts</EM>, beginning on
+page&nbsp;<A HREF="node41.html#sec:font-groups"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.)
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="3364"></A>Each plotstyle ``takes'' (consumes) one or more data columns.  If you
+use more than one plotstyle, you must include enough data column
+numbers for all of the plotstyles in the <TT>plt</TT> command line.  Note
+that you may repeat data column numbers if necessary to satisfy the
+requirements of the plotstyles you select;  see the examples below to
+see how this can be done.
+</FONT>
+<P>
+<FONT SIZE="+2">If you have not used <TT>plt</TT> previously, it is probably a bad idea
+to read through this chapter from beginning to end, because the usage
+of the plotstyles (especially the first one listed below, <TT>c</TT>) is
+mind-bogglingly convoluted.  A better strategy is to begin by studying
+the examples in this chapter; find one or more that illustrate
+features you would like to use in your own plots, then see which
+plotstyles were used to obtain these features.
+</FONT>
+<P>
+<FONT SIZE="+2">
+The sub-options to <TT>-p</TT> are:
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="3365"></A></FONT><DL>
+<DT><STRONG><TT>c</TT></STRONG></DT>
+<DD>Takes three data columns (<IMG
+ WIDTH="17" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$x$">, <IMG
+ WIDTH="16" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$y$">, and <IMG
+ WIDTH="14" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$c$">).
+Each <IMG
+ WIDTH="14" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$c$"> value tells <TT>plt</TT> what to do with the corresponding <IMG
+ WIDTH="17" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$x$">
+and <IMG
+ WIDTH="16" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$y$"> values.  The values for <IMG
+ WIDTH="14" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$c$"> can be:
+</DD>
+</DL>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=71><FONT SIZE="+2"><TT>0</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=241><FONT SIZE="+2"> continue (draw) path to <IMG
+ WIDTH="52" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$(x,y)$"> </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=71><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>1</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=241><FONT SIZE="+2"> move to <IMG
+ WIDTH="52" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$(x,y)$"> without drawing (i.e., with the ``pen''
+up), then put the pen down (begin a new path) </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=71><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>2</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=241><FONT SIZE="+2"> put a dot at <IMG
+ WIDTH="52" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$(x,y)$"> </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=71><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>3</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=241><FONT SIZE="+2"> put a small box at <IMG
+ WIDTH="52" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$(x,y)$"> </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=71><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>9</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=241><FONT SIZE="+2"> paint the path (usually done as the default when a new path is begun
+without specifying what to do with the old one) </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=71><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>10</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=241><FONT SIZE="+2"> continue to <IMG
+ WIDTH="52" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$(x,y)$">, close path and fill the inside with grey level
+specified by the argument to the </FONT><FONT SIZE="+2"><TT>c</TT> sub-option </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=71><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>11</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=241><FONT SIZE="+2"> continue to <IMG
+ WIDTH="52" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$(x,y)$">, close path and fill the inside with grey level
+specified by the argument to the </FONT><FONT SIZE="+2"><TT>c</TT> sub-option; then draw a black
+border </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=71><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>12</TT> - </FONT><FONT SIZE="+2"><TT>13</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=241><FONT SIZE="+2"> continue to <IMG
+ WIDTH="52" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$(x,y)$">, close path and
+fill the inside with grey level specified by <IMG
+ WIDTH="59" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.png"
+ ALT="$c-12$"> (12.0&nbsp;=&nbsp;black,
+13.0&nbsp;=&nbsp;white) </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=71><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>14</TT> - </FONT><FONT SIZE="+2"><TT>15</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=241><FONT SIZE="+2"> continue to <IMG
+ WIDTH="52" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$(x,y)$">, close path and fill the
+inside with grey level specified by <IMG
+ WIDTH="59" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img47.png"
+ ALT="$c-14$"> (14.0 = black, 15.0 = white);
+then draw a black border </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=71><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>20</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=241><FONT SIZE="+2"> (requires </FONT><FONT SIZE="+2"><TT>-fs</TT> option, see section&nbsp;<A HREF="node27.html#sec:string-arrays">3.7</A>,
+</FONT><FONT SIZE="+2"><EM>String arrays</EM>, page&nbsp;<A HREF="node27.html#sec:string-arrays"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>) change font to that
+specified by string number <IMG
+ WIDTH="17" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$x$"> from the </FONT><FONT SIZE="+2"><TT>-fs</TT> string array </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=71><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>21</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=241><FONT SIZE="+2"> change point size to <IMG
+ WIDTH="17" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$x$"> </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=71><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>22</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=241><FONT SIZE="+2"> change line width to <IMG
+ WIDTH="17" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$x$"> </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=71><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>23</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=241><FONT SIZE="+2"> (requires </FONT><FONT SIZE="+2"><TT>-fs</TT> option, see section&nbsp;<A HREF="node27.html#sec:string-arrays">3.7</A>)
+change line style to that specified by string number <IMG
+ WIDTH="17" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$x$"> from the </FONT><FONT SIZE="+2"><TT>-fs</TT>
+string array; legal line styles are ``</FONT><FONT SIZE="+2"><TT>solid</TT>'', ``</FONT><FONT SIZE="+2"><TT>dotted</TT>'',
+``</FONT><FONT SIZE="+2"><TT>shortdashed</TT>'', ``</FONT><FONT SIZE="+2"><TT>dotdashed</TT>'', and ``</FONT><FONT SIZE="+2"><TT>longdashed</TT>''.  Note
+that <IMG
+ WIDTH="16" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$y$"> is ignored (see figure&nbsp;<A HREF="#fig:example4">6.1</A>). </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=71><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>24</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=241><FONT SIZE="+2"> change grey level to <IMG
+ WIDTH="17" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$x$"> (0 = black, 1 = white); <IMG
+ WIDTH="16" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$y$"> is ignored.</FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=71><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>25</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=241><FONT SIZE="+2"> (requires </FONT><FONT SIZE="+2"><TT>-fs</TT> option, see section&nbsp;<A HREF="node27.html#sec:string-arrays">3.7</A>)
+change color to that specified by string number <IMG
+ WIDTH="17" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$x$"> from the fontgroup
+string array (see appendix&nbsp;<A HREF="node43.html#sec:color-names">A</A> for details on how to specify
+colors by name; also, note that <IMG
+ WIDTH="16" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$y$"> is ignored) </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=71><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>30</TT> - </FONT><FONT SIZE="+2"><TT>39</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=241><FONT SIZE="+2"> put symbol number <IMG
+ WIDTH="59" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img48.png"
+ ALT="$c-30$"> at <IMG
+ WIDTH="52" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$(x,y)$"> (see
+figure&nbsp;<A HREF="#fig:symbols">6.2</A>) </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=71><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>100, 101, ...</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=241><FONT SIZE="+2"> (requires </FONT><FONT SIZE="+2"><TT>-tf</TT> or </FONT><FONT SIZE="+2"><TT>-ts</TT> option, see
+section&nbsp;<A HREF="node27.html#sec:string-arrays">3.7</A>) put string number </FONT><FONT SIZE="+2"><EM>control-100</EM> from the
+text string array at <IMG
+ WIDTH="52" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$(x,y)$">
+</FONT></TD>
+</TR>
+</TABLE></DIV>
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:example4"></A><A NAME="3380"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.1:</STRONG>
+Produced using the command:
+</CAPTION>
+<TR><TD><IMG
+ WIDTH="1391" HEIGHT="759" BORDER="0"
+ SRC="img49.png"
+ ALT="\begin{figure}\begin{center}
+\begin{tabular}{p{10cm}p{1.5cm}}
+\fcolorbox{blue}{w...
+...each before and after the line that changes {\tt plt}'s line style.
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<DIV ALIGN="CENTER"><A NAME="fig:symbols"></A><A NAME="3382"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.2:</STRONG>
+The ten symbolsthat
+can be plotted using plotstyles <TT>c</TT> (suboptions 30 through 39), <TT>E</TT>,
+and <TT>S</TT>.  Numeric (0-9) and mnemonic (``circle'', ``square'', etc.) names
+appear to the right of each symbol; either form may be used when specifying a
+symbol to be used with plotstyles <TT>E</TT> or <TT>S</TT>.  The open symbols (0
+through 4) have opaque centers; these are particularly recommended for
+relatively dense scatter plots because it is still possible to distinguish and
+count individual data points even when the symbols partially overlap.  The size
+of the symbols is determined by the current font's point size (see the
+description of the <TT>-sf</TT> option in chapter&nbsp;<A HREF="node41.html#sec:font-groups">11</A>), <EM>Colors, Line Styles, and Fonts</EM>, beginning on page&nbsp;<A HREF="node41.html#sec:font-groups"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.</CAPTION>
+<TR><TD><IMG
+ WIDTH="657" HEIGHT="580" BORDER="0"
+ SRC="img50.png"
+ ALT="\begin{figure}\begin{center}
+\fcolorbox{blue}{white}{
+\epsfig{file=symbols,height=10cm}}
+\end{center}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<DL>
+<DT><STRONG><TT>C</TT></STRONG></DT>
+<DD><A NAME="3383"></A><A NAME="1211"></A>Takes two columns, <IMG
+ WIDTH="17" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$x$"> and <IMG
+ WIDTH="16" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$y$">, assumed to be the vertices of a polygon.
+The polygon is drawn by connecting consecutive vertices and by
+connecting the last vertex to the first, and then it is filled in the
+current color (default: black).  Nonconvex and self-intersecting
+polygons are filled properly.
+See figure&nbsp;<A HREF="node32.html#fig:style-C">6.3</A>, page&nbsp;<A HREF="node32.html#fig:style-C"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.
+
+<P>
+</DD>
+<DT><STRONG><TT>e+<IMG
+ WIDTH="14" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$c$"></TT></STRONG></DT>
+<DD><A NAME="3384"></A>Takes three columns (<IMG
+ WIDTH="17" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$x$">, <IMG
+ WIDTH="16" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$y$">, and <IMG
+ WIDTH="15" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img51.png"
+ ALT="$e$">).  This sub-option
+makes a scatter plot, like <TT>s</TT> (see below), but including error bars.  Each
+<IMG
+ WIDTH="15" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img51.png"
+ ALT="$e$"> value tells <TT>plt</TT> the size of the error associated with the
+corresponding <IMG
+ WIDTH="17" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$x$"> and <IMG
+ WIDTH="16" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$y$">.  When using the <TT>e</TT> sub-option, you may specify
+the character (default: ``<TT>*</TT>'') to use when plotting <IMG
+ WIDTH="52" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$(x,y)$">, and you must
+indicate if you wish to plot the top, bottom, or both halves of the error bars,
+as follows:
+</DD>
+<DT><STRONG><TT>e-<IMG
+ WIDTH="14" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$c$"></TT></STRONG></DT>
+<DD>
+<BR>
+</DD>
+<DT><STRONG><TT>e:<IMG
+ WIDTH="14" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$c$"></TT></STRONG></DT>
+<DD>
+<BR>
+&nbsp;
+<DL>
+<DT><STRONG><TT>e+<IMG
+ WIDTH="14" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$c$"></TT></STRONG></DT>
+<DD>
+<BR>
+<BR>
+<BR>
+<BR>
+plot <IMG
+ WIDTH="52" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$(x,y)$"> as ``<IMG
+ WIDTH="14" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$c$">'', with top half of error bars only
+</DD>
+<DT><STRONG><TT>e-<IMG
+ WIDTH="14" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$c$"></TT></STRONG></DT>
+<DD>plot <IMG
+ WIDTH="52" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$(x,y)$"> as ``<IMG
+ WIDTH="14" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$c$">'', with bottom half of error bars only
+</DD>
+<DT><STRONG><TT>e:<IMG
+ WIDTH="14" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$c$"></TT></STRONG></DT>
+<DD>plot <IMG
+ WIDTH="52" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$(x,y)$"> as ``<IMG
+ WIDTH="14" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$c$">'', with both top and bottom error bars;
+the ``:'' may be omitted unless <IMG
+ WIDTH="14" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$c$"> is either ``<TT>+</TT>'' or
+``<TT>-</TT>''
+</DD>
+</DL>
+
+<P>
+</DD>
+<DT><STRONG><TT>E+<IMG
+ WIDTH="18" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img52.png"
+ ALT="$n$"></TT></STRONG></DT>
+<DD><A NAME="3385"></A>Takes three columns (<IMG
+ WIDTH="17" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$x$">, <IMG
+ WIDTH="16" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$y$">, and <IMG
+ WIDTH="15" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img51.png"
+ ALT="$e$">).
+Exactly like its counterpart, <TT>e</TT>, except that this sub-option
+allows you to plot a specified symbol (identified by a symbol number <IMG
+ WIDTH="18" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img52.png"
+ ALT="$n$">
+between 0 and 9 inclusive) instead of a character.
+</DD>
+<DT><STRONG><TT>E-<IMG
+ WIDTH="18" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img52.png"
+ ALT="$n$"></TT></STRONG></DT>
+<DD>
+<BR>
+</DD>
+<DT><STRONG><TT>E:<IMG
+ WIDTH="18" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img52.png"
+ ALT="$n$"></TT></STRONG></DT>
+<DD>
+<BR>
+&nbsp;
+
+<P>
+</DD>
+<DT><STRONG><TT>f</TT></STRONG></DT>
+<DD><A NAME="3386"></A><A NAME="1244"></A>
+<BR>
+Takes three columns (<IMG
+ WIDTH="17" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$x$">, <IMG
+ WIDTH="24" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img53.png"
+ ALT="$y_0$">, and <IMG
+ WIDTH="24" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img54.png"
+ ALT="$y_1$">) and fills the area defined
+by the normal plots of <IMG
+ WIDTH="60" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img55.png"
+ ALT="$(x,y_0)$"> and <IMG
+ WIDTH="60" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img56.png"
+ ALT="$(x,y_1)$"> in the current color
+(default: black).
+See figure&nbsp;<A HREF="node32.html#fig:style-f">6.10</A>, page&nbsp;<A HREF="node32.html#fig:style-f"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.
+
+<P>
+</DD>
+<DT><STRONG><TT>i</TT></STRONG></DT>
+<DD><A NAME="3387"></A>Takes two columns, <IMG
+ WIDTH="17" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$x$"> and <IMG
+ WIDTH="16" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$y$">.  The <IMG
+ WIDTH="52" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$(x,y)$"> pairs are
+plotted in impulse response form.
+See figure&nbsp;<A HREF="node32.html#fig:style-i">6.11</A>, page&nbsp;<A HREF="node32.html#fig:style-i"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.
+
+<P>
+</DD>
+<DT><STRONG><TT>l</TT></STRONG></DT>
+<DD><A NAME="3388"></A>Takes four columns, <IMG
+ WIDTH="26" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img57.png"
+ ALT="$x_{0}$">, <IMG
+ WIDTH="24" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img58.png"
+ ALT="$y_{0}$">, <IMG
+ WIDTH="26" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img59.png"
+ ALT="$x_{1}$">, and <IMG
+ WIDTH="24" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img60.png"
+ ALT="$y_{1}$">.  The line
+segments with endpoints <IMG
+ WIDTH="69" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img61.png"
+ ALT="$(x_{0},y_{0})$"> and <IMG
+ WIDTH="69" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img62.png"
+ ALT="$(x_{1},y_{1})$"> are plotted.
+See figure&nbsp;<A HREF="node32.html#fig:style-l">6.12</A>, page&nbsp;<A HREF="node32.html#fig:style-l"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.
+
+<P>
+</DD>
+<DT><STRONG><TT>m</TT></STRONG></DT>
+<DD><A NAME="3389"></A><A NAME="3390"></A>Takes one column (<IMG
+ WIDTH="16" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$y$">).  The <IMG
+ WIDTH="17" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$x$"> values are always taken from column 0
+of the input.  The output is a normal plot of <IMG
+ WIDTH="52" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$(x,y)$"> pairs.  (If you supply
+only one data column number to <TT>plt</TT> and do not specify a
+plotstyle, this is the type of plot you will obtain by default.)
+See figure&nbsp;<A HREF="node32.html#fig:style-m">6.13</A>, page&nbsp;<A HREF="node32.html#fig:style-m"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.
+
+<P>
+</DD>
+<DT><STRONG><TT>n</TT></STRONG></DT>
+<DD><A NAME="3391"></A><A NAME="3392"></A>Takes two columns, <IMG
+ WIDTH="17" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$x$"> and <IMG
+ WIDTH="16" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$y$">.  The output is a normal plot
+of <IMG
+ WIDTH="52" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$(x,y)$"> pairs.  (If you supply two data column numbers to <TT>plt</TT> and do not specify a plotstyle, this is the type of plot you will
+obtain by default.)
+See figure&nbsp;<A HREF="node32.html#fig:style-n">6.14</A>, page&nbsp;<A HREF="node32.html#fig:style-n"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.
+
+<P>
+</DD>
+<DT><STRONG><TT>N</TT></STRONG></DT>
+<DD><A NAME="3393"></A><A NAME="1283"></A>Takes two columns, <IMG
+ WIDTH="17" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$x$"> and <IMG
+ WIDTH="16" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$y$">.  The area bounded by the normal plot of
+the <IMG
+ WIDTH="52" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$(x,y)$"> pairs and the x axis is filled with the current color (default:
+black).
+See figure&nbsp;<A HREF="node32.html#fig:style-N">6.15</A>, page&nbsp;<A HREF="node32.html#fig:style-N"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.
+
+<P>
+</DD>
+<DT><STRONG><TT>o</TT></STRONG></DT>
+<DD><A NAME="3394"></A><A NAME="1289"></A>Takes three columns (<IMG
+ WIDTH="17" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$x$">, <IMG
+ WIDTH="24" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img53.png"
+ ALT="$y_0$">, and <IMG
+ WIDTH="24" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img54.png"
+ ALT="$y_1$">) and outlines the area defined
+by the normal plots of <IMG
+ WIDTH="60" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img55.png"
+ ALT="$(x,y_0)$"> and <IMG
+ WIDTH="60" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img56.png"
+ ALT="$(x,y_1)$"> in the current color (default:
+black).
+See figure&nbsp;<A HREF="node32.html#fig:style-o">6.16</A>, page&nbsp;<A HREF="node32.html#fig:style-o"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.
+
+<P>
+</DD>
+<DT><STRONG><TT>O</TT></STRONG></DT>
+<DD><A NAME="3395"></A><A NAME="1295"></A>Takes three columns (<IMG
+ WIDTH="17" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$x$">, <IMG
+ WIDTH="24" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img53.png"
+ ALT="$y_0$">, and <IMG
+ WIDTH="24" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img54.png"
+ ALT="$y_1$">), outlines the area defined
+by the normal plots of <IMG
+ WIDTH="60" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img55.png"
+ ALT="$(x,y_0)$"> and <IMG
+ WIDTH="60" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img56.png"
+ ALT="$(x,y_1)$"> in black, and fills this
+area in the current color (default: black).
+See figure&nbsp;<A HREF="node32.html#fig:style-O">6.17</A>, page&nbsp;<A HREF="node32.html#fig:style-O"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.
+
+<P>
+</DD>
+<DT><STRONG><TT>s<IMG
+ WIDTH="14" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$c$"></TT></STRONG></DT>
+<DD><A NAME="3396"></A>Takes two columns, <IMG
+ WIDTH="17" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$x$"> and <IMG
+ WIDTH="16" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$y$">.  The output is a scatter plot of <IMG
+ WIDTH="52" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$(x,y)$">
+pairs, where each pair is plotted using the character specified by <IMG
+ WIDTH="14" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$c$">
+(a character suffixed to the plotstyle name, <TT>s</TT>).
+See figure&nbsp;<A HREF="node32.html#fig:style-sO">6.18</A>, page&nbsp;<A HREF="node32.html#fig:style-sO"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.
+
+<P>
+</DD>
+<DT><STRONG><TT>S<IMG
+ WIDTH="18" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img52.png"
+ ALT="$n$"></TT></STRONG></DT>
+<DD><A NAME="3397"></A>Takes two columns, <IMG
+ WIDTH="17" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$x$"> and <IMG
+ WIDTH="16" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$y$">.  Exactly like its counterpart, <TT>s</TT>, except that this plotstyle allows you to plot a specified symbol
+(identified by a symbol number <IMG
+ WIDTH="18" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img52.png"
+ ALT="$n$"> between 0 and 9 inclusive), instead
+of a character.
+See figure&nbsp;<A HREF="node32.html#fig:style-Sfdiamond">6.19</A>, page&nbsp;<A HREF="node32.html#fig:style-Sfdiamond"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.
+
+<P>
+</DD>
+<DT><STRONG><TT>t</TT></STRONG></DT>
+<DD><A NAME="3398"></A><A NAME="1313"></A>Takes three columns, <IMG
+ WIDTH="17" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$x$">, <IMG
+ WIDTH="16" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$y$">, and <IMG
+ WIDTH="18" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img52.png"
+ ALT="$n$">.  
+This plotstyle must be used together with the <TT>-tf</TT> or <TT>-ts</TT>
+option (see section&nbsp;<A HREF="node27.html#sec:string-arrays">3.7</A>).  The <IMG
+ WIDTH="18" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img52.png"
+ ALT="$n$"> values specify strings
+from the <TT>-tf</TT> or <TT>-ts</TT> string array;  <TT>plt</TT> prints these
+at the locations given by the corresponding <IMG
+ WIDTH="52" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$(x,y)$"> pairs (adjusting the
+string positions according to the text box coordinates provided to the
+<TT>-tf</TT> or <TT>-ts</TT> option). See figure&nbsp;<A HREF="node32.html#fig:style-t">6.20</A>,
+page&nbsp;<A HREF="node32.html#fig:style-t"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.
+</DD>
+</DL>
+<P>
+<BR> <HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html670"
+  HREF="node32.html">A gallery of plotstyles</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<A NAME="tex2html668"
+  HREF="node32.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html662"
+  HREF="book.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html656"
+  HREF="node30.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html664"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html666"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html669"
+  HREF="node32.html">A gallery of plotstyles</A>
+<B>Up:</B> <A NAME="tex2html663"
+  HREF="book.html">plt Tutorial and Cookbook</A>
+<B> Previous:</B> <A NAME="tex2html657"
+  HREF="node30.html">``Quickplot'' mode</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

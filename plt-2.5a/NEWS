@@ -1,0 +1,24 @@
+file: NEWS			G. Moody	10 December 2010
+
+Recent changes in 'plt'
+
+2.5a (10 December 2010):
+  Minor config cleanup (no need to update if you have a working plt 2.5)
+
+2.5 (26 March 2009):
+  Added -ph (histogram) plot style; added -strip and -custom to lwcat options
+
+2.4 (26 April 2005):
+  Support for x86_64 architecture, updated docs and Makefiles
+
+2.3 (19 December 2002):
+  Added imageplt, changed ftable output format, updated docs.
+
+2.2 (17 November 2002):
+  Cleanup and documentation updates for MacOS/X port.
+
+2.1 (7 November 2002):
+  Fixed placement of axis labels when using log axes and the PostScript driver.
+
+2.0 (18 October 2002):
+  Added support for X11 plt under MS-Windows using Cygwin/XFree86.

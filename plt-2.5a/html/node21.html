@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Text data files</TITLE>
+<META NAME="description" CONTENT="Text data files">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node22.html">
+<LINK REL="previous" HREF="node20.html">
+<LINK REL="up" HREF="node20.html">
+<LINK REL="next" HREF="node22.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html531"
+  HREF="node22.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html525"
+  HREF="node20.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html519"
+  HREF="node20.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html527"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html529"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html532"
+  HREF="node22.html">Comma-separated value (CSV) files</A>
+<B>Up:</B> <A NAME="tex2html526"
+  HREF="node20.html">Preparing Input for plt</A>
+<B> Previous:</B> <A NAME="tex2html520"
+  HREF="node20.html">Preparing Input for plt</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00610000000000000000">
+Text data files</A>
+</H1>
+<P>
+<FONT SIZE="+2">Usually, data must be in text form in order for <TT>plt</TT> to read them.
+Each non-empty, non-comment line (row) in the input should contain a
+value for each column that will be plotted; any additional
+values or other extra text at the end of a row will be ignored.
+Columns can be separated by any number of spaces or tabs.  Commas and
+single or double quotation marks can also be used as column separators
+with current versions of <TT>plt</TT>, though not with older versions.
+It is not necessary to line up the values in each row.  There may also
+be spaces or tabs at the beginning of a line, and these will also be
+ignored.  For example, here is <TT>squares.data</TT>, a text data file
+that can be read by <TT>plt</TT>:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+# This is a text data file.  It doesn't need to begin with a
+# comment, although this one does.  Comments and empty lines
+# are ignored in text data files.
+
+-1 1	# This is row 1.  It contains two columns.
+0    0	# This is row 2.  Columns don't need to be lined up neatly.
+  1   1 # Row 3.  Whitespace separates columns and is otherwise ignored.
+1.5 2.25# Row 4. Most common formats for base 10 numbers are acceptable.
+	# Note, however, that only "." can be used to separate
+	# the integer and fractional parts ("," is treated as a
+	# column separator).
+
+2 4	# Row 5 (the empty and comment lines aren't counted.)
+2.5 6.25 8  # The "8" is ignored, since row 1 has only 2 columns.
+3 9
+4,16	# Comma-separated value (CSV) format is acceptable.
+"5","25"# Quoted CSV format is also acceptable. 
+6 3.6e1	# Standard notation for floating-point numbers is acceptable.
+7 490e-1# Here's another, with a negative exponent.
+8 64.
+9 +81.0	# The "+" is redundant, but acceptable.
+10 1e2
+
+# There can be more comments such as these at the end ....
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<BR> <HR>
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

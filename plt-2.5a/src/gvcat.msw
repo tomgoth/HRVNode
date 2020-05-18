@@ -1,0 +1,8 @@
+#!/bin/sh
+# file: gvcat.msw		G. Moody	4 April 2001
+#
+# Collect plt | lwcat output, show it on-screen using gsview32, then clean up
+
+cat >/tmp/gvcat.ps
+c:/Ghostgum/gsview/gsview32.exe c:/cygwin/tmp/gvcat.ps
+rm -f /tmp/gvcat.ps

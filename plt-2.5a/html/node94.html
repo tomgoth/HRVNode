@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Description</TITLE>
+<META NAME="description" CONTENT="Description">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node95.html">
+<LINK REL="previous" HREF="node93.html">
+<LINK REL="up" HREF="node91.html">
+<LINK REL="next" HREF="node95.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html1619"
+  HREF="node95.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1613"
+  HREF="node91.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1607"
+  HREF="node93.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1615"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1617"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html1620"
+  HREF="node95.html">See Also</A>
+<B>Up:</B> <A NAME="tex2html1614"
+  HREF="node91.html">pltf</A>
+<B> Previous:</B> <A NAME="tex2html1608"
+  HREF="node93.html">Synopsis</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION002343000000000000000">
+Description</A>
+</H2>
+<P>
+<FONT SIZE="+2"><TT>pltf</TT> provides a simple way to use <I><TT>bc</TT>(1)</I> and <I><TT>plt</TT>(1)</I>
+to generate plots of many common functions of a single variable.  The command-line
+arguments are interpreted according to their position; <TT>pltf</TT> asks for values
+for any missing arguments. 
+</FONT>
+<P>
+<FONT SIZE="+2">The first argument, <I>expression</I>, can be any expression
+valid as input to <I><TT>bc</TT>(1)</I>, with the additional feature that the variable
+<TT>x</TT> may appear anywhere in the expression where a number would be allowed
+by <TT>bc</TT>. Some examples of valid expressions are: </FONT><DL>
+<DT><STRONG><TT>x<IMG
+ WIDTH="16" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img124.png"
+ ALT="$\char94{}$">3+3*x<IMG
+ WIDTH="16" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img124.png"
+ ALT="$\char94{}$">2+3*x+1</TT> </STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG><TT>(x + 1)<IMG
+ WIDTH="16" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img124.png"
+ ALT="$\char94{}$">3</TT> </STRONG></DT>
+<DD>
+</DD>
+<DT><STRONG><TT>s(sqrt(x<IMG
+ WIDTH="16" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img124.png"
+ ALT="$\char94{}$">2))</TT>
+</STRONG></DT>
+<DD>
+</DD>
+</DL>
+<P>
+<FONT SIZE="+2">The first two of these are equivalent;  note that whitespace and parentheses
+are allowed in expressions, although it is necessary to enclose such expressions
+in double quotes (e.g., <TT>"(x + 1)*e(x)"</TT>) when entering them as command-line
+arguments in order to protect them from the shell.  The last expression
+is the sine of the square root of x squared;  see <I><TT>bc</TT>(1)</I> for a complete
+list of available special functions, or invoke <TT>pltf</TT> with no command-line
+arguments to obtain a list. 
+</FONT>
+<P>
+<FONT SIZE="+2">The second and third arguments specify the domain
+of the function (the values over which <TT>x</TT> should vary), and the fourth argument
+specifies the <TT>x</TT>-increment (the difference between consecutive values of
+<TT>x</TT> for which the expression is to be evaluated). 
+</FONT>
+<P>
+<FONT SIZE="+2"><TT>pltf</TT> is a shell script that
+uses a helper application, <TT>ftable</TT>, to prepare input for <TT>bc -l</TT>.  Invoke <TT>ftable</TT>
+directly (using the same arguments as for <TT>pltf</TT>) if you need to change the
+format of the plot or make a printed version of it.  See the source for
+<TT>pltf</TT> to see how to do this. 
+</FONT><HR>
+<A NAME="tex2html1619"
+  HREF="node95.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1613"
+  HREF="node91.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1607"
+  HREF="node93.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1615"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1617"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html1620"
+  HREF="node95.html">See Also</A>
+<B>Up:</B> <A NAME="tex2html1614"
+  HREF="node91.html">pltf</A>
+<B> Previous:</B> <A NAME="tex2html1608"
+  HREF="node93.html">Synopsis</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

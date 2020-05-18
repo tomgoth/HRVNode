@@ -1,0 +1,6 @@
+fs blue red green skyblue black grey70
+tf cpu.strings
+p 1,2,3c
+t CPU Prices (10 April 2001)
+x Clock speed (normalized by family for FP performance)
+y Price (US $)

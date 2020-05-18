@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>What's New? </TITLE>
+<META NAME="description" CONTENT="What's New? ">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node59.html">
+<LINK REL="previous" HREF="node53.html">
+<LINK REL="up" HREF="book.html">
+<LINK REL="next" HREF="node58.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html1035"
+  HREF="node58.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1029"
+  HREF="book.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1023"
+  HREF="node56.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1031"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1033"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html1036"
+  HREF="node58.html">Known bugs</A>
+<B>Up:</B> <A NAME="tex2html1030"
+  HREF="book.html">plt Tutorial and Cookbook</A>
+<B> Previous:</B> <A NAME="tex2html1024"
+  HREF="node56.html">Compiling and Using plt under MS-Windows</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION002200000000000000000"></A><A NAME="sec:new"></A>
+<BR>
+What's New? 
+</H1>
+<P>
+<FONT SIZE="+2">This appendix summarizes some of the changes that have been made in <TT>plt</TT>
+since 1999.  It may be helpful to users who are familiar with earlier versions.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="3209"></A>First, what has <EM>not</EM> changed: <TT>plt</TT> is almost completely compatible
+with previous versions.  Scripts written for classic <TT>plt</TT> should continue
+to work without changes.  The only exception is that, in classic <TT>plt</TT>, the
+default values of the window coordinates <IMG
+ WIDTH="32" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img92.png"
+ ALT="$xw$"> and <IMG
+ WIDTH="31" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img93.png"
+ ALT="$yw$">, used by the <TT>-hl</TT>,
+<TT>-vl</TT>, and <TT>-L</TT> options, were .5 (corresponding to the center of
+the rectangle defined by the axes).  These default values are now those of the
+<TT>RC</TT> point of the previous label.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="3218"></A><A NAME="3219"></A><A NAME="3220"></A>This change was made so that labels can be concatenated (see
+chapter&nbsp;<A HREF="node37.html#sec:labelling">8</A>).  This feature allows you to change fonts or use
+superscripts or subscripts within labels.  The new text box coordinates <TT>LN</TT>, <TT>CN</TT>, and <TT>RN</TT> are particularly useful for creating subscripts.
+</FONT>
+<P>
+<FONT SIZE="+2"><TT>plt</TT> now runs on all popular platforms, with both X11 and PostScript
+output available under GNU/Linux, Mac OS X, MS-Windows, and Unix.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="3226"></A><A NAME="3227"></A><A NAME="3228"></A><A NAME="3229"></A><A NAME="3230"></A><A NAME="3231"></A><A NAME="3232"></A>Perhaps the most obvious change is full support for all <TT>plt</TT> features
+in X11 (screen) plots.  This includes control of line width and style (dotted,
+dashed, etc.); grey levels and colors, including polygon fills; and font
+selection, sizing, and rotation.   Rendering rotated text is not supported
+directly by X11, and the method implemented in <TT>xplt</TT> is unavoidably
+slow;  but it works!  The X11 driver also now supports progressive
+display in <EM>quickplot</EM> mode (see page&nbsp;<A HREF="node30.html#sec:quickplot"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>).
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="3237"></A><TT>plt</TT> now has full color support in X11 and PostScript, and uses the X11R6
+color name database (even under MS-Windows) to make it easy to create color
+plots that can be rendered on-screen or on paper without changes.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="3239"></A>The low-level input functions used by <TT>plt</TT> have been reimplemented,
+with the result that empty lines and comments are now acceptable in
+text data files, and that most CSV (comma-separated value) format data
+files are now readable by <TT>plt</TT>.  This work also fixed an
+old bug that caused the first row of a data file to be lost if <TT>plt</TT> received its input from a pipe.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="3243"></A><A NAME="3244"></A><A NAME="3245"></A>Also new are <TT>lwcat</TT>'s <TT>-png</TT> and <TT>-pdf</TT> options for
+producing output that can be published on the Web in PDF and PNG
+formats (see appendix&nbsp;<A HREF="node50.html#sec:web-output">C</A>).
+</FONT>
+<P>
+<BR> <HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html1037"
+  HREF="node58.html">Known bugs</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<A NAME="tex2html1035"
+  HREF="node58.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1029"
+  HREF="book.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1023"
+  HREF="node56.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1031"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1033"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html1036"
+  HREF="node58.html">Known bugs</A>
+<B>Up:</B> <A NAME="tex2html1030"
+  HREF="book.html">plt Tutorial and Cookbook</A>
+<B> Previous:</B> <A NAME="tex2html1024"
+  HREF="node56.html">Compiling and Using plt under MS-Windows</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,1161 @@
+%!PS-Adobe-3.0
+%%BoundingBox: 55 241 574 673
+%%Title: (plt/lwcat output)
+%%CreationDate: Thu May 10 12:13:38 2001
+%!
+%%BoundingBox: 54 54 556 737
+% plt.pro	PostScript prolog for plt
+% Last revised: 11 May 2001 (GBM)
+
+count /numstack exch def
+save 100 dict begin /plt exch def
+
+/ED	{exch def} def
+/IN	{exch 72 mul def} def
+
+/CLOSE	{count numstack sub {pop} repeat plt end restore} def
+
+/BF	{gsave INIT} def
+/EF	{grestore} def
+
+/LS	{} def
+/INIT	{0 setlinecap LS /DMTX matrix currentmatrix def
+	/XOFF [0 0 0 -.5 -1 -1 -1 -.5 -.5 0 -.5 -1] def
+	/YOFF [0 -.37 -1 -1 -1 -.37 0 0 -.37 -.74 -.74 -.74] def
+	/XM 0 def /YM 0 def /XYM 0 def} def
+
+/WSUBST	{} def
+
+/WDEF	{/ury ED /urx ED /lly ED /llx ED
+	WSUBST /y1 IN /x1 IN /y0 IN /x0 IN /FSCL ED
+	gsave matrix setmatrix
+	x0 2 add y0 2 add translate 
+	x1 x0 sub 4 sub urx llx sub div
+	y1 y0 sub 4 sub ury lly sub div scale
+	llx neg lly neg translate
+	/PMTX matrix currentmatrix def grestore} def
+
+/M	{newpath PMTX transform moveto} def
+/N	{PMTX dtransform rlineto} def
+/L	{N currentpoint stroke moveto} def
+/F	{closepath 0 eq {fill} {FS} ifelse} def
+/FS	{gsave fill grestore gsave 0 0 0 setrgbcolor stroke grestore} def 
+
+/XC	0 def
+/YC	0 def
+/T	{/ang ED /pos ED /YY ED /XX ED
+	XX -32767 eq
+	 {YY -32767 eq
+	  {XC YC moveto}
+	  {0 YY M currentpoint XC exch moveto pop}
+	 ifelse}
+	 {YY -32767 eq
+	  {XX 0 M currentpoint pop YC moveto}
+	  {XX YY M}
+	 ifelse}
+	ifelse
+	ang rotate
+	/str ED str stringwidth pop
+	XOFF pos get mul
+	YOFF pos get PS mul XYM FSCL mul add
+	rmoveto str show 0 .37 PS mul XYM FSCL mul add rmoveto
+	/XYM 0 def SDM currentpoint /YC ED /XC ED} def
+
+/GT	{7 0 T} def
+/XT	{/XYM XM neg def 3 0 T /XM 0 def} def
+/XTR	{/XYM XM def 7 0 T /XM 0 def} def
+/YT	{/XYM YM def 7 90 T /YM 0 def} def
+/YTR	{/XYM YM neg def 3 90 T /YM 0 def} def
+
+/XN	{/XM PS def 3 0 T} def
+/XNR	{/XM PS def 9 0 T} def
+/YN	{-1 1 0 YNUM} def
+/YNR	{1 0 0 YNUM} def
+/YNUM	{6 3 roll M /str ED str stringwidth pop add /len ED
+	len mul .2 PS mul add mul PS -.37 mul rmoveto
+	str show /YM len .2 PS mul add YM MAX def} def
+
+/SP	{/y ED /x ED /yp ED /yn ED /str ED
+	x y M currentpoint
+	str false charpath PBOX newpath
+	exch dup add x0 x1 add 2 div sub
+	exch dup add y0 y1 add 2 div sub moveto
+	str false charpath gsave fill EB} def
+
+/SY	{/y ED /x ED /yp ED /yn ED /st ED
+	newpath x y M PS 4 div dup scale
+	[{CIR} {UTRI} {DI} {SQ} {TRI}] st 5 mod get exec
+	closepath SDM gsave 
+	[{1 FILL stroke} {fill} {stroke}] st 5 idiv 3 mod get exec
+	EB} def
+
+/EB {	grestore PMTX concat PBOX SDM
+	y1 y sub yp le {yp y1 EB2} if 
+	y0 y sub yn ge {yn y0 EB2} if} def
+/EB2	{newpath x exch M 0 exch N x0 x sub 0 N x1 x0 sub 0 N stroke} def
+
+/CIR	{currentpoint newpath 1.1 0 360 arc} def
+/TRI	{0 1.2 rmoveto -1.2 -2.4 rlineto 2.4 0 rlineto} def
+/DI	{ 0 -1.5 rmoveto 1.3 1.5 rlineto
+	-1.3 1.5  rlineto -1.3 -1.5 rlineto} def
+/UTRI	{180 rotate TRI 180 rotate} def
+/SQ	{1 1 rmoveto -2 0 rlineto 0 -2 rlineto 2 0
+	rlineto} def
+
+/LW	{.2 mul FSCL mul setlinewidth} def
+/SF	{FSCL mul /PS ED findfont PS scalefont setfont} def
+/DL	{PS mul .05 mul} def
+
+/solid		{{}0} def
+/dotted		{[1 DL 3 DL] 0} def
+/longdashed	{[7 DL] 0} def
+/shortdashed	{[4 DL 5 DL] 0} def
+/dotdashed	{[1 DL 5 DL 6 DL 5 DL] 0} def
+
+/MAX	{2 copy lt {exch pop} {pop} ifelse} def
+/SDM	{DMTX setmatrix} def
+/FILL	{gsave setgray fill grestore} def
+/PBOX	{pathbbox /y1 ED /x1 ED /y0 ED /x0 ED} def
+INIT
+0.85 0.775 3.35 7.975 9.35 0 0 4320 3600 WDEF
+/Times-Roman 16 SF
+solid setdash
+0 0 0 setrgbcolor
+4 LW
+/Times-Roman 16 SF
+(THE TITLE FOR THE ENTIRE GRAPH GOES HERE) 2160 3491 8 0 T
+3 LW
+/Times-Roman 14 SF
+0 3366 M
+4320 0 N
+0 0 L
+0 3388 M
+4320 0 N
+0 0 L
+0 1667 M
+4320 0 N
+0 0 L
+0 1685 M
+4320 0 N
+0 0 L
+2151 0 M
+0 3384 N
+0 0 L
+2169 0 M
+0 3384 N
+0 0 L
+0 0 M
+0 3600 N
+4320 0 N
+0 -3600 N
+-4320 0 N
+0 0 L
+0.85 0.775 3.35 7.975 9.35 0 0 4320 3600 WDEF
+/Times-Roman 16 SF
+solid setdash
+0 0 0 setrgbcolor
+3 LW
+/Times-Roman 13 SF
+1879 1907 M
+-1447 0 L
+432 1907 M
+0 36 L
+/Times-Roman 10.4 SF
+(0) 516 1907 4 0 T
+/Times-Roman 13 SF
+(10) 378 1873 2 0 T
+721 1907 M
+0 36 L
+/Times-Roman 10.4 SF
+(1) 805 1907 4 0 T
+/Times-Roman 13 SF
+(10) 667 1873 2 0 T
+1011 1907 M
+0 36 L
+/Times-Roman 10.4 SF
+(2) 1095 1907 4 0 T
+/Times-Roman 13 SF
+(10) 957 1873 2 0 T
+1300 1907 M
+0 36 L
+/Times-Roman 10.4 SF
+(3) 1384 1907 4 0 T
+/Times-Roman 13 SF
+(10) 1246 1873 2 0 T
+1590 1907 M
+0 36 L
+/Times-Roman 10.4 SF
+(4) 1674 1907 4 0 T
+/Times-Roman 13 SF
+(10) 1536 1873 2 0 T
+1879 1907 M
+0 36 L
+/Times-Roman 10.4 SF
+(5) 1963 1907 4 0 T
+/Times-Roman 13 SF
+(10) 1825 1873 2 0 T
+4 LW
+/Times-Roman 15 SF
+() 1155 1842 XT
+3 LW
+/Times-Roman 13 SF
+432 3060 M
+0 -1153 L
+432 1907 M
+36 0 L
+(0.0) 432 1907 YN
+432 2022 M
+24 0 L
+432 2138 M
+36 0 L
+(0.2) 432 2138 YN
+432 2253 M
+24 0 L
+432 2368 M
+36 0 L
+(0.4) 432 2368 YN
+432 2483 M
+24 0 L
+432 2599 M
+36 0 L
+(0.6) 432 2599 YN
+432 2714 M
+24 0 L
+432 2829 M
+36 0 L
+(0.8) 432 2829 YN
+432 2945 M
+24 0 L
+432 3060 M
+36 0 L
+(1.0) 432 3060 YN
+4 LW
+/Times-Roman 15 SF
+(LPF: Log Freq & Ticks in) 1155 3140 7 0 T
+2 LW
+/Times-Roman 12 SF
+432 3046 M
+14 -2 N
+15 -2 N
+14 -2 N
+15 -2 N
+14 -3 N
+15 -3 N
+14 -3 N
+15 -4 N
+14 -4 N
+15 -4 N
+14 -5 N
+15 -6 N
+14 -6 N
+15 -6 N
+14 -8 N
+15 -8 N
+14 -9 N
+14 -9 N
+15 -11 N
+14 -11 N
+15 -13 N
+14 -13 N
+15 -14 N
+14 -16 N
+15 -16 N
+14 -18 N
+15 -19 N
+14 -19 N
+15 -21 N
+14 -21 N
+15 -23 N
+14 -23 N
+15 -23 N
+14 -25 N
+14 -25 N
+15 -25 N
+14 -25 N
+15 -26 N
+14 -25 N
+15 -26 N
+14 -25 N
+15 -25 N
+14 -24 N
+15 -24 N
+14 -24 N
+15 -23 N
+14 -22 N
+15 -22 N
+14 -20 N
+14 -20 N
+15 -20 N
+14 -18 N
+15 -18 N
+14 -17 N
+15 -17 N
+14 -15 N
+15 -15 N
+14 -14 N
+15 -14 N
+14 -12 N
+15 -13 N
+14 -11 N
+15 -11 N
+14 -11 N
+15 -9 N
+14 -10 N
+14 -9 N
+15 -8 N
+14 -8 N
+15 -7 N
+14 -8 N
+15 -6 N
+14 -7 N
+15 -6 N
+14 -5 N
+15 -6 N
+14 -5 N
+15 -5 N
+14 -4 N
+15 -4 N
+14 -4 N
+15 -4 N
+14 -4 N
+14 -3 N
+15 -4 N
+14 -3 N
+15 -2 N
+14 -3 N
+15 -3 N
+14 -2 N
+15 -2 N
+14 -3 N
+15 -2 N
+14 -2 N
+15 -1 N
+14 -2 N
+15 -2 N
+14 -1 N
+15 -2 N
+0 0 L
+432 1907 M
+0.85 0.775 3.35 7.975 9.35 0 0 4320 3600 WDEF
+/Times-Roman 16 SF
+solid setdash
+0 0 0 setrgbcolor
+3 LW
+/Times-Roman 13 SF
+4082 252 M
+-1490 0 L
+2592 216 M
+0 72 L
+/Times-Roman 10.4 SF
+(0) 2676 216 4 0 T
+/Times-Roman 13 SF
+(10) 2538 182 2 0 T
+2890 216 M
+0 72 L
+/Times-Roman 10.4 SF
+(1) 2974 216 4 0 T
+/Times-Roman 13 SF
+(10) 2836 182 2 0 T
+3188 216 M
+0 72 L
+/Times-Roman 10.4 SF
+(2) 3272 216 4 0 T
+/Times-Roman 13 SF
+(10) 3134 182 2 0 T
+3486 216 M
+0 72 L
+/Times-Roman 10.4 SF
+(3) 3570 216 4 0 T
+/Times-Roman 13 SF
+(10) 3432 182 2 0 T
+3784 216 M
+0 72 L
+/Times-Roman 10.4 SF
+(4) 3868 216 4 0 T
+/Times-Roman 13 SF
+(10) 3730 182 2 0 T
+4082 216 M
+0 72 L
+/Times-Roman 10.4 SF
+(5) 4166 216 4 0 T
+/Times-Roman 13 SF
+(10) 4028 182 2 0 T
+4 LW
+/Times-Roman 15 SF
+() 3337 152 XT
+3 LW
+/Times-Roman 13 SF
+2592 1403 M
+0 -1151 L
+2556 252 M
+72 0 L
+/Times-Roman 10.4 SF
+/Times-Roman 13 SF
+(10) 2357 218 0 0 T
+/Times-Roman 10.4 SF
+(-2) 2541 269 6 0 T
+/Times-Roman 13 SF
+2568 425 M
+48 0 L
+2568 527 M
+48 0 L
+2568 598 M
+48 0 L
+2568 654 M
+48 0 L
+2568 700 M
+48 0 L
+2568 738 M
+48 0 L
+2568 772 M
+48 0 L
+2568 801 M
+48 0 L
+2556 828 M
+72 0 L
+/Times-Roman 10.4 SF
+/Times-Roman 13 SF
+(10) 2357 794 0 0 T
+/Times-Roman 10.4 SF
+(-1) 2541 845 6 0 T
+/Times-Roman 13 SF
+2568 1001 M
+48 0 L
+2568 1102 M
+48 0 L
+2568 1174 M
+48 0 L
+2568 1230 M
+48 0 L
+2568 1275 M
+48 0 L
+2568 1314 M
+48 0 L
+2568 1347 M
+48 0 L
+2568 1377 M
+48 0 L
+2556 1403 M
+72 0 L
+/Times-Roman 10.4 SF
+/Times-Roman 13 SF
+(10) 2403 1369 0 0 T
+/Times-Roman 10.4 SF
+(0) 2541 1420 6 0 T
+/Times-Roman 13 SF
+4 LW
+/Times-Roman 15 SF
+(LPF: Log Freq & Ampl) 3337 1483 7 0 T
+2 LW
+/Times-Roman 12 SF
+2592 1400 M
+15 0 N
+15 -1 N
+15 0 N
+15 -1 N
+15 0 N
+14 -1 N
+15 -1 N
+15 -1 N
+15 -1 N
+15 -1 N
+15 -1 N
+15 -1 N
+15 -1 N
+15 -2 N
+15 -2 N
+14 -1 N
+15 -2 N
+15 -3 N
+15 -2 N
+15 -3 N
+15 -3 N
+15 -3 N
+15 -4 N
+15 -4 N
+15 -4 N
+14 -5 N
+15 -5 N
+15 -5 N
+15 -6 N
+15 -6 N
+15 -7 N
+15 -7 N
+15 -7 N
+15 -8 N
+15 -8 N
+14 -9 N
+15 -9 N
+15 -9 N
+15 -10 N
+15 -10 N
+15 -10 N
+15 -11 N
+15 -11 N
+15 -12 N
+15 -11 N
+14 -12 N
+15 -12 N
+15 -13 N
+15 -12 N
+15 -13 N
+15 -13 N
+15 -13 N
+15 -13 N
+15 -13 N
+15 -13 N
+14 -14 N
+15 -14 N
+15 -13 N
+15 -14 N
+15 -14 N
+15 -14 N
+15 -14 N
+15 -13 N
+15 -14 N
+15 -15 N
+14 -14 N
+15 -14 N
+15 -14 N
+15 -14 N
+15 -14 N
+15 -15 N
+15 -14 N
+15 -14 N
+15 -14 N
+15 -15 N
+14 -14 N
+15 -14 N
+15 -14 N
+15 -15 N
+15 -14 N
+15 -14 N
+15 -15 N
+15 -14 N
+15 -14 N
+15 -15 N
+14 -14 N
+15 -15 N
+15 -14 N
+15 -14 N
+15 -15 N
+15 -14 N
+15 -14 N
+15 -15 N
+15 -14 N
+15 -14 N
+14 -15 N
+15 -14 N
+15 -15 N
+15 -14 N
+0 0 L
+2592 252 M
+0.85 0.775 3.35 7.975 9.35 0 0 4320 3600 WDEF
+/Times-Roman 16 SF
+solid setdash
+0 0 0 setrgbcolor
+3 LW
+/Times-Roman 13 SF
+1879 252 M
+-1447 0 L
+432 216 M
+0 36 L
+/Times-Roman 10.4 SF
+(0) 493 216 4 0 T
+/Times-Roman 13 SF
+(e) 401 182 2 0 T
+577 228 M
+0 24 L
+721 216 M
+0 36 L
+/Times-Roman 10.4 SF
+(2) 782 216 4 0 T
+/Times-Roman 13 SF
+(e) 690 182 2 0 T
+866 228 M
+0 24 L
+1011 216 M
+0 36 L
+/Times-Roman 10.4 SF
+(4) 1072 216 4 0 T
+/Times-Roman 13 SF
+(e) 980 182 2 0 T
+1155 228 M
+0 24 L
+1300 216 M
+0 36 L
+/Times-Roman 10.4 SF
+(6) 1361 216 4 0 T
+/Times-Roman 13 SF
+(e) 1269 182 2 0 T
+1445 228 M
+0 24 L
+1590 216 M
+0 36 L
+/Times-Roman 10.4 SF
+(8) 1651 216 4 0 T
+/Times-Roman 13 SF
+(e) 1559 182 2 0 T
+1734 228 M
+0 24 L
+1879 216 M
+0 36 L
+/Times-Roman 10.4 SF
+(10) 1963 216 4 0 T
+/Times-Roman 13 SF
+(e) 1825 182 2 0 T
+4 LW
+/Times-Roman 15 SF
+() 1155 152 XT
+3 LW
+/Times-Roman 13 SF
+432 1403 M
+0 -1151 L
+396 252 M
+36 0 L
+(-1.0) 396 252 YN
+408 396 M
+24 0 L
+396 540 M
+36 0 L
+(-0.5) 396 540 YN
+408 684 M
+24 0 L
+396 828 M
+36 0 L
+(0.0) 396 828 YN
+408 971 M
+24 0 L
+396 1115 M
+36 0 L
+(0.5) 396 1115 YN
+408 1259 M
+24 0 L
+396 1403 M
+36 0 L
+(1.0) 396 1403 YN
+4 LW
+/Times-Roman 15 SF
+(Alternate base & Ticks out) 1155 1483 7 0 T
+2 LW
+/Times-Roman 12 SF
+432 828 M
+14 57 N
+15 57 N
+14 56 N
+15 54 N
+14 51 N
+15 49 N
+14 46 N
+15 42 N
+14 38 N
+15 34 N
+14 28 N
+15 24 N
+14 18 N
+15 13 N
+14 7 N
+15 1 N
+14 -5 N
+14 -10 N
+15 -16 N
+14 -21 N
+15 -27 N
+14 -31 N
+15 -36 N
+14 -41 N
+15 -44 N
+14 -48 N
+15 -51 N
+14 -53 N
+15 -55 N
+14 -56 N
+15 -58 N
+14 -57 N
+15 -57 N
+14 -57 N
+14 -54 N
+15 -53 N
+14 -50 N
+15 -48 N
+14 -43 N
+15 -40 N
+14 -35 N
+15 -31 N
+14 -26 N
+15 -20 N
+14 -15 N
+15 -9 N
+14 -4 N
+15 2 N
+14 8 N
+14 14 N
+15 19 N
+14 24 N
+15 30 N
+14 34 N
+15 38 N
+14 43 N
+15 47 N
+14 49 N
+15 52 N
+14 55 N
+15 56 N
+14 57 N
+15 57 N
+14 58 N
+15 56 N
+14 56 N
+14 53 N
+15 52 N
+14 48 N
+15 46 N
+14 41 N
+15 37 N
+14 33 N
+15 28 N
+14 22 N
+15 18 N
+14 11 N
+15 6 N
+14 0 N
+15 -5 N
+14 -11 N
+15 -17 N
+14 -22 N
+14 -28 N
+15 -32 N
+14 -37 N
+15 -41 N
+14 -45 N
+15 -48 N
+14 -51 N
+15 -54 N
+14 -55 N
+15 -57 N
+14 -57 N
+15 -58 N
+14 -57 N
+15 -56 N
+14 -54 N
+15 -53 N
+0 0 L
+432 252 M
+0.85 0.775 3.35 7.975 9.35 0 0 4320 3600 WDEF
+/Times-Roman 16 SF
+dotted setdash
+0 0 0 setrgbcolor
+0.1 LW
+/Times-Roman 12 SF
+dotted setdash
+2592 3060 M
+0 -1153 L
+3089 3060 M
+0 -1153 L
+3585 3060 M
+0 -1153 L
+4082 3060 M
+0 -1153 L
+solid setdash
+3 LW
+/Times-Roman 13 SF
+4082 1907 M
+-1490 0 L
+4082 3060 M
+-1490 0 L
+2592 3060 M
+0 36 L
+2592 1871 M
+0 36 L
+/Times-Roman 10.4 SF
+(0) 2676 1871 4 0 T
+/Times-Roman 13 SF
+(10) 2538 1837 2 0 T
+2742 3060 M
+0 24 L
+2742 1883 M
+0 24 L
+2829 3060 M
+0 24 L
+2829 1883 M
+0 24 L
+2891 3060 M
+0 24 L
+2891 1883 M
+0 24 L
+2939 3060 M
+0 24 L
+2939 1883 M
+0 24 L
+2978 3060 M
+0 24 L
+2978 1883 M
+0 24 L
+3012 3060 M
+0 24 L
+3012 1883 M
+0 24 L
+3041 3060 M
+0 24 L
+3041 1883 M
+0 24 L
+3066 3060 M
+0 24 L
+3066 1883 M
+0 24 L
+3089 3060 M
+0 36 L
+3089 1871 M
+0 36 L
+/Times-Roman 10.4 SF
+(1) 3173 1871 4 0 T
+/Times-Roman 13 SF
+(10) 3035 1837 2 0 T
+3238 3060 M
+0 24 L
+3238 1883 M
+0 24 L
+3326 3060 M
+0 24 L
+3326 1883 M
+0 24 L
+3388 3060 M
+0 24 L
+3388 1883 M
+0 24 L
+3436 3060 M
+0 24 L
+3436 1883 M
+0 24 L
+3475 3060 M
+0 24 L
+3475 1883 M
+0 24 L
+3508 3060 M
+0 24 L
+3508 1883 M
+0 24 L
+3537 3060 M
+0 24 L
+3537 1883 M
+0 24 L
+3563 3060 M
+0 24 L
+3563 1883 M
+0 24 L
+3585 3060 M
+0 36 L
+3585 1871 M
+0 36 L
+/Times-Roman 10.4 SF
+(2) 3669 1871 4 0 T
+/Times-Roman 13 SF
+(10) 3531 1837 2 0 T
+3735 3060 M
+0 24 L
+3735 1883 M
+0 24 L
+3822 3060 M
+0 24 L
+3822 1883 M
+0 24 L
+3884 3060 M
+0 24 L
+3884 1883 M
+0 24 L
+3932 3060 M
+0 24 L
+3932 1883 M
+0 24 L
+3972 3060 M
+0 24 L
+3972 1883 M
+0 24 L
+4005 3060 M
+0 24 L
+4005 1883 M
+0 24 L
+4034 3060 M
+0 24 L
+4034 1883 M
+0 24 L
+4059 3060 M
+0 24 L
+4059 1883 M
+0 24 L
+4082 3060 M
+0 36 L
+4082 1871 M
+0 36 L
+/Times-Roman 10.4 SF
+(3) 4166 1871 4 0 T
+/Times-Roman 13 SF
+(10) 4028 1837 2 0 T
+4 LW
+/Times-Roman 15 SF
+() 3337 1806 XT
+dotted setdash
+0.1 LW
+/Times-Roman 12 SF
+dotted setdash
+4082 1907 M
+-1490 0 L
+4082 2291 M
+-1490 0 L
+4082 2676 M
+-1490 0 L
+4082 3060 M
+-1490 0 L
+solid setdash
+3 LW
+/Times-Roman 13 SF
+2592 3060 M
+0 -1153 L
+4082 3060 M
+0 -1153 L
+4082 1907 M
+36 0 L
+2556 1907 M
+36 0 L
+/Times-Roman 10.4 SF
+/Times-Roman 13 SF
+(10) 2357 1873 0 0 T
+/Times-Roman 10.4 SF
+(-3) 2541 1924 6 0 T
+/Times-Roman 13 SF
+4082 2023 M
+24 0 L
+2568 2023 M
+24 0 L
+4082 2090 M
+24 0 L
+2568 2090 M
+24 0 L
+4082 2138 M
+24 0 L
+2568 2138 M
+24 0 L
+4082 2176 M
+24 0 L
+2568 2176 M
+24 0 L
+4082 2206 M
+24 0 L
+2568 2206 M
+24 0 L
+4082 2232 M
+24 0 L
+2568 2232 M
+24 0 L
+4082 2254 M
+24 0 L
+2568 2254 M
+24 0 L
+4082 2274 M
+24 0 L
+2568 2274 M
+24 0 L
+4082 2291 M
+36 0 L
+2556 2291 M
+36 0 L
+/Times-Roman 10.4 SF
+/Times-Roman 13 SF
+(10) 2357 2257 0 0 T
+/Times-Roman 10.4 SF
+(-2) 2541 2308 6 0 T
+/Times-Roman 13 SF
+4082 2407 M
+24 0 L
+2568 2407 M
+24 0 L
+4082 2475 M
+24 0 L
+2568 2475 M
+24 0 L
+4082 2523 M
+24 0 L
+2568 2523 M
+24 0 L
+4082 2560 M
+24 0 L
+2568 2560 M
+24 0 L
+4082 2590 M
+24 0 L
+2568 2590 M
+24 0 L
+4082 2616 M
+24 0 L
+2568 2616 M
+24 0 L
+4082 2638 M
+24 0 L
+2568 2638 M
+24 0 L
+4082 2658 M
+24 0 L
+2568 2658 M
+24 0 L
+4082 2676 M
+36 0 L
+2556 2676 M
+36 0 L
+/Times-Roman 10.4 SF
+/Times-Roman 13 SF
+(10) 2357 2642 0 0 T
+/Times-Roman 10.4 SF
+(-1) 2541 2693 6 0 T
+/Times-Roman 13 SF
+4082 2791 M
+24 0 L
+2568 2791 M
+24 0 L
+4082 2859 M
+24 0 L
+2568 2859 M
+24 0 L
+4082 2907 M
+24 0 L
+2568 2907 M
+24 0 L
+4082 2944 M
+24 0 L
+2568 2944 M
+24 0 L
+4082 2975 M
+24 0 L
+2568 2975 M
+24 0 L
+4082 3000 M
+24 0 L
+2568 3000 M
+24 0 L
+4082 3023 M
+24 0 L
+2568 3023 M
+24 0 L
+4082 3042 M
+24 0 L
+2568 3042 M
+24 0 L
+4082 3060 M
+36 0 L
+2556 3060 M
+36 0 L
+/Times-Roman 10.4 SF
+/Times-Roman 13 SF
+(10) 2403 3026 0 0 T
+/Times-Roman 10.4 SF
+(0) 2541 3077 6 0 T
+/Times-Roman 13 SF
+4 LW
+/Times-Roman 15 SF
+(Log axes with grid) 3337 3140 7 0 T
+2 LW
+/Times-Roman 12 SF
+2741 2945 M
+11 -9 N
+12 -9 N
+11 -9 N
+12 -9 N
+11 -8 N
+12 -9 N
+11 -9 N
+11 -9 N
+12 -9 N
+11 -9 N
+12 -9 N
+11 -8 N
+12 -9 N
+11 -9 N
+11 -9 N
+12 -9 N
+11 -9 N
+12 -8 N
+11 -9 N
+11 -9 N
+12 -9 N
+11 -9 N
+12 -9 N
+11 -8 N
+12 -9 N
+11 -9 N
+11 -9 N
+12 -9 N
+11 -9 N
+12 -8 N
+11 -9 N
+12 -9 N
+11 -9 N
+11 -9 N
+12 -9 N
+11 -9 N
+12 -8 N
+11 -9 N
+12 -9 N
+11 -9 N
+11 -9 N
+12 -9 N
+11 -8 N
+12 -9 N
+11 -9 N
+11 -9 N
+12 -9 N
+11 -9 N
+12 -8 N
+11 -9 N
+12 -9 N
+11 -9 N
+11 -9 N
+12 -9 N
+11 -8 N
+12 -9 N
+11 -9 N
+12 -9 N
+11 -9 N
+11 -9 N
+12 -9 N
+11 -8 N
+12 -9 N
+11 -9 N
+12 -9 N
+11 -9 N
+11 -9 N
+12 -8 N
+11 -9 N
+12 -9 N
+11 -9 N
+11 -9 N
+12 -9 N
+11 -8 N
+12 -9 N
+11 -9 N
+12 -9 N
+11 -9 N
+11 -9 N
+12 -8 N
+11 -9 N
+12 -9 N
+11 -9 N
+12 -9 N
+11 -9 N
+11 -9 N
+12 -8 N
+11 -9 N
+12 -9 N
+11 -9 N
+12 -9 N
+11 -9 N
+11 -8 N
+12 -9 N
+11 -9 N
+12 -9 N
+11 -9 N
+11 -9 N
+12 -8 N
+0 0 L
+2592 1907 M
+showpage CLOSE
+%%EOF
+%%EndDocument

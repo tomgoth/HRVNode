@@ -1,0 +1,41 @@
+file: 00README			G. Moody	 3 April 2001
+				Last revised:	25 April 2005
+
+The most recent version of 'plt' is always freely available from PhysioNet
+(http://physionet.org/physiotools/plt/).
+
+`plt' is a non-interactive plotting utility originally written for Unix by Paul
+Albrecht.  `plt' can produce publication-quality 2D plots in PostScript from
+easily-produced text or binary data files under Unix, Linux, MacOS/X, or
+MS-Windows.  These can be printed directly on a PostScript printer, or they
+can be viewed on-screen or printed on a wide variety of non-PostScript printers
+using GhostScript.  `plt' can also produce screen plots under any version of
+Unix, Linux, MacOS/X or MS-Windows, if an X Window System server is running.
+`plt' is free software, available under the terms of the GNU Public License
+(GPL); see `COPYING' for details.
+
+The `src' directory contains sources for `plt', its X11 and PostScript drivers,
+and its auxiliary programs.
+
+The `doc' directory contains the `plt Tutorial and Cookbook' in ready-to-print
+PDF and LaTeX source format, as well as data and format files for a large
+number of examples that may be helpful as models for your own plots.  You may
+also read the `plt Tutorial and Cookbook' by pointing your web browser to
+`index.html' in the `html' directory (note, however, that the translation from
+LaTeX source to HTML format was done with an automatic translator, and the
+formatting is not perfect).
+
+The `misc' directory contains several small programs that are useful together
+with `plt', including `pltf' (which can plot functions of a single variable
+expressed in symbolic form).
+
+Older versions of `plt' also included drivers for a variety of mostly obsolete
+graphics terminals and plotters.  These drivers are still available in the
+`classic' directory, but they are no longer maintained and lack many of the
+features of the X11 and PostScript drivers.
+
+For instructions on compiling and installing `plt', read `INSTALL'.
+
+For information about using `plt', read `QUICKSTART'.
+
+Your comments are welcome!  Please send them to george@mit.edu.

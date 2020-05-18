@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Binary data files</TITLE>
+<META NAME="description" CONTENT="Binary data files">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node24.html">
+<LINK REL="previous" HREF="node22.html">
+<LINK REL="up" HREF="node20.html">
+<LINK REL="next" HREF="node24.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html559"
+  HREF="node24.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html553"
+  HREF="node20.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html547"
+  HREF="node22.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html555"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html557"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html560"
+  HREF="node24.html">Data specifications</A>
+<B>Up:</B> <A NAME="tex2html554"
+  HREF="node20.html">Preparing Input for plt</A>
+<B> Previous:</B> <A NAME="tex2html548"
+  HREF="node22.html">Comma-separated value (CSV) files</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00630000000000000000">
+Binary data files</A>
+</H1>
+<P>
+<FONT SIZE="+2"><TT>plt</TT> can also read some types of binary data files.  You can
+create files of these types by writing the data as a sequence of <TT>short</TT> integer, <TT>float</TT>, or <TT>double</TT> format numbers.  These
+types may not be mixed in a single data file.  The sizes of these data
+types and their byte ordering rules are architecture-dependent, so
+that binary data files, unlike text data files, are not necessarily
+portable between computers of different types.
+</FONT>
+<P>
+<FONT SIZE="+2">The structure of binary data files is similar to that of text data
+files, in that data are (conceptually) organized in rows and columns.
+If your file contains values for <IMG
+ WIDTH="24" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img23.png"
+ ALT="$N$"> variables (columns), each row
+must contain <IMG
+ WIDTH="24" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img23.png"
+ ALT="$N$"> values, one for each column.  The data file does not
+contain any row boundary markers; you must specify the number of
+columns and the data type using either an embedded two-byte
+descriptive header at the beginning of the data file, or an
+appropriate <EM>data specification</EM> on the <TT>plt</TT> command line, so
+that the input can be parsed correctly.
+</FONT>
+<P>
+<FONT SIZE="+2">A binary data file can be most easily used by <TT>plt</TT> if its first
+two bytes describe its format.  To do this, the first byte should
+contain the number of bytes per data value (on most current CPUs, this
+is 2 for <TT>short</TT>, 4 for <TT>float</TT>, or 8 for <TT>double</TT>
+values), and the second byte should contain the number of columns per
+row.  These header bytes should be followed immediately by the data.
+<TT>plt</TT> can recognize binary files of this type because text files
+should contain printing characters and whitespace only (the byte
+values 2, 4, and 8 correspond to non-printing, non-whitespace control
+characters).
+</FONT>
+<P>
+<FONT SIZE="+2">The two-byte header is optional.  If it is omitted, however, you must
+use a data specification (see the next section) in order to advise
+<TT>plt</TT> of the format of your data.  Binary data files to be used as
+input to <TT>plt</TT> should not contain any information other than the
+optional header and the data themselves, although it is possible to
+skip over an embedded prolog or epilog in most cases.
+</FONT>
+<P>
+<HR>
+<A NAME="tex2html559"
+  HREF="node24.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html553"
+  HREF="node20.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html547"
+  HREF="node22.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html555"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html557"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html560"
+  HREF="node24.html">Data specifications</A>
+<B>Up:</B> <A NAME="tex2html554"
+  HREF="node20.html">Preparing Input for plt</A>
+<B> Previous:</B> <A NAME="tex2html548"
+  HREF="node22.html">Comma-separated value (CSV) files</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

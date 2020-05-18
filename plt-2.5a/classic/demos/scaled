@@ -1,0 +1,18 @@
+case $1 in
+	lw)	PROGNAME="$0"
+		shift
+		PTERM=lw
+		export PTERM
+		$PROGNAME "$@" | lwcat
+		exit
+		;;
+esac
+
+plt ldemo.data 2 3 -t"FREQUENCY RESPONSE OF THE FILTER" \
+-x"FREQUENCY IN HERTZ" -y"THIS IS THE AMPLITUDE" -sf all P16 $*
+
+plt ldemo.data 2 3 -t"FREQUENCY RESP." -x"FREQUENCY" \
+-y"AMPLITUDE"  -W .3 .3 .5 .45 -se -sf all P12 $*
+
+plt ldemo.data 2 3 -t"FREQUENCY RESPONSE" -x"FREQUENCY" \
+-y"AMPLITUDE"  -W .6 .55 .9 .8 -se  -sf all P14 $*

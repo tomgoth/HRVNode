@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Plotting an image</TITLE>
+<META NAME="description" CONTENT="Plotting an image">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node19.html">
+<LINK REL="previous" HREF="node12.html">
+<LINK REL="up" HREF="node8.html">
+<LINK REL="next" HREF="node19.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html484"
+  HREF="node19.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html478"
+  HREF="node8.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html472"
+  HREF="node17.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html480"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html482"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html485"
+  HREF="node19.html">Plotting a function of a single variable</A>
+<B>Up:</B> <A NAME="tex2html479"
+  HREF="node8.html">Getting Started with plt</A>
+<B> Previous:</B> <A NAME="tex2html473"
+  HREF="node17.html">Using color</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00550000000000000000">
+Plotting an image</A>
+</H1>
+<P>
+<FONT SIZE="+2"><A NAME="591"></A><A NAME="592"></A>The <TT>plt</TT> package includes a tiny program named <TT>imageplt</TT> that
+can be used together with <TT>plt</TT> to plot a greyscale image, as shown
+in figure&nbsp;<A HREF="#fig:image">2.8</A>.  The input to <TT>imageplt</TT> should be a list
+of grey levels (0 = black, 1 = white) for each pixel in the image, beginning
+at the lower left corner, going up each column, then continuing from the
+bottom of the next column, etc.  For example, suppose the input file
+<TT>image.data</TT> contains:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+1 .9 .8 .7 .6
+0 0 0 0 0
+1 1 1 1 1
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2">These data can be plotted as a 3x5 image to produce
+figure&nbsp;<A HREF="#fig:image">2.8</A>.  For further details, see
+Appendix&nbsp;<A HREF="node59.html#sec:man-page">H</A>.
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:image"></A><A NAME="3310"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 2.8:</STRONG>
+Produced using the command:</CAPTION>
+<TR><TD><IMG
+ WIDTH="700" HEIGHT="645" BORDER="0"
+ SRC="img19.png"
+ ALT="\begin{figure}\begin{center}
+\fcolorbox{blue}{white}{
+\epsfig{file=image,height=...
+...d 5 3 image.data \vert plt 0 1 2 -pc\end{boxedverbatim}
+\end{center}\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<BR> <HR>
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

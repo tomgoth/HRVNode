@@ -1,0 +1,30 @@
+This directory contains sources for classic `plt', including drivers for a
+variety of mostly obsolete graphics terminals and plotters, as well as
+subdirectories that contain sources for PA's `libc' library (used by classic
+`plt' programs) and various programs that demonstrate the use of `plt' (in
+`demos').
+
+****************************** IMPORTANT **********************************
+NO SUPPORT IS AVAILABLE for any of the software in this directory.  You
+will find that much of the documentation for modern `plt' will be helpful,
+but if you choose to use classic `plt' you are on your own!
+****************************************************************************
+
+To install classic `plt' on a new system, edit the site-dependent variables in
+`Makefile', make any needed changes to `plt' and `lwcat', then type `make'.
+
+To use classic `plt', follow the examples given in the demos.  If you have both
+a graphics display and a PostScript printer, it is usually most convenient to
+preview your plots on the display before printing them.  The simplest way to
+do this is to leave PTERM unset, set TERM to an appropriate value for your
+display (this is normally done in your login script), and run your `plt'
+command without a `-T' option;  to print, just rerun the same command, but
+add `-T lw' to the `plt' argument list, and pipe the output to `lwcat'.
+For example:
+	plt xxx ...			(to preview the plot on the display)
+	plt -T lw xxx ... | lwcat	(to print the same plot on the printer)
+
+Please note that classic `plt' is no longer maintained and lacks many features
+of modern `plt' (which can be found in the directory one level above this one).
+Unless you need to plot on one of the devices supported only by classic `plt',
+use modern `plt' instead.

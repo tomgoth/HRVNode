@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Using plt without an X server </TITLE>
+<META NAME="description" CONTENT="Using plt without an X server ">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node11.html">
+<LINK REL="previous" HREF="node9.html">
+<LINK REL="up" HREF="node8.html">
+<LINK REL="next" HREF="node11.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html369"
+  HREF="node11.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html363"
+  HREF="node8.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html357"
+  HREF="node9.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html365"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html367"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html370"
+  HREF="node11.html">More about options</A>
+<B>Up:</B> <A NAME="tex2html364"
+  HREF="node8.html">Getting Started with plt</A>
+<B> Previous:</B> <A NAME="tex2html358"
+  HREF="node9.html">plt Essentials</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00520000000000000000"></A><A NAME="sec:nox"></A>
+<BR>
+Using <TT>plt</TT> without an X server 
+</H1>
+<P>
+<FONT SIZE="+2"><A NAME="263"></A><A NAME="264"></A><A NAME="265"></A><A NAME="266"></A><A NAME="267"></A>The X Window System is a standard component of GNU/Linux and virtually
+all current versions of Unix, including Mac OS X.  A high-quality
+implementation of X is freely available for MS-Windows (Cygwin/X, from
+<TT>http://www.cygwin.com/</TT>);  if you use MS-Windows, it will be well worth
+the modest effort required to download and install an X server.  If you will
+be using <TT>plt</TT> with an X server, please skip ahead to
+section&nbsp;<A HREF="node11.html#sec:more-options">2.3</A> below.
+</FONT>
+<P>
+<FONT SIZE="+2">If you have not already installed <TT>plt</TT>, please see
+appendix&nbsp;<A HREF="node53.html#sec:distribution">F</A>, beginning on page&nbsp;<A HREF="node53.html#sec:distribution"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="274"></A><A NAME="275"></A><A NAME="276"></A><TT>plt</TT> can generate PostScript plots, which can be printed directly on
+PostScript printers or (via <TT>ghostscript</TT>) on a variety of non-PostScript
+printers.  <TT>ghostscript</TT> can also render PostScript on-screen, but this
+is most easily managed using a GUI wrapper such as <TT>gv</TT>, <TT>ggv</TT>,
+<TT>mgv</TT>, <TT>ghostview</TT>, or <TT>GSView</TT>.  All of these require an X server,
+except that GSView can use native graphics when running on MS-Windows or OS/2.
+See <TT>http://www.cs.wisc.edu/&nbsp;ghost/gv/</TT> for details on these
+GUI wrappers for <TT>ghostscript</TT>.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="287"></A>When using <TT>plt</TT> without an X server running, always send the output to
+<TT>lwcat</TT>.  There are two ways to do this:
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="290"></A></FONT>
+<OL>
+<LI>Send the output via a pipe, as in ``<TT>plt ... | lwcat</TT>''.  (This is
+the recommended method.)
+
+<P>
+</LI>
+<LI>Collect the output in a file, as in ``<TT>plt ... <IMG
+ WIDTH="21" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$&gt;$">output.plt</TT>'',
+then read the file, as in ``<TT>lwcat <IMG
+ WIDTH="21" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$&lt;$">output.plt</TT>''.   Note that
+the output file does not contain a PostScript prolog, so it cannot be
+printed directly;  <TT>lwcat</TT> is responsible for adding the prolog.
+</LI>
+</OL>
+<P>
+<FONT SIZE="+2"><A NAME="297"></A><A NAME="298"></A>You can easily follow along with all of the examples in this book, which work
+using the PostScript driver in exactly the same way as when using the X driver,
+if you simply add ``<TT>|&nbsp;lwcat -gv</TT>'' to the end of each <TT>plt</TT> command.
+(You may omit ``<TT>-gv</TT>'' if you are running within a Cygwin/bash window
+under MS-Windows.)  When you do this, the output of <TT>plt</TT> is opened in a
+<TT>gv</TT> or GSView window.  Using <TT>gv</TT> or GSView's controls, you can save
+the plot as a file, print it (on any printer supported by GhostScript, not just
+on PostScript printers), and view it at natural or magnified scales.  (Drivers
+for a vast range of printers are included with GhostScript; see <TT>http://www.ghostscript.com/</TT> for a list of supported printers.)
+</FONT>
+<P>
+<FONT SIZE="+2">
+<BR>
+<BR>
+<FONT SIZE="-1">You might reasonably wonder why <TT>lwcat</TT> is not part of <TT>plt</TT>.  The
+reason is that the output of several <TT>plt</TT> commands can be concatenated
+and supplied to <TT>lwcat</TT> in a single batch to create multiple plots on
+a single page (see chapter&nbsp;<A HREF="node33.html#sec:multiplots">7</A>).  To do this,
+group the <TT>plt</TT> commands together within a pair of parentheses, separating
+them with newlines or semicolons;  then send the output of the entire group
+to <TT>lwcat</TT>, either like this:
+</FONT></FONT>
+<P>
+<FONT SIZE="+2"></FONT>
+<DIV ALIGN="CENTER"><FONT SIZE="+2"></FONT></DIV><PRE>
+( plt data1 ... ; plt data2 ...; plt data3 ... ) | lwcat
+</PRE>
+<DIV ALIGN="CENTER"><FONT SIZE="+2"></FONT></DIV><FONT SIZE="+2"></FONT>
+<P>
+<FONT SIZE="+2"><FONT SIZE="-1">
+or like this:
+</FONT></FONT>
+<P>
+<FONT SIZE="+2"></FONT>
+<DIV ALIGN="CENTER"><FONT SIZE="+2"></FONT></DIV><PRE>
+( plt data1 ... ; plt data2 ...; plt data3 ... ) &gt;output.plt
+lwcat &lt;output.plt
+</PRE>
+<DIV ALIGN="CENTER"><FONT SIZE="+2"></FONT></DIV><FONT SIZE="+2"></FONT>
+<P>
+<FONT SIZE="+2"><FONT SIZE="-1">If you are paying particularly close attention while reading the rest of
+this book, you may notice that <TT>plt</TT> accepts the option <TT>-T lw</TT>
+to specify PostScript output.  If an X server is not running, this is
+the default, so that the <TT>-T lw</TT> option can be omitted.  Furthermore,
+<TT>lwcat</TT> accepts the option <TT>-gv</TT> to specify that the output is to
+be opened using <TT>gv</TT> (GSView under MS-Windows), but this is the default
+if you are running <TT>plt</TT> and <TT>lwcat</TT> in a Cygwin/bash window, so
+that the <TT>-gv</TT> option can be omitted in this case.  If you attempt to
+run <TT>plt</TT> and <TT>lwcat</TT> under MS-Windows in a DOS window (which is
+not recommended), or in some other way (also not recommended), you will need
+to use the <TT>-gv</TT> option explicitly.
+</FONT></FONT>
+<P>
+<HR>
+<A NAME="tex2html369"
+  HREF="node11.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html363"
+  HREF="node8.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html357"
+  HREF="node9.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html365"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html367"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html370"
+  HREF="node11.html">More about options</A>
+<B>Up:</B> <A NAME="tex2html364"
+  HREF="node8.html">Getting Started with plt</A>
+<B> Previous:</B> <A NAME="tex2html358"
+  HREF="node9.html">plt Essentials</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

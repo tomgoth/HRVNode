@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Description</TITLE>
+<META NAME="description" CONTENT="Description">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node87.html">
+<LINK REL="previous" HREF="node85.html">
+<LINK REL="up" HREF="node83.html">
+<LINK REL="next" HREF="node87.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html1504"
+  HREF="node87.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1498"
+  HREF="node83.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1492"
+  HREF="node85.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1500"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1502"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html1505"
+  HREF="node87.html">See Also</A>
+<B>Up:</B> <A NAME="tex2html1499"
+  HREF="node83.html">imageplt</A>
+<B> Previous:</B> <A NAME="tex2html1493"
+  HREF="node85.html">Synopsis</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION002333000000000000000">
+Description</A>
+</H2>
+<P>
+<FONT SIZE="+2"><TT>imageplt</TT> provides a simple way to plot a greyscale
+image using <I><TT>plt</TT>(1)</I>.  The required arguments, <I>nrows</I> and <I>ncols</I>, specify the
+numbers of rows and columns in the image.  The input <I>file</I> (or the standard
+input, if no input file is specified) contains only the grey levels for
+each pixel (0 = white, 1 = black).  Each entry is an ASCII-coded decimal
+floating point number, separated from adjacent entries by whitespace (one
+or more spaces, tabs, or newlines).  The first <I>nrows</I> entries are the grey
+levels for column 0 of the image, botttom to top, and each successive column
+from left to right of the image follows.  If <I>nrows</I> is small, it may be convenient
+to arrange the image file in columns and rows corresponding to those of
+the image, but this is not necessary.  In no case should the length of a
+line of input exceed 50000 bytes (defined as MAXLEN in the source). 
+</FONT>
+<P>
+<FONT SIZE="+2"><I>Options</I>
+include: </FONT><DL>
+<DT><STRONG><TT>-n</TT> </STRONG></DT>
+<DD>Generate a negative image (1 = white, 0 = black). 
+</DD>
+<DT><STRONG><TT>-x</TT> <I>xmin</I> <I>xmax</I>
+</STRONG></DT>
+<DD>Specify the range of the x-coordinates (default: <I>xmin</I>=0, <I>xmax</I>=<I>nrows</I>-1). 
+</DD>
+<DT><STRONG><TT>-y</TT>
+<I>ymin</I> <I>ymax</I> </STRONG></DT>
+<DD>Specify the range of the y-coordinates (default: <I>ymin</I>=0, <I>ymax</I>=<I>ncols</I>-1).
+
+<P>
+</DD>
+</DL>
+<P>
+<FONT SIZE="+2">The output of <I>imageplt</I> is text in three columns, to be plotted using the
+<TT>-pc</TT> option of <TT>plt</TT>, as in: </FONT><DL>
+<DT><STRONG>imageplt -d 10 10 foo <IMG
+ WIDTH="11" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img123.png"
+ ALT="$\vert$"> plt 0 1 2 -pc </STRONG></DT>
+<DD>
+</DD>
+</DL>
+<P>
+<HR>
+<A NAME="tex2html1504"
+  HREF="node87.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1498"
+  HREF="node83.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1492"
+  HREF="node85.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1500"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1502"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html1505"
+  HREF="node87.html">See Also</A>
+<B>Up:</B> <A NAME="tex2html1499"
+  HREF="node83.html">imageplt</A>
+<B> Previous:</B> <A NAME="tex2html1493"
+  HREF="node85.html">Synopsis</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

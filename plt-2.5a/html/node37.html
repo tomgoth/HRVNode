@@ -1,0 +1,236 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Labelling Your Plot </TITLE>
+<META NAME="description" CONTENT="Labelling Your Plot ">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node39.html">
+<LINK REL="previous" HREF="node33.html">
+<LINK REL="up" HREF="book.html">
+<LINK REL="next" HREF="node38.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html752"
+  HREF="node38.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html746"
+  HREF="book.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html740"
+  HREF="node36.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html748"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html750"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html753"
+  HREF="node38.html">Concatenating labels</A>
+<B>Up:</B> <A NAME="tex2html747"
+  HREF="book.html">plt Tutorial and Cookbook</A>
+<B> Previous:</B> <A NAME="tex2html741"
+  HREF="node36.html">Placing multiple plots on a page</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001100000000000000000"></A><A NAME="sec:labelling"></A>
+<BR>
+Labelling Your Plot 
+</H1>
+<P>
+<FONT SIZE="+2"><A NAME="3474"></A><A NAME="3475"></A><A NAME="1834"></A><A NAME="1835"></A>The <TT>-hl</TT> and <TT>-vl</TT> options allow you to create horizontal and vertical
+labels anywhere within your plot, using window coordinates, <IMG
+ WIDTH="81" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img35.png"
+ ALT="$(xw,yw)$">, to
+specify the location for the label; and a text box coordinate, <EM>tbc</EM> (e.g.,
+``<TT>CB</TT>'', ``<TT>RT</TT>'', etc.), to specify which point in the text box
+should coincide with <IMG
+ WIDTH="81" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img35.png"
+ ALT="$(xw,yw)$">. These options take their arguments as follows:
+</FONT>
+<P>
+
+<BLOCKQUOTE><FONT SIZE="+2"><TT>-hl</TT> <I>xw yw tbc nlines file</I>
+<BR><TT>-vl</TT> <I>xw yw tbc nlines file</I>
+</FONT></BLOCKQUOTE>
+<P>
+<FONT SIZE="+2">All arguments are optional (but if a specified argument follows an
+omitted argument, you must supply a ``<TT>-</TT>'' as a placeholder for
+the omitted argument).  If <IMG
+ WIDTH="32" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img92.png"
+ ALT="$xw$"> or <IMG
+ WIDTH="31" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img93.png"
+ ALT="$yw$"> is omitted, the missing
+coordinate is set to that of the <TT>RC</TT> point of the previous
+label, allowing labels to be concatenated (see below).  If
+<EM>tbc</EM> is omitted, the default value is ``<TT>CC</TT>'', i.e., the
+label will be centered on <IMG
+ WIDTH="81" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img35.png"
+ ALT="$(xw,yw)$">.  If specified, <EM>nlines</EM> is a
+number indicating how many input lines are to be used to form the
+label (line breaks are reproduced by <TT>plt</TT> as they appear in the
+input).
+</FONT>
+<P>
+<FONT SIZE="+2">If <EM>file</EM> is specified, the text for the label is read from the first
+<EM>nlines</EM> lines of <EM>file</EM>.  If <EM>nlines</EM> is not specified, the
+entire contents of <EM>file</EM> are used for the label.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="3476"></A><A NAME="3477"></A>If <EM>file</EM> is not specified, the next <EM>nlines</EM> lines of the <TT>plt -f</TT>
+format file or <TT>plt -F</TT> format string form the label; in this case, if <EM>nlines</EM> is also not specified, the label is formed from only one line (the next
+line) of the format file or string.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="3478"></A><A NAME="3479"></A>The <TT>-L</TT> and <TT>-l</TT> options can be used in a similar way to create
+horizontal labels.  The arguments for these options are supplied as follows:
+</FONT>
+<P>
+
+<BLOCKQUOTE><FONT SIZE="+2"><TT>-L</TT> <I>xw yw tbc text</I>
+<BR><TT>-l</TT> <I>x y tbc text</I>
+</FONT></BLOCKQUOTE>
+<P>
+<FONT SIZE="+2"><A NAME="1875"></A><A NAME="1876"></A><A NAME="1877"></A>As for <TT>-hl</TT>, the <EM>tbc</EM> argument is one of the twelve named text box
+coordinates.  The <EM>text</EM> argument is the string to be used for the label;
+it may include whitespace, but it ends at the end of the line on which it
+appears.  The difference between <TT>-L</TT> and <TT>-l</TT> is that the former
+takes window coordinates <IMG
+ WIDTH="81" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img35.png"
+ ALT="$(xw,yw)$">, and the latter takes data coordinates
+<IMG
+ WIDTH="52" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$(x,y)$">.
+</FONT>
+<P>
+<FONT SIZE="+2">These options are demonstrated in figure&nbsp;<A HREF="#fig:example9">8.1</A>, which uses the
+format file <TT>example9.format</TT>, containing:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+xa 0 600
+ya 0 500
+x Time Between Stimulations (msecs)
+y Refractory Period (msecs)
+# Note: the next line ends with a lower-case L, not a numeral 1!
+p 0,1,2,3l
+t ch 1.2
+l 400 200 CC fires every beat
+L .1 .9 CC . . .
+hl .45 .81 CC 2
+fires every
+other beat
+hl .25 .92 - 4
+  fires
+ every
+third
+beat
+</PRE>
+<DIV ALIGN="CENTER"></DIV><FONT SIZE="+2">
+and the data file <TT>example9.data</TT>, containing:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+0 0 500 500
+0 0 250 500
+0 0 166 500
+0 0 125 500
+0 0 100 500
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:example9"></A><A NAME="3481"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 8.1:</STRONG>
+Labelling a plotusing the <TT>-hl</TT>, <TT>-l</TT>, and <TT>-L</TT> options.  This plot was produced using the
+command</CAPTION>
+<TR><TD><IMG
+ WIDTH="700" HEIGHT="643" BORDER="0"
+ SRC="img94.png"
+ ALT="\begin{figure}\begin{center}
+\fcolorbox{blue}{white}{
+\epsfig{file=figure9,heigh...
+... example9.data % -f example9.format
+\end{boxedverbatim}
+\end{center}\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<FONT SIZE="+2"><A NAME="1909"></A><A NAME="1910"></A>In figure&nbsp;<A HREF="#fig:example9">8.1</A>, notice especially how whitespace at the beginning
+of two lines in the second <TT>hl</TT> option's text is preserved in the plot.
+Note also how both data and window coordinates are used with several <TT>plt</TT>
+options.  The next chapter describes several more options that can be used in
+the same way.  Options <TT>-A</TT>, <TT>-B</TT>, <TT>-C</TT>, <TT>-D</TT>, <TT>-L</TT>, <TT>-hl</TT>, <TT>-vl</TT>, <TT>-le</TT>, and <TT>-lp</TT> accept window coordinates; options
+<TT>-a</TT>, <TT>-b</TT>, <TT>-c</TT>, <TT>-d</TT>, and <TT>-l</TT> accept data coordinates.
+For now, note that you often have a choice of using data or window coordinates,
+since many of these options come in two varieties: upper-case options that use
+window coordinates, and similar lower-case options that use data coordinates.
+</FONT>
+<P>
+<BR> <HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html754"
+  HREF="node38.html">Concatenating labels </A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<A NAME="tex2html752"
+  HREF="node38.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html746"
+  HREF="book.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html740"
+  HREF="node36.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html748"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html750"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html753"
+  HREF="node38.html">Concatenating labels</A>
+<B>Up:</B> <A NAME="tex2html747"
+  HREF="book.html">plt Tutorial and Cookbook</A>
+<B> Previous:</B> <A NAME="tex2html741"
+  HREF="node36.html">Placing multiple plots on a page</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

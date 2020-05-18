@@ -1,0 +1,255 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Coordinate Systems </TITLE>
+<META NAME="description" CONTENT="Coordinate Systems ">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node29.html">
+<LINK REL="previous" HREF="node20.html">
+<LINK REL="up" HREF="book.html">
+<LINK REL="next" HREF="node29.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html627"
+  HREF="node29.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html621"
+  HREF="book.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html615"
+  HREF="node27.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html623"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html625"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html628"
+  HREF="node29.html">Titles and Axes</A>
+<B>Up:</B> <A NAME="tex2html622"
+  HREF="book.html">plt Tutorial and Cookbook</A>
+<B> Previous:</B> <A NAME="tex2html616"
+  HREF="node27.html">String arrays</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00700000000000000000"></A><A NAME="sec:coord-systems"></A>
+<BR>
+Coordinate Systems 
+</H1>
+<P>
+<FONT SIZE="+2">Using appropriate <TT>plt</TT> options, you can place labels anywhere in
+a plot, and you can place plots anywhere on a page.  These <TT>plt</TT>
+options use four coordinate systems to specify position.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="3331"></A><A NAME="3332"></A><A NAME="3333"></A><A NAME="3334"></A><A NAME="874"></A>First is the <EM>data coordinate system</EM>: the coordinates defined by your
+plot's axes.  The ranges of the data coordinates depend on the ranges of <IMG
+ WIDTH="17" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$x$">
+and <IMG
+ WIDTH="16" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$y$"> values, or on the ranges you specify using the <TT>-xa</TT> and <TT>-ya</TT>
+(or <TT>-X</TT> and <TT>-Y</TT>) options.  The lower left corner of the data
+coordinate system is <!-- MATH
+ $(x_{min},y_{min})$
+ -->
+<IMG
+ WIDTH="112" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img33.png"
+ ALT="$(x_{min},y_{min})$">, and the upper right corner is
+<!-- MATH
+ $(x_{max},y_{max})$
+ -->
+<IMG
+ WIDTH="117" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img34.png"
+ ALT="$(x_{max},y_{max})$">.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="884"></A>Second is the <EM>window coordinate system</EM>.  Window coordinates, <IMG
+ WIDTH="81" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img35.png"
+ ALT="$(xw,yw)$">,
+always range from <IMG
+ WIDTH="50" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img36.png"
+ ALT="$(0,0)$"> to <IMG
+ WIDTH="50" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img37.png"
+ ALT="$(1,1)$">.  The window coordinates <IMG
+ WIDTH="50" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img36.png"
+ ALT="$(0,0)$">
+correspond to the data coordinates <!-- MATH
+ $(x_{min},y_{min})$
+ -->
+<IMG
+ WIDTH="112" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img33.png"
+ ALT="$(x_{min},y_{min})$">, and the window
+coordinates <IMG
+ WIDTH="50" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img37.png"
+ ALT="$(1,1)$"> map to the data coordinates <!-- MATH
+ $(x_{max},y_{max})$
+ -->
+<IMG
+ WIDTH="117" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img34.png"
+ ALT="$(x_{max},y_{max})$">.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="890"></A><A NAME="891"></A><A NAME="892"></A><A NAME="893"></A>Third is the <EM>page coordinate system</EM>.  Page coordinates, <IMG
+ WIDTH="72" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img38.png"
+ ALT="$(xp,yp)$">, always
+range from <IMG
+ WIDTH="50" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img36.png"
+ ALT="$(0,0)$">, at the lower left corner of the page, to <IMG
+ WIDTH="50" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img37.png"
+ ALT="$(1,1)$"> at the
+upper right corner.  Using the <TT>-W</TT> option described later on, you can
+specify a rectangle in page coordinates in which the plot is to be drawn; this
+option thus allows you to draw multiple plots in any desired layout on a page.
+When you make a screen plot, the ``page'' may be the entire screen, or it may
+be an X window.  When you make a printable plot, the ``page'' may be the entire
+sheet of paper, or the printable area (generally less than the full sheet), or
+it may represent a PostScript bounding box for a plot that can be incorporated
+into another document such as this book.
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:coords"></A><A NAME="3336"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.1:</STRONG>
+Data, window, and page coordinates</CAPTION>
+<TR><TD><IMG
+ WIDTH="700" HEIGHT="580" BORDER="0"
+ SRC="img39.png"
+ ALT="\begin{figure}\begin{center}
+\fcolorbox{blue}{white}{
+\epsfig{file=coords,height=10cm}}
+\end{center}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<FONT SIZE="+2">Figure&nbsp;<A HREF="#fig:coords">4.1</A> illustrates the relationships among data, window, and
+page coordinates.  Note that it is always possible to refer to data, window, or
+page coordinates outside of the ranges of these coordinate systems.  Depending
+on the <TT>plt</TT> options you have chosen, and in some cases on the output
+device (screen or printer), out-of-bounds elements may or may not appear in the
+output.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="906"></A>A fourth coordinate system, called <EM>text box coordinates</EM>, is used by <TT>plt</TT> to allow fine control over the positioning of text on plots.
+</FONT>
+<P>
+<FONT SIZE="+2"><TT>plt</TT> places an imaginary <EM>text box</EM> around each string it prints.
+Descenders (the lower portions of ``g'', ``j'', ``p'', ``q'', ``y'', and ``,'')
+fall outside of the box, but each text box includes extra space above the top
+of the characters (30% to 40% of the basic height of the text) for any
+descenders from the line above.  Text box coordinates are symbolic and discrete
+rather than numeric and continuous.  Each text box has twelve points defined as
+shown in figure&nbsp;<A HREF="#fig:example8">4.2</A>.  Thus point <TT>CT</TT> is at the center of
+the top side of the text box, <TT>RB</TT> is the lower right corner, etc.
+</FONT>
+<P>
+<FONT SIZE="+2">When you tell <TT>plt</TT> to print a string at <IMG
+ WIDTH="52" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$(x,y)$">, <TT>plt</TT> usually places
+text box point <TT>CC</TT> at <IMG
+ WIDTH="52" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$(x,y)$">, thus centering the string on <IMG
+ WIDTH="52" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$(x,y)$">.  By
+naming the appropriate text box point as an argument to any of the options
+described in chapter&nbsp;<A HREF="node37.html#sec:labelling">8</A>, <EM>Labelling Your Plot</EM>, you can
+choose instead to place any of the four corners, the center of any side,
+or any of the other defined points of the text box at <IMG
+ WIDTH="52" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$(x,y)$">.
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:example8"></A><A NAME="3338"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.2:</STRONG>
+Text box coordinates.Note
+that text box coordinates are always oriented left-right and top-bottom with
+respect to the text, and not necessarily with respect to the page.  At lower
+left is an example of how to form subscripts using <TT>plt</TT>'s <TT>-L</TT>
+option (see chapter&nbsp;<A HREF="node37.html#sec:labelling">8</A>).  As shown, the right bottom (<TT>RB</TT>) point of the <TT>X</TT> and the left center (<TT>LC</TT>) of the subscript <TT>n</TT> are both placed at the same window coordinates (.1,.25) to achieve the
+desired alignment.</CAPTION>
+<TR><TD><IMG
+ WIDTH="700" HEIGHT="580" BORDER="0"
+ SRC="img41.png"
+ ALT="\begin{figure}\begin{center}
+\fcolorbox{blue}{white}{
+\epsfig{file=figure8,height=10cm}}
+\end{center}\index{subscripts}%\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<HR>
+<A NAME="tex2html627"
+  HREF="node29.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html621"
+  HREF="book.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html615"
+  HREF="node27.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html623"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html625"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html628"
+  HREF="node29.html">Titles and Axes</A>
+<B>Up:</B> <A NAME="tex2html622"
+  HREF="book.html">plt Tutorial and Cookbook</A>
+<B> Previous:</B> <A NAME="tex2html616"
+  HREF="node27.html">String arrays</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

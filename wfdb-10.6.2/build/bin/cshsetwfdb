@@ -1,0 +1,3 @@
+setenv WFDB ". ${HOME}/database /Users/tomgoth/Documents/PMC/HRVNode/wfdb-10.6.2/build/database /cdrom http://www.physionet.org/physiobank/database"
+# Change www.physionet.org above to your favorite mirror if you wish
+setenv WFDBCAL wfdbcal

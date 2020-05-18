@@ -1,0 +1,29 @@
+case $1 in
+	lw)	PROGNAME="$0"
+		shift
+		PTERM=lw
+		export PTERM
+		$PROGNAME "$@" | lwcat
+		exit
+		;;
+esac
+
+math  : -o"row,sin(row*2*PI/5)+1.5,rnd(0)+3.8,.1+.15*rnd(0)" \
+	-t"row==19" | tee foo2 |
+plt % $* -F"
+W .15 - .85 -
+t Making Legends with Symbols
+y Y axis Units
+x
+xa 0 20 1
+xo .025
+ya 0 5
+yo .02
+g grid sym
+p 0,1n(W5L1) 0,1Sutriangle 0,2n(W12G.8) 0,2,3Ecircle
+lp .57 .69
+le 0 2 Random Series
+le 0 3
+le 1 - (Synthesized)
+le 2 0 Sine Function
+le 2 1"

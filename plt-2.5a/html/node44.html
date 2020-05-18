@@ -1,0 +1,325 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Preparing Printed Output </TITLE>
+<META NAME="description" CONTENT="Preparing Printed Output ">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node50.html">
+<LINK REL="previous" HREF="node43.html">
+<LINK REL="up" HREF="book.html">
+<LINK REL="next" HREF="node45.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html849"
+  HREF="node45.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html843"
+  HREF="book.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html837"
+  HREF="node43.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html845"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html847"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html850"
+  HREF="node45.html">Generating EPSF using plt</A>
+<B>Up:</B> <A NAME="tex2html844"
+  HREF="book.html">plt Tutorial and Cookbook</A>
+<B> Previous:</B> <A NAME="tex2html838"
+  HREF="node43.html">Color Names</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001700000000000000000"></A><A NAME="sec:printed-output"></A>
+<BR>
+Preparing Printed Output 
+</H1>
+<P>
+<FONT SIZE="+2"><A NAME="2544"></A>As illustrated throughout this book, <TT>plt</TT> can generate
+high-quality printed output, as well as EPS (encapsulated PostScript)
+files that can be included in L<SUP><SMALL>A</SMALL></SUP>T<SMALL>E</SMALL>X and other documents.
+</FONT>
+<P>
+<FONT SIZE="+2"><TT>plt</TT> does not include drivers for non-PostScript printers.  If
+your printer does not accept PostScript, however, you may be able to
+convert <TT>plt</TT>'s PostScript output to your printer's printer
+language using <TT>ghostscript</TT> (a high-quality PostScript
+interpreter freely available from <TT>http://www.ghostscript.com/</TT>).
+<TT>ghostscript</TT> supports a wide variety of popular laser, ink-jet,
+and dot matrix printers, and can also convert PostScript into many
+popular image formats, including PNG, JPEG, TIFF (including fax
+formats), and PDF.
+</FONT>
+<P>
+<FONT SIZE="+2">To understand how to make printed plots, a brief overview of how <TT>plt</TT> generates PostScript output may be helpful.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="3540"></A><A NAME="2554"></A><A NAME="3541"></A><TT>plt</TT> itself is a shell script that invokes a device-specific
+driver.  Currently, these drivers are <TT>xplt</TT>, which draws
+into an X window created using <TT>xpltwin</TT>, and <TT>lwplt</TT>, which
+creates PostScript output.  (The name <TT>lwplt</TT> comes from the Apple
+LaserWriter, which was the first commercially available PostScript
+printer.)  Typically, you must use a command such as:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+plt -T lw ... | lwcat -ps &gt;plt-output.ps
+</PRE>
+<DIV ALIGN="CENTER"></DIV><FONT SIZE="+2">
+to generate a complete PostScript file (in this example, <TT>plt-output.ps</TT>) suitable for printing.  The use of the ``<TT>-T lw</TT>''
+option selects the <TT>lwplt</TT> driver.  (Some users prefer to select
+the driver by setting the <TT>PTERM</TT> environment variable rather than
+by a command-line option.  Use whatever method you prefer.)  The
+postprocessor, <TT>lwcat</TT>, is a shell script included with the <TT>plt</TT> package that appends its standard input (in this case, the
+output of <TT>(lw)plt</TT>) to a <EM>prolog file</EM> that contains
+definitions for the PostScript procedures used by <TT>lwplt</TT>.  The
+name of the prolog file, usually <TT>/usr/lib/ps/plt.pro</TT>, is
+specified by the <TT>PROLOG</TT> variable set near the beginning of <TT>lwcat</TT>.
+</FONT>
+<P>
+<FONT SIZE="+2">If you wish to print the output immediately, you may omit the <TT>-ps</TT> option and the output redirection from the <TT>lwcat</TT> command:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+plt -T lw ... | lwcat
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2"><A NAME="2583"></A><A NAME="2584"></A><A NAME="2585"></A><A NAME="2586"></A>In this simplified version, the plot is immediately sent to the print
+spooler for printing (under Unix, GNU/Linux, or Mac OS X).
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="2587"></A><TT>lwcat</TT> offers several other options:
+</FONT>
+<P>
+<TABLE CELLPADDING=3>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=72><FONT SIZE="+2"><TT>-no</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=216><FONT SIZE="+2"> spool the output, but don't eject the page (use this
+            option if you wish to overlay the output with additional
+            material produced by another program, such as </FONT><FONT SIZE="+2"><TT>troff</TT>) </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=72><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>-psv</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=216><FONT SIZE="+2"> collect Postscript in a temporary file and view with </FONT><FONT SIZE="+2"><TT>gv</TT> (</FONT><FONT SIZE="+2"><TT>ghostscript</TT>) </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=72><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>-gv</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=216><FONT SIZE="+2"> same as </FONT><FONT SIZE="+2"><TT>-psv</TT> (default if run from a Cygwin/bash window
+	    under MS-Windows) </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=72><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>-eps</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=216><FONT SIZE="+2"> write EPSF (encapsulated PostScript format) to the standard output
+	     (do not spool) </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=72><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>-pdf</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=216><FONT SIZE="+2"> write PDF to the standard output
+             (see appendix&nbsp;<A HREF="node50.html#sec:web-output">C</A>) </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=72><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>-png</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=216><FONT SIZE="+2"> write PNG to the standard output
+             (see appendix&nbsp;<A HREF="node50.html#sec:web-output">C</A>) </FONT></TD>
+</TR>
+</TABLE>
+<P>
+<FONT SIZE="+2">Note that the output produced using <TT>-eps</TT> is only a close approximation to
+EPSF;  it is acceptable to L<SUP><SMALL>A</SMALL></SUP>T<SMALL>E</SMALL>X's <TT>epsfig</TT> package, at least.
+</FONT>
+<P>
+<FONT SIZE="+2">By default, the output appears within a 6.75x6 inch window, the lower
+left corner of which is positioned 1 inch from the left edge and 3.5 inches
+from the bottom edge of the page.  Additional <TT>lwcat</TT> options may be
+used to modify the size and location of the output:
+</FONT>
+<P>
+<TABLE CELLPADDING=3>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=72><FONT SIZE="+2"><TT>-landscape</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=216><FONT SIZE="+2"> use landscape mode (rotate plot 90 degrees
+	counterclockwise) </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=72><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>-sq</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=216><FONT SIZE="+2"> plot in a 6x6 inch window, 1.25 inches from the left edge and 3.5
+	inches from the bottom edge </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=72><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>-t</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=216><FONT SIZE="+2"> plot in a 6.25x6.25 inch window, positioned as for </FONT><FONT SIZE="+2"><TT>-sq</TT> </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=72><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>-t2</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=216><FONT SIZE="+2"> plot in a 6.25x4 inch window, positioned as for </FONT><FONT SIZE="+2"><TT>-sq</TT> </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=72><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>-CinC</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=216><FONT SIZE="+2"> plot in a 4.75x3.15 inch window, positioned as for </FONT><FONT SIZE="+2"><TT>-sq</TT> </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=72><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>-sq2</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=216><FONT SIZE="+2"> plot in a 4.5x5.5 inch window, 2.5 inches from the left and bottom
+	edges </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=72><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>-v</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=216><FONT SIZE="+2"> plot in a 7x9.5 inch window, 0.75 inches from the left and
+	bottom edges </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=72><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>-v2</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=216><FONT SIZE="+2"> plot in a 7x8.5 inch window, positioned as for </FONT><FONT SIZE="+2"><TT>-v</TT> </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=72><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>-va4</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=216><FONT SIZE="+2"> plot in a 190x275 mm window, centered on an A4 sheet
+</FONT></TD>
+</TR>
+</TABLE>
+<P>
+<FONT SIZE="+2">Note the <TT>-landscape</TT> option changes the orientation of the <EM>plot</EM>, and not that of the <EM>plot window</EM>.  Thus, for example, to
+print a landscape-format plot that covers the largest possible area on
+an 8.5x11 inch page, use both <TT>-landscape</TT> and <TT>-v</TT>;  to cover
+the largest possible area on an A4 page with a landscape-format plot,
+use <TT>-landscape</TT> and <TT>-va4</TT>.
+</FONT>
+<P>
+<FONT SIZE="+2">If none of these plot window sizes is what you want, there are several
+ways to define a custom plotting window for PostScript output:
+</FONT>
+<P>
+
+<OL>
+<LI>Use <TT>plt</TT>'s <TT>-W</TT> or <TT>-w</TT> options, described earlier.
+(This is the only solution that works for screen plots as well as
+PostScript plots.)
+
+<P>
+</LI>
+<LI><A NAME="3544"></A>Use <TT>plt</TT>'s <TT>-size</TT> option.  This option is effective only when
+making a PostScript plot.
+
+<P>
+<BLOCKQUOTE>
+<TT>-size</TT> <I>fscl width height left-margin bottom-margin</I>
+
+</BLOCKQUOTE>
+
+<P>
+<A NAME="2644"></A><A NAME="2645"></A><A NAME="2646"></A>The <EM>fscl</EM> argument is a factor applied to the point sizes for all
+font groups, and is <EM>independent</EM> of the scaling applied to the plot.
+Thus, if <EM>fscl</EM> is 1, all text appears at the point sizes specified
+in the font group definitions, or the defaults.  As another example, if
+<EM>fscl</EM> is 0.5, and the point size for the title font group is 20, the
+title text will be printed in 10 point type.
+
+<P>
+The <EM>width</EM>, <EM>height</EM>, <EM>left-margin</EM>, and <EM>bottom-margin</EM>
+arguments are all given in units of <EM>inches</EM> (1 inch = 25.4 mm), and
+with reference to a portrait-format page (i.e., with the long edge vertical).
+
+<P>
+Note that <TT>plt</TT>'s <TT>-size</TT> option is intended to be used <EM>instead
+of</EM> <TT>lwcat</TT>'s window definition options;  if both are used, the <TT>-size</TT>
+option has no effect.
+
+<P>
+</LI>
+<LI>Define and export the environment variables <TT>WDEF</TT> or <TT>LDEF</TT> before
+invoking <TT>lwcat</TT>.  <TT>WDEF</TT> is a string containing 5 numbers separated by
+spaces.  The first number is a font scaling factor, defined as for <TT>plt</TT>'s
+<TT>-size</TT> option.  The next two numbers are the x and y coordinates (in
+inches) of the lower left corner of the window, and the last two numbers are
+the x and y coordinates of the upper right corner.  <TT>LDEF</TT> is defined
+similarly, but is used only in combination with <TT>-landscape</TT>; see the <TT>lwcat</TT> source for details.
+
+<P>
+</LI>
+<LI>Customize <TT>lwcat</TT>, following the models of the existing window definitions.
+Other window options can be easily added by adding additional <TT>WDEF</TT> and <TT>LDEF</TT> settings as described in comments within <TT>lwcat</TT>.
+</LI>
+</OL>
+<P>
+<FONT SIZE="+2">By default, <TT>lwcat</TT> prints a single copy of the <TT>plt</TT> output.
+Multiple copies can be produced using the options <TT>-c2</TT>, <TT>-c3</TT>,
+<TT>-c4</TT>, <TT>-c5</TT>, or <TT>-c6</TT>; this will almost always be much
+faster than rerunning <TT>lwcat</TT>, since the PostScript is downloaded
+and rasterized only once when using these options.  To print more
+than 6 copies, repeat or combine these options as needed, e.g., to
+print ten copies, use <TT>lwcat -c4 -c6 ...</TT> (or <TT>lwcat -c5 -c5</TT>,
+etc.)
+</FONT>
+<P>
+<BR> <HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html851"
+  HREF="node45.html">Generating EPSF using <TT>plt</TT> </A>
+<LI><A NAME="tex2html852"
+  HREF="node46.html">Including <TT>plt</TT> figures in a L<SUP><SMALL>A</SMALL></SUP>T<SMALL>E</SMALL>X document </A>
+<LI><A NAME="tex2html853"
+  HREF="node47.html">Margins, cropping, and bounding boxes </A>
+<LI><A NAME="tex2html854"
+  HREF="node48.html">Processing, previewing and printing </A>
+<LI><A NAME="tex2html855"
+  HREF="node49.html">Using <TT>plt</TT> with pdfL<SUP><SMALL>A</SMALL></SUP>T<SMALL>E</SMALL>X</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<A NAME="tex2html849"
+  HREF="node45.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html843"
+  HREF="book.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html837"
+  HREF="node43.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html845"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html847"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html850"
+  HREF="node45.html">Generating EPSF using plt</A>
+<B>Up:</B> <A NAME="tex2html844"
+  HREF="book.html">plt Tutorial and Cookbook</A>
+<B> Previous:</B> <A NAME="tex2html838"
+  HREF="node43.html">Color Names</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

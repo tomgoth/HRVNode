@@ -1,0 +1,499 @@
+%!PS-Adobe-3.0
+%%BoundingBox: 55 241 574 673
+%%Title: (plt/lwcat output)
+%%CreationDate: Fri Mar 23 12:01:20 2001
+%!PS-Adobe-3.0
+%%BoundingBox: 86 276 558 643
+% pslw.pro	Prolog file for plt with the LaserWriter
+% Last revised: 23 March 2001 (GBM)
+
+count /numstack exch def
+save 100 dict begin /pslw exch def
+
+/ED	{exch def} def
+/IN	{exch 72 mul def} def
+
+/CLOSE	{count numstack sub {pop} repeat pslw end restore} def
+
+/BF	{gsave INIT} def
+/EF	{grestore} def
+
+/LS	{} def
+/INIT	{0 setlinecap LS /DMTX matrix currentmatrix def
+	/XOFF [0 0 0 -.5 -1 -1 -1 -.5 -.5 -.5 -.6 -.6] def
+	/YOFF [0 -.37 -1 -1 -1 -.37 0 0 -.37 .25 -1.25 .25] def
+	/XM 0 def /YM 0 def /XYM 0 def} def
+
+/WSUBST	{} def
+
+/WDEF	{/ury ED /urx ED /lly ED /llx ED
+	WSUBST /y1 IN /x1 IN /y0 IN /x0 IN /FSCL ED
+	gsave matrix setmatrix
+	x0 2 add y0 2 add translate 
+	x1 x0 sub 4 sub urx llx sub div
+	y1 y0 sub 4 sub ury lly sub div scale
+	llx neg lly neg translate
+	/PMTX matrix currentmatrix def grestore} def
+
+/M	{newpath PMTX transform moveto} def
+/N	{PMTX dtransform rlineto} def
+/L	{N currentpoint stroke moveto} def
+/F	{closepath 0 eq {fill} {FS} ifelse} def
+/FS	{gsave fill grestore gsave 0 0 0 setrgbcolor stroke grestore} def 
+
+/T	{/ang ED /pos ED M ang rotate
+	/str ED str stringwidth pop
+	XOFF pos get mul
+	YOFF pos get PS mul XYM FSCL mul add
+	rmoveto str show
+	/XYM 0 def SDM} def
+
+/GT	{7 0 T} def
+/XT	{/XYM XM neg def 3 0 T /XM 0 def} def
+/XTR	{/XYM XM def 7 0 T /XM 0 def} def
+/YT	{/XYM YM def 7 90 T /YM 0 def} def
+/YTR	{/XYM YM neg def 3 90 T /YM 0 def} def
+
+/XN	{/XM PS def 3 0 T} def
+/XNR	{/XM PS def 9 0 T} def
+/XE	{10 1.25 XEX} def
+/XER	{11 1.5 XEX} def
+/XEX	{6 -1 roll /exp ED PS mul /XM ED 0 T EX} def
+
+/YN	{-1 1 0 YNUM} def
+/YNR	{1 0 0 YNUM} def
+/YE	{-1 1 YEX} def
+/YER	{1 0 YEX} def
+
+/YEX	{6 -1 roll /exp ED exp stringwidth pop .65 mul YNUM EX} def
+/YNUM	{6 3 roll M /str ED str stringwidth pop add /len ED
+	len mul .2 PS mul add mul PS -.37 mul rmoveto
+	str show /YM len .2 PS mul add YM MAX def} def
+
+/EX	{0 PS .6 mul rmoveto .65 .65 scale exp show SDM} def
+
+/SP	{/y ED /x ED /yp ED /yn ED /str ED
+	x y M currentpoint
+	str false charpath PBOX newpath
+	exch dup add x0 x1 add 2 div sub
+	exch dup add y0 y1 add 2 div sub moveto
+	str false charpath gsave fill EB} def
+
+/SY	{/y ED /x ED /yp ED /yn ED /st ED
+	newpath x y M PS 4 div dup scale
+	[{CIR} {UTRI} {DI} {SQ} {TRI}] st 5 mod get exec
+	closepath SDM gsave 
+	[{1 FILL stroke} {fill} {stroke}] st 5 idiv 3 mod get exec
+	EB} def
+
+/EB {	grestore PMTX concat PBOX SDM
+	y1 y sub yp le {yp y1 EB2} if 
+	y0 y sub yn ge {yn y0 EB2} if} def
+/EB2	{newpath x exch M 0 exch N x0 x sub 0 N x1 x0 sub 0 N stroke} def
+
+/CIR	{currentpoint newpath 1.1 0 360 arc} def
+/TRI	{0 1.2 rmoveto -1.2 -2.4 rlineto 2.4 0 rlineto} def
+/DI	{ 0 -1.5 rmoveto 1.3 1.5 rlineto
+	-1.3 1.5  rlineto -1.3 -1.5 rlineto} def
+/UTRI	{180 rotate TRI 180 rotate} def
+/SQ	{1 1 rmoveto -2 0 rlineto 0 -2 rlineto 2 0
+	rlineto} def
+
+/LW	{.2 mul FSCL mul setlinewidth} def
+/SF	{FSCL mul /PS ED findfont PS scalefont setfont} def
+/DL	{PS mul .05 mul} def
+
+/solid		{{}0} def
+/dotted		{[1 DL 3 DL] 0} def
+/longdashed	{[7 DL] 0} def
+/shortdashed	{[4 DL 5 DL] 0} def
+/dotdashed	{[1 DL 5 DL 6 DL 5 DL] 0} def
+
+/MAX	{2 copy lt {exch pop} {pop} ifelse} def
+/SDM	{DMTX setmatrix} def
+/FILL	{gsave setgray fill grestore} def
+/PBOX	{pathbbox /y1 ED /x1 ED /y0 ED /x0 ED} def
+INIT
+0.85 0.775 3.35 7.975 9.35 0 0 4320 3600 WDEF
+/Times-Roman 16 SF
+solid setdash
+0 setgray
+0 0 0 setrgbcolor
+4 LW
+/Times-Roman 16 SF
+(This is the main title for the plot) 2160 3491 8 0 T
+3 LW
+/Times-Roman 14 SF
+0 3366 M
+4320 0 N
+0 0 L
+0 3388 M
+4320 0 N
+0 0 L
+0 1667 M
+4320 0 N
+0 0 L
+0 1685 M
+4320 0 N
+0 0 L
+2151 0 M
+0 3384 N
+0 0 L
+2169 0 M
+0 3384 N
+0 0 L
+0 0 M
+0 3600 N
+4320 0 N
+0 -3600 N
+-4320 0 N
+0 0 L
+0.85 0.775 3.35 7.975 9.35 0 0 4320 3600 WDEF
+/Times-Roman 16 SF
+solid setdash
+0 setgray
+0 0 0 setrgbcolor
+3 LW
+/Times-Roman 13 SF
+1961 1907 M
+-1642 0 L
+319 1871 M
+0 36 L
+(0) 319 1871 XN
+483 1883 M
+0 24 L
+647 1871 M
+0 36 L
+(2) 647 1871 XN
+812 1883 M
+0 24 L
+976 1871 M
+0 36 L
+(4) 976 1871 XN
+1140 1883 M
+0 24 L
+1304 1871 M
+0 36 L
+(6) 1304 1871 XN
+1468 1883 M
+0 24 L
+1633 1871 M
+0 36 L
+(8) 1633 1871 XN
+1797 1883 M
+0 24 L
+1961 1871 M
+0 36 L
+(10) 1961 1871 XN
+4 LW
+/Times-Roman 15 SF
+() 1140 1797 XT
+3 LW
+/Times-Roman 13 SF
+319 3167 M
+0 -1260 L
+283 1907 M
+36 0 L
+(0) 283 1907 YN
+295 2033 M
+24 0 L
+283 2159 M
+36 0 L
+(2) 283 2159 YN
+295 2285 M
+24 0 L
+283 2411 M
+36 0 L
+(4) 283 2411 YN
+295 2537 M
+24 0 L
+283 2663 M
+36 0 L
+(6) 283 2663 YN
+295 2789 M
+24 0 L
+283 2915 M
+36 0 L
+(8) 283 2915 YN
+295 3041 M
+24 0 L
+283 3167 M
+36 0 L
+(10) 283 3167 YN
+4 LW
+/Times-Roman 15 SF
+(Window 1) 1140 3255 7 0 T
+2 LW
+/Times-Roman 12 SF
+319 1907 M
+164 378 N
+164 -126 N
+165 252 N
+164 -126 N
+164 252 N
+164 -126 N
+164 378 N
+165 -126 N
+164 378 N
+0 0 L
+319 1907 M
+0.85 0.775 3.35 7.975 9.35 0 0 4320 3600 WDEF
+/Times-Roman 16 SF
+solid setdash
+0 setgray
+0 0 0 setrgbcolor
+3 LW
+/Times-Roman 13 SF
+4147 1907 M
+-1642 0 L
+2505 1871 M
+0 36 L
+(0) 2505 1871 XN
+2669 1883 M
+0 24 L
+2833 1871 M
+0 36 L
+(2) 2833 1871 XN
+2998 1883 M
+0 24 L
+3162 1871 M
+0 36 L
+(4) 3162 1871 XN
+3326 1883 M
+0 24 L
+3490 1871 M
+0 36 L
+(6) 3490 1871 XN
+3654 1883 M
+0 24 L
+3819 1871 M
+0 36 L
+(8) 3819 1871 XN
+3983 1883 M
+0 24 L
+4147 1871 M
+0 36 L
+(10) 4147 1871 XN
+4 LW
+/Times-Roman 15 SF
+() 3326 1797 XT
+3 LW
+/Times-Roman 13 SF
+2505 3167 M
+0 -1260 L
+2469 1907 M
+36 0 L
+(0) 2469 1907 YN
+2481 2065 M
+24 0 L
+2469 2222 M
+36 0 L
+(1) 2469 2222 YN
+2481 2380 M
+24 0 L
+2469 2537 M
+36 0 L
+(2) 2469 2537 YN
+2481 2695 M
+24 0 L
+2469 2852 M
+36 0 L
+(3) 2469 2852 YN
+2481 3010 M
+24 0 L
+2469 3167 M
+36 0 L
+(4) 2469 3167 YN
+4 LW
+/Times-Roman 15 SF
+(Window 2) 3326 3255 7 0 T
+2 LW
+/Times-Roman 12 SF
+2505 1907 M
+164 315 N
+164 315 N
+165 315 N
+164 315 N
+164 -315 N
+164 -315 N
+164 -315 N
+165 -315 N
+164 315 N
+0 0 L
+2505 1907 M
+0.85 0.775 3.35 7.975 9.35 0 0 4320 3600 WDEF
+/Times-Roman 16 SF
+solid setdash
+0 setgray
+0 0 0 setrgbcolor
+3 LW
+/Times-Roman 13 SF
+1961 215 M
+-1642 0 L
+319 179 M
+0 36 L
+(0) 319 179 XN
+483 191 M
+0 24 L
+647 179 M
+0 36 L
+(2) 647 179 XN
+812 191 M
+0 24 L
+976 179 M
+0 36 L
+(4) 976 179 XN
+1140 191 M
+0 24 L
+1304 179 M
+0 36 L
+(6) 1304 179 XN
+1468 191 M
+0 24 L
+1633 179 M
+0 36 L
+(8) 1633 179 XN
+1797 191 M
+0 24 L
+1961 179 M
+0 36 L
+(10) 1961 179 XN
+4 LW
+/Times-Roman 15 SF
+() 1140 105 XT
+3 LW
+/Times-Roman 13 SF
+319 1475 M
+0 -1260 L
+283 215 M
+36 0 L
+(0) 283 215 YN
+295 341 M
+24 0 L
+283 467 M
+36 0 L
+(2) 283 467 YN
+295 593 M
+24 0 L
+283 719 M
+36 0 L
+(4) 283 719 YN
+295 845 M
+24 0 L
+283 971 M
+36 0 L
+(6) 283 971 YN
+295 1097 M
+24 0 L
+283 1223 M
+36 0 L
+(8) 283 1223 YN
+295 1349 M
+24 0 L
+283 1475 M
+36 0 L
+(10) 283 1475 YN
+4 LW
+/Times-Roman 15 SF
+(Window 3) 1140 1563 7 0 T
+2 LW
+/Times-Roman 12 SF
+319 1349 M
+164 -378 N
+164 126 N
+165 -378 N
+164 126 N
+164 -252 N
+164 126 N
+164 -252 N
+165 126 N
+164 -378 N
+0 0 L
+319 215 M
+0.85 0.775 3.35 7.975 9.35 0 0 4320 3600 WDEF
+/Times-Roman 16 SF
+solid setdash
+0 setgray
+0 0 0 setrgbcolor
+3 LW
+/Times-Roman 13 SF
+4147 215 M
+-1642 0 L
+2505 179 M
+0 36 L
+(0) 2505 179 XN
+2669 191 M
+0 24 L
+2833 179 M
+0 36 L
+(2) 2833 179 XN
+2998 191 M
+0 24 L
+3162 179 M
+0 36 L
+(4) 3162 179 XN
+3326 191 M
+0 24 L
+3490 179 M
+0 36 L
+(6) 3490 179 XN
+3654 191 M
+0 24 L
+3819 179 M
+0 36 L
+(8) 3819 179 XN
+3983 191 M
+0 24 L
+4147 179 M
+0 36 L
+(10) 4147 179 XN
+4 LW
+/Times-Roman 15 SF
+() 3326 105 XT
+3 LW
+/Times-Roman 13 SF
+2505 1475 M
+0 -1260 L
+2469 215 M
+36 0 L
+(0) 2469 215 YN
+2481 373 M
+24 0 L
+2469 530 M
+36 0 L
+(1) 2469 530 YN
+2481 688 M
+24 0 L
+2469 845 M
+36 0 L
+(2) 2469 845 YN
+2481 1003 M
+24 0 L
+2469 1160 M
+36 0 L
+(3) 2469 1160 YN
+2481 1318 M
+24 0 L
+2469 1475 M
+36 0 L
+(4) 2469 1475 YN
+4 LW
+/Times-Roman 15 SF
+(Window 4) 3326 1563 7 0 T
+2 LW
+/Times-Roman 12 SF
+2505 530 M
+164 -315 N
+164 315 N
+165 315 N
+164 315 N
+164 315 N
+164 -315 N
+164 -315 N
+165 -315 N
+164 -315 N
+0 0 L
+2505 215 M
+showpage CLOSE
+%%EOF
+%%EndDocument

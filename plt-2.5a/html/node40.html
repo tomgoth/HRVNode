@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Suppressing Plot Elements </TITLE>
+<META NAME="description" CONTENT="Suppressing Plot Elements ">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node41.html">
+<LINK REL="previous" HREF="node39.html">
+<LINK REL="up" HREF="book.html">
+<LINK REL="next" HREF="node41.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html793"
+  HREF="node41.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html787"
+  HREF="book.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html781"
+  HREF="node39.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html789"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html791"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html794"
+  HREF="node41.html">Colors, Line Styles, and Fonts</A>
+<B>Up:</B> <A NAME="tex2html788"
+  HREF="book.html">plt Tutorial and Cookbook</A>
+<B> Previous:</B> <A NAME="tex2html782"
+  HREF="node39.html">Drawing Line Segments, Arrows, and Boxes</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001300000000000000000"></A><A NAME="sec:suppress"></A>
+<BR>
+Suppressing Plot Elements 
+</H1>
+<P>
+<FONT SIZE="+2"><A NAME="3497"></A>The <TT>-s</TT> option allows you to suppress (i.e., to avoid drawing)
+selected features of your plots.  The sub-options following <TT>-s</TT>
+specify which elements to suppress.  The sub-options are as follows:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><FONT SIZE="+2"><TT>e</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283><FONT SIZE="+2"> don't begin a new page (erase screen) before plotting </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>a</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283><FONT SIZE="+2"> suppress anything associated with axes </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>x</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283><FONT SIZE="+2"> suppress anything associated with the x axis </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>y</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283><FONT SIZE="+2"> suppress anything associated with the y axis </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>g</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283><FONT SIZE="+2"> suppress the grid </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>m</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283><FONT SIZE="+2"> suppress x axis and y axis tick marks </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>n</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283><FONT SIZE="+2"> suppress x axis and y axis tick mark numbers </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>t</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283><FONT SIZE="+2"> suppress titles for x axis, y axis, and graph </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>l</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283><FONT SIZE="+2"> suppress user-supplied labels (</FONT><FONT SIZE="+2"><TT>-hl</TT>, </FONT><FONT SIZE="+2"><TT>-vl</TT>, </FONT><FONT SIZE="+2"><TT>-l</TT>,
+	 and </FONT><FONT SIZE="+2"><TT>-L</TT> options) </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>p</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283><FONT SIZE="+2"> suppress all data plotting </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>f</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283><FONT SIZE="+2"> suppress all ``figures'' (boxes, line segments, arrows, and
+	legends) </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>C</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283><FONT SIZE="+2"> enable all plot features (undo effects of previous </FONT><FONT SIZE="+2"><TT>-s</TT>
+	 sub-options) </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>X</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283><FONT SIZE="+2"> subsequent </FONT><FONT SIZE="+2"><TT>-s</TT> sub-options apply only to the x axis </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>Y</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283><FONT SIZE="+2"> subsequent </FONT><FONT SIZE="+2"><TT>-s</TT> sub-options apply only to the y axis </FONT></TD>
+</TR>
+<TR VALIGN="BASELINE"><TD ALIGN="LEFT"><FONT SIZE="+2"> 
+</FONT><FONT SIZE="+2"><TT>A</TT> </FONT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283><FONT SIZE="+2"> subsequent </FONT><FONT SIZE="+2"><TT>-s</TT> sub-options apply to both axes (default)
+</FONT></TD>
+</TR>
+</TABLE></DIV>
+<P>
+<FONT SIZE="+2">Two or more sub-options can be grouped, as in:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+-s eg
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2">By default, data points that fall outside of the axis limits are
+suppressed.  If any data points are not plotted for this reason, <TT>plt</TT> produces a warning message indicating the number of points that
+were excluded from the plot.  The <TT>-ex</TT> option overrides this behavior:
+</FONT>
+<P>
+<DL>
+<DD><A NAME="3499"></A></DD>
+<DT><STRONG><TT>-ex</TT></STRONG></DT>
+<DD>Use this option to ensure that all data points that fall on the page will be
+plotted.
+</DD>
+</DL>
+<P>
+<HR>
+<A NAME="tex2html793"
+  HREF="node41.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html787"
+  HREF="book.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html781"
+  HREF="node39.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html789"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html791"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html794"
+  HREF="node41.html">Colors, Line Styles, and Fonts</A>
+<B>Up:</B> <A NAME="tex2html788"
+  HREF="book.html">plt Tutorial and Cookbook</A>
+<B> Previous:</B> <A NAME="tex2html782"
+  HREF="node39.html">Drawing Line Segments, Arrows, and Boxes</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

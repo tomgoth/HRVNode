@@ -1,0 +1,36 @@
+math : -i"x,y" -t"row==190" \
+	-e"x=150+4*row,y=535-(200*e(-x/60)+500*e(-x/500))" \
+	-o"x,y,x/2,y" |
+plt % -F"
+sf t (Ft-b,P16)
+t (P20) I hope this is the last change...
+x Time Between Stimulations (msecs)
+y Refractory Period (msecs)
+xa 0 1000
+ya 0 500 
+p 0,1n (W15,G.5) 2,3n (W15,G.5)
+c 0 0 500 500
+c 0 0 250 500
+c 0 0 125 500
+c 0 0 166 500
+c 150 90 150 75
+c 150 75 453 75
+c 453 75 453 90
+c (L1) 150 150 150 259
+c (L1) 453 332 453 453
+sf l (Fh-o,P14)
+L .8 .65 - fires every beat
+l (P13) 300 60 - hysteresis interval
+hl (P12) .34 .95 c 2
+fires every
+other beat
+hl (P10) .185 .97 c 4
+fires
+every
+third
+beat
+A (W0) .7 .3 .7 .35
+A (W1) .3 .2 .27 .27
+A (W2) .4 .4 .5 .5
+A (W3) .8 .25 .5 .1
+L (Fh-b,P20,G.95) .8 .1 - Crazy Arrows" $*

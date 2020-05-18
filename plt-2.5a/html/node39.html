@@ -1,0 +1,250 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Drawing Line Segments, Arrows, and Boxes </TITLE>
+<META NAME="description" CONTENT="Drawing Line Segments, Arrows, and Boxes ">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node40.html">
+<LINK REL="previous" HREF="node37.html">
+<LINK REL="up" HREF="book.html">
+<LINK REL="next" HREF="node40.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html779"
+  HREF="node40.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html773"
+  HREF="book.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html767"
+  HREF="node38.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html775"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html777"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html780"
+  HREF="node40.html">Suppressing Plot Elements</A>
+<B>Up:</B> <A NAME="tex2html774"
+  HREF="book.html">plt Tutorial and Cookbook</A>
+<B> Previous:</B> <A NAME="tex2html768"
+  HREF="node38.html">Concatenating labels</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001200000000000000000"></A><A NAME="sec:lines-arrows"></A>
+<BR>
+Drawing Line Segments, Arrows, and Boxes 
+</H1>
+<P>
+<FONT SIZE="+2">Well-chosen annotations can make a good plot better.  In the previous
+chapter, we saw how labels can be placed anywhere on a plot, using
+either data or window coordinates.  <TT>plt</TT> also allows you to draw
+arbitrary line segments, arrows, and boxes on your plot.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="3486"></A><A NAME="3487"></A><A NAME="2014"></A><A NAME="2015"></A>Use the <TT>-C</TT> and <TT>-c</TT> (connect) options to draw arbitrary line
+segments, as follows:
+</FONT>
+<P>
+
+<BLOCKQUOTE><FONT SIZE="+2"><TT>-C</TT> <I>xw0 yw0 xw1 yw1</I>
+<BR><TT>-c</TT> <I>x0 y0 x1 y1</I>
+</FONT></BLOCKQUOTE>
+<P>
+<FONT SIZE="+2">These options connect the two points specified by their arguments with a
+line segment.  The <TT>-C</TT> option connects the points with window
+coordinates <IMG
+ WIDTH="101" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img98.png"
+ ALT="$(xw0,yw0)$"> and <IMG
+ WIDTH="101" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img99.png"
+ ALT="$(xw1,yw1)$">.  The <TT>-c</TT> option connects
+the points with data coordinates <IMG
+ WIDTH="72" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img100.png"
+ ALT="$(x0,y0)$"> and <IMG
+ WIDTH="72" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img101.png"
+ ALT="$(x1,y1)$">.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="3488"></A><A NAME="3489"></A>The <TT>-A</TT> and <TT>-a</TT> (arrow) options work in the same way as <TT>-C</TT> and <TT>-c</TT>, respectively, but they also draw an arrowhead
+pointing toward the first specified point, <IMG
+ WIDTH="101" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img98.png"
+ ALT="$(xw0,yw0)$"> or <IMG
+ WIDTH="72" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img100.png"
+ ALT="$(x0,y0)$">:
+</FONT>
+<P>
+
+<BLOCKQUOTE><FONT SIZE="+2"><TT>-A</TT> <I>xw0 yw0 xw1 yw1</I>
+<BR><TT>-a</TT> <I>x0 y0 x1 y1</I>
+</FONT></BLOCKQUOTE>
+<P>
+<FONT SIZE="+2"><A NAME="2038"></A>
+Note that the size of the arrowhead is determined by the specified
+point size in the figure (<TT>f</TT>) font group, or in local override
+instructions (see figure&nbsp;<A HREF="node41.html#fig:example14">11.4</A>).
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="3490"></A><A NAME="3491"></A>The <TT>-B</TT> and <TT>-b</TT> (box) options similarly accept arguments
+specifying two points, but in this case the points are diagonally
+opposite corners of a box (rectangle) that is to be drawn:
+</FONT>
+<P>
+
+<BLOCKQUOTE><FONT SIZE="+2"><TT>-B</TT> <I>xw0 yw0 xw1 yw1</I>
+<BR><TT>-b</TT> <I>x0 y0 x1 y1</I>
+</FONT></BLOCKQUOTE>
+<P>
+<FONT SIZE="+2"><A NAME="3492"></A><A NAME="3493"></A><A NAME="2053"></A><A NAME="2054"></A>The <TT>-D</TT> and <TT>-d</TT> (dark box) options work in the same way as
+<TT>-B</TT> and <TT>-b</TT> respectively, but boxes drawn when using these
+options are filled.  The filling is black by default, but may be changed
+by setting the grey level or color in the <TT>f</TT> (figure) font group
+(see figure&nbsp;<A HREF="node41.html#fig:colors">11.5</A>).
+</FONT>
+<P>
+
+<BLOCKQUOTE><FONT SIZE="+2"><TT>-D</TT> <I>xw0 yw0 xw1 yw1</I>
+<BR><TT>-d</TT> <I>x0 y0 x1 y1</I>
+</FONT></BLOCKQUOTE>
+<P>
+<FONT SIZE="+2">Remember that in each case, as with <TT>-L</TT> and <TT>-l</TT>, the upper
+case version of the option takes window coordinates, and the lower
+case version takes data coordinates.
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:flowchart"></A><A NAME="3495"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 9.1:</STRONG>
+Line segments, arrows, and boxes</CAPTION>
+<TR><TD><IMG
+ WIDTH="700" HEIGHT="580" BORDER="0"
+ SRC="img102.png"
+ ALT="\begin{figure}\begin{center}
+\fcolorbox{blue}{white}{
+\epsfig{file=flowchart,height=10cm}}
+\end{center}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<FONT SIZE="+2">These options are illustrated in figure&nbsp;<A HREF="#fig:flowchart">9.1</A>, which was
+produced using the command:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+plt -f flowchart.format
+</PRE>
+<DIV ALIGN="CENTER"></DIV><FONT SIZE="+2">
+where the format file, <TT>flowchart.format</TT>, contains:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+# Define axis ranges, but don't draw the axes.
+X 0 1
+Y 0 1
+s xy
+# Use black, wide lines for figures by default.
+sf f Cblack,W15,P20
+# Draw labels in black 20 point Helvetica Bold.
+sf l Cblack,P20,Fh-b
+# Draw the plot title in 24 point Helvetica Bold.
+t (Fh-b,P24) How to Hack
+# Draw a green-outlined box and label it.
+B (Cgreen) .1 .3 .3 .4
+L .2 .35 CC Write
+# Draw an arrow from the right edge of the box.
+A .4 .35 .3 .35
+# Draw a diamond using line segments, and label it.
+C (Cred) .4 .35 .5 .45
+C (Cred) .5 .45 .6 .35
+C (Cred) .6 .35 .5 .25
+C (Cred) .5 .25 .4 .35
+L .5 .35 CC Done?
+# Draw a line and arrow from the top of the diamond.
+C .5 .45 .5 .7
+A .4 .7 .5 .7
+# Label the line and arrow.
+L .51 .45 LB No
+# Draw a filled light blue box.
+D (CLightBlue) .2 .65 .4 .75
+# Outline it in dark blue, and label it.
+B (CDarkBlue) .2 .65 .4 .75
+L .3 .7 CC Think!
+# Draw a line and arrow from this box to the first.
+C .2 .7 .15 .7
+A .15 .4 .15 .7
+# Draw an arrow from the right corner of the diamond.
+A .7 .35 .6 .35
+# Label the arrow.
+L .6 .35 LT Yes
+# Draw a filled box in 30% grey, and label it in white.
+D (Cgrey30) .7 .3 .9 .4
+L (Cwhite) .8 .35 CC Sleep
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2">The <TT>-s</TT> option, used in this example to suppress the axes, is
+described in the next chapter.  The <TT>-sf</TT> option, used to set the
+default characteristics for the figures and labels in the example, is
+discussed in chapter&nbsp;<A HREF="node41.html#sec:font-groups">11</A>, beginning on
+page&nbsp;<A HREF="node41.html#sec:font-groups"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.
+</FONT>
+<P>
+<HR>
+<A NAME="tex2html779"
+  HREF="node40.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html773"
+  HREF="book.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html767"
+  HREF="node38.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html775"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html777"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html780"
+  HREF="node40.html">Suppressing Plot Elements</A>
+<B>Up:</B> <A NAME="tex2html774"
+  HREF="book.html">plt Tutorial and Cookbook</A>
+<B> Previous:</B> <A NAME="tex2html768"
+  HREF="node38.html">Concatenating labels</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

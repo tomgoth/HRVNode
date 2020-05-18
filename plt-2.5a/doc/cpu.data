@@ -1,0 +1,122 @@
+# CPU price comparisons
+# Column 0: Clock speed (MHz)
+# Column 1: Normalized FPU speed
+#  This is column 0 times the ratio of the given CPU's FP benchmark to that
+#  of a Pentium III running at the same clock speed.
+# Column 2: Price in US$, 10 April 2001 (from www.pricewatch.com)
+# Column 3: plot control (25: change color;  35-39: symbol to be plotted)
+
+# Start a new trace in color 0
+0 0 0 25
+
+# Duron Socket A
+600 840 41 35
+650 910 41 35
+700 980 42 35
+750 1050 41 35
+800 1120 53 35
+850 1190 75 35
+900 1260 92 35
+# The next line draws text string 0 next to this data set --
+# it does not represent a CPU speed/price datum.
+900 1260 50 100
+
+# Start a new trace in color 1
+1 1 1 25
+
+# Athlon Socket A 200 MHz FSB
+850 1230.8 90 36
+900 1303.2 108 36
+950 1375.6 136 36
+1000 1448 138 36
+1100 1592.8 154 36
+1200 1737.6 188 36
+1300 1882.4 217 36
+# The next line draws text string 1 next to this data set.
+1200 1700 100 101
+
+# Start a new trace in color 2
+2 2 2 25
+
+# Athlon Socket A 266 MHz FSB
+1000 1448 148 37
+1130 1636.24 175 37
+1200 1737.6 192 37
+1330 1925.84 216 37
+
+1000 1700 250 102
+
+# Start a new trace in color 3
+3 3 3 25
+
+# Celeron
+366 351.726 39 38
+400 384.4 44 38
+433 416.113 43 38
+466 447.826 45 38
+500 480.5 43 38
+533 512.213 47 38
+566 543.926 47 38
+600 576.6 53 38
+633 608.313 61 38
+667 640.987 49 38
+700 672.7 69 38
+733 704.413 75 38
+766 736.126 86 38
+800 768.8 104 38
+
+200 200 65 103
+
+
+# Start a new trace in color 4
+4 4 4 25
+
+# Pentium III
+450 450 103 39
+500 500 114 39
+550 550 116 39
+600 600 101 39
+650 650 105 39
+667 667 102 39
+700 700 120 39
+733 733 120 39
+750 750 123 39
+800 800 152 39
+850 850 153 39
+866 866 163 39
+933 933 205 39
+1000 1000 225 39
+
+500 500 180 104
+
+# Start a new trace in color 5
+5 5 5 25
+
+# Pentium 4
+1300 1300 277 39
+1400 1400 319 39
+1500 1500 480 39
+
+1250 1250 400 105
+
+# Adjustments for CPU family speed differences
+# BAPCo Sysmark2000 (from www.tomshardware.com/00q4/001017/athlon-09.html)
+# CPU family	Factor
+# Pentium III/4	 1.000
+# Celeron	  .837
+# Athlon	  .970
+# Duron		  .855
+
+# Linux kernel compilation (from .../athlon-12.html)
+# CPU family	Factor
+# Pentium III/4	 1.000	
+# Celeron	  .758
+# Athlon	 1.044
+# Duron		  .808
+
+# FPU performance (from .../athlon-13.html)
+# CPU family	Factor
+# Pentium III/4	 1.000	
+# Celeron	  .961
+# Athlon	 1.448
+# Duron		 1.400

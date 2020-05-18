@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Setting up the axes</TITLE>
+<META NAME="description" CONTENT="Setting up the axes">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node16.html">
+<LINK REL="previous" HREF="node14.html">
+<LINK REL="up" HREF="node12.html">
+<LINK REL="next" HREF="node16.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html444"
+  HREF="node16.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html438"
+  HREF="node12.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html432"
+  HREF="node14.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html440"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html442"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html445"
+  HREF="node16.html">A simple scatter plot</A>
+<B>Up:</B> <A NAME="tex2html439"
+  HREF="node12.html">Tutorial: Simple Plots</A>
+<B> Previous:</B> <A NAME="tex2html433"
+  HREF="node14.html">Adding titles and axis labels</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00543000000000000000">
+Setting up the axes</A>
+</H2>
+<P>
+<FONT SIZE="+2">As you may have noticed, <TT>plt</TT> chose appropriate ranges for the x
+and y axes based on the ranges of x and y values in its input.  Often,
+you may wish to specify the axis ranges, however, particularly if
+several plots are to be compared (in which case the plots should be
+prepared with the same scales and axis ranges).  The next version of
+our plot, shown in figure&nbsp;<A HREF="#fig:simple3">2.5</A>, illustrates the <TT>-xa</TT>
+and <TT>-ya</TT> options for setting up the axes:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+plt heartrate.data -t "Heart rate time series" \
+  -x "Time (seconds)" -y "Heart rate (beats per minute)" \
+  -xa 60 300 15 - 4 0 -ya 0 80 20 -g grid,sub
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:simple3"></A><A NAME="3306"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 2.5:</STRONG>
+Simple plot with customized axes and grid</CAPTION>
+<TR><TD><IMG
+ WIDTH="468" HEIGHT="379" BORDER="0"
+ SRC="img16.png"
+ ALT="\begin{figure}\begin{center}
+\epsfig{file=simple3,height=8cm}\end{center}\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<FONT SIZE="+2">The <TT>-xa</TT> and <TT>-ya</TT> options each take an argument list
+containing up to six arguments.  In this example, the argument list
+for <TT>-xa</TT> is ``<TT>60 300 15 - 4 0</TT>'', and that for <TT>-ya</TT>
+is ``<TT>0 80 20</TT>'' (<TT>plt</TT> recognizes <TT>-g</TT> as another option,
+rather than as part of <TT>-ya</TT>'s argument list, because <TT>-g</TT>
+consists of a hyphen followed by a letter).
+</FONT>
+<P>
+<FONT SIZE="+2">The first two arguments following <TT>-xa</TT> and <TT>-ya</TT> specify the
+x and y axis ranges.  Notice that the x axis range (60 to 300)
+excludes a number of the points at the beginning of the data file.  If
+you try this command, <TT>plt</TT> will warn you (by printing a message
+in your terminal emulator window) that points were excluded from the
+plot;  note that there is no indication of this on the plot itself,
+however.
+</FONT>
+<P>
+<FONT SIZE="+2">The third argument following each of <TT>-xa</TT> and <TT>-ya</TT> specifies
+the interval between axis ticks (in the units of the data).  We have
+chosen 15 units for the x axis tick interval, since the x units are
+seconds and this allows us to arrange for a numbered tick at the
+beginning of each minute (the <TT>4</TT> following <TT>-xa</TT> specifies
+that every fourth tick is to be numbered).
+</FONT>
+<P>
+<FONT SIZE="+2">The ``<TT>-</TT>'' between the <TT>15</TT> and the <TT>4</TT> is an example of
+a <EM>default argument</EM>.  In most cases, where <TT>plt</TT> expects an
+argument, it will choose a reasonable default if you provide ``<TT>-</TT>'' instead of a specific value.  The value that ``<TT>-</TT>'' replaces
+in this case is a format string that can be used to control how the
+numbered x axis ticks are printed.  Note that, as in the argument list
+for <TT>-ya</TT> in this example, it is also usually acceptable to omit
+arguments at the end of a list if <TT>plt</TT>'s defaults are acceptable
+to you.  For further details on using the
+<TT>-xa</TT> and <TT>-ya</TT> options, see chapter&nbsp;<A HREF="node29.html#sec:ax1">5</A>.
+</FONT>
+<P>
+<FONT SIZE="+2">The <TT>-g</TT> option and its argument (<TT>grid,sub</TT>) specifies that
+<TT>plt</TT> should draw gridlines across the plot at every axis tick.
+See chapter&nbsp;<A HREF="node42.html#sec:ax2">12</A> for details about using <TT>-g</TT> to control
+the appearance of the grid.
+</FONT>
+<P>
+<HR>
+<A NAME="tex2html444"
+  HREF="node16.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html438"
+  HREF="node12.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html432"
+  HREF="node14.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html440"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html442"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html445"
+  HREF="node16.html">A simple scatter plot</A>
+<B>Up:</B> <A NAME="tex2html439"
+  HREF="node12.html">Tutorial: Simple Plots</A>
+<B> Previous:</B> <A NAME="tex2html433"
+  HREF="node14.html">Adding titles and axis labels</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

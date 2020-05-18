@@ -1,0 +1,36 @@
+file: 00README		G. Moody	11 April 2001
+			Last revised:  10 October 2002
+This directory contains sources for `plt', a set of programs originally
+written by Paul Albrecht for generating 2D plots.  For further information,
+see ../doc/book.ps, the `plt Tutorial and Cookbook'.
+
+The files in this directory are:
+
+00README	This file
+Makefile	`make' description file for compiling and installing `plt'
+axis.c		Axis and grid functions for plt
+data.c		Data-reading functions for plt
+figure.c	Figure-drawing functions for plt
+gv.msw		gv for MS-Windows (requires Cygwin, GhostScript, GSView)
+gvcat		Tiny script to pipe lwplt/lwcat output to gv for viewing
+gvcat.msw	gvcat for MS-Windows (requires Cygwin, GhostScript, GSView)
+lw.c		PostScript driver for plt
+lwcat		Add prolog and epilog to lwplt output
+main.c		main() function for plt
+makeplthead.c	Make an EPSF header with a bounding box, for `lwplt' output
+option.c	Option-processing for plt
+plot.c		Generate data plots
+plt		Script to choose the correct plt binary and run it
+plt.h		Constants, macros, data types, global variables, and
+		 function prototypes
+plt.pro		PostScript prolog for plt
+pltpng		lwcat postprocessor to convert PostScript to PNG image
+		 (requires 'convert' from ImageMagick)
+pterm.c		Device setup for plt
+rgb.h		Color database, based on 'rgb.txt' from the X11R6 distribution
+text.c		Text-handling functions for plt
+tick.c		Tick selection for plt
+util.c		Memory allocation, error handling, and other utilities for plt
+window.c	Subwindow definitions for plt
+xpltwin.c	Makes a window for xplt's output
+xw.c		X11 driver for plt

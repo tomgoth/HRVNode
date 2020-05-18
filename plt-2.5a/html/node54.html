@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Compiling plt under Linux or Unix </TITLE>
+<META NAME="description" CONTENT="Compiling plt under Linux or Unix ">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node55.html">
+<LINK REL="previous" HREF="node53.html">
+<LINK REL="up" HREF="node53.html">
+<LINK REL="next" HREF="node55.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html995"
+  HREF="node55.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html989"
+  HREF="node53.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html983"
+  HREF="node53.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html991"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html993"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html996"
+  HREF="node55.html">Compiling and Using plt under Mac OS</A>
+<B>Up:</B> <A NAME="tex2html990"
+  HREF="node53.html">How to get and install plt</A>
+<B> Previous:</B> <A NAME="tex2html984"
+  HREF="node53.html">How to get and install plt</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION002110000000000000000"></A><A NAME="sec:unix"></A>
+<BR>
+Compiling <TT>plt</TT> under Linux or Unix 
+</H1>
+<P>
+<FONT SIZE="+2"><A NAME="3091"></A><A NAME="3092"></A><A NAME="3093"></A><TT>plt</TT> should be easy to compile and to run on any version of Unix
+(or Linux).  You will need to have a working X Window System
+installation in order to compile <TT>xplt</TT> and to use it to make
+screen plots, but <TT>lwplt</TT> can be used without X (and it should be
+possible to compile it under any POSIX-compliant environment).
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="3097"></A>If you plan to use <TT>plt</TT> without X, you may wish to use
+GhostScript as a screen viewer for <TT>lwplt</TT>. GhostScript is a
+free PostScript renderer that runs on a vast variety of operating systems;
+get it from <TT>http://ghostscript.com/</TT>.
+</FONT>
+<P>
+<FONT SIZE="+2">To install <TT>plt</TT>:
+</FONT>
+<P>
+
+<UL>
+<LI>If you have GNU <TT>tar</TT>, unpack the source archive using:
+</LI>
+</UL>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+tar xfvz plt.tar.gz
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2"> 
+Otherwise, if you have another version of <TT>tar</TT>, unpack it using:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+gzip -d plt.tar.gz
+tar xfv plt.tar
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+
+<UL>
+<LI>You should now have a directory named <TT>plt</TT>, containing installation
+instructions in <TT>INSTALL</TT> and a set of sources in subdirectory <TT>src</TT>.
+Read and follow the instructions in <TT>INSTALL</TT> if they differ from those
+outlined here.
+
+<P>
+</LI>
+<LI>Enter the <TT>plt</TT> directory: make any needed changes to the
+site-dependent variables in <TT>Makefile</TT>; compile the <TT>plt</TT> sources;
+and install the executables:
+</LI>
+</UL>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+cd plt/src
+make install
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2">You may need root permissions to do this successfully.  If the <TT>make</TT>
+command fails, read the text file named <TT>Makefile</TT> in the <TT>plt/src</TT>
+directory to see how to proceed.
+</FONT>
+<P>
+<FONT SIZE="+2">Add the directory in which <TT>plt</TT> has been installed (usually
+<TT>/usr/local/bin</TT>) to your PATH if necessary.
+</FONT>
+<P>
+
+<UL>
+<LI>To test the installation, try this:
+</LI>
+</UL>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+make xdemo
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2">If you have <TT>gv</TT> (included in most Linux distributions, and freely
+available from <TT>http://wwwthep.physik.uni-mainz.de/~plass/gv/</TT>), you can
+see the same demonstration in PostScript format by typing:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+make psdemo
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+
+<UL>
+<LI>(Optional) If you wish to generate PNG images using <TT>lwcat -png</TT>
+(see appendix&nbsp;<A HREF="node50.html#sec:web-output">C</A>, install ImageMagick (free download
+from <TT>http://www.imagemagick.org/</TT>) if you have not already done
+so.  Most Linux distributions include ImageMagick already.
+</LI>
+</UL>
+<P>
+<HR>
+<A NAME="tex2html995"
+  HREF="node55.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html989"
+  HREF="node53.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html983"
+  HREF="node53.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html991"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html993"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html996"
+  HREF="node55.html">Compiling and Using plt under Mac OS</A>
+<B>Up:</B> <A NAME="tex2html990"
+  HREF="node53.html">How to get and install plt</A>
+<B> Previous:</B> <A NAME="tex2html984"
+  HREF="node53.html">How to get and install plt</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

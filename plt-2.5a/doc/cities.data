@@ -1,0 +1,1344 @@
+# file: cities.data
+
+# The two data columns contain longitude and latitude in (degrees*100).
+# South latitudes and west longitudes are negative.
+#
+# These data were compiled from many sources.  Data for cities outside the
+# USA are quite sparse;  contributions to fill in the missing data are
+# welcome.
+
+# AFGHANISTAN
+  6920   3458 # Kabul
+
+# ALGERIA
+  3005   3676 # Algiers
+
+# ANTARCTICA
+     0  -9000 # Amundsen-Scott Base
+ 16661  -7785 # McMurdo Base
+
+# ARGENTINA
+ -5848  -3458 # Buenos Aires
+ -6425  -3136 # Cordoba
+ -6516  -2683 # Tucuman
+
+# AUSTRALIA
+ 13858  -3493 # Adelaide
+ 13388  -2380 # Alice Springs
+ 15303  -2746 # Brisbane
+ 14911  -3523 # Canberra
+ 13085  -1246 # Darwin
+ 14733  -4283 # Hobart
+ 14496  -3781 # Melbourne
+ 11585  -3195 # Perth
+ 15120  -3386 # Sydney
+ 15090  -3440 # Wollongong
+
+# AUSTRIA
+  1636   4825 # Vienna
+
+# AZORES
+ -2708   3875 # Lajes (Terceira)
+
+# BAHAMAS
+ -7735   2508 # Nassau
+
+# BANGLADESH
+  9183   2235 # Chittagong
+
+# BELGIUM
+   435   5080 # Brussels
+
+# BERMUDA
+ -6468   3336 # Kindley AFB
+
+# BOLIVIA
+ -6815  -1650 # La Paz
+
+# BRAZIL
+ -4848   -145 # Belem
+ -4395  -1993 # Belo Horizonte
+ -4791  -1586 # Brasilia
+ -4928  -2541 # Curitiba
+ -3855   -376 # Fortaleza
+ -5121  -3003 # Porto Alegre
+ -3488   -806 # Recife
+ -4320  -2291 # Rio De Janeiro
+ -3850  -1300 # Salvador
+ -4663  -2355 # Sao Paulo
+
+# BELIZE
+ -8818   1751 # Belize
+
+# BULGARIA
+  2333   4270 # Sofia
+
+# BURMA
+  9610   2198 # Mandalay
+  9615   1678 # Rangoon
+
+# CAMBODIA
+ 10485   1155 # Phnom Penh
+
+# CANADA
+
+# ALBERTA
+-11408   5108 # Calgary
+-11361   5356 # Edmonton
+
+# BRITISH COLUMBIA
+-12315   4926 # Vancouver
+-12341   4850 # Victoria
+
+# MANITOBA
+ -9400   5875 # Churchill
+ -9463   5638 # Gillam
+ -9711   4983 # Winnipeg
+
+# NEW BRUNSWICK
+ -6616   4530 # St. John
+
+# NEWFOUNDLAND
+ -6686   5293 # Labrador City
+ -5268   4756 # St. John's
+
+# NORTHWEST TERRITORIES
+-13505   6071 # Whitehorse
+
+# NOVA SCOTIA
+ -6356   4465 # Halifax
+
+# NUNAVUT
+ -9211   6281 # Rankin Inlet
+
+# ONTARIO
+ -7565   4540 # Ottawa
+ -7938   4365 # Toronto
+
+# QUEBEC
+ -7356   4550 # Montreal
+ -7125   4683 # Quebec
+
+# SASKATCHEWAN
+-10551   5061 # Moose Jaw
+-10153   5216 # Saskatoon
+
+# YUKON
+-11535   6781 # Coppermine
+
+# CHILE
+ -7090  -5316 # Punta Arenas
+ -7070  -3345 # Santiago
+ -7163  -3301 # Valparaiso
+
+# CHINA
+ 10655   2955 # Chongquing
+ 12143   3120 # Shanghai
+
+# COLOMBIA
+ -7480   1098 # Baranquilla
+ -7408    460 # Bogota
+ -7650    341 # Cali
+ -7560    621 # Medellin
+
+# CONGO
+  1525   -425 # Brazzaville
+
+# CUBA
+ -7515   1990 # Guantanamo Bay
+ -8235   2313 # Havana
+
+# CZECHxREPUBLIC
+  1441   5008 # Prague
+
+# DENMARK
+  1255   5568 # Copenhagen
+
+# DOMINICAN REPUBLIC
+ -6990   1848 # Santo Domingo
+
+# EQUADOR
+ -7988   -200 # Guayaquil
+ -7853    -21 # Quito
+
+# EGYPT
+  3133   2986 # Cairo
+
+# EL SALVADOR
+ -8921   1370 # San Salvador
+
+# ETHIOPIA
+  3875    903 # Addis Ababa
+  3891   1528 # Asmara
+
+# FINLAND
+  2495   6016 # Helsinki
+
+# FRANCE
+   478   4570 # Lyon
+   538   4330 # Marseilles
+  -156   4725 # Nantes
+   726   4370 # Nice
+   248   4881 # Paris
+   776   4858 # Strasbourg
+
+# FRENCH GUIANA
+ -5245    493 # Cayenne
+
+# GERMANY
+  1330   5245 # Berlin (West)
+   996   5355 # Hamburg
+   966   5240 # Hannover
+   846   4956 # Mannheim
+  1156   4815 # Munich
+
+# GHANA
+   -20    555 # Accra
+
+# GIBRALTAR
+  -536   3615 # Gibraltar
+
+# GREECE
+  2371   3796 # Athens
+  2295   4061 # Thessaloniki
+
+# GREENLAND
+ -4541   6118 # Narsarssuaq
+
+# GUATEMALA
+ -9051   1461 # Guatemala City
+
+# GUYANA
+ -5820    683 # Georgetown
+
+# HAITI
+ -7233   1855 # Port Au Prince
+
+# HONDURAS
+ -8721   1410 # Tegucigalpa
+
+# HONG KONG
+ 11416   2230 # Hong Kong
+
+# HUNGARY
+  1903   4751 # Budapest
+
+# ICELAND
+ -2193   6413 # Reykjavik
+
+# INDIA
+  7258   2303 # Ahmenabad
+  7761   1295 # Bangalore
+  7281   1890 # Bombay
+  8833   2253 # Calcutta
+  8025   1306 # Madras
+  7911   2115 # Nagpur
+  7720   2858 # New Delhi
+
+# INDONESIA
+ 10683   -618 # Djakarta
+ 12356  -1016 # Kupang
+ 11946   -513 # Makassar
+  9868    358 # Medan
+ 10476   -300 # Palembang
+ 11271   -721 # Surabaya
+
+# IRAN
+  4826   3035 # Abadan
+  5960   3628 # Meshed
+  5141   3568 # Tehran
+
+# IRAQ
+  4440   3333 # Baghdad
+  4315   3631 # Mosul
+
+# IRELAND
+  -635   5336 # Dublin
+  -891   5268 # Shannon
+
+# IRIAN BARAT
+ 13408    -86 # Manokwari
+
+# ISRAEL
+  3521   3178 # Jerusalem
+  3478   3210 # Tel Aviv
+
+# ITALY
+   928   4545 # Milan
+  1430   4088 # Naples
+  1260   4180 # Rome
+
+# IVORY COAST
+  -401    531 # Abidjan
+
+# JAPAN
+ 13045   3358 # Fukuoka
+ 14135   4306 # Sapporo
+ 13976   3568 # Tokyo
+
+# JORDAN
+  3595   3195 # Amman
+
+# KENYA
+  3680   -126 # Nairobi
+
+# KOREA
+ 12568   3903 # Pyongyang
+ 12696   3756 # Seoul
+
+# LEBANON
+  3546   3390 # Beirut
+
+# LIBERIA
+ -1080    630 # Monrovia
+
+# LIBYA
+  2006   3210 # Benghazi
+
+# MADAGASCAR
+  4755  -1891 # Tananarive
+
+# MALAYSIA
+ 10170    311 # Kuala Lumpur
+ 10031    541 # Penang
+
+# MARTINIQUE
+ -6108   1461 # Fort De France
+
+# MEXICO
+-10333   2068 # Guadalajara
+ -8963   2096 # Merida
+ -9920   1940 # Mexico City
+-10030   2566 # Monterrey
+ -9613   1920 # Vera Cruz
+
+# MOROCCO
+  -765   3358 # Casablanca
+
+# NEPAL
+  8520   2770 # Katmandu
+
+# NETHERLANDS
+   491   5238 # Amsterdam
+
+# NEW ZEALAND
+ 17476  -3685 # Auckland
+ 17261  -4353 # Christchurch
+ 17476  -4128 # Wellington
+
+# NICARAGUA
+ -8625   1216 # Managua
+
+# NIGERIA
+   340    645 # Lagos
+
+# NORWAY
+   531   6040 # Bergen
+  1073   5993 # Oslo
+
+# PAKISTAN
+  6698   2480 # Karachi
+  7433   3158 # Lahore
+  7158   3401 # Peshwar
+
+# PANAMA
+ -7955    896 # Panama City
+
+# PAPUA NEW GUINEA
+ 14715   -948 # Port Moresby
+
+# PARAGUAY
+ -5750  -2528 # Ascuncion
+
+# PERU
+ -7705  -1208 # Lima
+
+# PHILIPPINES
+ 12098   1458 # Manila
+
+# POLAND
+  1995   5006 # Krakow
+  2103   5221 # Warsaw
+
+# PORTUGAL
+  -913   3871 # Lisbon
+
+# PUERTO RICO
+ -6611   1848 # San Juan
+
+# RUMANIA
+  2610   4441 # Bucharest
+
+# RUSSIA
+  7688   4323 # Alma Ata
+  4053   6455 # Archangel
+  2050   5471 # Kaliningrad
+  9295   5601 # Krasnoyarsk
+  3050   5045 # Kiev
+  3623   5000 # Kharkov
+  5010   5318 # Kuibyshev
+  3026   5993 # Leningrad
+  2755   5390 # Minsk
+  3766   5576 # Moscow
+  3073   4648 # Odessa
+ 15870   5288 # Petropavlovsk
+  3971   4721 # Rostov on Don
+  6063   5681 # Sverdlovsk
+  6930   4133 # Tashkent
+  4480   4171 # Tbilisi
+ 13191   4311 # Vladivostok
+  4451   4870 # Volgograd
+
+# SAUDI ARABIA
+  5015   2628 # Dhahran
+  3916   2146 # Jedda
+  4670   2465 # Riyadh
+
+# SENEGAL
+ -1748   1470 # Dakar
+
+# SINGAPORE
+ 10383    130 # Singapore
+
+# SOMALIA
+  4931    203 # Mogadiscio
+
+# SOUTH AFRICA
+  1848  -3393 # Cape Town
+  2805  -2618 # Johannesburg
+  2823  -2575 # Pretoria
+
+# SOUTH YEMEN
+  4503   1283 # Aden
+
+# SPAIN
+   215   4140 # Barcelona
+  -368   4041 # Madrid
+   -38   3946 # Valencia
+
+# SRI LANKA
+  7986    690 # Colombo
+
+# SUDAN
+  3255   1561 # Khartoum
+
+# SURINAM
+ -5515    581 # Paramaribo
+
+# SWEDEN
+  1806   5935 # Stockholm
+
+# SWITZERLAND
+   855   4738 # Zurich
+
+# SYRIA
+  3633   3350 # Damascus
+
+# TAIWAN
+ 12020   2295 # Tainan
+ 12151   2503 # Taipei
+
+# TANZANIA
+  3930   -683 # Dar es Salaam
+
+# THAILAND
+ 10050   1373 # Bangkok
+
+# TRINIDAD
+ -6151   1066 # Port of Spain
+
+# TUNISIA
+  1020   3678 # Tunis
+
+# TURKEY
+  3530   3698 # Adana
+  3288   3995 # Ankara
+  2883   4096 # Istanbul
+  2716   3843 # Izmir
+
+# UNITED KINGDOM
+  -591   5460 # Belfast
+  -193   5248 # Birmingham
+    10   5216 # Cambridge
+  -316   5146 # Cardiff
+  -318   5591 # Edinburgh
+  -428   5586 # Glasgow
+     0   5148 # London
+  -125   5176 # Oxford
+
+# UNITED STATES
+
+# ALABAMA
+ -8595   3295 # Alexander City
+ -8585   3358 # Anniston AP
+ -8550   3260 # Auburn
+ -8675   3356 # Birmingham AP
+ -8698   3461 # Decatur
+ -8545   3131 # Dothan AP
+ -8766   3480 # Florence AP
+ -8600   3401 # Gadsden
+ -8658   3470 # Huntsville AP
+ -8825   3068 # Mobile AP
+ -8825   3066 # Mobile Co
+ -8636   3238 # Montgomery AP
+ -8798   3233 # Selma-Craig AFB
+ -8610   3345 # Talladega
+ -8761   3321 # Tuscaloosa AP
+
+# ALASKA
+-15001   6116 # Anchorage AP
+-15678   7130 # Barrow (S)
+-14786   6481 # Fairbanks AP (S)
+-13458   5836 # Juneau AP
+-15248   5775 # Kodiak
+-16543   6450 # Nome AP
+
+# ARIZONA
+-10960   3145 # Douglas AP
+-11166   3513 # Flagstaff AP
+-11033   3158 # Fort Huachuca AP (S)
+-11401   3520 # Kingman AP
+-11091   3135 # Nogales
+-11201   3343 # Phoenix AP (S)
+-11243   3465 # Prescott AP
+-11093   3211 # Tucson AP (S)
+-11073   3501 # Winslow AP
+-11461   3265 # Yuma AP
+
+# ARKANSAS
+ -8995   3595 # Blytheville AFB
+ -9281   3360 # Camden
+ -9281   3321 # El Dorado AP
+ -9416   3600 # Fayetteville AP
+ -9436   3533 # Fort Smith AP
+ -9310   3448 # Hot Springs
+ -9070   3583 # Jonesboro
+ -9223   3473 # Little Rock AP (S)
+ -9208   3430 # Pine Bluff AP
+ -9398   3345 # Texarkana AP
+
+# CALIFORNIA
+-11905   3541 # Bakersfield AP
+-11678   3485 # Barstow AP
+-11471   3361 # Blythe AP
+-11835   3420 # Burbank AP
+-12185   3980 # Chico
+-12198   3796 # Concord
+-11786   3408 # Covina
+-12420   4176 # Crescent City AP
+-11813   3393 # Downey
+-11696   3281 # El Cajon
+-11566   3281 # El Cerrito AP (S)
+-11708   3311 # Escondido
+-12410   4098 # Eureka/Arcata AP
+-12193   3826 # Fairfield-Trafis AFB
+-11971   3676 # Fresno AP (S)
+-12250   3806 # Hamilton AFB
+-11778   3355 # Laguna Beach
+-12195   3770 # Livermore
+-12056   3471 # Lompoc, Vandenberg AFB
+-11815   3381 # Long Beach AP
+-11840   3393 # Los Angeles AP (S)
+-11823   3405 # Los Angeles CO (S)
+-12056   3738 # Merced-Castle AFB
+-12100   3765 # Modesto
+-12190   3660 # Monterey
+-12228   3821 # Napa
+-11461   3460 # Needles AP
+-12231   3781 # Oakland AP
+-11741   3323 # Oceanside
+-11760   3405 # Ontario
+-11918   3420 # Oxnard
+-11810   3463 # Palmdale AP
+-11653   3381 # Palm Springs
+-11815   3415 # Pasadena
+-12263   3823 # Petaluma
+-11775   3405 # Pomona Co
+-12230   4051 # Redding AP
+-11718   3405 # Redlands
+-12235   3793 # Richmond
+-11725   3390 # Riverside-March AFB (S)
+-12150   3851 # Sacramento AP
+-12160   3666 # Salinas AP
+-11726   3413 # San Bernadino, Norton AFB
+-11716   3273 # San Diego AP
+-11846   3428 # San Fernando
+-12238   3761 # San Francisco AP
+-12243   3776 # San Francisco Co
+-12193   3736 # San Jose AP
+-12071   3533 # San Louis Obispo
+-11786   3375 # Santa Ana AP
+-11983   3443 # Santa Barbara MAP
+-12201   3698 # Santa Cruz
+-12045   3490 # Santa Maria AP (S)
+-11848   3401 # Santa Monica CIC
+-11908   3435 # Santa Paula
+-12281   3851 # Santa Rosa
+-12125   3790 # Stockton AP
+-12320   3915 # Ukiah
+-11930   3633 # Visalia
+-12263   4171 # Yreka
+-12160   3913 # Yuba City
+
+# COLORADO
+-10586   3745 # Alamosa AP
+-10526   4000 # Boulder
+-10471   3881 # Colorado Springs AP
+-10486   3975 # Denver AP
+-10788   3728 # Durango
+-10508   4075 # Fort Collins
+-10853   3911 # Grand Junction AP (S)
+-10463   4043 # Greeley
+-10350   3805 # Lajunta AP
+-10630   3925 # Leadville
+-10448   3830 # Pueblo AP
+-10320   4061 # Sterling
+-10433   3725 # Trinidad
+
+# CONNECTICUT
+ -7318   4118 # Bridgeport AP
+ -7265   4173 # Hartford, Brainard Field
+ -7391   4131 # New Haven AP
+ -7210   4135 # New London
+ -7341   4111 # Norwalk
+ -7206   4153 # Norwick
+ -7306   4158 # Waterbury
+ -7268   4193 # Windsor Locks, Bradley Fld
+
+# DELAWARE
+ -7546   3913 # Dover AFB
+ -7560   3966 # Wilmington AP
+
+# DISTRICT OF COLUMBIA
+ -7608   3808 # Andrews AFB
+ -7703   3885 # Washington, National AP
+
+# FLORIDA
+ -8065   2665 # Belle Glade
+ -8056   2848 # Cape Kennedy AP
+ -8105   2918 # Daytona Beach AP
+ -8015   2606 # E Fort Lauderdale
+ -8186   2658 # Fort Myers AP
+ -8035   2746 # Fort Pierce
+ -8226   2968 # Gainsville AP (S)
+ -8170   3050 # Jacksonville AP
+ -8175   2455 # Key West AP
+ -8195   2803 # Lakeland Co (S)
+ -8026   2580 # Miami AP (S)
+ -8028   2578 # Miami Beach Co
+ -8213   2918 # Ocala
+ -8138   2855 # Orlando AP
+ -8558   3006 # Panama City, Tyndall AFB
+ -8721   3041 # Pensacola Co
+ -8133   2996 # St. Augustine
+ -8333   2776 # St. Petersburg
+ -8128   2876 # Stanford
+ -8255   2738 # Sarasota
+ -8436   3038 # Tallahassee AP (S)
+ -8253   2796 # Tampa AP (S)
+ -8010   2668 # West Palm Beach AP
+
+# GEORGIA
+ -8408   3160 # Albany, Turner AFB
+ -8423   3205 # Americus
+ -8331   3395 # Athens
+ -8443   3365 # Atlanta AP (S)
+ -8196   3336 # Augusta AP
+ -8148   3125 # Brunswick
+ -8493   3251 # Columbus, Lawson AFB
+ -8495   3456 # Dalton
+ -8290   3233 # Dublin
+ -8368   3418 # Gainsville
+ -8426   3321 # Griffin
+ -8506   3301 # LaGrange
+ -8365   3270 # Macon AP
+ -8451   3391 # Marietta, Dobbins AFB
+ -8120   3213 # Savannah
+ -8320   3096 # Valdosta-Moody AFB
+ -8240   3125 # Waycross
+
+# HAWAII
+-15508   1971 # Hilo AP (S)
+-15791   2133 # Honolulu AP
+-15776   2145 # Kaneohe Bay MCAS
+-15803   2105 # Wahiawa
+
+# IDAHO
+-11621   4356 # Boise AP (S)
+-11376   4253 # Burley
+-11681   4776 # Coeur D'Alene AP
+-11206   4351 # Idaho Falls AP
+-11701   4638 # Lewiston AP
+-11696   4673 # Moscow
+-11590   4303 # Mountain Home AFB
+-11260   4291 # Pocatello AP
+-11448   4248 # Twin Falls AP (S)
+
+# ILLINOIS
+ -8833   4175 # Aurora
+ -8985   3855 # Belleville, Scott AFB
+ -8895   4048 # Bloomington
+ -8925   3778 # Carbondale
+ -8828   4003 # Champaign/Urbana
+ -8775   4178 # Chicago, Midway AP
+ -8790   4198 # Chicago, O'Hare AP
+ -8763   4188 # Chicago Co
+ -8760   4020 # Danville
+ -8886   3983 # Decatur
+ -8948   4183 # Dixon
+ -8826   4203 # Elgin
+ -8961   4230 # Freeport
+ -9043   4093 # Galesburg
+ -8940   3888 # Greenville
+ -8816   4151 # Joliet
+ -8791   4108 # Kankakee
+ -8910   4131 # La Salle/Peru
+ -9066   4046 # Macomb
+ -9051   4145 # Moline AP
+ -8886   3831 # Mt Vernon
+ -8968   4066 # Peoria AP
+ -9120   3995 # Quincy AP
+ -8813   4030 # Rantoul, Chanute AFB
+ -8905   4235 # Rockford
+ -8966   3983 # Springfield AP
+ -8788   4235 # Waukegan
+
+# INDIANA
+ -8561   4010 # Anderson
+ -8650   3885 # Bedford
+ -8661   3913 # Bloomington
+ -8590   3926 # Columbus, Bakalar AFB
+ -8690   4005 # Crawfordsville
+ -8753   3805 # Evansville AP
+ -8520   4100 # Fort Wayne AP
+ -8580   4153 # Goshen AP
+ -8725   4153 # Hobart
+ -8550   4088 # Huntington
+ -8628   3973 # Indianapolis AP
+ -8575   3828 # Jeffersonville
+ -8605   4041 # Kokomo
+ -8608   4003 # Lafayette
+ -8671   4160 # La Porte
+ -8568   4048 # Marion
+ -8535   4018 # Muncie
+ -8615   4065 # Peru, Grissom AFB
+ -8483   3976 # Richmond AP
+ -8578   3951 # Shelbyville
+ -8631   4170 # South Bend AP
+ -8730   3945 # Terre Haute AP
+ -8703   4151 # Valparaiso
+ -8753   3868 # Vincennes
+
+# IOWA
+ -9380   4203 # Ames (S)
+ -9111   4078 # Burlington AP
+ -9170   4188 # Cedar Rapids AP
+ -9021   4183 # Clinton
+ -9581   4133 # Council Bluffs
+ -9365   4153 # Des Moines AP
+ -9070   4240 # Dubuque
+ -9418   4255 # Fort Dodge
+ -9155   4163 # Iowa City
+ -9140   4040 # Keokuk
+ -9293   4206 # Marshalltown
+ -9333   4315 # Mason City AP
+ -9303   4168 # Newton
+ -9245   4110 # Ottumwa AP
+ -9638   4240 # Sioux City AP
+ -9240   4255 # Waterloo
+
+# KANSAS
+ -9511   3956 # Atchison
+ -9548   3766 # Chanute AP
+ -9996   3776 # Dodge City AP (S)
+ -9683   3781 # El Dorado
+ -9620   3833 # Emporia
+-10073   3793 # Garden City AP
+-10170   3936 # Goodland AP
+ -9886   3835 # Great Bend
+ -9786   3806 # Hutchinson AP
+-10096   3705 # Liberal
+ -9676   3905 # Manhattan, Ft Riley (S)
+ -9551   3733 # Parsons
+ -9881   3886 # Russell AP
+ -9765   3880 # Salina
+ -9563   3906 # Topeka AP
+ -9741   3765 # Wichita AP
+
+# KENTUCKY
+ -8273   3855 # Ashland
+ -8646   3596 # Bowling Green AP
+ -8410   3695 # Corbin AP
+ -8466   3905 # Covington AP
+ -8748   3666 # Hopkinsville, Ft Campbell
+ -8460   3803 # Lexington AP (S)
+ -8573   3818 # Louisville AP
+ -8748   3731 # Madisonville
+ -8716   3775 # Owensboro
+ -8876   3706 # Paducah AP
+
+# LOUISIANA
+ -9230   3140 # Alexandria AP
+ -9115   3053 # Baton Rouge AP
+ -8986   3078 # Bogalusa
+ -9066   2951 # Houma
+ -9200   3020 # Lafayette AP
+ -9321   3011 # Lake Charles AP (S)
+ -9330   3260 # Minden
+ -9203   3251 # Monroe AP
+ -9308   3176 # Natchitoches
+ -9025   2998 # New Orleans AP
+ -9381   3246 # Shreveport AP (S)
+
+# MAINE
+ -6980   4431 # Augusta AP
+ -6883   4480 # Bangor, Dow AFB
+ -6801   4686 # Caribou AP (S)
+ -7025   4403 # Lewiston
+ -6870   4565 # Millinocket AP
+ -7031   4365 # Portland (S)
+ -6966   4453 # Waterville
+
+# MARYLAND
+ -7666   3918 # Baltimore AP
+ -7641   3933 # Baltimore Co
+ -7876   3961 # Cumberland
+ -7741   3945 # Frederick AP
+ -7773   3970 # Hagerstown
+ -7550   3833 # Salisbury (S)
+
+# MASSACHUSETTS
+ -7103   4236 # Boston AP
+ -7110   4236 # Cambridge
+ -7168   4240 # Clinton
+ -7113   4171 # Fall River
+ -7141   4228 # Framingham
+ -7068   4258 # Gloucester
+ -7206   4205 # Greenfield
+ -7116   4270 # Lawrence
+ -7131   4265 # Lowell
+ -7096   4168 # New Bedford
+ -7330   4243 # Pittsfield AP
+ -7253   4220 # Springfield, Westover AFB
+ -7106   4190 # Taunton
+ -7186   4226 # Worcester AP
+
+# MICHIGAN
+ -8401   4191 # Adrian
+ -8343   4506 # Alpena AP
+ -8525   4231 # Battle Creek AP
+ -8643   4213 # Benton Harbor AP
+ -8301   4241 # Detroit
+ -8708   4573 # Escanaba
+ -8373   4296 # Flint AP
+ -8551   4288 # Grand Rapids AP
+ -8610   4270 # Holland
+ -8446   4226 # Jackson AP
+ -8560   4228 # Kalamazoo
+ -8460   4278 # Lansing AP
+ -8740   4656 # Marquette Co
+ -8476   4358 # Mt Pleasant
+ -8623   4316 # Muskegon AP
+ -8341   4266 # Pontiac
+ -8241   4298 # Port Huron
+ -8408   4353 # Saginaw AP
+ -8408   4408 # Sault Ste. Marie
+ -8558   4475 # Traverse City AP
+ -8353   4223 # Ypsilanti
+
+# MINNESOTA
+ -9335   4365 # Albert Lea
+ -9538   4586 # Alexandria AP
+ -9493   4751 # Bemidji AP
+ -9413   4640 # Brainerd
+ -9218   4683 # Duluth AP
+ -9326   4430 # Fairbault
+ -9606   4626 # Fergus Falls
+ -9338   4856 # International Falls AP
+ -9398   4415 # Mankato
+ -9321   4488 # Minneapolis/St. Paul AP
+ -9250   4391 # Rochester AP
+ -9255   4750 # Virginia
+ -9508   4511 # Willmar
+ -9163   4405 # Winona
+
+# MISSISSIPPI
+ -8891   3041 # Biloxi--Keesler AFB
+ -9056   3420 # Clarksdale
+ -8845   3365 # Columbus AFB
+ -9098   3348 # Greenville AFB
+ -9008   3350 # Greenwood
+ -8925   3126 # Hattiesburg
+ -9008   3231 # Jackson AP
+ -8916   3166 # Laurel
+ -9046   3125 # Mccomb AP
+ -8875   3233 # Meridian AP
+ -9138   3155 # Natchez
+ -8876   3426 # Tupelo
+ -9078   3240 # Vicksburg Co
+
+# MISSOURI
+ -8958   3723 # Cape Girardeau
+ -9236   3896 # Columbia AP (S)
+ -9040   3776 # Farmington AP
+ -9135   3970 # Hannibal
+ -9218   3856 # Jefferson City
+ -9450   3715 # Joplin AP
+ -9458   3911 # Kansas City AP
+ -9255   4010 # Kirksville AP
+ -9190   3918 # Mexico
+ -9243   3940 # Moberly
+ -9041   3676 # Poplar Bluff
+ -9171   3798 # Rolla
+ -9491   3976 # St. Joseph AP
+ -9038   3875 # St. Louis AP
+ -9063   3865 # St. Louis CO
+ -8960   3688 # Sikeston
+ -9355   3871 # Sedalia--Whiteman AFB
+ -8960   3688 # Sikeston
+ -9338   3723 # Springfield AP
+
+# MONTANA
+-10853   4580 # Billings AP
+-11115   4578 # Bozeman
+-11250   4595 # Butte AP
+-11236   4861 # Cut Bank AP
+-10653   4841 # Glasgow AP (S)
+-10480   4713 # Glendive
+-11136   4748 # Great Falls AP (S)
+-10966   4856 # Havre
+-11200   4660 # Helena AP
+-11426   4830 # Kalispell AP
+-10945   4706 # Lewiston AP
+-11043   4570 # Livingstown AP
+-10586   4643 # Miles City AP
+-11408   4691 # Missoula AP
+
+# NEBRASKA
+ -9675   4026 # Beatrice
+-10308   4283 # Chadron AP
+ -9733   4146 # Columbus
+ -9648   4143 # Fremont
+ -9831   4098 # Grand Island AP
+ -9843   4060 # Hastings
+ -9901   4073 # Kearney
+ -9675   4085 # Lincoln Co (S)
+-10063   4020 # McCook
+ -9743   4198 # Norfolk
+-10068   4113 # North Platte AP (S)
+ -9590   4130 # Omaha AP
+-10360   4186 # Scottsbluff AP
+-10310   4121 # Sidney AP
+
+# NEVADA
+-11976   3916 # Carson City
+-11578   4083 # Elko AP
+-11485   3928 # Ely AP (S)
+-11516   3608 # Las Vegas AP (S)
+-11855   4006 # Lovelock AP
+-11978   3950 # Reno AP (S)
+-11978   3950 # Reno Co
+-11708   3806 # Tonopah AP
+-11780   4090 # Winnemucca AP
+
+# NEW HAMPSHIRE
+ -7101   4405 # Berlin
+ -7203   4303 # Claremont
+ -7150   4320 # Concord AP
+ -7228   4291 # Keene
+ -7105   4305 # Laconia
+ -7143   4293 # Manchester, Grenier AFB
+ -7081   4306 # Portsmouth, Pease AFB
+
+# NEW JERSEY
+ -7443   3938 # Atlantic City CO
+ -7401   4031 # Long Branch
+ -7416   4070 # Newark AP
+ -7443   4048 # New Brunswick
+ -7415   4090 # Paterson
+ -7518   4068 # Phillipsburg
+ -7476   4021 # Trenton Co
+ -7500   3948 # Vineland
+
+# NEW MEXICO
+-10610   3285 # Alamagordo, Holloman AFB
+-10661   3505 # Albuquerque AP (S)
+-10438   3276 # Artesia
+-10426   3233 # Carlsbad AP
+-10331   3438 # Clovis AP
+-10823   3673 # Farmington AP
+-10878   3551 # Gallup
+-10790   3516 # Grants
+-10321   3275 # Hobbs AP
+-10691   3230 # Las Cruces
+-10631   3586 # Los Alamos
+-10450   3675 # Raton AP
+-10453   3330 # Roswell, Walker AFB
+-10608   3561 # Santa Fe CO
+-10816   3263 # Silver City AP
+-10688   3405 # Socorro AP
+-10360   3518 # Tucumcari AP
+
+# NEW YORK
+ -7380   4275 # Albany AP (S)
+ -7375   4265 # Albany Co
+ -7653   4290 # Auburn
+ -7818   4300 # Batavia
+ -7598   4221 # Binghamton AP
+ -7873   4293 # Buffalo AP
+ -7618   4260 # Cortland
+ -7926   4248 # Dunkirk
+ -7690   4216 # Elmira AP
+ -7690   4275 # Geneva (S)
+ -7361   4333 # Glens Falls
+ -7435   4303 # Gloversville
+ -7770   4235 # Hornell
+ -7648   4245 # Ithaca (S)
+ -7923   4211 # Jamestown
+ -7400   4193 # Kingston
+ -7925   4315 # Lockport
+ -7485   4493 # Massena AP
+ -7410   4150 # Newburgh, Stewart AFB
+ -7396   4078 # NYC-Central Park (S)
+ -7378   4065 # NYC-Kennedy AP
+ -7390   4076 # NYC-La Guardia AP
+ -7995   4310 # Niagara Falls AP
+ -7836   4223 # Olean
+ -7506   4251 # Oneonta
+ -7655   4346 # Oswego Co
+ -7346   4465 # Plattsburg AFB
+ -7391   4163 # Poughkeepsie
+ -7766   4311 # Rochester AP
+ -7541   4323 # Rome, Griffiss AFB
+ -7395   4285 # Schenectady (S)
+ -7263   4085 # Suffolk County AFB
+ -7611   4311 # Syracuse AP
+ -7538   4315 # Utica
+ -7601   4398 # Watertown
+
+# NORTH CAROLINA
+ -8253   3543 # Asheville AP
+ -8093   3521 # Charlotte AP
+ -7878   3586 # Durham
+ -7618   3626 # Elizabeth City AP
+ -7901   3516 # Fayetteville, Pope AFB
+ -7796   3533 # Goldsboro, Seymour-Johnson
+ -7995   3608 # Greensboro AP (S)
+ -7741   3561 # Greenville
+ -7841   3636 # Henderson
+ -8138   3575 # Hickory
+ -7761   3483 # Jacksonville
+ -7906   3461 # Lumberton
+ -7705   3508 # New Bern AP
+ -7878   3586 # Raleigh/Durham AP (S)
+ -7780   3596 # Rocky Mount
+ -7791   3426 # Wilmington AP
+ -8021   3613 # Winston-Salem AP
+
+# NORTH DAKOTA
+-10075   4676 # Bismarck AP (S)
+ -9890   4811 # Devils Lake
+-10280   4680 # Dickinson AP
+ -9680   4690 # Fargo AP
+ -9740   4795 # Grand Forks AP
+ -9868   4691 # Jamestown AP
+-10135   4841 # Minot AP
+-10358   4815 # Williston
+
+# OHIO
+ -8143   4091 # Akron-Canton AP
+ -8080   4185 # Ashtabula
+ -8210   3933 # Athens
+ -8363   4138 # Bowling Green
+ -8158   4006 # Cambridge
+ -8300   3935 # Chillicothe
+ -8451   3915 # Cincinnati Co
+ -8185   4140 # Cleveland AP (S)
+ -8288   4000 # Columbus AP (S)
+ -8421   3990 # Dayton AP
+ -8438   4128 # Defiance
+ -8366   4101 # Findlay AP
+ -8311   4133 # Fremont
+ -8458   3940 # Hamilton
+ -8263   3973 # Lancaster
+ -8403   4070 # Lima
+ -8251   4081 # Mansfield AP
+ -8316   4060 # Marion
+ -8441   3951 # Middletown
+ -8246   4001 # Newark
+ -8261   4126 # Norwalk
+ -8291   3875 # Portsmouth
+ -8271   4145 # Sandusky Co
+ -8383   3983 # Springfield
+ -8063   4038 # Steubenville
+ -8380   4160 # Toledo AP
+ -8085   4133 # Warren
+ -8191   4078 # Wooster
+ -8066   4126 # Youngstown AP
+ -8190   3995 # Zanesville AP
+
+# OKLAHOMA
+ -9668   3478 # Ada
+ -9926   3465 # Altus AFB
+ -9701   3430 # Ardmore
+ -9600   3675 # Bartlesville
+ -9791   3505 # Chickasha
+ -9791   3635 # Enid, Vance AFB
+ -9841   3456 # Lawton AP
+ -9591   3483 # McAlester
+ -9536   3566 # Muskogee AP
+ -9748   3525 # Norman
+ -9760   3540 # Oklahoma City AP (S)
+ -9710   3673 # Ponca City
+ -9666   3523 # Seminole
+ -9708   3616 # Stillwater (S)
+ -9590   3620 # Tulsa AP
+ -9951   3660 # Woodward
+
+# OREGON
+-12311   4463 # Albany
+-12388   4615 # Astoria AP (S)
+-11781   4483 # Baker AP
+-12131   4406 # Bend
+-12328   4450 # Corvallis (S)
+-12321   4411 # Eugene AP
+-12331   4243 # Grants Pass
+-12173   4215 # Klamath Falls AP
+-12286   4236 # Medford AP (S)
+-11885   4568 # Pendleton AP
+-12260   4560 # Portland AP
+-12266   4553 # Portland Co
+-12336   4323 # Roseburg AP
+-12301   4491 # Salem AP
+-12120   4560 # The Dalles
+
+# PENNSYLVANIA
+ -7543   4065 # Allentown AP
+ -7831   4030 # Altoona Co
+ -7990   4086 # Butler
+ -7763   3993 # Chambersburg
+ -8018   4208 # Erie AP
+ -7676   4020 # Harrisburg AP
+ -7883   4031 # Johnstown
+ -7630   4011 # Lancaster
+ -8016   4163 # Meadville
+ -8036   4101 # New Castle
+ -7525   3988 # Philadelphia AP
+ -8021   4050 # Pittsburgh AP
+ -8000   4045 # Pittsburgh Co
+ -7563   4033 # Reading Co
+ -7573   4133 # Scranton/Wilkes-Barre
+ -7786   4080 # State College (S)
+ -7676   4088 # Sunbury
+ -7971   3991 # Uniontown
+ -7913   4185 # Warren
+ -7563   3996 # West Chester
+ -7691   4125 # Williamsport AP
+ -7675   3991 # York
+
+# RHODE ISLAND
+ -7133   4150 # Newport (S)
+ -7143   4173 # Providence AP
+
+# SOUTH CAROLINA
+ -8271   3450 # Anderson
+ -8003   3290 # Charleston AFB (S)
+ -7996   3290 # Charleston Co
+ -8111   3395 # Columbia AP
+ -7971   3418 # Florence AP
+ -7928   3338 # Georgetown
+ -8221   3490 # Greenville AP
+ -8211   3416 # Greenwood
+ -8086   3350 # Orangeburg
+ -8096   3498 # Rock Hill
+ -8200   3496 # Spartanburg AP
+ -8036   3390 # Sumter, Shaw AFB
+
+# SOUTH DAKOTA
+ -9843   4545 # Aberdeen AP
+ -9680   4430 # Brookings
+ -9821   4438 # Huron AP
+ -9801   4368 # Mitchell
+-10028   4438 # Pierre AP
+-10306   4405 # Rapid City AP (S)
+ -9673   4356 # Sioux Falls AP
+ -9715   4491 # Watertown AP
+ -9738   4291 # Yankton
+
+# TENNESSEE
+ -8458   3543 # Athens
+ -8240   3648 # Bristol-Tri City AP
+ -8520   3503 # Chattanooga AP
+ -8736   3655 # Clarksville
+ -8703   3563 # Columbia
+ -8940   3601 # Dyersburg
+ -8283   3606 # Greenville
+ -8891   3560 # Jackson AP
+ -8398   3581 # Knoxville AP
+ -9000   3505 # Memphis AP
+ -8646   3491 # Murfreesboro
+ -8668   3611 # Nashville AP (S)
+ -8608   3538 # Tullahoma
+
+# TEXAS
+ -9968   3241 # Abilene AP
+ -9803   2773 # Alice AP
+-10070   3523 # Amarillo AP
+ -9770   3030 # Austin AP
+ -9596   2900 # Bay City
+ -9401   2995 # Beaumont
+ -9766   2836 # Beeville
+-10145   3230 # Big Spring AP (S)
+ -9743   2590 # Brownsville AP (S)
+ -9895   3180 # Brownwood
+ -9655   3066 # Bryan AP
+ -9750   2776 # Corpus Christi AP
+ -9646   3208 # Corsicana
+ -9685   3285 # Dallas AP
+-10078   2936 # Del Rio, Laughlin AFB
+ -9710   3320 # Denton
+-10053   2886 # Eagle Pass
+-10640   3180 # El Paso AP (S)
+ -9705   3283 # Fort Worth AP (S)
+ -9480   2930 # Galveston AP
+ -9605   3306 # Greenville
+ -9765   2623 # Harlingen
+ -9535   2996 # Houston AP
+ -9536   2998 # Houston Co
+ -9555   3071 # Huntsville
+ -9768   3108 # Killeen, Robert Gray AAF
+-10193   3270 # Lamesa
+ -9945   2753 # Laredo AFB
+ -9473   3246 # Longview
+-10181   3365 # Lubbock AP
+ -9480   3141 # Lufkin AP
+ -9821   2620 # Mcallen
+-10218   3195 # Midland AP (S)
+ -9806   3278 # Mineral Wells AP
+ -9563   3178 # Palestine Co
+-10098   3553 # Pampa
+-10350   3141 # Pecos
+-10170   3418 # Plainview
+ -9401   2995 # Port Arthur AP
+-10040   3143 # San Angelo, Goodfellow AFB
+ -9846   2953 # San Antonio AP (S)
+ -9666   3371 # Sherman, Perrin AFB
+-10091   3271 # Snyder
+ -9735   3110 # Temple
+ -9526   3235 # Tyler AP
+ -9930   3416 # Vernon
+ -9691   2885 # Victoria AP
+ -9721   3161 # Waco AP
+ -9848   3396 # Wichita Falls AP
+
+# UTAH
+-11310   3770 # Cedar City AP
+-11181   4175 # Logan
+-10960   3860 # Moab
+-11201   4120 # Ogden AP
+-11083   3961 # Price
+-11171   4021 # Provo
+-11208   3876 # Richfield
+-11351   3703 # St George Co
+-11196   4076 # Salt Lake City AP (S)
+-10951   4045 # Vernal AP
+
+# VERMONT
+ -7251   4420 # Barre
+ -7315   4446 # Burlington AP (S)
+ -7296   4360 # Rutland
+
+# VIRGINIA
+ -7851   3803 # Charlottesville
+ -7933   3656 # Danville AP
+ -7746   3830 # Fredericksburg
+ -7890   3845 # Harrisonburg
+ -7920   3733 # Lynchburg AP
+ -7620   3690 # Norfolk AP
+ -7751   3718 # Petersburg
+ -7733   3750 # Richmond AP
+ -7996   3731 # Roanoke AP
+ -7890   3826 # Staunton
+ -7816   3920 # Winchester
+
+# WASHINGTON
+-12381   4698 # Aberdeen
+-12253   4880 # Bellingham AP
+-12266   4756 # Bremerton
+-12051   4703 # Ellensburg AP
+-12228   4791 # Everett, Paine AFB
+-11913   4621 # Kennewick
+-12293   4616 # Longview
+-11931   4720 # Moses Lake, Larson AFB
+-12290   4696 # Olympia AP
+-12343   4811 # Port Angeles
+-12230   4753 # Seattle-Boeing Field
+-12230   4765 # Seattle Co (S)
+-12230   4745 # Seattle-Tacoma AP (S)
+-11751   4763 # Spokane AP (S)
+-12250   4725 # Tacoma, McChord AFB
+-11828   4610 # Walla Walla AP
+-12031   4741 # Wenatchee
+-12053   4656 # Yakima AP
+
+# WEST VIRGINIA
+ -8111   3778 # Beckley
+ -8121   3730 # Bluefield AP
+ -8160   3836 # Charleston AP
+ -8035   3926 # Clarksburg
+ -7985   3888 # Elkins AP
+ -8250   3841 # Huntington Co
+ -7798   3940 # Martinsburg AP
+ -7991   3965 # Morgantown AP
+ -8156   3926 # Parkersburg Co
+ -8070   4011 # Wheeling
+
+# WISCONSIN
+ -8838   4425 # Appleton
+ -9096   4656 # Ashland
+ -8903   4250 # Beloit
+ -9148   4486 # Eau Claire AP
+ -8845   4380 # Fond Du Lac
+ -8813   4448 # Green Bay AP
+ -9125   4386 # La Crosse AP
+ -8933   4313 # Madison AP (S)
+ -8768   4410 # Manitowoc
+ -8763   4510 # Marinette
+ -8790   4295 # Milwaukee AP
+ -8785   4271 # Racine
+ -8771   4375 # Sheboygan
+ -8956   4450 # Stevens Point
+ -8823   4301 # Waukesha
+ -8961   4491 # Wausau AP
+
+# WYOMING
+-10646   4291 # Casper AP
+-10481   4115 # Cheyenne
+-10906   4455 # Cody AP
+-11095   4126 # Evanston
+-10873   4281 # Lander AP (S)
+-10568   4131 # Laramie AP (S)
+-10421   4385 # Newcastle
+-10720   4180 # Rawlins
+-10900   4160 # Rock Springs AP
+-10696   4476 # Sheridan AP
+-10421   4208 # Torrington
+
+# URUGUAY
+ -5621  -3485 # Montevideo
+
+# VENEZUELA
+ -6693   1050 # Caracas
+ -7160   1065 # Maracaibo
+
+# VIETNAM
+ 10821   1606 # Da Nang
+ 10586   2103 # Hanoi
+ 10670   1078 # Ho Chi Minh City (Saigon)
+
+# YUGOSLAVIA
+  2046   4480 # Belgrade
+
+# ZAIRE
+  1530   -433 # Kinshasa (Leopoldville)
+  1523    -43 # Kisangani (Stanleyville)

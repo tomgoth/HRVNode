@@ -1,0 +1,1187 @@
+This is TeX, Version 3.14159 (Web2C 7.4.5) (format=latex 2005.4.13)  26 APR 2005 14:37
+**./images.tex
+(./images.tex
+LaTeX2e <2001/06/01>
+Babel <v3.7h> and hyphenation patterns for american, french, german, ngerman, n
+ohyphenation, loaded.
+
+(/usr/share/texmf/tex/latex/base/book.cls
+Document Class: book 2001/04/21 v1.4e Standard LaTeX document class
+(/usr/share/texmf/tex/latex/base/bk10.clo
+File: bk10.clo 2001/04/21 v1.4e Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (/usr/share/texmf/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+) (/usr/share/texmf/tex/latex/graphics/color.sty
+Package: color 1999/02/16 v1.0i Standard LaTeX Color (DPC)
+(/usr/share/texmf/tex/latex/config/color.cfg
+File: color.cfg 2001/08/31 v1.1 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: dvips.def on input line 125.
+(/usr/share/texmf/tex/latex/graphics/dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+) (/usr/share/texmf/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+)) (/usr/share/texmf/tex/latex/graphics/epsfig.sty
+Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
+(/usr/share/texmf/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+(/usr/share/texmf/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+) (/usr/share/texmf/tex/latex/graphics/graphics.sty
+Package: graphics 2001/07/07 v1.0n Standard LaTeX Graphics (DPC,SPQR)
+(/usr/share/texmf/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+) (/usr/share/texmf/tex/latex/config/graphics.cfg
+File: graphics.cfg 2001/08/31 v1.1 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: dvips.def on input line 80.
+)
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+\epsfxsize=\dimen105
+\epsfysize=\dimen106
+) (/usr/share/texmf/tex/latex/base/makeidx.sty
+Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
+) (/usr/share/texmf/tex/latex/misc/moreverb.sty
+Package: moreverb 1997/12/07 v2.2d.2 `more' verbatim facilities
+(/usr/share/texmf/tex/latex/tools/verbatim.sty
+Package: verbatim 2001/03/12 v1.5p LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks15
+\verbatim@line=\toks16
+\verbatim@in@stream=\read1
+)
+\verbatim@out=\write3
+\tab@position=\count88
+\tab@size=\count89
+\listing@line=\count90
+) (/usr/share/texmf/tex/latex/psnfss/times.sty
+Package: times 2002/09/08 PSNFSS-v9.0a (SPQR) 
+)
+\@indexfile=\write4
+\openout4 = `images.idx'.
+
+Writing index file images.idx
+(/usr/share/texmf/tex/latex/base/inputenc.sty
+Package: inputenc 2001/07/10 v0.99a Input encoding file 
+(/usr/share/texmf/tex/latex/base/latin1.def
+File: latin1.def 2001/07/10 v0.99a Input encoding file 
+))
+\sizebox=\box26
+\lthtmlwrite=\write5
+(./images.aux)
+\openout1 = `images.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 120.
+
+(/usr/share/texmf/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+) (/home/george/plt-2.4/doc/book.aux
+
+LaTeX Warning: Label `sec:quick' multiply defined.
+
+
+LaTeX Warning: Label `sec:getting-started' multiply defined.
+
+
+LaTeX Warning: Label `sec:essentials' multiply defined.
+
+
+LaTeX Warning: Label `sec:nox' multiply defined.
+
+
+LaTeX Warning: Label `sec:more-options' multiply defined.
+
+
+LaTeX Warning: Label `sec:simple-plots' multiply defined.
+
+
+LaTeX Warning: Label `fig:example1' multiply defined.
+
+
+LaTeX Warning: Label `fig:simple0' multiply defined.
+
+
+LaTeX Warning: Label `fig:simple1' multiply defined.
+
+
+LaTeX Warning: Label `fig:simple2' multiply defined.
+
+
+LaTeX Warning: Label `fig:simple3' multiply defined.
+
+
+LaTeX Warning: Label `fig:simple4' multiply defined.
+
+
+LaTeX Warning: Label `fig:simple5' multiply defined.
+
+
+LaTeX Warning: Label `fig:image' multiply defined.
+
+
+LaTeX Warning: Label `fig:function' multiply defined.
+
+
+LaTeX Warning: Label `sec:data-prep' multiply defined.
+
+
+LaTeX Warning: Label `sec:data-spec' multiply defined.
+
+
+LaTeX Warning: Label `sec:gen-abs' multiply defined.
+
+
+LaTeX Warning: Label `fig:ecg' multiply defined.
+
+
+LaTeX Warning: Label `sec:string-arrays' multiply defined.
+
+
+LaTeX Warning: Label `sec:coord-systems' multiply defined.
+
+
+LaTeX Warning: Label `fig:coords' multiply defined.
+
+
+LaTeX Warning: Label `fig:example8' multiply defined.
+
+
+LaTeX Warning: Label `sec:ax1' multiply defined.
+
+
+LaTeX Warning: Label `fig:example2' multiply defined.
+
+
+LaTeX Warning: Label `fig:example3' multiply defined.
+
+
+LaTeX Warning: Label `sec:quickplot' multiply defined.
+
+
+LaTeX Warning: Label `fig:henon' multiply defined.
+
+
+LaTeX Warning: Label `sec:plotting-data' multiply defined.
+
+
+LaTeX Warning: Label `fig:example4' multiply defined.
+
+
+LaTeX Warning: Label `fig:symbols' multiply defined.
+
+
+LaTeX Warning: Label `fig:style-C' multiply defined.
+
+
+LaTeX Warning: Label `fig:style-e+Z' multiply defined.
+
+
+LaTeX Warning: Label `fig:style-e-X' multiply defined.
+
+
+LaTeX Warning: Label `fig:style-e:+' multiply defined.
+
+
+LaTeX Warning: Label `fig:style-E+0' multiply defined.
+
+
+LaTeX Warning: Label `fig:style-E-ftriangle' multiply defined.
+
+
+LaTeX Warning: Label `fig:style-E:square' multiply defined.
+
+
+LaTeX Warning: Label `fig:style-f' multiply defined.
+
+
+LaTeX Warning: Label `fig:style-i' multiply defined.
+
+
+LaTeX Warning: Label `fig:style-l' multiply defined.
+
+
+LaTeX Warning: Label `fig:style-m' multiply defined.
+
+
+LaTeX Warning: Label `fig:style-n' multiply defined.
+
+
+LaTeX Warning: Label `fig:style-N' multiply defined.
+
+
+LaTeX Warning: Label `fig:style-o' multiply defined.
+
+
+LaTeX Warning: Label `fig:style-O' multiply defined.
+
+
+LaTeX Warning: Label `fig:style-sO' multiply defined.
+
+
+LaTeX Warning: Label `fig:style-Sfdiamond' multiply defined.
+
+
+LaTeX Warning: Label `fig:style-t' multiply defined.
+
+
+LaTeX Warning: Label `sec:multiplots' multiply defined.
+
+
+LaTeX Warning: Label `sec:overlays' multiply defined.
+
+
+LaTeX Warning: Label `fig:example6' multiply defined.
+
+
+LaTeX Warning: Label `fig:example7' multiply defined.
+
+
+LaTeX Warning: Label `sec:legends' multiply defined.
+
+
+LaTeX Warning: Label `fig:example10' multiply defined.
+
+
+LaTeX Warning: Label `sec:plot-windows' multiply defined.
+
+
+LaTeX Warning: Label `fig:example16' multiply defined.
+
+
+LaTeX Warning: Label `fig:example11' multiply defined.
+
+
+LaTeX Warning: Label `fig:example12' multiply defined.
+
+
+LaTeX Warning: Label `fig:example13' multiply defined.
+
+
+LaTeX Warning: Label `sec:labelling' multiply defined.
+
+
+LaTeX Warning: Label `sec:concatenation' multiply defined.
+
+
+LaTeX Warning: Label `fig:example9' multiply defined.
+
+
+LaTeX Warning: Label `fig:labels' multiply defined.
+
+
+LaTeX Warning: Label `sec:lines-arrows' multiply defined.
+
+
+LaTeX Warning: Label `fig:flowchart' multiply defined.
+
+
+LaTeX Warning: Label `sec:suppress' multiply defined.
+
+
+LaTeX Warning: Label `sec:font-groups' multiply defined.
+
+
+LaTeX Warning: Label `fig:fonts' multiply defined.
+
+
+LaTeX Warning: Label `fig:linestyles' multiply defined.
+
+
+LaTeX Warning: Label `fig:fontgroup1' multiply defined.
+
+
+LaTeX Warning: Label `fig:example14' multiply defined.
+
+
+LaTeX Warning: Label `fig:colors' multiply defined.
+
+
+LaTeX Warning: Label `sec:ax2' multiply defined.
+
+
+LaTeX Warning: Label `fig:example17' multiply defined.
+
+
+LaTeX Warning: Label `fig:conf' multiply defined.
+
+
+LaTeX Warning: Label `sec:color-names' multiply defined.
+
+
+LaTeX Warning: Label `sec:printed-output' multiply defined.
+
+
+LaTeX Warning: Label `sec:epsf' multiply defined.
+
+
+LaTeX Warning: Label `sec:latex' multiply defined.
+
+
+LaTeX Warning: Label `fig:a1' multiply defined.
+
+
+LaTeX Warning: Label `fig:a2' multiply defined.
+
+
+LaTeX Warning: Label `sec:margins' multiply defined.
+
+
+LaTeX Warning: Label `fig:a3' multiply defined.
+
+
+LaTeX Warning: Label `sec:preview-print' multiply defined.
+
+
+LaTeX Warning: Label `sec:web-output' multiply defined.
+
+
+LaTeX Warning: Label `sec:screen-output' multiply defined.
+
+
+LaTeX Warning: Label `sec:scripting' multiply defined.
+
+
+LaTeX Warning: Label `sec:distribution' multiply defined.
+
+
+LaTeX Warning: Label `sec:unix' multiply defined.
+
+
+LaTeX Warning: Label `sec:new' multiply defined.
+
+
+LaTeX Warning: Label `sec:man-page' multiply defined.
+
+)
+
+latex2htmlLength hsize=698.0pt
+
+latex2htmlLength vsize=902.0pt
+
+latex2htmlLength hoffset=0.0pt
+
+latex2htmlLength voffset=0.0pt
+
+latex2htmlLength topmargin=0.0pt
+
+latex2htmlLength topskip=0.00003pt
+
+latex2htmlLength headheight=0.0pt
+
+latex2htmlLength headsep=0.0pt
+
+latex2htmlLength parskip=0.0pt plus 1.0pt
+
+latex2htmlLength oddsidemargin=35.0pt
+
+latex2htmlLength evensidemargin=89.0pt
+
+File: figure10.ps Graphic file (type eps)
+<figure10.ps>
+l2hSize :tex2html_wrap3999:56.9055pt::0.0pt::698.0pt.
+[1
+
+
+
+]
+File: ecg.ps Graphic file (type eps)
+<ecg.ps>
+l2hSize :tex2html_wrap4001:56.9055pt::0.0pt::698.0pt.
+[2
+
+
+]
+File: figure8.ps Graphic file (type eps)
+<figure8.ps>
+l2hSize :tex2html_wrap4003:56.9055pt::0.0pt::698.0pt.
+[3
+
+
+]
+File: colors.ps Graphic file (type eps)
+<colors.ps>
+l2hSize :tex2html_wrap4005:56.9055pt::0.0pt::698.0pt.
+[4
+
+
+]
+File: figure14.ps Graphic file (type eps)
+<figure14.ps>
+l2hSize :tex2html_wrap4007:56.9055pt::0.0pt::698.0pt.
+[5
+
+
+]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 174.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 174.
+l2hSize :tex2html_wrap_inline3577:8.49002pt::0.0pt::14.70497pt.
+[6
+
+
+]
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 186.
+
+(/usr/share/texmf/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+l2hSize :tex2html_wrap_inline4315:10.74489pt::10.74489pt::210.87854pt.
+[7
+
+
+]
+l2hSize :tex2html_wrap_inline3579:7.24997pt::7.24997pt::16.05556pt.
+[8
+
+
+]
+l2hSize :tex2html_wrap_inline3581:7.24997pt::7.24997pt::8.27783pt.
+[9
+
+
+]
+l2hSize :tex2html_wrap_inline3583:7.24997pt::7.24997pt::8.27783pt.
+[10
+
+
+]
+File: figure1.ps Graphic file (type eps)
+<figure1.ps>
+l2hSize :figure373:309.18698pt::0.0pt::698.0pt.
+[11
+
+
+]
+File: simple0.ps.gz Graphic file (type eps)
+<simple0.ps.gz>
+l2hSize :figure465:237.62204pt::0.0pt::698.0pt.
+[12
+
+
+]
+File: simple1.ps Graphic file (type eps)
+<simple1.ps>
+l2hSize :figure471:237.62204pt::0.0pt::698.0pt.
+[13
+
+
+]
+l2hSize :tex2html_wrap_inline3585:8.0pt::8.0pt::5.50005pt.
+[14
+
+
+]
+File: simple2.ps Graphic file (type eps)
+<simple2.ps>
+l2hSize :figure494:237.62204pt::0.0pt::698.0pt.
+[15
+
+
+]
+File: simple3.ps Graphic file (type eps)
+<simple3.ps>
+l2hSize :figure509:237.62204pt::0.0pt::698.0pt.
+[16
+
+
+]
+File: simple4.ps Graphic file (type eps)
+<simple4.ps>
+l2hSize :figure559:237.62204pt::0.0pt::698.0pt.
+[17
+
+
+]
+File: simple5.ps Graphic file (type eps)
+<simple5.ps>
+l2hSize :figure579:237.62204pt::0.0pt::698.0pt.
+[18
+
+
+]
+File: image.ps Graphic file (type eps)
+<image.ps>
+l2hSize :figure605:333.62753pt::0.0pt::698.0pt.
+[19
+
+
+]
+l2hSize :tex2html_wrap_inline3587:8.64003pt::8.64003pt::83.65956pt.
+[20
+
+
+]
+l2hSize :tex2html_wrap_inline3589:6.74997pt::0.0pt::6.2153pt.
+[21
+
+
+]
+File: function.ps Graphic file (type eps)
+<function.ps>
+l2hSize :figure667:237.62204pt::0.0pt::698.0pt.
+[22
+
+
+]
+l2hSize :tex2html_wrap_inline3593:6.83331pt::0.0pt::9.625pt.
+[23
+
+
+]
+l2hSize :tex2html_wrap_inline5179:11.4pt::11.4pt::215.17937pt.
+[24
+
+
+]
+l2hSize :tex2html_wrap_inline3597:7.24997pt::7.24997pt::26.37097pt.
+[25
+
+
+]
+l2hSize :tex2html_wrap_inline3599:7.24997pt::7.24997pt::21.98991pt.
+[26
+
+
+]
+l2hSize :tex2html_wrap_inline3601:7.24997pt::7.24997pt::52.86086pt.
+[27
+
+
+]
+l2hSize :tex2html_wrap_inline3605:8.94843pt::8.94843pt::14.85841pt.
+[28
+
+
+]
+l2hSize :tex2html_wrap_inline3607:6.74997pt::0.0pt::27.72221pt.
+[29
+
+
+]
+File: ecg.ps Graphic file (type eps)
+<ecg.ps>
+l2hSize :figure794:344.66745pt::0.0pt::698.0pt.
+[30
+
+
+]
+l2hSize :tex2html_wrap_inline3611:7.24997pt::7.24997pt::82.41594pt.
+[31
+
+
+]
+l2hSize :tex2html_wrap_inline3617:7.24997pt::7.24997pt::5.76163pt.
+[32
+
+
+]
+l2hSize :tex2html_wrap_inline3619:8.0pt::8.0pt::54.07779pt.
+[33
+
+
+]
+l2hSize :tex2html_wrap_inline3621:8.0pt::8.0pt::56.27731pt.
+[34
+
+
+]
+l2hSize :tex2html_wrap_inline3623:8.0pt::8.0pt::38.55562pt.
+[35
+
+
+]
+l2hSize :tex2html_wrap_inline3625:8.0pt::8.0pt::22.72227pt.
+[36
+
+
+]
+l2hSize :tex2html_wrap_inline3627:8.0pt::8.0pt::22.72227pt.
+[37
+
+
+]
+l2hSize :tex2html_wrap_inline3637:8.0pt::8.0pt::33.76161pt.
+[38
+
+
+]
+File: coords.ps Graphic file (type eps)
+<coords.ps>
+l2hSize :figure896:301.32755pt::0.0pt::698.0pt.
+[39
+
+
+]
+l2hSize :tex2html_wrap_inline3643:8.0pt::8.0pt::23.69911pt.
+[40
+
+
+]
+File: figure8.ps Graphic file (type eps)
+<figure8.ps>
+l2hSize :figure919:301.32755pt::0.0pt::698.0pt.
+[41
+
+
+]
+File: figure2.ps Graphic file (type eps)
+<figure2.ps>
+l2hSize :figure949:344.66745pt::0.0pt::698.0pt.
+[42
+
+
+]
+File: figure3.ps Graphic file (type eps)
+<figure3.ps>
+l2hSize :figure1008:332.66745pt::0.0pt::698.0pt.
+[43
+
+
+]
+File: henon.ps.gz Graphic file (type eps)
+<henon.ps.gz>
+l2hSize :figure1063:253.13695pt::0.0pt::698.0pt.
+[44
+
+
+]
+l2hSize :tex2html_wrap_inline3655:6.74997pt::0.0pt::4.82759pt.
+[45
+
+
+]
+l2hSize :tex2html_wrap_inline3679:7.24997pt::7.24997pt::27.04976pt.
+[46
+
+
+]
+l2hSize :tex2html_wrap_inline3683:7.24997pt::7.24997pt::27.04976pt.
+[47
+
+
+]
+l2hSize :tex2html_wrap_inline3703:7.24997pt::7.24997pt::27.04976pt.
+[48
+
+
+]
+File: figure4.ps Graphic file (type eps)
+<figure4.ps>
+Overfull \hbox (6.12086pt too wide) in paragraph at lines 603--604
+[][] 
+ []
+
+l2hSize :figure1158:381.18698pt::0.0pt::698.0pt.
+[49
+
+
+]
+File: symbols.ps Graphic file (type eps)
+<symbols.ps>
+l2hSize :figure1190:301.32755pt::0.0pt::698.0pt.
+[50
+
+
+]
+l2hSize :tex2html_wrap_inline3727:6.74997pt::0.0pt::5.1563pt.
+[51
+
+
+]
+l2hSize :tex2html_wrap_inline3761:6.74997pt::0.0pt::6.50238pt.
+[52
+
+
+]
+l2hSize :tex2html_wrap_inline3777:7.24997pt::7.24997pt::9.88898pt.
+[53
+
+
+]
+l2hSize :tex2html_wrap_inline3779:7.24997pt::7.24997pt::9.88898pt.
+[54
+
+
+]
+l2hSize :tex2html_wrap_inline3781:8.0pt::8.0pt::27.82646pt.
+[55
+
+
+]
+l2hSize :tex2html_wrap_inline3783:8.0pt::8.0pt::27.82646pt.
+[56
+
+
+]
+l2hSize :tex2html_wrap_inline3791:7.24997pt::7.24997pt::10.70143pt.
+[57
+
+
+]
+l2hSize :tex2html_wrap_inline3793:7.24997pt::7.24997pt::9.88898pt.
+[58
+
+
+]
+l2hSize :tex2html_wrap_inline3795:7.24997pt::7.24997pt::10.70143pt.
+[59
+
+
+]
+l2hSize :tex2html_wrap_inline3797:7.24997pt::7.24997pt::9.88898pt.
+[60
+
+
+]
+l2hSize :tex2html_wrap_inline3799:8.0pt::8.0pt::32.31259pt.
+[61
+
+
+]
+l2hSize :tex2html_wrap_inline3801:8.0pt::8.0pt::32.31259pt.
+[62
+
+
+]
+File: style-C.ps Graphic file (type eps)
+<style-C.ps>
+l2hSize :figure1334:233.0828pt::0.0pt::698.0pt.
+[63
+
+
+]
+File: style-e+Z.ps Graphic file (type eps)
+<style-e+Z.ps>
+l2hSize :figure1346:233.0828pt::0.0pt::698.0pt.
+[64
+
+
+]
+File: style-e-X.ps Graphic file (type eps)
+<style-e-X.ps>
+l2hSize :figure1358:233.0828pt::0.0pt::698.0pt.
+[65
+
+
+]
+File: style-ec+.ps Graphic file (type eps)
+<style-ec+.ps>
+l2hSize :figure1370:233.0828pt::0.0pt::698.0pt.
+[66
+
+
+]
+File: style-E+0.ps Graphic file (type eps)
+<style-E+0.ps>
+l2hSize :figure1382:233.0828pt::0.0pt::698.0pt.
+[67
+
+
+]
+File: style-E-ftriangle.ps Graphic file (type eps)
+<style-E-ftriangle.ps>
+l2hSize :figure1394:233.0828pt::0.0pt::698.0pt.
+[68
+
+
+]
+File: style-Ecsquare.ps Graphic file (type eps)
+<style-Ecsquare.ps>
+l2hSize :figure1406:233.0828pt::0.0pt::698.0pt.
+[69
+
+
+]
+File: style-f.ps Graphic file (type eps)
+<style-f.ps>
+l2hSize :figure1418:233.0828pt::0.0pt::698.0pt.
+[70
+
+
+]
+File: style-i.ps Graphic file (type eps)
+<style-i.ps>
+l2hSize :figure1430:233.0828pt::0.0pt::698.0pt.
+[71
+
+
+]
+File: style-l.ps Graphic file (type eps)
+<style-l.ps>
+l2hSize :figure1442:233.0828pt::0.0pt::698.0pt.
+[72
+
+
+]
+File: style-m.ps Graphic file (type eps)
+<style-m.ps>
+l2hSize :figure1454:233.0828pt::0.0pt::698.0pt.
+[73
+
+
+]
+File: style-n.ps Graphic file (type eps)
+<style-n.ps>
+l2hSize :figure1466:233.0828pt::0.0pt::698.0pt.
+[74
+
+
+]
+File: style-N.ps Graphic file (type eps)
+<style-N.ps>
+l2hSize :figure1478:233.0828pt::0.0pt::698.0pt.
+[75
+
+
+]
+File: style-o.ps Graphic file (type eps)
+<style-o.ps>
+l2hSize :figure1490:233.0828pt::0.0pt::698.0pt.
+[76
+
+
+]
+File: style-O.ps Graphic file (type eps)
+<style-O.ps>
+l2hSize :figure1502:233.0828pt::0.0pt::698.0pt.
+[77
+
+
+]
+File: style-sO.ps Graphic file (type eps)
+<style-sO.ps>
+l2hSize :figure1514:233.0828pt::0.0pt::698.0pt.
+[78
+
+
+]
+File: style-Sfdiamond.ps Graphic file (type eps)
+<style-Sfdiamond.ps>
+l2hSize :figure1526:233.0828pt::0.0pt::698.0pt.
+[79
+
+
+]
+File: style-t.ps Graphic file (type eps)
+<style-t.ps>
+l2hSize :figure1538:243.73282pt::0.0pt::698.0pt.
+[80
+
+
+]
+File: figure6.ps Graphic file (type eps)
+<figure6.ps>
+Overfull \hbox (18.12086pt too wide) in paragraph at lines 1046--1047
+[][] 
+ []
+
+l2hSize :figure1556:309.18698pt::0.0pt::698.0pt.
+[81
+
+
+]
+l2hSize :tex2html_wrap_inline3881:7.24997pt::7.24997pt::52.0323pt.
+[82
+
+
+]
+l2hSize :tex2html_wrap_inline3883:8.64003pt::8.64003pt::34.29626pt.
+[83
+
+
+]
+File: figure7.ps Graphic file (type eps)
+<figure7.ps>
+Overfull \hbox (12.12086pt too wide) in paragraph at lines 1101--1102
+[][] 
+ []
+
+l2hSize :figure1603:244.62207pt::0.0pt::698.0pt.
+[84
+
+
+]
+File: figure10.ps Graphic file (type eps)
+<figure10.ps>
+l2hSize :figure1699:301.32755pt::0.0pt::698.0pt.
+[85
+
+
+]
+l2hSize :tex2html_wrap_inline3887:8.0pt::8.0pt::43.76164pt.
+[86
+
+
+]
+l2hSize :tex2html_wrap_inline3889:8.0pt::8.0pt::43.76164pt.
+[87
+
+
+]
+File: figure16.ps Graphic file (type eps)
+<figure16.ps>
+l2hSize :figure1761:392.66745pt::0.0pt::698.0pt.
+[88
+
+
+]
+File: figure11.ps Graphic file (type eps)
+<figure11.ps>
+l2hSize :figure1793:334.66745pt::0.0pt::698.0pt.
+[89
+
+
+]
+File: figure12.ps Graphic file (type eps)
+<figure12.ps>
+l2hSize :figure1803:346.66745pt::0.0pt::698.0pt.
+[90
+
+
+]
+File: figure13.ps Graphic file (type eps)
+<figure13.ps>
+l2hSize :figure1813:370.66745pt::0.0pt::698.0pt.
+[91
+
+
+]
+l2hSize :tex2html_wrap_inline3899:6.74997pt::0.0pt::13.64355pt.
+[92
+
+
+]
+l2hSize :tex2html_wrap_inline3901:7.24997pt::7.24997pt::13.18988pt.
+[93
+
+
+]
+File: figure9.ps Graphic file (type eps)
+<figure9.ps>
+l2hSize :figure1894:332.66745pt::0.0pt::698.0pt.
+[94
+
+
+]
+l2hSize :tex2html_wrap_inline3913:8.0pt::8.0pt::76.986pt.
+[95
+
+
+]
+l2hSize :tex2html_wrap_inline3915:7.44444pt::7.44444pt::59.11644pt.
+[96
+
+
+]
+File: labels.ps Graphic file (type eps)
+<labels.ps>
+l2hSize :figure1979:244.42203pt::0.0pt::698.0pt.
+[97
+
+
+]
+l2hSize :tex2html_wrap_inline3921:8.0pt::8.0pt::48.55565pt.
+[98
+
+
+]
+l2hSize :tex2html_wrap_inline3923:8.0pt::8.0pt::48.55565pt.
+[99
+
+
+]
+l2hSize :tex2html_wrap_inline3925:8.0pt::8.0pt::33.69914pt.
+[100
+
+
+]
+l2hSize :tex2html_wrap_inline3927:8.0pt::8.0pt::33.69914pt.
+[101
+
+
+]
+File: flowchart.ps Graphic file (type eps)
+<flowchart.ps>
+l2hSize :figure2069:301.32755pt::0.0pt::698.0pt.
+[102
+
+
+]
+File: fonts.ps Graphic file (type eps)
+<fonts.ps>
+l2hSize :figure2237:301.32755pt::0.0pt::698.0pt.
+[103
+
+
+]
+File: linestyles.ps Graphic file (type eps)
+<linestyles.ps>
+l2hSize :figure2245:301.32755pt::0.0pt::698.0pt.
+[104
+
+
+]
+l2hSize :tex2html_wrap_inline3939:7.33331pt::7.33331pt::20.18051pt.
+[105
+
+
+]
+File: fontgroup1.ps Graphic file (type eps)
+<fontgroup1.ps>
+Overfull \hbox (18.1208pt too wide) in paragraph at lines 1367--1368
+[][] 
+ []
+
+l2hSize :figure2311:264.69437pt::0.0pt::698.0pt.
+[106
+
+
+]
+File: figure14.ps Graphic file (type eps)
+<figure14.ps>
+l2hSize :figure2339:301.32755pt::0.0pt::698.0pt.
+[107
+
+
+]
+File: colors.ps Graphic file (type eps)
+<colors.ps>
+l2hSize :figure2378:301.32755pt::0.0pt::698.0pt.
+[108
+
+
+]
+l2hSize :tex2html_wrap_inline3943:8.14003pt::0.0pt::9.64243pt.
+[109
+
+
+]
+l2hSize :tex2html_wrap_inline3945:8.14003pt::0.0pt::9.64243pt.
+[110
+
+
+]
+l2hSize :tex2html_wrap_inline3947:8.14003pt::0.0pt::9.64243pt.
+[111
+
+
+]
+File: figure17.ps Graphic file (type eps)
+<figure17.ps>
+l2hSize :figure2486:392.66745pt::0.0pt::698.0pt.
+[112
+
+
+]
+File: conf.ps Graphic file (type eps)
+<conf.ps>
+l2hSize :figure2514:301.32755pt::0.0pt::698.0pt.
+[113
+
+
+]
+l2hSize :tex2html_wrap_inline3963:7.44444pt::7.44444pt::28.919pt.
+[114
+
+
+]
+l2hSize :tex2html_wrap_inline3965:6.74997pt::0.0pt::10.07877pt.
+[115
+
+
+]
+l2hSize :tex2html_wrap_inline3967:7.24997pt::7.24997pt::10.75696pt.
+[116
+
+
+]
+l2hSize :tex2html_wrap_inline3969:6.94444pt::0.0pt::9.08334pt.
+[117
+
+
+]
+File: fig.ps Graphic file (type eps)
+<fig.ps>
+l2hSize :figure2718:450.41998pt::0.0pt::698.0pt.
+[118
+
+
+]
+File: fig.ps Graphic file (type eps)
+<fig.ps>
+l2hSize :figure2739:301.32755pt::0.0pt::698.0pt.
+[119
+
+
+]
+File: fig.ps Graphic file (type eps)
+<fig.ps>
+l2hSize :figure2757:358.2329pt::0.0pt::698.0pt.
+[120
+
+
+]
+File: fig.ps Graphic file (type eps)
+<fig.ps>
+l2hSize :tex2html_wrap7737:170.71652pt::0.0pt::698.0pt.
+[121
+
+
+]
+l2hSize :tex2html_wrap_inline8003:10.74489pt::10.74489pt::175.66907pt.
+[122
+
+
+]
+l2hSize :tex2html_wrap_inline8911:8.0pt::8.0pt::3.27782pt.
+[123
+
+
+]
+l2hSize :tex2html_wrap_inline9199:6.94444pt::0.0pt::5.50005pt.
+[124
+
+
+] (./images.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 1261 strings out of 95847
+ 16297 string characters out of 1195948
+ 60260 words of memory out of 1000001
+ 4151 multiletter control sequences out of 10000+50000
+ 7237 words of font info for 22 fonts, out of 500000 for 1000
+ 15 hyphenation exceptions out of 1000
+ 32i,16n,21p,218b,617s stack positions out of 1500i,500n,5000p,200000b,5000s
+
+Output written on images.dvi (124 pages, 56176 bytes).

@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Using plt with pdfLATEX</TITLE>
+<META NAME="description" CONTENT="Using plt with pdfLATEX">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="previous" HREF="node48.html">
+<LINK REL="up" HREF="node44.html">
+<LINK REL="next" HREF="node50.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html922"
+  HREF="node50.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html916"
+  HREF="node44.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html912"
+  HREF="node48.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html918"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html920"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html923"
+  HREF="node50.html">Preparing Plots for the Web</A>
+<B>Up:</B> <A NAME="tex2html917"
+  HREF="node44.html">Preparing Printed Output</A>
+<B> Previous:</B> <A NAME="tex2html913"
+  HREF="node48.html">Processing, previewing and printing</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001750000000000000000">
+Using <TT>plt</TT> with pdfL<SUP><SMALL>A</SMALL></SUP>T<SMALL>E</SMALL>X</A>
+</H1>
+<P>
+<FONT SIZE="+2">Most of the techniques described in this chapter for preparing PostScript
+output from L<SUP><SMALL>A</SMALL></SUP>T<SMALL>E</SMALL>X documents and <TT>.eps</TT> format <TT>plt</TT> figures
+will work without changes if you use pdfL<SUP><SMALL>A</SMALL></SUP>T<SMALL>E</SMALL>X to prepare PDF output
+from L<SUP><SMALL>A</SMALL></SUP>T<SMALL>E</SMALL>X documents and <TT>.pdf</TT> format <TT>plt</TT> figures.  If you
+are creating figures specifically for inclusion in a PDF document, use
+a command of the form
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+plt -T lw ... | lwcat -pdf &gt;fig.pdf
+</PRE>
+<DIV ALIGN="CENTER"></DIV><FONT SIZE="+2">
+to make a PDF figure.  If you have already generated a PostScript figure,
+use a command such as
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+epstopdf fig.ps
+</PRE>
+<DIV ALIGN="CENTER"></DIV><FONT SIZE="+2">
+to make <TT>fig.pdf</TT> from an existing <TT>fig.ps</TT>.  (<TT>epstopdf</TT> is
+freely available from CTAN, <TT>http://www.ctan.org/</TT>.)  It is usually
+not necessary to make any changes to an existing L<SUP><SMALL>A</SMALL></SUP>T<SMALL>E</SMALL>X source document
+in order to format it using pdfL<SUP><SMALL>A</SMALL></SUP>T<SMALL>E</SMALL>X;  thus, for example, your document
+should still use the <TT>epsfig</TT> package, even though your included figures
+will be in PDF rather than EPS format.  When you specify the names of the
+figure files, always use the form
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+\epsfig{file=fig}
+</PRE>
+<DIV ALIGN="CENTER"></DIV><FONT SIZE="+2">
+If you avoid writing <TT>file=fig.ps</TT> or <TT>file=fig.pdf</TT>, then the
+correct version of your figure will be chosen automatically when formatting
+your document with <TT>latex</TT> and <TT>dvips</TT> or with <TT>pdflatex</TT>.
+</FONT>
+<P>
+<FONT SIZE="+2">The only feature of <TT>epsfig</TT> described in this appendix that is
+not currently supported by pdfL<SUP><SMALL>A</SMALL></SUP>T<SMALL>E</SMALL>X is the <TT>clip=</TT> option,
+which is ignored.  If you are reading the PDF version of this book,
+the figure in section&nbsp;<A HREF="node47.html#sec:margins">B.3</A> illustrates the results; you
+should avoid using the <TT>clip=</TT> option if you anticipate using
+pdfL<SUP><SMALL>A</SMALL></SUP>T<SMALL>E</SMALL>X.
+</FONT>
+<P>
+<FONT SIZE="+2">Using pdfL<SUP><SMALL>A</SMALL></SUP>T<SMALL>E</SMALL>X to format <TT>myfile.tex</TT> is a one-step process:
+</FONT>
+<DIV ALIGN="CENTER"></DIV><PRE>
+pdflatex myfile
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2">Unless there are errors, this command should produce <TT>myfile.pdf</TT>, which
+can be viewed using <TT>gv</TT>, <TT>xpdf</TT>, Acrobat, or any other PDF reader.
+</FONT>
+<P>
+<HR>
+<A NAME="tex2html922"
+  HREF="node50.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html916"
+  HREF="node44.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html912"
+  HREF="node48.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html918"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html920"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html923"
+  HREF="node50.html">Preparing Plots for the Web</A>
+<B>Up:</B> <A NAME="tex2html917"
+  HREF="node44.html">Preparing Printed Output</A>
+<B> Previous:</B> <A NAME="tex2html913"
+  HREF="node48.html">Processing, previewing and printing</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>plt Essentials</TITLE>
+<META NAME="description" CONTENT="plt Essentials">
+<META NAME="keywords" CONTENT="book">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="book.css">
+
+<LINK REL="next" HREF="node10.html">
+<LINK REL="previous" HREF="node8.html">
+<LINK REL="up" HREF="node8.html">
+<LINK REL="next" HREF="node10.html">
+</HEAD>
+
+<BODY bgcolor="FFFFFF" >
+
+<A NAME="tex2html355"
+  HREF="node10.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html349"
+  HREF="node8.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html343"
+  HREF="node8.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html351"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html353"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html356"
+  HREF="node10.html">Using plt without an X server</A>
+<B>Up:</B> <A NAME="tex2html350"
+  HREF="node8.html">Getting Started with plt</A>
+<B> Previous:</B> <A NAME="tex2html344"
+  HREF="node8.html">Getting Started with plt</A>
+<BR> <P>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00510000000000000000"></A><A NAME="sec:essentials"></A>
+<BR>
+<TT>plt</TT> Essentials
+</H1>
+<P>
+<FONT SIZE="+2"><A NAME="206"></A><A NAME="207"></A>The general form of a <TT>plt</TT> command is:
+</FONT>
+<DIV ALIGN="CENTER"><FONT SIZE="+2"><!-- MATH
+ $\fbox{{\tt plt} {\em data-spec data-file column-number ... options}}$
+ -->
+<IMG
+ WIDTH="425" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="\fbox{{\tt plt} {\em data-spec data-file column-number ... options}}"></FONT></DIV>
+<P>
+<FONT SIZE="+2"><A NAME="3285"></A><A NAME="3286"></A><TT>plt</TT> recognizes its command-line arguments by looking at the
+first character of each argument.  If an argument begins with ``<TT>:</TT>'', it's a <EM>data-spec</EM>.  If it begins with a digit (0-9), it's a
+<EM>column-number</EM>; if it's either ``<TT>#</TT>'' or ``<TT>%</TT>'', it's
+shorthand for ``all of the available column-numbers, in order.''  If
+it begins with a hyphen (<TT>-</TT>), it's an <EM>option</EM>.  If it begins
+with ``<TT>(</TT>'' (left parenthesis) or ``<TT>[</TT>'' (left square
+bracket), it's a <EM>fontgroup specification</EM> (not discussed further
+in this section; see chapter&nbsp;<A HREF="node41.html#sec:font-groups">11</A>).  If the argument
+begins with none of these special characters, it may be the name of a
+<EM>data-file</EM>.
+</FONT>
+<P>
+<FONT SIZE="+2">A <EM>data-spec</EM> is a string that describes the format of the <EM>data-file</EM>.  Most plots do not require a <EM>data-spec</EM> (described in
+section&nbsp;<A HREF="node24.html#sec:data-spec">3.4</A>), and you may omit this argument in such
+cases.  If you provide a <EM>data-spec</EM>, it must precede the <EM>data-file</EM> name in the command line.
+</FONT>
+<P>
+<FONT SIZE="+2">The <EM>data-file</EM> contains the data you wish to plot, normally in
+text format as columns of decimal numbers (other formats are described
+in chapter&nbsp;<A HREF="node20.html#sec:data-prep">3</A>).  File <TT>example1.data</TT> illustrates
+the usual format:
+</FONT>
+<P>
+
+<DIV ALIGN="CENTER"></DIV><PRE>
+0 0 0
+1 1 2
+2 3 1
+3 5 3
+4 7 2
+</PRE>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<FONT SIZE="+2">
+<A NAME="241"></A>This file contains three columns (from left to right: column numbers
+0, 1, and 2) and five rows (from the top: row numbers 1, 2, 3, 4, and
+5).  The <EM>data-file</EM>'s name, including the suffix if any, is
+completely arbitrary; if the name of your <EM>data-file</EM> begins with
+one of the special characters listed above, simply prefix it with
+``<TT>./</TT>'' (since ``<TT>.</TT>'' is always synonymous with the current
+directory, ``<TT>./anything</TT>'' is an alternate name for ``<TT>anything</TT>'').  If you omit the name of the <EM>data-file</EM>, <TT>plt</TT>
+reads data from its standard input.  This feature allows you to pipe
+data from another program into <TT>plt</TT> without writing them to a
+file first.
+</FONT>
+<P>
+<FONT SIZE="+2"><A NAME="3287"></A>You must specify at least one <EM>column-number</EM> (an integer <IMG
+ WIDTH="37" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$\ge 0$">)
+in order to plot data.  The column numbers must always follow the name
+of the data file in the argument list (unless your data are supplied
+via the standard input).  If you specify only one column number, <TT>plt</TT> assumes that the values it reads from that column are the y
+values, and it either reads the x values from column 0 (if the data
+file contains more than one column), or it generates a set of
+successive integers, beginning with 0, to use as the x values by
+default.
+</FONT>
+<P>
+<FONT SIZE="+2">There are many <EM>options</EM> described in the following chapters.
+Many of them accept or require additional arguments.  In most cases,
+<TT>plt</TT> can determine a reasonable default value for these
+arguments.  If you supply a ``<TT>-</TT>'' (hyphen) on the command line
+in place of such an argument, <TT>plt</TT> will choose a default.  In
+this book, options normally follow the <EM>data-file</EM> and <EM>column-number</EM> arguments on <TT>plt</TT>'s command line.  This ordering
+is not necessary in most cases, but this convention makes it easier
+for humans to parse the command line.
+</FONT>
+<P>
+<HR>
+<A NAME="tex2html355"
+  HREF="node10.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html349"
+  HREF="node8.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html343"
+  HREF="node8.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html351"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html353"
+  HREF="node99.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> <BR>
+<B> Next:</B> <A NAME="tex2html356"
+  HREF="node10.html">Using plt without an X server</A>
+<B>Up:</B> <A NAME="tex2html350"
+  HREF="node8.html">Getting Started with plt</A>
+<B> Previous:</B> <A NAME="tex2html344"
+  HREF="node8.html">Getting Started with plt</A>
+
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I><A HREF="mailto:george@mit.edu">George B. Moody (<tt>george@mit.edu</tt>)</A><BR>
+2005-04-26</I>
+</ADDRESS>
+</BODY>
+</HTML>
