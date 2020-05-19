@@ -85,9 +85,6 @@ app.get("/readiness/:fromNowInt/:fromNowUnit", auth, asyncHandler(async (req, re
     //compare to recent 6 weeks?
     let startDate = moment().subtract(6, 'week').toDate();
 
-    //last year?
-    // let startDate = moment().subtract(1, 'year').toDate();
-
     let currentRHR
     const RHRsfromNow = await RHRReading.find({ user: req.user.id, createdAt: { $gte: fromNow } }).sort({ createdAt: 1 })
     if (RHRsfromNow[0]) {
