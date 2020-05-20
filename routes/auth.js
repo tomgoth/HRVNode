@@ -37,6 +37,7 @@ router.post('/',  [ //(4) --> users
         return res.status(400).json({ errors: errors.array() })
     }
 
+    req.body.email = req.body.email.toLowerCase()
     const { email, password } = req.body
 
     try {

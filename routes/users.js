@@ -23,7 +23,9 @@ async (req, res) => {
         return res.status(400).json({ errors: errors.array() }) // (21) bad request, the user did not send the required fields with appropriate data
     }
 
+    req.body.email = req.body.email.toLowerCase()
     const { name, email, password } = req.body // (22) destructor the request body
+    
 
     try { 
         let user = await User.findOne({ email }) // (23) findOne is a method from mongoose
