@@ -1,19 +1,19 @@
-export const asc = arr => arr.sort((a, b) => a - b);
+const asc = arr => arr.sort((a, b) => a - b);
 
-export const max = arr => asc(arr)[arr.length - 1];
+const max = arr => asc(arr)[arr.length - 1];
 
-export const sum = arr => arr.reduce((a, b) => a + b, 0);
+const sum = arr => arr.reduce((a, b) => a + b, 0);
 
-export const mean = arr => sum(arr) / arr.length;
+const mean = arr => sum(arr) / arr.length;
 
 // sample standard deviation
-export const std = (arr) => {
+const std = (arr) => {
     const mu = mean(arr);
     const diffArr = arr.map(a => (a - mu) ** 2);
     return Math.sqrt(sum(diffArr) / (arr.length - 1));
 };
 
-export const quantile = (arr, q) => {
+const quantile = (arr, q) => {
     const sorted = asc(arr);
     const pos = (sorted.length - 1) * q;
     const base = Math.floor(pos);
@@ -25,7 +25,12 @@ export const quantile = (arr, q) => {
     }
 };
 
-export const ln = (x) => { return Math.log(x) }
+const ln = (x) => { return Math.log(x) }
+
+module.exports.mean = mean
+module.exports.std = std
+module.exports.ln = ln
+
 
 
 

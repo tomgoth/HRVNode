@@ -6,6 +6,7 @@ const get_hrv = require('../utils/GetHRV')
 const moment = require('moment')
 const app = express.Router()
 const auth = require('../middleware/auth');
+const { mean, std, ln } = require('../utils/math')
 
 
 app.post("/hrv", auth, asyncHandler(async (req, res, next) => {
@@ -76,6 +77,30 @@ app.get("/rhr/mostrecent", auth, asyncHandler(async (req, res, next) => {
 
     let mostRecentRHR = await RHRReading.findOne({ user: req.user.id }).sort({ createdAt: -1 })
     res.status(200).json(mostRecentRHR)
+
+}));
+
+//Smallest worthwhile change 
+app.get("/swc", asyncHandler(async (req, res, next) => {
+    
+    let baselineStart = moment().subtract(6, 'week').toDate();
+    let weekStart = moment().subtract(1, 'week').toDate();
+
+    const baselineReadings = await HRVReading.find({ user: '5eb3395194499571cefaeeb5', createdAt: { $gte: baselineStart } }).sort({ createdAt: -1 })
+    const weekReadings = await HRVReading.find({ user: '5eb3395194499571cefaeeb5', createdAt: { $gte: weekStart } }).sort({ createdAt: -1 })
+    console.log('number readings in baseline', baselineReadings.length)
+    
+    //rMSSD
+    const blRMSSDMean = mean(baselineReadings.map(reading => { return ln(parseFloat(reading.rMSSD))} ))
+    const blRMSSDStd = std(baselineReadings.map(reading => ln(parseFloat(reading.rMSSD))))
+    const weekRMSSDMean = mean(weekReadings.map(reading => { return ln(parseFloat(reading.rMSSD))} ))
+
+    //HFPWR
+
+
+    // const isWithinSWC = (baselineMean - baselineStd * .5) <= weekMean 
+    
+    res.status(200).json({isWithinSWC})
 
 }));
 
