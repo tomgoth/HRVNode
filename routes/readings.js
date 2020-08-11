@@ -84,23 +84,54 @@ app.get("/rhr/mostrecent", auth, asyncHandler(async (req, res, next) => {
 app.get("/swc", asyncHandler(async (req, res, next) => {
     
     let baselineStart = moment().subtract(6, 'week').toDate();
-    let weekStart = moment().subtract(1, 'week').toDate();
+    let weekStart = moment().subtract(7, 'day').toDate();
 
-    const baselineReadings = await HRVReading.find({ user: '5eb3395194499571cefaeeb5', createdAt: { $gte: baselineStart } }).sort({ createdAt: -1 })
-    const weekReadings = await HRVReading.find({ user: '5eb3395194499571cefaeeb5', createdAt: { $gte: weekStart } }).sort({ createdAt: -1 })
+    const [baselineReadings, weekReadings, baselineHRReadings, weekHRReadings] = await Promise.all([
+        HRVReading.find({ user: '5eb3395194499571cefaeeb5', createdAt: { $gte: baselineStart } }).sort({ createdAt: -1 }),
+        HRVReading.find({ user: '5eb3395194499571cefaeeb5', createdAt: { $gte: weekStart } }).sort({ createdAt: -1 }),
+        RHRReading.find({ user: '5eb3395194499571cefaeeb5', createdAt: { $gte: baselineStart } }).sort({ createdAt: -1 }),
+        RHRReading.find({ user: '5eb3395194499571cefaeeb5', createdAt: { $gte: weekStart } }).sort({ createdAt: -1 })
+    ])
     console.log('number readings in baseline', baselineReadings.length)
     
     //rMSSD
-    const blRMSSDMean = mean(baselineReadings.map(reading => { return ln(parseFloat(reading.rMSSD))} ))
+    const blRMSSDMean = mean(baselineReadings.map(reading => ln(parseFloat(reading.rMSSD))))
     const blRMSSDStd = std(baselineReadings.map(reading => ln(parseFloat(reading.rMSSD))))
-    const weekRMSSDMean = mean(weekReadings.map(reading => { return ln(parseFloat(reading.rMSSD))} ))
+    console.log('Baseline rMSSD CV', blRMSSDStd/blRMSSDMean)
+    const weekRMSSDMean = mean(weekReadings.map(reading => ln(parseFloat(reading.rMSSD))))
+    const weekRMSSDStd = std(weekReadings.map(reading => ln(parseFloat(reading.rMSSD))))
+    console.log('Weekly rMSSD CV', weekRMSSDStd/weekRMSSDMean)
 
     //HFPWR
+    const blHFPWRMean = mean(baselineReadings.map(reading => ln(parseFloat(reading.HFPWR)) ))
+    const blHFPWRStd = std(baselineReadings.map(reading => ln(parseFloat(reading.HFPWR))))
+    console.log('Baseline HFPWR CV', blHFPWRStd/blHFPWRMean)
+    const weekHFPWRMean = mean(weekReadings.map(reading => ln(parseFloat(reading.HFPWR)) ))
+    const weekHFPWRStd = std(weekReadings.map(reading => ln(parseFloat(reading.HFPWR)) ))
+    console.log('Weekly HFPWR CV', weekHFPWRStd/weekHFPWRMean)
 
 
-    // const isWithinSWC = (baselineMean - baselineStd * .5) <= weekMean 
+    //RHR
+    const blRHRMean = mean(baselineHRReadings.map(reading => parseFloat(reading.restingHeartRate)))
+    const blRHRStd = std(baselineHRReadings.map(reading => parseFloat(reading.restingHeartRate)))
+    console.log('Baseline RHR CV', blRHRStd/blRHRMean)
+    const weekRHRMean = mean(weekHRReadings.map(reading => parseFloat(reading.restingHeartRate)))
+    const weekRHRStd = std(weekHRReadings.map(reading => parseFloat(reading.restingHeartRate)))
+    console.log('Weekly RHR CV', weekRHRStd/weekRHRMean)
     
-    res.status(200).json({isWithinSWC})
+    console.log('rmssd swc', 'baseline:', blRMSSDMean, 'std:', blRMSSDStd, '7day roll avg', weekRMSSDMean)
+    console.log('hfpwr swc', 'baseline:', blHFPWRMean, 'std:', blHFPWRStd, '7day roll avg', weekHFPWRMean)
+    console.log('rhr swc', 'baseline:', blRHRMean, 'std:', blRHRStd, '7day roll avg', weekRHRMean)
+
+    console.log('rMMSD SWC:', (blRMSSDMean - blRMSSDStd * .2))
+    console.log('HFPWR SWC:', (blHFPWRMean - blHFPWRStd * .2))
+    console.log ('RHR SWC:', (blRHRMean + blRHRStd * .2))
+
+    res.status(200).json({
+            rMSSDSWC: (blRMSSDMean - blRMSSDStd * .2) <= weekRMSSDMean ,
+            HFPWRSWC: (blHFPWRMean - blHFPWRStd * .2) <= weekHFPWRMean,
+            RHRSWC:  (blRHRMean + blRHRStd * .2) >= weekRHRMean,
+        })
 
 }));
 

@@ -57,14 +57,14 @@ async (req, res) => {
                 // pass in the payload, the secret (set in the global variables), and an ojbect of options (expiresIn (1hr), cb with err and token itself)
 
 
-        // payload is the object I want to send in the token - all i want to send is the user.id and access the contacts of that user
+        // payload is the object I want to send in the token - all i want to send is the user.id
         const payload = {
             user: {
                 id: user.id
             }
         }
 
-        jwt.sign(payload, process.env.jwtSecret, { expiresIn: 360000 }, (err, token) => {
+        jwt.sign(payload, process.env.jwtSecret, { expiresIn: 31536000 }, (err, token) => {
             if (err) {
                 throw err
             }
