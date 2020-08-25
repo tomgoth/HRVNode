@@ -85,6 +85,7 @@ app.get("/swc", asyncHandler(async (req, res, next) => {
     
     let baselineStart = moment().subtract(6, 'week').toDate();
     let weekStart = moment().subtract(7, 'day').toDate();
+    const fractionOfSD = .1 // rolling 7 avg needs to be within 10% of standard deviation
 
     const [baselineReadings, weekReadings, baselineHRReadings, weekHRReadings] = await Promise.all([
         HRVReading.find({ user: '5eb3395194499571cefaeeb5', createdAt: { $gte: baselineStart } }).sort({ createdAt: -1 }),
@@ -123,14 +124,14 @@ app.get("/swc", asyncHandler(async (req, res, next) => {
     console.log('hfpwr swc', 'baseline:', blHFPWRMean, 'std:', blHFPWRStd, '7day roll avg', weekHFPWRMean)
     console.log('rhr swc', 'baseline:', blRHRMean, 'std:', blRHRStd, '7day roll avg', weekRHRMean)
 
-    console.log('rMMSD SWC:', (blRMSSDMean - blRMSSDStd * .2))
-    console.log('HFPWR SWC:', (blHFPWRMean - blHFPWRStd * .2))
-    console.log ('RHR SWC:', (blRHRMean + blRHRStd * .2))
+    console.log('rMMSD SWC:', (blRMSSDMean - blRMSSDStd * fractionOfSD))
+    console.log('HFPWR SWC:', (blHFPWRMean - blHFPWRStd * fractionOfSD))
+    console.log ('RHR SWC:', (blRHRMean + blRHRStd * fractionOfSD))
 
     res.status(200).json({
-            rMSSDSWC: (blRMSSDMean - blRMSSDStd * .2) <= weekRMSSDMean ,
-            HFPWRSWC: (blHFPWRMean - blHFPWRStd * .2) <= weekHFPWRMean,
-            RHRSWC:  (blRHRMean + blRHRStd * .2) >= weekRHRMean,
+            rMSSDSWC: (blRMSSDMean - blRMSSDStd * fractionOfSD) <= weekRMSSDMean ,
+            HFPWRSWC: (blHFPWRMean - blHFPWRStd * fractionOfSD) <= weekHFPWRMean,
+            RHRSWC:  (blRHRMean + blRHRStd * fractionOfSD) >= weekRHRMean,
         })
 
 }));
