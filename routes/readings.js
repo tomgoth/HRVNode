@@ -225,7 +225,7 @@ app.get("/readiness/:fromNowInt/:fromNowUnit", auth, asyncHandler(async (req, re
     if (currentRHR) {
         retArr = [
             {
-                label: "Resting HR Readiness",
+                label: "Resting HR     Readiness",
                 percentile: rhrPercentile,
                 currentValue: currentRHR.restingHeartRate,
                 createdAt: currentRHR.createdAt,
