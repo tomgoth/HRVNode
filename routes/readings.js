@@ -197,7 +197,7 @@ app.get("/readiness/:fromNowInt/:fromNowUnit", auth, asyncHandler(async (req, re
     if (currentHRV) {
         retArr = [...retArr,
         {
-            label: "Heart Rate Variability (HF Power) Readiness",
+            label: "HRV (HF Power) Readiness",
             percentile: hfpwrPercentile,
             currentValue: currentHRV.HFPWR,
             createdAt: currentHRV.createdAt,
@@ -205,7 +205,7 @@ app.get("/readiness/:fromNowInt/:fromNowUnit", auth, asyncHandler(async (req, re
             units: ''
         },
         {
-            label: "Heart Rate Variability (rMSSD) Readiness",
+            label: "HRV (rMSSD) Readiness",
             percentile: rMSSDPercentile,
             currentValue: currentHRV.rMSSD,
             createdAt: currentHRV.createdAt,
@@ -213,7 +213,7 @@ app.get("/readiness/:fromNowInt/:fromNowUnit", auth, asyncHandler(async (req, re
             units: 'ms'
         },
         {
-            label: "Heart Rate Variability (SDNN) Readiness",
+            label: "HRV (SDNN) Readiness",
             percentile: sdnnPercentile,
             currentValue: currentHRV.SDNN,
             createdAt: currentHRV.createdAt,
@@ -225,7 +225,7 @@ app.get("/readiness/:fromNowInt/:fromNowUnit", auth, asyncHandler(async (req, re
     if (currentRHR) {
         retArr = [
             {
-                label: "Resting Heart Rate Readiness",
+                label: "Resting HR Readiness",
                 percentile: rhrPercentile,
                 currentValue: currentRHR.restingHeartRate,
                 createdAt: currentRHR.createdAt,
