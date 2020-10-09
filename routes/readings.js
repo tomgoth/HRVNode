@@ -81,17 +81,17 @@ app.get("/rhr/mostrecent", auth, asyncHandler(async (req, res, next) => {
 }));
 
 //Smallest worthwhile change 
-app.get("/swc", asyncHandler(async (req, res, next) => {
+app.get("/swc", auth, asyncHandler(async (req, res, next) => {
     
     let baselineStart = moment().subtract(6, 'week').toDate();
     let weekStart = moment().subtract(7, 'day').toDate();
     const fractionOfSD = .1 // rolling 7 avg needs to be within 10% of standard deviation
 
     const [baselineReadings, weekReadings, baselineHRReadings, weekHRReadings] = await Promise.all([
-        HRVReading.find({ user: '5eb3395194499571cefaeeb5', createdAt: { $gte: baselineStart } }).sort({ createdAt: -1 }),
-        HRVReading.find({ user: '5eb3395194499571cefaeeb5', createdAt: { $gte: weekStart } }).sort({ createdAt: -1 }),
-        RHRReading.find({ user: '5eb3395194499571cefaeeb5', createdAt: { $gte: baselineStart } }).sort({ createdAt: -1 }),
-        RHRReading.find({ user: '5eb3395194499571cefaeeb5', createdAt: { $gte: weekStart } }).sort({ createdAt: -1 })
+        HRVReading.find({ user: req.user.id, createdAt: { $gte: baselineStart } }).sort({ createdAt: -1 }),
+        HRVReading.find({ user: req.user.id, createdAt: { $gte: weekStart } }).sort({ createdAt: -1 }),
+        RHRReading.find({ user: req.user.id, createdAt: { $gte: baselineStart } }).sort({ createdAt: -1 }),
+        RHRReading.find({ user: req.user.id, createdAt: { $gte: weekStart } }).sort({ createdAt: -1 })
     ])
     console.log('number readings in baseline', baselineReadings.length)
     
