@@ -85,7 +85,7 @@ app.get("/swc", auth, asyncHandler(async (req, res, next) => {
     
     let baselineStart = moment().subtract(6, 'week').toDate();
     let weekStart = moment().subtract(7, 'day').toDate();
-    const fractionOfSD = .1 // rolling 7 avg needs to be within 10% of standard deviation
+    const fractionOfSD = .2 // rolling 7 avg needs to be within 20% of standard deviation
 
     const [baselineReadings, weekReadings, baselineHRReadings, weekHRReadings] = await Promise.all([
         HRVReading.find({ user: req.user.id, createdAt: { $gte: baselineStart } }).sort({ createdAt: -1 }),
