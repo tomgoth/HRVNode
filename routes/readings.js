@@ -15,7 +15,7 @@ app.post("/hrv", auth, asyncHandler(async (req, res, next) => {
     // return the obj even if it doesn't get stored (e.g. duplicate)
     if (hrvObj) res.status(201).json(hrvObj)
     // store the computed obj in our readings database
-    if (hrvObj) await HRVReading.create({ ...hrvObj, user: req.user.id })
+    if (hrvObj) await HRVReading.create({ ...hrvObj, user: req.user.id, isECG: req.isECG })
 
 }))
 
@@ -43,7 +43,7 @@ app.get("/hrv/:page/:size", auth, asyncHandler(async (req, res, next) => {
 
 app.get("/hrv/mostrecent", auth, asyncHandler(async (req, res, next) => {
 
-    let mostRecentHRV = await HRVReading.findOne({ user: req.user.id }).sort({ createdAt: -1 })
+    let mostRecentHRV = await HRVReading.findOne({ user: req.user.id, isECG: req.isECG }).sort({ createdAt: -1 })
     res.status(200).json(mostRecentHRV)
 
 }))
