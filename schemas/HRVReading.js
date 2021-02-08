@@ -18,10 +18,8 @@ const HRVReading_Schema = new mongo.Schema({
     LFPWR: { type: Number, trim: true },
     HFPWR: { type: Number, trim: true },
     LFtoHF: { type: Number, trim: true },
-    isECG: Boolean,
-    createdAt: { type: Date, default: Date.now }
-
-
+    createdAt: { type: Date, default: Date.now },
+    isECG: {type: Boolean, default: false}
 })
 
 HRVReading_Schema.index({ "user": 1, "createdAt": 1 }, { unique: true })
