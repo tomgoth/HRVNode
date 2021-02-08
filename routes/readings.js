@@ -42,9 +42,25 @@ app.get("/hrv/:page/:size", auth, asyncHandler(async (req, res, next) => {
 
 }));
 
-app.get("/hrv/mostrecent/:isECG", auth, asyncHandler(async (req, res, next) => {
+app.get("/hrv/mostrecent", auth, asyncHandler(async (req, res, next) => {
     try {
-        let mostRecentHRV = await HRVReading.findOne({ user: req.user.id }).sort({ createdAt: -1 })
+        let mostRecentHRV = await HRVReading.findOne({ user: req.user.id, isECG: false }).sort({ createdAt: -1 })
+        if (mostRecentHRV) {
+            res.status(200).json(mostRecentHRV)
+        }
+        else {
+            res.status(500).json({ message: "no most recent" })
+        }
+    }
+    catch {
+        res.status(500).json({ message: "error could not find most recent" })
+    }
+
+}))
+
+app.get("/ecg/mostrecent", auth, asyncHandler(async (req, res, next) => {
+    try {
+        let mostRecentHRV = await HRVReading.findOne({ user: req.user.id, isECG: true }).sort({ createdAt: -1 })
         if (mostRecentHRV) {
             res.status(200).json(mostRecentHRV)
         }

@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/readings', require('./routes/readings'))
 app.use('/api/users', require('./routes/users'))
-app.use('/api/electrocardiogram', require('./routes/ecg'))
+// app.use('/api/electrocardiogram', require('./routes/ecg'))
 
 const PORT = process.env.PORT || 3001
 
