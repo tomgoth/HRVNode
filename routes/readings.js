@@ -42,9 +42,9 @@ app.get("/hrv/:page/:size", auth, asyncHandler(async (req, res, next) => {
 
 }));
 
-app.get("/hrv/mostrecent", auth, asyncHandler(async (req, res, next) => {
+app.get("/hrv/mostrecent/:isECG", auth, asyncHandler(async (req, res, next) => {
 
-    let mostRecentHRV = await HRVReading.findOne({ user: req.user.id, isECG: req.body.isECG }).sort({ createdAt: -1 })
+    let mostRecentHRV = await HRVReading.findOne({ user: req.user.id, isECG: req.params.isECG }).sort({ createdAt: -1 })
     res.status(200).json(mostRecentHRV)
 
 }))
