@@ -10,6 +10,7 @@ const { mean, std, ln } = require('../utils/math')
 
 
 app.post("/hrv", auth, asyncHandler(async (req, res, next) => {
+    console.log("post hrv reading", req.body)
     //compute hrv stats e.g. SDNN, rMSSD, HFPWR, etc. from beat to beat data
     const hrvObj = await get_hrv(req.body.beatToBeat, req.body.date)
     // return the obj even if it doesn't get stored (e.g. duplicate)
