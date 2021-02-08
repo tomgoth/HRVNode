@@ -32,7 +32,7 @@ app.get("/hrv/:page/:size", auth, asyncHandler(async (req, res, next) => {
 
     let readings = await HRVReading.find({ user: req.user.id }).sort({ createdAt: -1 }).skip(skips).limit(limit)
     readings = await Promise.all(readings.map(reading => percentileHrvCalc(req, startDate, reading._doc)))
-        
+
     res.status(200).json({
         success: true,
         count: readings.length,
@@ -43,8 +43,14 @@ app.get("/hrv/:page/:size", auth, asyncHandler(async (req, res, next) => {
 }));
 
 app.get("/hrv/mostrecent/:isECG", auth, asyncHandler(async (req, res, next) => {
-    let mostRecentHRV = await HRVReading.findOne({ user: req.user.id, isECG: (req.params.isECG === 1) }).sort({ createdAt: -1 })
-    res.status(200).json(mostRecentHRV)
+    try {
+        let mostRecentHRV = await HRVReading.findOne({ user: req.user.id, isECG: (req.params.isECG === 1) }).sort({ createdAt: -1 })
+        res.status(200).json(mostRecentHRV)
+
+    }
+    catch {
+        res.status(500).json({ message: "error could not find most recent" })
+    }
 
 }))
 
@@ -82,7 +88,7 @@ app.get("/rhr/mostrecent", auth, asyncHandler(async (req, res, next) => {
 
 //Smallest worthwhile change 
 app.get("/swc", auth, asyncHandler(async (req, res, next) => {
-    
+
     let baselineStart = moment().subtract(6, 'week').toDate();
     let weekStart = moment().subtract(7, 'day').toDate();
     const fractionOfSD = .2 // rolling 7 avg needs to be within 20% of standard deviation
@@ -94,45 +100,45 @@ app.get("/swc", auth, asyncHandler(async (req, res, next) => {
         RHRReading.find({ user: req.user.id, createdAt: { $gte: weekStart } }).sort({ createdAt: -1 })
     ])
     console.log('number readings in baseline', baselineReadings.length)
-    
+
     //rMSSD
     const blRMSSDMean = mean(baselineReadings.map(reading => ln(parseFloat(reading.rMSSD))))
     const blRMSSDStd = std(baselineReadings.map(reading => ln(parseFloat(reading.rMSSD))))
-    console.log('Baseline rMSSD CV', blRMSSDStd/blRMSSDMean)
+    console.log('Baseline rMSSD CV', blRMSSDStd / blRMSSDMean)
     const weekRMSSDMean = mean(weekReadings.map(reading => ln(parseFloat(reading.rMSSD))))
     const weekRMSSDStd = std(weekReadings.map(reading => ln(parseFloat(reading.rMSSD))))
-    console.log('Weekly rMSSD CV', weekRMSSDStd/weekRMSSDMean)
+    console.log('Weekly rMSSD CV', weekRMSSDStd / weekRMSSDMean)
 
     //HFPWR
-    const blHFPWRMean = mean(baselineReadings.map(reading => ln(parseFloat(reading.HFPWR)) ))
+    const blHFPWRMean = mean(baselineReadings.map(reading => ln(parseFloat(reading.HFPWR))))
     const blHFPWRStd = std(baselineReadings.map(reading => ln(parseFloat(reading.HFPWR))))
-    console.log('Baseline HFPWR CV', blHFPWRStd/blHFPWRMean)
-    const weekHFPWRMean = mean(weekReadings.map(reading => ln(parseFloat(reading.HFPWR)) ))
-    const weekHFPWRStd = std(weekReadings.map(reading => ln(parseFloat(reading.HFPWR)) ))
-    console.log('Weekly HFPWR CV', weekHFPWRStd/weekHFPWRMean)
+    console.log('Baseline HFPWR CV', blHFPWRStd / blHFPWRMean)
+    const weekHFPWRMean = mean(weekReadings.map(reading => ln(parseFloat(reading.HFPWR))))
+    const weekHFPWRStd = std(weekReadings.map(reading => ln(parseFloat(reading.HFPWR))))
+    console.log('Weekly HFPWR CV', weekHFPWRStd / weekHFPWRMean)
 
 
     //RHR
     const blRHRMean = mean(baselineHRReadings.map(reading => parseFloat(reading.restingHeartRate)))
     const blRHRStd = std(baselineHRReadings.map(reading => parseFloat(reading.restingHeartRate)))
-    console.log('Baseline RHR CV', blRHRStd/blRHRMean)
+    console.log('Baseline RHR CV', blRHRStd / blRHRMean)
     const weekRHRMean = mean(weekHRReadings.map(reading => parseFloat(reading.restingHeartRate)))
     const weekRHRStd = std(weekHRReadings.map(reading => parseFloat(reading.restingHeartRate)))
-    console.log('Weekly RHR CV', weekRHRStd/weekRHRMean)
-    
+    console.log('Weekly RHR CV', weekRHRStd / weekRHRMean)
+
     console.log('rmssd swc', 'baseline:', blRMSSDMean, 'std:', blRMSSDStd, '7day roll avg', weekRMSSDMean)
     console.log('hfpwr swc', 'baseline:', blHFPWRMean, 'std:', blHFPWRStd, '7day roll avg', weekHFPWRMean)
     console.log('rhr swc', 'baseline:', blRHRMean, 'std:', blRHRStd, '7day roll avg', weekRHRMean)
 
     console.log('rMMSD SWC:', (blRMSSDMean - blRMSSDStd * fractionOfSD))
     console.log('HFPWR SWC:', (blHFPWRMean - blHFPWRStd * fractionOfSD))
-    console.log ('RHR SWC:', (blRHRMean + blRHRStd * fractionOfSD))
+    console.log('RHR SWC:', (blRHRMean + blRHRStd * fractionOfSD))
 
     res.status(200).json({
-            rMSSDSWC: (blRMSSDMean - blRMSSDStd * fractionOfSD) <= weekRMSSDMean ,
-            HFPWRSWC: (blHFPWRMean - blHFPWRStd * fractionOfSD) <= weekHFPWRMean,
-            RHRSWC:  (blRHRMean + blRHRStd * fractionOfSD) >= weekRHRMean,
-        })
+        rMSSDSWC: (blRMSSDMean - blRMSSDStd * fractionOfSD) <= weekRMSSDMean,
+        HFPWRSWC: (blHFPWRMean - blHFPWRStd * fractionOfSD) <= weekHFPWRMean,
+        RHRSWC: (blRHRMean + blRHRStd * fractionOfSD) >= weekRHRMean,
+    })
 
 }));
 
@@ -191,7 +197,7 @@ app.get("/readiness/:fromNowInt/:fromNowUnit", auth, asyncHandler(async (req, re
         percentileHrvCalc(req, startDate, currentHRV),
         percentileRhrCalc(req, startDate, currentRHR)
     ])
-    
+
 
     retArr = []
     if (currentHRV) {
@@ -278,9 +284,9 @@ const percentileRhrCalc = async (req, startDate, currentRHR) => {
                 RHRReading.find({ user: req.user.id, restingHeartRate: { $gte: currentRHR.restingHeartRate }, createdAt: { $gte: startDate } }).count(),
                 RHRReading.find({ user: req.user.id, restingHeartRate: { $lt: currentRHR.restingHeartRate }, createdAt: { $gte: startDate } }).count()
             ])
-            
+
             rhrPercentile = gtRHR / (gtRHR + ltRHR) //lower is better
-            resolve({...currentRHR, rhrPercentile: rhrPercentile })
+            resolve({ ...currentRHR, rhrPercentile: rhrPercentile })
         }
         catch (e) {
             console.log(e)
