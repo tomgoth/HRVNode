@@ -10,7 +10,7 @@ const { mean, std, ln } = require('../utils/math')
 
 
 app.post("/hrv", auth, asyncHandler(async (req, res, next) => {
-    console.log("post hrv reading", req.body)
+    console.log("post hrv reading isECG", req.body.isECG)
     //compute hrv stats e.g. SDNN, rMSSD, HFPWR, etc. from beat to beat data
     const hrvObj = await get_hrv(req.body.beatToBeat, req.body.date)
     // return the obj even if it doesn't get stored (e.g. duplicate)
@@ -45,7 +45,12 @@ app.get("/hrv/:page/:size", auth, asyncHandler(async (req, res, next) => {
 app.get("/hrv/mostrecent/:isECG", auth, asyncHandler(async (req, res, next) => {
     try {
         let mostRecentHRV = await HRVReading.findOne({ user: req.user.id, isECG: (req.params.isECG === 1) }).sort({ createdAt: -1 })
-        res.status(200).json(mostRecentHRV)
+        if (mostRecentHRV) {
+            res.status(200).json(mostRecentHRV)
+        }
+        else {
+            res.status(500).json({ message: "no most recent" })
+        }
 
     }
     catch {
