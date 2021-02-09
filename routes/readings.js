@@ -49,7 +49,7 @@ app.get("/hrv/mostrecent", auth, asyncHandler(async (req, res, next) => {
             res.status(200).json(mostRecentHRV)
         }
         else {
-            res.status(500).json({ message: "no most recent" })
+            res.status(200).json({ data: null, message: "no most recent" })
         }
     }
     catch {
@@ -65,7 +65,7 @@ app.get("/ecg/mostrecent", auth, asyncHandler(async (req, res, next) => {
             res.status(200).json(mostRecentHRV)
         }
         else {
-            res.status(500).json({ message: "no most recent" })
+            res.status(200).json({ data: null, message: "no most recent" })
         }
     }
     catch {
