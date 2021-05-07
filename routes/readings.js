@@ -129,6 +129,10 @@ app.get("/swc", auth, asyncHandler(async (req, res, next) => {
     const weekRMSSDStd = std(weekReadings.map(reading => ln(parseFloat(reading.rMSSD))))
     console.log('Weekly rMSSD CV', weekRMSSDStd / weekRMSSDMean)
 
+    //rMSSD CV
+    const blRMSSDCV = blRMSSDStd / blRMSSDMean
+    const weekRMSSDCV = weekRMSSDStd / weekRMSSDMean
+
     //HFPWR
     const blHFPWRMean = mean(baselineReadings.map(reading => ln(parseFloat(reading.HFPWR))))
     const blHFPWRStd = std(baselineReadings.map(reading => ln(parseFloat(reading.HFPWR))))
@@ -156,6 +160,7 @@ app.get("/swc", auth, asyncHandler(async (req, res, next) => {
 
     res.status(200).json({
         rMSSDSWC: (blRMSSDMean - blRMSSDStd * fractionOfSD) <= weekRMSSDMean,
+        rMSSDCV: blRMSSDCV * (1 + fractionOfSD) > weekRMSSDCV, 
         HFPWRSWC: (blHFPWRMean - blHFPWRStd * fractionOfSD) <= weekHFPWRMean,
         RHRSWC: (blRHRMean + blRHRStd * fractionOfSD) >= weekRHRMean,
     })
