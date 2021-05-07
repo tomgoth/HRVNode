@@ -160,7 +160,7 @@ app.get("/swc", auth, asyncHandler(async (req, res, next) => {
 
     res.status(200).json({
         rMSSDSWC: (blRMSSDMean - blRMSSDStd * fractionOfSD) <= weekRMSSDMean,
-        rMSSDCV: blRMSSDCV * (1 + fractionOfSD) > weekRMSSDCV, 
+        rMSSDCV: blRMSSDCV > weekRMSSDCV, 
         HFPWRSWC: (blHFPWRMean - blHFPWRStd * fractionOfSD) <= weekHFPWRMean,
         RHRSWC: (blRHRMean + blRHRStd * fractionOfSD) >= weekRHRMean,
     })
