@@ -8,6 +8,7 @@ const app = express.Router()
 const auth = require('../middleware/auth');
 const { mean, std, ln } = require('../utils/math')
 
+const rMSSDMax = 180
 
 app.post("/hrv", auth, asyncHandler(async (req, res, next) => {
     console.log("post hrv reading isECG", req.body.isECG)
@@ -16,7 +17,7 @@ app.post("/hrv", auth, asyncHandler(async (req, res, next) => {
     // return the obj even if it doesn't get stored (e.g. duplicate)
     if (hrvObj) res.status(201).json(hrvObj)
     // store the computed obj in our readings database
-    if (hrvObj) await HRVReading.create({ ...hrvObj, user: req.user.id, isECG: req.body.isECG })
+    if (hrvObj && hrvObj.rMSSD < rMSSDMax) await HRVReading.create({ ...hrvObj, user: req.user.id, isECG: req.body.isECG })
 
 }))
 
